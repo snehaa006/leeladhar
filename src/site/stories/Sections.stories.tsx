@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { Clients } from '../sections/Clients'
 import { Contact } from '../sections/Contact'
 import { Faq } from '../sections/Faq'
 import { Hero } from '../sections/Hero'
@@ -27,5 +28,6 @@ export const SolutionsSection: Story = { name: 'Solutions', render: () => <Solut
 export const PracticeSection: Story = { name: 'Practice areas', render: () => <Practice /> }
 export const ProcessSection: Story = { name: 'Process', render: () => <Process /> }
 export const TeamSection: Story = { name: 'Team', render: () => <Team /> }
+export const ClientsSection: Story = { name: 'Clients', render: () => <Clients /> }
 export const FaqSection: Story = { name: 'FAQ', render: () => <Faq /> }
 export const ContactSection: Story = { name: 'Contact', render: () => <Contact /> }

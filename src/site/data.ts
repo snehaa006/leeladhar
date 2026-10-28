@@ -13,6 +13,7 @@ export const navLinks = [
   { href: '#practice', label: 'Practice' },
   { href: '#process', label: 'Process' },
   { href: '#team', label: 'Team' },
+  { href: '#clients', label: 'Clients' },
   { href: '#faq', label: 'FAQ' },
 ]
 
@@ -348,6 +349,61 @@ export const team: Member[] = [
     enrolled: 'Bar Council of Delhi, 2020',
     languages: ['English', 'Hindi'],
     photo: unsplash('photo-1659353220660-710d4c28c673'),
+  },
+]
+
+// ── Clients ───────────────────────────────────────────────────
+// Fictional names. Replace only with clients who have agreed to be named.
+
+export type ClientMark = 'wide' | 'condensed' | 'serif' | 'serif-caps'
+
+export const clients: { name: string; sector: string; mark: ClientMark }[] = [
+  { name: 'Northwind Labs', sector: 'Fintech', mark: 'wide' },
+  { name: 'Kaveri Looms', sector: 'Textiles', mark: 'serif' },
+  { name: 'Tarang Mobility', sector: 'Electric vehicles', mark: 'condensed' },
+  { name: 'Banyan Homes', sector: 'Real estate', mark: 'serif-caps' },
+  { name: 'Saptarishi Foods', sector: 'Packaged foods', mark: 'condensed' },
+  { name: 'Meridian Freight', sector: 'Logistics', mark: 'wide' },
+  { name: 'Ankur Health', sector: 'Hospitals', mark: 'serif-caps' },
+  { name: 'Deccan Agro', sector: 'Agriculture', mark: 'serif' },
+]
+
+export type ClientStory = {
+  id: string
+  quote: string
+  who: string
+  where: string
+  matter: string
+  outcome: string
+}
+
+// Anonymised on purpose: most clients of a chambers don't want to be named.
+export const clientStories: ClientStory[] = [
+  {
+    id: 'founder',
+    quote:
+      'We had a term sheet on Friday and a board meeting on Monday. They read every clause over the weekend and told us which three were worth fighting for.',
+    who: 'Founder, fintech startup',
+    where: 'Bengaluru',
+    matter: 'Seed round',
+    outcome: 'Closed in 19 days',
+  },
+  {
+    id: 'family',
+    quote:
+      'My brother and I hadn’t spoken in two years. The partition was settled in mediation, without a single court date.',
+    who: 'Co-owner, ancestral property',
+    where: 'Delhi',
+    matter: 'Partition',
+    outcome: 'Settled in mediation in 4 months',
+  },
+  {
+    id: 'nri',
+    quote: 'I was in Toronto the whole time. I got a call after every hearing, and the keys were couriered to my mother.',
+    who: 'Landlord living abroad',
+    where: 'Gurugram',
+    matter: 'Tenant eviction',
+    outcome: 'Possession recovered in 7 months',
   },
 ]
 

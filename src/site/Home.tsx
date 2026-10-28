@@ -1,4 +1,5 @@
 import { Disclaimer } from './Disclaimer'
+import { Clients } from './sections/Clients'
 import { Contact } from './sections/Contact'
 import { Faq } from './sections/Faq'
 import { Firm } from './sections/Firm'
@@ -25,6 +26,7 @@ export function Home() {
         <Practice />
         <Process />
         <Team />
+        <Clients />
         <Faq />
         <Contact />
       </main>
