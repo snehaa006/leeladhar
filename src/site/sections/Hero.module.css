@@ -1,0 +1,182 @@
+.hero {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: clamp(640px, calc(100svh - 76px), 900px);
+  padding-block: var(--space-9) var(--space-10);
+  overflow: hidden;
+  overflow: clip;
+}
+
+.orbit {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.marginLeft,
+.marginRight {
+  position: absolute;
+  top: 46%;
+  color: var(--text-secondary);
+  animation: fade 700ms var(--ease-out) 1300ms both;
+}
+
+.marginLeft {
+  left: var(--gutter);
+}
+
+.marginRight {
+  right: var(--gutter);
+  text-align: right;
+}
+
+.center {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  max-width: 17ch;
+  font-size: clamp(2.125rem, 0.9rem + 4.6vw, 5rem);
+  text-transform: uppercase;
+  animation: rise 900ms var(--ease-out) 150ms both;
+}
+
+.lead {
+  max-width: 50ch;
+  margin-top: var(--space-5);
+  animation: rise 900ms var(--ease-out) 300ms both;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+  animation: rise 900ms var(--ease-out) 420ms both;
+}
+
+/* ── stage: photographs and matter notes around the statement ── */
+
+.stage {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.stage > * {
+  position: absolute;
+  pointer-events: auto;
+}
+
+.portrait {
+  left: clamp(24px, 9vw, 150px);
+  bottom: 9%;
+  width: clamp(150px, 13vw, 200px);
+  animation: rise 900ms var(--ease-out) 1100ms both;
+}
+
+.photo {
+  right: clamp(24px, 9vw, 150px);
+  top: 7%;
+  width: clamp(150px, 15vw, 220px);
+  animation: rise 900ms var(--ease-out) 1250ms both;
+}
+
+.noteA {
+  left: clamp(16px, 6vw, 110px);
+  top: 15%;
+  animation: rise 700ms var(--ease-out) 1500ms both;
+}
+
+.noteB {
+  right: clamp(16px, 7vw, 120px);
+  bottom: 22%;
+  animation: rise 700ms var(--ease-out) 1650ms both;
+}
+
+.noteC {
+  right: clamp(140px, 20vw, 320px);
+  bottom: 7%;
+  animation: rise 700ms var(--ease-out) 1800ms both;
+}
+
+.mark {
+  position: absolute;
+  bottom: var(--space-6);
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.85;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Between tablet and small desktop the notes crowd the headline. */
+@media (max-width: 1180px) {
+  .noteA,
+  .noteC {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+    padding-block: var(--space-7) var(--space-8);
+  }
+
+  .marginLeft,
+  .marginRight,
+  .photo,
+  .mark {
+    display: none;
+  }
+
+  .stage {
+    position: relative;
+    inset: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 132px) minmax(0, 1fr);
+    align-items: end;
+    gap: var(--space-4);
+    margin: var(--space-8) var(--gutter) 0;
+  }
+
+  .stage > * {
+    position: relative;
+    inset: auto;
+  }
+
+  .portrait {
+    width: 100%;
+    grid-row: span 2;
+  }
+
+  .noteA,
+  .noteB {
+    display: inline-flex;
+    max-width: 100%;
+  }
+}

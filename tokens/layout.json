@@ -1,0 +1,29 @@
+{
+  "space": {
+    "$type": "dimension",
+    "$description": "4px base spacing scale",
+    "1": { "$value": "4px" },
+    "2": { "$value": "8px" },
+    "3": { "$value": "12px" },
+    "4": { "$value": "16px" },
+    "5": { "$value": "24px" },
+    "6": { "$value": "32px" },
+    "7": { "$value": "48px" },
+    "8": { "$value": "64px" },
+    "9": { "$value": "96px" },
+    "10": { "$value": "128px" }
+  },
+  "section-y": { "$type": "dimension", "$value": "clamp(72px, 9vw, 136px)", "$description": "Vertical padding of a page section" },
+  "gutter": { "$type": "dimension", "$value": "clamp(16px, 4vw, 48px)", "$description": "Horizontal page gutter" },
+  "container": { "$type": "dimension", "$value": "1240px", "$description": "Maximum content width" },
+  "radius": {
+    "$type": "dimension",
+    "$description": "Radii scale with the size of the element — never one radius for everything.",
+    "xs": { "$value": "6px", "$description": "Badges" },
+    "sm": { "$value": "10px", "$description": "Inputs" },
+    "md": { "$value": "14px", "$description": "Photographs" },
+    "lg": { "$value": "20px", "$description": "Panels" },
+    "xl": { "$value": "32px", "$description": "Full-bleed dark blocks" },
+    "pill": { "$value": "999px", "$description": "Buttons, chips, notes" }
+  }
+}

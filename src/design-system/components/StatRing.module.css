@@ -1,0 +1,95 @@
+.rings {
+  --ring-line: var(--orbit);
+  --ring-fg: var(--text);
+  --ring-label: var(--text-muted);
+  --ring-size: clamp(150px, 19vw, 220px);
+  --overlap: calc(var(--ring-size) * -0.08);
+
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.rings[data-tone='dark'] {
+  --ring-line: var(--orbit-on-dark);
+  --ring-fg: var(--cream-100);
+  --ring-label: var(--text-on-dark-secondary);
+}
+
+.ring {
+  position: relative;
+  flex: none;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  width: var(--ring-size);
+  aspect-ratio: 1;
+  padding: var(--space-5);
+  border: 1px solid var(--ring-line);
+  border-radius: 50%;
+  text-align: center;
+}
+
+.ring + .ring {
+  margin-left: var(--overlap);
+}
+
+/* the node where two rings meet */
+.ring + .ring::before {
+  content: '';
+  position: absolute;
+  left: calc(var(--overlap) * -0.5 - 3px);
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  margin-top: -3px;
+  border-radius: 50%;
+  background: var(--ring-line);
+}
+
+.value {
+  margin: 0;
+  color: var(--ring-fg);
+  font-family: var(--font-evidence);
+  font-size: clamp(2.25rem, 1.4rem + 2.4vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: lining-nums;
+}
+
+.suffix {
+  color: var(--accent-text);
+  font-size: 0.7em;
+  vertical-align: 0.25em;
+  margin-left: 0.04em;
+}
+
+.rings[data-tone='dark'] .suffix {
+  color: var(--mint-400);
+}
+
+.label {
+  max-width: 14ch;
+  color: var(--ring-label);
+  font-size: var(--text-micro);
+  font-stretch: var(--wdth-wide);
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+@media (max-width: 560px) {
+  .rings {
+    --ring-size: 132px;
+    --overlap: -14px;
+    justify-content: center;
+  }
+  .ring {
+    padding: var(--space-3);
+  }
+  .value {
+    font-size: 2rem;
+  }
+}

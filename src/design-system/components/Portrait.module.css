@@ -1,0 +1,93 @@
+.portrait {
+  --duo-light: var(--cream-100);
+  --duo-dark: var(--chamber-900);
+
+  position: relative;
+  isolation: isolate;
+  margin: 0;
+  border-radius: var(--radius-md);
+  background: var(--duo-light);
+}
+
+.portrait[data-duotone='mint'] {
+  --duo-light: var(--mint-200);
+}
+
+.portrait img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+  object-position: center 22%;
+  filter: grayscale(1) contrast(1.08) brightness(1.04);
+  mix-blend-mode: multiply;
+  transition: filter var(--dur-slow) var(--ease-out);
+}
+
+/* lift the blacks to chamber green */
+.portrait::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  background: var(--duo-dark);
+  mix-blend-mode: lighten;
+  pointer-events: none;
+  transition: opacity var(--dur-slow) var(--ease-out);
+}
+
+.portrait[data-duotone='none'] img {
+  filter: none;
+  mix-blend-mode: normal;
+}
+.portrait[data-duotone='none']::after {
+  display: none;
+}
+
+.portrait[data-reveal]:hover img,
+a:focus-visible .portrait[data-reveal] img,
+.portrait[data-reveal]:focus-within img {
+  filter: none;
+  mix-blend-mode: normal;
+}
+.portrait[data-reveal]:hover::after,
+a:focus-visible .portrait[data-reveal]::after {
+  opacity: 0;
+}
+
+.badge {
+  position: absolute;
+  z-index: 2;
+  top: -14px;
+  right: -14px;
+  display: grid;
+  place-items: center;
+  width: 84px;
+  height: 84px;
+  padding: var(--space-2);
+  border-radius: 50%;
+  background: var(--cream-50);
+  box-shadow: var(--shadow-note);
+  text-align: center;
+}
+
+.badge span {
+  font-size: 0.625rem;
+  font-stretch: var(--wdth-expanded);
+  font-weight: 640;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: var(--ink-900);
+}
+
+@media (max-width: 560px) {
+  .badge {
+    width: 72px;
+    height: 72px;
+    top: -10px;
+    right: -6px;
+  }
+}

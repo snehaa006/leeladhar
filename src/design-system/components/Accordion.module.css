@@ -1,0 +1,158 @@
+.accordion {
+  --acc-fg: var(--text);
+  --acc-body: var(--text-secondary);
+  --acc-rule: var(--line);
+  --acc-card: var(--surface);
+  --acc-card-open: var(--ink-900);
+  --acc-fg-open: var(--cream-100);
+  --acc-body-open: var(--text-on-dark-secondary);
+  --acc-icon: var(--ink-900);
+  --acc-icon-open: var(--mint-400);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.accordion[data-tone='dark'] {
+  --acc-fg: var(--cream-100);
+  --acc-body: var(--text-on-dark-secondary);
+  --acc-rule: var(--line-on-dark);
+  --acc-card: var(--surface-dark-raised);
+  --acc-card-open: var(--surface-dark-raised);
+  --acc-icon: var(--cream-100);
+}
+
+.heading {
+  font: inherit;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  width: 100%;
+  border: 0;
+  background: none;
+  color: inherit;
+  text-align: left;
+}
+
+.title {
+  flex: 1;
+  min-width: 0;
+}
+
+.aside {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  justify-content: flex-end;
+}
+
+.icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: var(--acc-icon);
+  transition:
+    transform var(--dur-base) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.item[data-open] .icon {
+  transform: rotate(45deg);
+  color: var(--acc-icon-open);
+}
+
+.content {
+  color: var(--acc-body);
+  max-width: 68ch;
+  text-wrap: pretty;
+}
+
+/* ── cards ─────────────────────────────────────────────────── */
+
+[data-variant='cards'] {
+  gap: var(--space-2);
+}
+
+[data-variant='cards'] .item {
+  border-radius: var(--radius-lg);
+  background: var(--acc-card);
+  color: var(--acc-fg);
+  transition: background-color var(--dur-base) var(--ease-out);
+}
+
+[data-variant='cards'] .item[data-open] {
+  background: var(--acc-card-open);
+  color: var(--acc-fg-open);
+}
+
+[data-variant='cards'] .item[data-open] .content {
+  color: var(--acc-body-open);
+}
+
+[data-variant='cards'] .trigger {
+  padding: var(--space-4) var(--space-4) var(--space-4) var(--space-5);
+  font-size: var(--text-base);
+  font-stretch: var(--wdth-wide);
+  font-weight: 540;
+  border-radius: var(--radius-lg);
+}
+
+[data-variant='cards'] .content {
+  padding: 0 var(--space-7) var(--space-5) var(--space-5);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+
+/* ── list ──────────────────────────────────────────────────── */
+
+[data-variant='list'] .item {
+  border-top: 1px solid var(--acc-rule);
+  color: var(--acc-fg);
+}
+
+[data-variant='list'] .item:last-child {
+  border-bottom: 1px solid var(--acc-rule);
+}
+
+[data-variant='list'] .trigger {
+  padding: var(--space-5) 0;
+  font-size: var(--text-xl);
+  font-stretch: var(--wdth-expanded);
+  font-weight: 460;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+[data-variant='list'] .trigger:hover .title {
+  color: var(--mint-400);
+}
+
+.accordion[data-tone='light'][data-variant='list'] .trigger:hover .title {
+  color: var(--accent-text);
+}
+
+[data-variant='list'] .content {
+  padding: 0 0 var(--space-6);
+  font-size: var(--text-base);
+}
+
+@media (max-width: 640px) {
+  [data-variant='list'] .aside {
+    display: none;
+  }
+  [data-variant='list'] .trigger {
+    font-size: 1.1875rem;
+  }
+}

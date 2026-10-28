@@ -1,0 +1,62 @@
+{
+  "cream": {
+    "$type": "color",
+    "$description": "Page background and light surfaces. Sampled from the Mosey compliance site background.",
+    "50": { "$value": "#FAF9F6", "$description": "Raised surface — cards, notes" },
+    "100": { "$value": "#F3F1ED", "$description": "Page background" },
+    "200": { "$value": "#E9E5DD", "$description": "Sunken band" },
+    "300": { "$value": "#DAD5CA", "$description": "Strong divider, input border" },
+    "400": { "$value": "#C4BDAE" }
+  },
+  "mint": {
+    "$type": "color",
+    "$description": "Primary — calls to action, live states, focus and glow. Sampled from the stage-floor glow in the Legal Point conference photo.",
+    "50": { "$value": "#EAFCF4" },
+    "100": { "$value": "#D3F8E8" },
+    "200": { "$value": "#A9F2D3", "$description": "Text selection" },
+    "300": { "$value": "#82EDC3", "$description": "Hover" },
+    "400": { "$value": "#62E8B3", "$description": "Brand" },
+    "500": { "$value": "#38D497", "$description": "Pressed" },
+    "600": { "$value": "#1FAE78", "$description": "Focus ring" },
+    "700": { "$value": "#147050", "$description": "Mint text on cream (5.4:1)" },
+    "800": { "$value": "#0F5640" },
+    "900": { "$value": "#0B3D2E" }
+  },
+  "chamber": {
+    "$type": "color",
+    "$description": "Secondary — dark sections. The conference screen teal, pulled toward the mint hue.",
+    "600": { "$value": "#2A5257" },
+    "700": { "$value": "#1F4146" },
+    "800": { "$value": "#1C3A42", "$description": "Card on dark" },
+    "900": { "$value": "#17302F", "$description": "Dark section" },
+    "950": { "$value": "#0F1D1B", "$description": "Footer, deepest" }
+  },
+  "patina": {
+    "$type": "color",
+    "$description": "Secondary — the monogram, orbit lines and quiet accents. The teal of the Leeladhar monogram.",
+    "200": { "$value": "#C9E1E4" },
+    "400": { "$value": "#78B4BC", "$description": "Logo on dark" },
+    "600": { "$value": "#3E7C86", "$description": "Orbit lines on cream" },
+    "700": { "$value": "#2F6A73", "$description": "Patina text on cream (5.4:1)" }
+  },
+  "ink": {
+    "$type": "color",
+    "$description": "Text on cream. Green-black from the shadows of the conference photo.",
+    "300": { "$value": "#9AA39F", "$description": "Decorative only — fails text contrast" },
+    "500": { "$value": "#626D69", "$description": "Muted text (4.8:1)" },
+    "700": { "$value": "#4A5653", "$description": "Secondary text (6.8:1)" },
+    "900": { "$value": "#15211F", "$description": "Primary text (14.7:1)" }
+  },
+  "seal": {
+    "$type": "color",
+    "$description": "Signal — error and overdue. Seal-wax red.",
+    "100": { "$value": "#F6E2DF" },
+    "600": { "$value": "#A23B35" }
+  },
+  "brass": {
+    "$type": "color",
+    "$description": "Signal — caution and awaiting.",
+    "100": { "$value": "#F3E9D4" },
+    "600": { "$value": "#855A16" }
+  }
+}

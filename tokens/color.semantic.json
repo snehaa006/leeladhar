@@ -1,0 +1,49 @@
+{
+  "bg": {
+    "$type": "color",
+    "$description": "Backgrounds",
+    "default": { "$value": "{cream.100}", "$description": "Page" },
+    "sunken": { "$value": "{cream.200}", "$description": "Alternate band" }
+  },
+  "surface": {
+    "$type": "color",
+    "$description": "Surfaces that sit on a background",
+    "default": { "$value": "{cream.50}", "$description": "Card, note, input" },
+    "dark": { "$value": "{chamber.900}", "$description": "Dark section" },
+    "dark-raised": { "$value": "{chamber.800}", "$description": "Card on a dark section" }
+  },
+  "text": {
+    "$type": "color",
+    "$description": "Text colours",
+    "default": { "$value": "{ink.900}" },
+    "secondary": { "$value": "{ink.700}" },
+    "muted": { "$value": "{ink.500}" },
+    "on-dark": { "$value": "{cream.100}" },
+    "on-dark-secondary": { "$value": "#A9BDB8", "$description": "7.1:1 on chamber-900" },
+    "on-mint": { "$value": "{ink.900}" }
+  },
+  "accent": {
+    "$type": "color",
+    "$description": "Brand accent roles",
+    "default": { "$value": "{mint.400}" },
+    "hover": { "$value": "{mint.300}" },
+    "text": { "$value": "{mint.700}", "$description": "Use when the accent must be read as text on cream" }
+  },
+  "line": {
+    "$type": "color",
+    "$description": "Hairlines and borders",
+    "default": { "$value": "rgba(21, 33, 31, 0.12)" },
+    "strong": { "$value": "rgba(21, 33, 31, 0.24)" },
+    "on-dark": { "$value": "rgba(243, 241, 237, 0.14)" }
+  },
+  "orbit": {
+    "$type": "color",
+    "$description": "The thin orbital lines from the conference screen",
+    "default": { "$value": "{patina.600}" },
+    "on-dark": { "$value": "rgba(120, 180, 188, 0.45)" }
+  },
+  "focus": {
+    "$type": "color",
+    "default": { "$value": "{mint.600}", "$description": "Keyboard focus ring" }
+  }
+}

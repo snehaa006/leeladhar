@@ -1,0 +1,62 @@
+import { Meta } from '@storybook/blocks'
+import { Logo } from '../components/Logo'
+
+<Meta title="Introduction" />
+
+<div style={{ padding: '24px 0 8px' }}>
+  <Logo size={56} />
+</div>
+
+# Leeladhar design system
+
+The visual language of Leeladhar Law Chambers, built from seven references:
+
+- **Mosey** (compliance platform) — the cream background `#F3F1ED`, floating matter notes, the role-based tabs.
+- **Legal Point** (landing page, branding, conference asset) — the wide grotesk voice, the orbital lines and nodes, the stat rings, the dark numbered service list, the FAQ cards, and the mint `#62E8B3` sampled from the conference stage-floor glow.
+- **Creston, BYLAW, Lexiq** — the team section structure and the restraint of a serif used for evidence.
+
+## Principles
+
+1. **Cream is the room, mint is the light.** Mint appears only where something is live or can be acted on.
+2. **Archivo speaks, Bodoni testifies.** Archivo for everything you read, stretched wider as it grows in importance. Bodoni Moda — the serif of the monogram’s L — only for figures and quotations.
+3. **Lines connect.** Orbital lines link related facts. If a line joins nothing, remove it.
+4. **Radius follows size.** Pills for things you press, 14px photographs, 20px panels, 32px dark blocks.
+
+## What is in the library
+
+<table>
+  <thead>
+    <tr>
+      <th>Layer</th>
+      <th>Where</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Tokens</td>
+      <td><code>/tokens/*.json</code></td>
+      <td>W3C design-token format. <code>npm run tokens</code> builds CSS, TypeScript and flat JSON.</td>
+    </tr>
+    <tr>
+      <td>Styles</td>
+      <td><code>src/design-system/styles.css</code></td>
+      <td>Tokens plus element defaults and type roles (<code>.t-display</code>, <code>.t-h1</code> …).</td>
+    </tr>
+    <tr>
+      <td>Components</td>
+      <td><code>src/design-system/components</code></td>
+      <td>11 React components, typed, CSS Modules, one stories file each.</td>
+    </tr>
+    <tr>
+      <td>Patterns</td>
+      <td><code>src/site/sections</code></td>
+      <td>Full site sections composed from the components.</td>
+    </tr>
+  </tbody>
+</table>
+
+```tsx
+import './design-system/styles.css'
+import { Button, Tabs, cssVar } from './design-system'
+```

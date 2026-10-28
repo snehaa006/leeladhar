@@ -1,0 +1,97 @@
+import { Meta } from '@storybook/blocks'
+import { tokensIn, tokens } from '../tokens/tokens'
+
+<Meta title="Tokens/Space & shape" />
+
+# Space & shape
+
+## Space
+
+A 4px base scale. Sections use `--section-y` (72 → 136px) and pages use `--gutter` (16 → 48px).
+
+<div style={{ display: 'grid', gap: 8, margin: '16px 0 32px' }}>
+  {tokensIn('space').map((t) => (
+    <div key={t.name} style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+      <code style={{ width: 90 }}>{t.cssVar}</code>
+      <span style={{ height: 12, width: t.resolved, borderRadius: 2, background: '#62E8B3' }} />
+      <span style={{ fontSize: 12, color: '#4A5653' }}>{t.resolved}</span>
+    </div>
+  ))}
+</div>
+
+## Radius
+
+Radius scales with the size of the element. Never one radius for everything.
+
+<div style={{ display: 'flex', flexWrap: 'wrap', gap: 24, margin: '16px 0 32px' }}>
+  {tokensIn('radius').map((t) => (
+    <div key={t.name} style={{ display: 'grid', gap: 8, justifyItems: 'start' }}>
+      <span
+        style={{
+          width: 88,
+          height: 64,
+          background: '#FAF9F6',
+          border: '1px solid rgba(21,33,31,.24)',
+          borderRadius: t.resolved,
+        }}
+      />
+      <code>{t.cssVar}</code>
+      <span style={{ fontSize: 12, color: '#4A5653' }}>{t.description}</span>
+    </div>
+  ))}
+</div>
+
+## Depth and light
+
+Shadows are tinted with chamber green, never neutral grey. The mint glow is the stage light from the conference photo.
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 24, margin: '16px 0 32px' }}>
+  {['shadow-note', 'shadow-panel', 'glow-mint'].map((n) => (
+    <div
+      key={n}
+      style={{
+        display: 'grid',
+        placeItems: 'center',
+        height: 96,
+        borderRadius: 14,
+        background: '#FAF9F6',
+        boxShadow: `var(--${n})`,
+      }}
+    >
+      <code>--{n}</code>
+    </div>
+  ))}
+  <div
+    style={{
+      display: 'grid',
+      placeItems: 'center',
+      height: 96,
+      borderRadius: 14,
+      background: 'var(--chamber-900) var(--glow-stage)',
+      color: '#F3F1ED',
+    }}
+  >
+    <code>--glow-stage</code>
+  </div>
+</div>
+
+## Motion
+
+<table>
+  <tbody>
+    {tokens
+      .filter((t) => t.path[0] === 'ease' || t.path[0] === 'dur')
+      .map((t) => (
+        <tr key={t.name}>
+          <td>
+            <code>{t.cssVar}</code>
+          </td>
+          <td>
+            <code>{t.resolved}</code>
+          </td>
+        </tr>
+      ))}
+  </tbody>
+</table>
+
+One orchestrated entrance per page (the hero orbit drawing in). Everything else moves only in answer to the reader. `prefers-reduced-motion` turns animation off.

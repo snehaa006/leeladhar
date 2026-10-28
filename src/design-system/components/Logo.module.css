@@ -1,0 +1,59 @@
+.mark {
+  display: inline-block;
+  flex: none;
+  background-color: var(--logo-fill, var(--ink-900));
+  -webkit-mask: url('/brand/logo-mark.png') center / contain no-repeat;
+  mask: url('/brand/logo-mark.png') center / contain no-repeat;
+}
+
+[data-tone='ink'] {
+  --logo-fill: var(--ink-900);
+  --logo-text: var(--ink-900);
+}
+[data-tone='patina'] {
+  --logo-fill: var(--patina-400);
+  --logo-text: var(--cream-100);
+}
+[data-tone='mint'] {
+  --logo-fill: var(--mint-400);
+  --logo-text: var(--cream-100);
+}
+[data-tone='cream'] {
+  --logo-fill: var(--cream-100);
+  --logo-text: var(--cream-100);
+}
+
+.lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--logo-h) * 0.32);
+  color: var(--logo-text);
+  text-decoration: none;
+}
+
+.words {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--logo-h) * 0.06);
+  padding-left: calc(var(--logo-h) * 0.32);
+  border-left: 1px solid currentColor;
+  border-left-color: color-mix(in srgb, currentColor 28%, transparent);
+}
+
+.name {
+  font-size: calc(var(--logo-h) * 0.44);
+  font-stretch: var(--wdth-expanded);
+  font-weight: 640;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.sub {
+  font-size: calc(var(--logo-h) * 0.25);
+  font-stretch: var(--wdth-expanded);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.72;
+}

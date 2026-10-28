@@ -1,0 +1,33 @@
+{
+  "font": {
+    "$type": "fontFamily",
+    "$description": "Archivo speaks; Bodoni Moda testifies — it is reserved for numbers and quotations, echoing the serif L of the monogram.",
+    "sans": { "$value": "'Archivo', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif" },
+    "evidence": { "$value": "'Bodoni Moda', 'Didot', 'Bodoni 72', Georgia, serif" }
+  },
+  "wdth": {
+    "$type": "fontStretch",
+    "$description": "Positions on Archivo's width axis. Expanded is the wide-grotesk voice of the Legal Point identity.",
+    "normal": { "$value": "100%", "$description": "Body copy" },
+    "wide": { "$value": "112%", "$description": "Sub-headings, buttons" },
+    "expanded": { "$value": "125%", "$description": "Display, marginal notes, wordmark" }
+  },
+  "text": {
+    "$type": "dimension",
+    "$description": "Type scale. Fluid sizes clamp between mobile and desktop.",
+    "micro": { "$value": "0.75rem", "$description": "12px" },
+    "sm": { "$value": "0.875rem", "$description": "14px" },
+    "base": { "$value": "1rem", "$description": "16px" },
+    "lg": { "$value": "1.1875rem", "$description": "19px" },
+    "xl": { "$value": "1.5rem", "$description": "24px" },
+    "2xl": { "$value": "clamp(1.75rem, 1.2rem + 1.8vw, 2.5rem)", "$description": "28 → 40px" },
+    "3xl": { "$value": "clamp(2.125rem, 1.3rem + 2.8vw, 3.5rem)", "$description": "34 → 56px" },
+    "display": { "$value": "clamp(2.5rem, 1rem + 5.2vw, 5.5rem)", "$description": "40 → 88px" }
+  },
+  "leading": {
+    "$type": "number",
+    "tight": { "$value": "1.02" },
+    "snug": { "$value": "1.18" },
+    "body": { "$value": "1.6" }
+  }
+}

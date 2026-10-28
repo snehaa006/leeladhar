@@ -1,0 +1,114 @@
+.field {
+  --f-label: var(--text);
+  --f-bg: var(--surface);
+  --f-fg: var(--text);
+  --f-border: var(--cream-300);
+  --f-border-hover: var(--cream-400);
+  --f-hint: var(--text-muted);
+  --f-placeholder: var(--ink-500);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.field[data-tone='dark'] {
+  --f-label: var(--cream-100);
+  --f-bg: rgba(243, 241, 237, 0.04);
+  --f-fg: var(--cream-100);
+  --f-border: var(--line-on-dark);
+  --f-border-hover: rgba(243, 241, 237, 0.32);
+  --f-hint: var(--text-on-dark-secondary);
+  --f-placeholder: #8fa49f;
+}
+
+.label {
+  color: var(--f-label);
+  font-size: var(--text-sm);
+  font-stretch: var(--wdth-wide);
+  font-weight: 560;
+}
+
+.control {
+  width: 100%;
+  min-height: 48px;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--f-border);
+  border-radius: var(--radius-sm);
+  background: var(--f-bg);
+  color: var(--f-fg);
+  font-size: var(--text-base);
+  line-height: 1.4;
+  transition:
+    border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.control::placeholder {
+  color: var(--f-placeholder);
+}
+
+.control:hover {
+  border-color: var(--f-border-hover);
+}
+
+.control:focus-visible {
+  outline: none;
+  border-color: var(--mint-600);
+  box-shadow: 0 0 0 3px rgba(98, 232, 179, 0.35);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 112px;
+}
+
+.selectWrap {
+  position: relative;
+  display: block;
+}
+
+.select {
+  appearance: none;
+  padding-right: var(--space-7);
+}
+
+.select option {
+  color: var(--ink-900);
+  background: var(--cream-50);
+}
+
+.chevron {
+  position: absolute;
+  right: var(--space-4);
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  margin-top: -9px;
+  color: var(--f-hint);
+  pointer-events: none;
+}
+
+.hint,
+.error {
+  font-size: var(--text-micro);
+  line-height: 1.4;
+}
+
+.hint {
+  color: var(--f-hint);
+}
+
+.error {
+  color: var(--seal-600);
+  font-weight: 560;
+}
+
+.field[data-tone='dark'] .error {
+  color: #f0a39d;
+}
+
+.field[data-invalid] .control {
+  border-color: var(--seal-600);
+}

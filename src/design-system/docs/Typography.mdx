@@ -1,0 +1,74 @@
+import { Meta, Typeset } from '@storybook/blocks'
+import { tokensIn } from '../tokens/tokens'
+
+<Meta title="Tokens/Typography" />
+
+# Typography
+
+**Archivo** carries everything you read. Its width axis is part of the hierarchy: body copy at 100%, sub-heads and buttons at 112%, display and marginal notes at 125%. **Bodoni Moda** — the serif of the monogram’s L — is reserved for figures and quotations.
+
+## Archivo
+
+<Typeset
+  fontFamily="'Archivo', sans-serif"
+  fontWeight={520}
+  fontSizes={['12px', '14px', '16px', '19px', '24px', '40px', '56px', '88px']}
+  sampleText="Navigating the law with clarity and care"
+/>
+
+<div style={{ display: 'grid', gap: 8, margin: '24px 0', fontSize: 32, fontWeight: 520 }}>
+  <span style={{ fontStretch: '100%' }}>Normal 100% — body copy</span>
+  <span style={{ fontStretch: '112%' }}>Wide 112% — sub-heads, buttons</span>
+  <span style={{ fontStretch: '125%' }}>Expanded 125% — display, wordmark</span>
+</div>
+
+## Bodoni Moda
+
+<Typeset
+  fontFamily="'Bodoni Moda', serif"
+  fontWeight={500}
+  fontSizes={['24px', '40px', '56px']}
+  sampleText="22+ years · 3,400 matters"
+/>
+
+<p style={{ fontFamily: "'Bodoni Moda', serif", fontStyle: 'italic', fontSize: 28, lineHeight: 1.35, maxWidth: '30ch' }}>
+  “Most people who walk in here don’t need a fight. They need to know where they stand.”
+</p>
+
+## Scale tokens
+
+<table>
+  <thead>
+    <tr>
+      <th>Token</th>
+      <th>Value</th>
+      <th>Size</th>
+    </tr>
+  </thead>
+  <tbody>
+    {tokensIn('text')
+      .filter((t) => t.type === 'dimension')
+      .map((t) => (
+        <tr key={t.name}>
+          <td>
+            <code>{t.cssVar}</code>
+          </td>
+          <td>
+            <code>{t.value}</code>
+          </td>
+          <td>{t.description}</td>
+        </tr>
+      ))}
+  </tbody>
+</table>
+
+## Type roles
+
+Use the classes from `base.css` rather than setting sizes by hand: `.t-display`, `.t-h1`, `.t-h2`, `.t-h3`, `.t-lead`, `.t-body`, `.t-small`, `.t-margin`, `.t-evidence`, `.t-testimony`.
+
+<div className="t-display">Display</div>
+<div className="t-h1" style={{ marginTop: 16 }}>Heading one</div>
+<div className="t-h2" style={{ marginTop: 16 }}>Heading two</div>
+<div className="t-h3" style={{ marginTop: 16 }}>Heading three</div>
+<p className="t-lead" style={{ marginTop: 16 }}>Lead paragraph for introductions.</p>
+<p className="t-margin" style={{ marginTop: 16 }}>Solutions that protect</p>

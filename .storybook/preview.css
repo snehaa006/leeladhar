@@ -1,0 +1,5 @@
+/* Let docs pages sit on the brand cream too. */
+.sb-show-main,
+.docs-story {
+  background: var(--bg);
+}

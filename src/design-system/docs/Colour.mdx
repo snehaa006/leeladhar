@@ -1,0 +1,104 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
+import { tokens, tokensIn, groupInfo } from '../tokens/tokens'
+import { contrastRatio, wcagLevel } from '../utils/contrast'
+
+<Meta title="Tokens/Colour" />
+
+# Colour
+
+Generated from `tokens/color.primitives.json` and `tokens/color.semantic.json`. Edit the JSON, run `npm run tokens`, and this page updates.
+
+## Primitive ramps
+
+<ColorPalette>
+  {['cream', 'mint', 'chamber', 'patina', 'ink', 'seal', 'brass'].map((group) => (
+    <ColorItem
+      key={group}
+      title={group[0].toUpperCase() + group.slice(1)}
+      subtitle={groupInfo(group)?.description}
+      colors={Object.fromEntries(tokensIn(group).map((t) => [t.path[t.path.length - 1], t.resolved]))}
+    />
+  ))}
+</ColorPalette>
+
+## Roles
+
+Components use these, never the ramps directly. Each one points at a primitive, so changing a ramp flows through.
+
+<table>
+  <thead>
+    <tr>
+      <th>Token</th>
+      <th>Points to</th>
+      <th>Value</th>
+      <th>Use</th>
+    </tr>
+  </thead>
+  <tbody>
+    {tokens
+      .filter((t) => t.tier === 'semantic')
+      .map((t) => (
+        <tr key={t.name}>
+          <td>
+            <code>{t.cssVar}</code>
+          </td>
+          <td>{'alias' in t ? <code>--{t.alias}</code> : '—'}</td>
+          <td>
+            <span
+              style={{
+                display: 'inline-block',
+                width: 14,
+                height: 14,
+                marginRight: 8,
+                borderRadius: 4,
+                verticalAlign: -2,
+                background: t.resolved,
+                boxShadow: 'inset 0 0 0 1px rgba(21,33,31,.24)',
+              }}
+            />
+            <code>{t.resolved}</code>
+          </td>
+          <td>{('description' in t && t.description) || groupInfo(t.path[0])?.description}</td>
+        </tr>
+      ))}
+  </tbody>
+</table>
+
+## Contrast
+
+<table>
+  <thead>
+    <tr>
+      <th>Pair</th>
+      <th>Ratio</th>
+      <th>WCAG</th>
+    </tr>
+  </thead>
+  <tbody>
+    {[
+      ['ink-900', 'cream-100'],
+      ['ink-700', 'cream-100'],
+      ['ink-500', 'cream-100'],
+      ['ink-900', 'mint-400'],
+      ['mint-700', 'cream-100'],
+      ['mint-400', 'chamber-900'],
+      ['cream-100', 'chamber-900'],
+      ['mint-400', 'cream-100'],
+    ].map(([fg, bg]) => {
+      const f = tokens.find((t) => t.name === fg).resolved
+      const b = tokens.find((t) => t.name === bg).resolved
+      const r = contrastRatio(f, b)
+      return (
+        <tr key={fg + bg}>
+          <td>
+            <span style={{ padding: '4px 10px', borderRadius: 999, background: b, color: f, fontWeight: 600 }}>
+              {fg} on {bg}
+            </span>
+          </td>
+          <td>{r.toFixed(2)}:1</td>
+          <td>{wcagLevel(r) === 'Fail' ? 'Fail — never for text' : wcagLevel(r)}</td>
+        </tr>
+      )
+    })}
+  </tbody>
+</table>
