@@ -67,18 +67,6 @@
   gap: var(--space-5);
 }
 
-.dsLink {
-  color: var(--accent-text);
-  font-size: var(--text-sm);
-  font-stretch: var(--wdth-wide);
-  font-weight: 560;
-  text-decoration: none;
-}
-
-.dsLink:hover {
-  text-decoration: underline;
-}
-
 .toggle {
   display: none;
   place-items: center;

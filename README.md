@@ -4,7 +4,7 @@ Design system and mock website for **Leeladhar Law Chambers** — React 18, Type
 
 ```bash
 npm install
-npm run dev              # site on http://localhost:5173 (design system page at /design-system)
+npm run dev              # site on http://localhost:5173
 npm run storybook        # Storybook on http://localhost:6006
 npm run tokens           # rebuild the token library after editing /tokens
 npm run build            # type-check + production build of the site
@@ -24,7 +24,6 @@ src/design-system/
   docs/                         Storybook MDX: introduction, colour, typography, space
   utils/contrast.ts             WCAG contrast helpers
 src/site/                       The mock website (sections, content in data.ts)
-src/showcase/                   The /design-system page
 ```
 
 ## Palette

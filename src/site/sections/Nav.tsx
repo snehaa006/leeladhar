@@ -39,9 +39,6 @@ export function Nav() {
             ))}
           </ul>
           <div className={styles.actions}>
-            <a href="/design-system" className={styles.dsLink}>
-              Design system
-            </a>
             <Button href="#contact" size="sm" icon={<ArrowUpRight />} onClick={() => setOpen(false)}>
               Book a consultation
             </Button>

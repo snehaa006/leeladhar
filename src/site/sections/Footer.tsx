@@ -32,19 +32,6 @@ export function Footer() {
               </li>
             </ul>
           </div>
-          <div>
-            <h2 className={styles.colTitle}>Brand</h2>
-            <ul role="list">
-              <li>
-                <a href="/design-system">Design system</a>
-              </li>
-              <li>
-                <a href="http://localhost:6006" target="_blank" rel="noreferrer">
-                  Storybook
-                </a>
-              </li>
-            </ul>
-          </div>
         </nav>
       </div>
       <div className={`container ${styles.bottom}`}>
