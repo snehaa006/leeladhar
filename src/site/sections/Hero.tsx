@@ -42,11 +42,11 @@ export function Hero() {
           your matter stands after every hearing.
         </p>
         <div className={styles.actions}>
-          <Button href="#contact" size="lg" icon={<ArrowUpRight />}>
+          <Button href="/contact" size="lg" icon={<ArrowUpRight />}>
             Book a consultation
           </Button>
-          <Button href="#solutions" size="lg" variant="ghost">
-            Find your solution
+          <Button href="/practice-areas" size="lg" variant="ghost">
+            Explore practice areas
           </Button>
         </div>
       </div>

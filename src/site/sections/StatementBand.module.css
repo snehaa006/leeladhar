@@ -1,0 +1,88 @@
+.band {
+  position: relative;
+  isolation: isolate;
+  padding-block: var(--space-9);
+  background: var(--patina-700);
+  color: var(--cream-50);
+  overflow: hidden;
+}
+
+/* Faceted planes, a quieter take on the reference band. */
+.band::before,
+.band::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  background: rgba(243, 241, 237, 0.06);
+}
+
+.band::before {
+  inset: 0 55% 0 0;
+  clip-path: polygon(0 0, 100% 0, 30% 100%, 0 100%);
+}
+
+.band::after {
+  inset: 0 0 0 60%;
+  background: rgba(15, 29, 27, 0.14);
+  clip-path: polygon(40% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.inner {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-7);
+  text-align: center;
+}
+
+.statement {
+  max-width: 34ch;
+  font-size: clamp(1.5rem, 1rem + 1.8vw, 2.375rem);
+  font-stretch: var(--wdth-wide);
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.places {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: 0;
+}
+
+.places a {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5) var(--space-3) var(--space-4);
+  border: 1px solid rgba(243, 241, 237, 0.35);
+  border-radius: var(--radius-pill);
+  color: var(--cream-100);
+  font-size: var(--text-sm);
+  text-align: left;
+  text-decoration: none;
+  transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+
+.places a:hover {
+  background: var(--cream-50);
+  color: var(--chamber-900);
+}
+
+.places strong {
+  margin-right: var(--space-2);
+  font-weight: 600;
+}
+
+.places svg {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+}
+
+@media (max-width: 600px) {
+  .places a {
+    border-radius: var(--radius-md);
+  }
+}

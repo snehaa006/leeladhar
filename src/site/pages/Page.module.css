@@ -1,0 +1,223 @@
+/* Shared layout for inner pages. */
+
+.section {
+  padding-block: var(--section-y);
+}
+
+.sectionTight {
+  padding-block: var(--space-8);
+}
+
+.sunken {
+  background: var(--bg-sunken);
+}
+
+/* Sidebar + content, as on the practice and profile pages of legacylawoffices.com */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 3fr) minmax(0, 9fr);
+  gap: var(--space-8);
+  align-items: start;
+}
+
+.side {
+  position: sticky;
+  top: 100px;
+}
+
+.sideTitle {
+  margin-bottom: var(--space-3);
+  color: var(--text-muted);
+  font-size: var(--text-micro);
+  font-stretch: var(--wdth-expanded);
+  font-weight: 600;
+}
+
+.sideList {
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.sideList li {
+  border-bottom: 1px solid var(--line);
+}
+
+.sideList a,
+.sideList button {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: var(--space-3) var(--space-2) var(--space-3) var(--space-4);
+  border: 0;
+  background: none;
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  line-height: 1.4;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.sideList a:hover,
+.sideList button:hover {
+  color: var(--text);
+}
+
+.sideList [aria-current='page'],
+.sideList [aria-selected='true'] {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.sideList [aria-current='page']::before,
+.sideList [aria-selected='true']::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--mint-500);
+  transform: translateY(-50%);
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  font-weight: 560;
+  text-decoration: none;
+}
+
+.back:hover {
+  color: var(--text);
+}
+
+.back svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Title with the short rule beneath, as on duaassociates.com detail pages. */
+.pageTitle {
+  max-width: 24ch;
+}
+
+.rule {
+  display: block;
+  width: 72px;
+  height: 3px;
+  margin-top: var(--space-4);
+  border-radius: 2px;
+  background: var(--mint-500);
+}
+
+.prose {
+  max-width: 68ch;
+  color: var(--text-secondary);
+  font-size: var(--text-base);
+  line-height: 1.7;
+}
+
+.prose > * + *,
+.prose section > * + * {
+  margin-top: var(--space-4);
+}
+
+.prose h2,
+.h2 {
+  color: var(--text);
+  font-size: var(--text-xl);
+  font-stretch: var(--wdth-wide);
+  font-weight: 560;
+  line-height: 1.25;
+}
+
+.prose h2 {
+  margin-top: var(--space-7);
+}
+
+.block {
+  margin-top: var(--space-8);
+}
+
+.block > .h2 + * {
+  margin-top: var(--space-5);
+}
+
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+  padding: 0;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+  padding: 0;
+}
+
+.panel {
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.panelTitle {
+  color: var(--text);
+  font-size: var(--text-base);
+  font-stretch: var(--wdth-wide);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.panel p {
+  margin-top: var(--space-2);
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  line-height: 1.55;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.empty {
+  padding: var(--space-8) var(--space-5);
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius-lg);
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+@media (max-width: 960px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .side {
+    position: static;
+  }
+
+  .grid3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .grid3,
+  .grid2 {
+    grid-template-columns: 1fr;
+  }
+}

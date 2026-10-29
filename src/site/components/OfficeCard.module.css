@@ -1,0 +1,98 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+  overflow: hidden;
+}
+
+.map {
+  display: block;
+  width: 100%;
+  height: 220px;
+  border: 0;
+  /* Shown until the map loads, or if it can't. */
+  background:
+    radial-gradient(circle at 50% 46%, var(--patina-400) 0 7px, transparent 8px),
+    repeating-linear-gradient(0deg, transparent 0 39px, rgba(23, 48, 47, 0.08) 39px 40px),
+    repeating-linear-gradient(90deg, transparent 0 39px, rgba(23, 48, 47, 0.08) 39px 40px),
+    var(--patina-200);
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: var(--space-5);
+}
+
+.city {
+  font-size: var(--text-xl);
+  font-stretch: var(--wdth-expanded);
+  font-weight: 560;
+}
+
+.court {
+  margin-top: var(--space-1);
+  color: var(--accent-text);
+  font-size: var(--text-sm);
+  font-weight: 560;
+}
+
+.address {
+  display: grid;
+  margin-top: var(--space-4);
+  color: var(--text-secondary);
+  font-style: normal;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: auto;
+  padding-top: var(--space-5);
+}
+
+.action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 40px;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  color: var(--text);
+  font-size: var(--text-sm);
+  font-weight: 560;
+  text-decoration: none;
+}
+
+.action:hover {
+  border-color: var(--text);
+}
+
+.action svg,
+.more svg {
+  width: 16px;
+  height: 16px;
+}
+
+.more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  color: var(--accent-text);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.more:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
