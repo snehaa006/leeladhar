@@ -1,108 +1,67 @@
-import { useMemo, useState } from 'react'
-import { Chip, FilterChip, Orbit, Portrait } from '../../design-system'
-import { practiceFilters, team, type PracticeKey } from '../data'
+import { Mail, Phone } from 'lucide-react'
+import { Orbit } from '../../design-system'
+import { contact, team } from '../data'
 import styles from './Team.module.css'
 
-const [lead, ...members] = team
-
+/**
+ * Key individuals on a dark band: the heading holds the left column and the
+ * advocates stand as tall, staggered portraits with their name set into the photo.
+ */
 export function Team() {
-  const [filter, setFilter] = useState<PracticeKey | 'all'>('all')
-
-  const counts = useMemo(() => {
-    const c: Record<string, number> = { all: members.length }
-    for (const m of members) c[m.practice] = (c[m.practice] ?? 0) + 1
-    return c
-  }, [])
-
-  const visible = filter === 'all' ? members : members.filter((m) => m.practice === filter)
-
   return (
     <section id="team" className={styles.section} aria-labelledby="team-title">
-      <div className="container">
+      <Orbit
+        className={styles.orbit}
+        tone="dark"
+        animate={false}
+        viewBox="0 0 1440 900"
+        rings={[{ cx: 1500, cy: 980, r: 640, nodes: [196, 232], live: 196 }]}
+      />
+      <div className={`container ${styles.inner}`}>
         <header className={styles.header}>
-          <h2 id="team-title" className="t-h1">
-            The people who will stand beside you
+          <p className={styles.eyebrow}>Key individuals</p>
+          <h2 id="team-title" className={`t-h1 ${styles.title}`}>
+            The advocates who will stand beside you
           </h2>
           <p className={`t-lead ${styles.intro}`}>
-            Partners lead every matter. Associates draft and attend routine hearings under their supervision.
+            Every matter is led by one of us, from the first call to the final order. You always know whose number
+            to dial.
           </p>
+          <dl className={styles.direct}>
+            <div>
+              <dt>Call</dt>
+              <dd>
+                <a href={`tel:${contact.phone.replace(/\s/g, '')}`}>{contact.phone}</a>
+              </dd>
+            </div>
+            <div>
+              <dt>Write</dt>
+              <dd>
+                <a href={`mailto:${contact.email}`}>{contact.email}</a>
+              </dd>
+            </div>
+          </dl>
         </header>
 
-        <article className={styles.lead} aria-labelledby="lead-name">
-          <Orbit
-            className={styles.leadOrbit}
-            animate={false}
-            viewBox="0 0 1200 560"
-            rings={[{ cx: 230, cy: 280, r: 245, nodes: [-30, 150], live: -30 }]}
-          />
-          <Portrait
-            className={styles.leadPortrait}
-            src={lead.photo}
-            alt={`Portrait of ${lead.name}`}
-            badge={lead.role}
-            duotone="mint"
-            aspect="4/5"
-          />
-          <div className={styles.leadBody}>
-            <blockquote className={`t-testimony ${styles.quote}`}>
-              <p>“{lead.quote}”</p>
-            </blockquote>
-            <div className={styles.leadMeta}>
-              <h3 id="lead-name" className={styles.leadName}>
-                {lead.name}
-              </h3>
-              <p className={styles.leadRole}>
-                {lead.role}, {lead.focus.toLowerCase()}
-              </p>
-              <dl className={styles.facts}>
-                <div>
-                  <dt>In practice</dt>
-                  <dd>
-                    <span className="t-evidence">{lead.years}</span> years
-                  </dd>
-                </div>
-                <div>
-                  <dt>Enrolled</dt>
-                  <dd>{lead.enrolled}</dd>
-                </div>
-                <div>
-                  <dt>Speaks</dt>
-                  <dd>{lead.languages.join(', ')}</dd>
-                </div>
-              </dl>
-            </div>
-          </div>
-        </article>
-
-        <div className={styles.filters} role="group" aria-label="Filter the team by practice">
-          {practiceFilters
-            .filter((f) => counts[f.id])
-            .map((f) => (
-              <FilterChip key={f.id} selected={filter === f.id} count={counts[f.id]} onClick={() => setFilter(f.id)}>
-                {f.label}
-              </FilterChip>
-            ))}
-        </div>
-
-        <ul role="list" className={styles.grid} aria-live="polite">
-          {visible.map((m) => (
+        <ul role="list" className={styles.people}>
+          {team.map((m) => (
             <li key={m.id}>
               <article className={styles.card} aria-labelledby={`member-${m.id}`}>
-                <Portrait src={m.photo} alt={`Portrait of ${m.name}`} aspect="4/5" revealOnHover />
-                <div className={styles.cardBody}>
+                <img className={styles.photo} src={m.photo} alt={`Portrait of ${m.name}`} loading="lazy" decoding="async" />
+                <div className={styles.actions}>
+                  <a href={`mailto:${contact.email}`} aria-label={`Email ${m.name}`}>
+                    <Mail aria-hidden="true" />
+                  </a>
+                  <a href={`tel:${contact.phone.replace(/\s/g, '')}`} aria-label={`Call ${m.name}`}>
+                    <Phone aria-hidden="true" />
+                  </a>
+                </div>
+                <div className={styles.caption}>
                   <h3 id={`member-${m.id}`} className={styles.name}>
                     {m.name}
                   </h3>
                   <p className={styles.role}>{m.role}</p>
-                  <p className={styles.focus}>{m.focus}</p>
-                  <p className={styles.years}>
-                    <span className="t-evidence">{m.years}</span> years in practice
-                  </p>
-                  <div className={styles.langs} aria-label="Languages">
-                    {m.languages.map((l) => (
-                      <Chip key={l}>{l}</Chip>
-                    ))}
-                  </div>
+                  <p className={styles.chambers}>{m.chambers}</p>
                 </div>
               </article>
             </li>

@@ -23,8 +23,9 @@ export function Firm() {
           </h2>
           <div className={styles.copy}>
             <p className="t-lead">
-              Fourteen advocates across Delhi and Mumbai. Every matter is led by a partner, and every client gets a
-              written strategy note before we begin.
+              Two chambers: at the District Court in Panipat and the Punjab &amp; Haryana High Court in Chandigarh.
+              Every matter is led personally by one of our advocates, and every client gets a written strategy note
+              before we begin.
             </p>
             <p className={`t-body ${styles.body}`}>
               The law is serious; dealing with your lawyer shouldn’t be hard. That means plain explanations, fees

@@ -18,12 +18,10 @@ export const navLinks = [
 ]
 
 export const forums = [
-  'Supreme Court of India',
-  'Delhi High Court',
-  'Bombay High Court',
   'Punjab & Haryana High Court',
+  'District & Sessions Court, Panipat',
+  'Family Courts',
   'National Company Law Tribunal',
-  'NCLAT',
   'Debts Recovery Tribunal',
   'Consumer Commissions',
 ]
@@ -111,7 +109,7 @@ export const audiences: Audience[] = [
       client: 'Arbitration under Section 9',
       steps: [
         { label: 'Legal notice served', meta: 'Reply received in 14 days', status: 'done' },
-        { label: 'Interim relief granted', meta: 'Delhi High Court', status: 'done' },
+        { label: 'Interim relief granted', meta: 'Punjab & Haryana High Court', status: 'done' },
         { label: 'Tribunal constituted', meta: 'Sole arbitrator appointed', status: 'active' },
         { label: 'Statement of claim', meta: 'To be filed by 18 November', status: 'awaiting' },
       ],
@@ -245,7 +243,7 @@ export const process = [
   },
   {
     title: 'Representation',
-    body: 'One partner leads your matter. After every hearing you hear from us the same day.',
+    body: 'One advocate leads your matter from start to finish. After every hearing you hear from us the same day.',
     when: 'For the life of the matter',
   },
   {
@@ -257,98 +255,28 @@ export const process = [
 
 // ── Team ──────────────────────────────────────────────────────
 
-export type PracticeKey = 'corporate' | 'disputes' | 'family' | 'insolvency' | 'criminal'
-
-export const practiceFilters: { id: PracticeKey | 'all'; label: string }[] = [
-  { id: 'all', label: 'Everyone' },
-  { id: 'corporate', label: 'Corporate' },
-  { id: 'disputes', label: 'Disputes' },
-  { id: 'family', label: 'Family & property' },
-  { id: 'insolvency', label: 'Insolvency' },
-  { id: 'criminal', label: 'Criminal' },
-]
-
 export type Member = {
   id: string
   name: string
   role: string
-  practice: PracticeKey
-  focus: string
-  years: number
-  enrolled: string
-  languages: string[]
+  chambers: string
   photo: string
-  quote?: string
 }
 
 export const team: Member[] = [
   {
-    id: 'rajiv',
-    name: 'Rajiv Malhotra',
-    role: 'Managing Partner',
-    practice: 'disputes',
-    focus: 'Commercial disputes and arbitration',
-    years: 24,
-    enrolled: 'Bar Council of Delhi, 2001',
-    languages: ['English', 'Hindi', 'Punjabi'],
-    photo: unsplash('photo-1742981365880-698cfb84492d', 1000),
-    quote:
-      'Most people who walk in here don’t need a fight. They need to know where they stand, in plain words, before they decide anything.',
+    id: 'lakshay',
+    name: 'Lakshay Bajaj',
+    role: 'Advocate',
+    chambers: 'Punjab & Haryana High Court, Chandigarh',
+    photo: '/team/lakshay-bajaj.jpg',
   },
   {
-    id: 'nandini',
-    name: 'Nandini Iyer',
-    role: 'Senior Partner',
-    practice: 'corporate',
-    focus: 'Investments, M&A and joint ventures',
-    years: 19,
-    enrolled: 'Bar Council of Tamil Nadu, 2006',
-    languages: ['English', 'Tamil', 'Hindi'],
-    photo: unsplash('photo-1770627016447-cb9d29ed0398'),
-  },
-  {
-    id: 'sana',
-    name: 'Sana Qureshi',
-    role: 'Partner',
-    practice: 'family',
-    focus: 'Succession, matrimonial and property',
-    years: 14,
-    enrolled: 'Bar Council of Delhi, 2011',
-    languages: ['English', 'Hindi', 'Urdu'],
-    photo: unsplash('photo-1637589267610-6c66fc2a086b'),
-  },
-  {
-    id: 'arjun',
-    name: 'Arjun Deshpande',
-    role: 'Partner',
-    practice: 'insolvency',
-    focus: 'IBC proceedings and restructuring',
-    years: 12,
-    enrolled: 'Bar Council of Maharashtra & Goa, 2013',
-    languages: ['English', 'Marathi', 'Hindi'],
-    photo: unsplash('photo-1778692258270-bc0e80e975c0'),
-  },
-  {
-    id: 'meera',
-    name: 'Meera Kapoor',
-    role: 'Senior Associate',
-    practice: 'family',
-    focus: 'Real estate, RERA and tenancy',
-    years: 8,
-    enrolled: 'Bar Council of Delhi, 2017',
-    languages: ['English', 'Hindi'],
-    photo: unsplash('photo-1758518729466-827cd8293992'),
-  },
-  {
-    id: 'kabir',
-    name: 'Kabir Sethi',
-    role: 'Associate',
-    practice: 'criminal',
-    focus: 'Bail, quashing and white-collar defence',
-    years: 5,
-    enrolled: 'Bar Council of Delhi, 2020',
-    languages: ['English', 'Hindi'],
-    photo: unsplash('photo-1659353220660-710d4c28c673'),
+    id: 'priyanka',
+    name: 'Priyanka Aggarwal',
+    role: 'Advocate',
+    chambers: 'District Court, Panipat',
+    photo: '/team/priyanka-aggarwal.jpg',
   },
 ]
 
@@ -378,6 +306,7 @@ export type ClientStory = {
 }
 
 // Anonymised on purpose: most clients of a chambers don't want to be named.
+// Placeholder stories for the mock-up. Replace with real, consented feedback.
 export const clientStories: ClientStory[] = [
   {
     id: 'founder',
@@ -393,7 +322,7 @@ export const clientStories: ClientStory[] = [
     quote:
       'My brother and I hadn’t spoken in two years. The partition was settled in mediation, without a single court date.',
     who: 'Co-owner, ancestral property',
-    where: 'Delhi',
+    where: 'Panipat',
     matter: 'Partition',
     outcome: 'Settled in mediation in 4 months',
   },
@@ -404,6 +333,33 @@ export const clientStories: ClientStory[] = [
     where: 'Gurugram',
     matter: 'Tenant eviction',
     outcome: 'Possession recovered in 7 months',
+  },
+  {
+    id: 'bail',
+    quote:
+      'It was past nine at night when my son was taken in. They picked up on the second ring, and the bail application was in court the next morning.',
+    who: 'Parent of the accused',
+    where: 'Panipat',
+    matter: 'Regular bail',
+    outcome: 'Bail granted at the first hearing',
+  },
+  {
+    id: 'manufacturer',
+    quote:
+      'Our buyer had stopped paying three invoices. One firm notice and a commercial suit later, we were paid in full with interest.',
+    who: 'Director, textile exporter',
+    where: 'Panipat',
+    matter: 'Recovery suit',
+    outcome: 'Settled with interest in 5 months',
+  },
+  {
+    id: 'appeal',
+    quote:
+      'The trial court order looked final to us. They explained exactly why it could be challenged, and the High Court agreed.',
+    who: 'Landowner',
+    where: 'Karnal',
+    matter: 'Regular second appeal',
+    outcome: 'Order set aside by the High Court',
   },
 ]
 
@@ -421,9 +377,9 @@ export const faqs = [
     a: 'Drafting and advisory work is quoted as a fixed fee. Litigation is billed per appearance, with filing and clerkage costs listed separately. Every fee is set out in the strategy note before work starts.',
   },
   {
-    id: 'partner',
-    q: 'Will a partner handle my matter?',
-    a: 'Yes. A partner leads every matter and appears for the important hearings. Associates prepare drafts and attend routine dates under that partner’s supervision.',
+    id: 'advocate',
+    q: 'Will an advocate handle my matter personally?',
+    a: 'Yes. One of our advocates leads every matter, appears for the hearings and is the person you call. Nothing is handed off without telling you.',
   },
   {
     id: 'abroad',
@@ -437,8 +393,8 @@ export const faqs = [
   },
   {
     id: 'cities',
-    q: 'Do you take matters outside Delhi?',
-    a: 'We appear regularly in Mumbai and Chandigarh and before the Supreme Court. Elsewhere we work alongside local counsel we know and trust.',
+    q: 'Where do you practise?',
+    a: 'From two chambers: at the District Court in Panipat and at the Punjab & Haryana High Court in Chandigarh. For courts elsewhere we work alongside local counsel we know and trust.',
   },
 ]
 
@@ -451,9 +407,25 @@ export const matterTypes = [
   { value: 'other', label: 'Something else' },
 ]
 
+export type Office = { id: string; city: string; lines: string[]; court: string }
+
+export const offices: Office[] = [
+  {
+    id: 'panipat',
+    city: 'Panipat',
+    lines: ['Chamber No. 439', 'District Court, Panipat'],
+    court: 'District & Sessions Court',
+  },
+  {
+    id: 'chandigarh',
+    city: 'Chandigarh',
+    lines: ['Bar Room No. 19', 'Punjab & Haryana High Court, Chandigarh'],
+    court: 'Punjab & Haryana High Court',
+  },
+]
+
 export const contact = {
-  address: ['Chamber 214, Lawyers’ Block', 'New Delhi 110001'],
-  phone: '+91 11 0000 0000',
-  email: 'chambers@leeladhar.example',
+  phone: '+91 90699 10000',
+  email: 'leeladharlawchambers@gmail.com',
   hours: 'Monday to Saturday, 10:00–18:00',
 }

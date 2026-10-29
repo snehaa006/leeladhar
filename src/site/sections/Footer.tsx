@@ -1,5 +1,5 @@
 import { Logo } from '../../design-system'
-import { contact, navLinks } from '../data'
+import { contact, navLinks, offices } from '../data'
 import styles from './Footer.module.css'
 
 export function Footer() {
@@ -22,14 +22,26 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h2 className={styles.colTitle}>Chambers</h2>
-            <ul role="list">
-              {contact.address.map((line) => (
-                <li key={line}>{line}</li>
+            <h2 className={styles.colTitle}>Our chambers</h2>
+            <ul role="list" className={styles.offices}>
+              {offices.map((o) => (
+                <li key={o.id}>
+                  <span className={styles.city}>{o.city}</span>
+                  {o.lines.join(', ')}
+                </li>
               ))}
+            </ul>
+          </div>
+          <div>
+            <h2 className={styles.colTitle}>Contact</h2>
+            <ul role="list">
+              <li>
+                <a href={`tel:${contact.phone.replace(/\s/g, '')}`}>{contact.phone}</a>
+              </li>
               <li>
                 <a href={`mailto:${contact.email}`}>{contact.email}</a>
               </li>
+              <li>{contact.hours}</li>
             </ul>
           </div>
         </nav>
@@ -39,7 +51,7 @@ export function Footer() {
           As per the rules of the Bar Council of India, this website is for information only and is not an
           advertisement or solicitation.
         </p>
-        <p>© {new Date().getFullYear()} Leeladhar Law Chambers. Mock-up: names, figures and contact details are placeholders.</p>
+        <p>© {new Date().getFullYear()} Leeladhar Law Chambers. Mock-up: figures and client stories are placeholders.</p>
       </div>
     </footer>
   )
