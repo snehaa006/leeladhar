@@ -1,7 +1,7 @@
 import { useState, type FormEvent } from 'react'
-import { ArrowUpRight, Check } from 'lucide-react'
+import { ArrowUpRight, Check, MapPin } from 'lucide-react'
 import { Button, SelectField, TextArea, TextField } from '../../design-system'
-import { contact, matterTypes } from '../data'
+import { contact, matterTypes, offices } from '../data'
 import styles from './Contact.module.css'
 
 type Errors = Partial<Record<'name' | 'phone' | 'matter', string>>
@@ -38,15 +38,22 @@ export function Contact() {
               Leave your number and a line about the matter. A member of the chambers calls back within one working
               day.
             </p>
+            <ul role="list" className={styles.offices} aria-label="Our chambers">
+              {offices.map((o) => (
+                <li key={o.id} className={styles.office}>
+                  <MapPin aria-hidden="true" />
+                  <div>
+                    <p className={styles.officeCity}>{o.city}</p>
+                    <p className={styles.officeLines}>
+                      {o.lines.map((line) => (
+                        <span key={line}>{line}</span>
+                      ))}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
             <dl className={styles.details}>
-              <div>
-                <dt>Chambers</dt>
-                <dd>
-                  {contact.address.map((line) => (
-                    <span key={line}>{line}</span>
-                  ))}
-                </dd>
-              </div>
               <div>
                 <dt>Phone</dt>
                 <dd>
@@ -90,7 +97,7 @@ export function Contact() {
                 type="tel"
                 autoComplete="tel"
                 inputMode="tel"
-                hint="We call from a Delhi landline."
+                hint={`We call from ${contact.phone}.`}
                 error={errors.phone}
               />
               <SelectField

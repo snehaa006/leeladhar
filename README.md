@@ -40,5 +40,8 @@ Mint is never used for text on cream (1.4:1); use `--accent-text` (`#147050`, 5.
 
 ## Notes
 
-- Names, figures, addresses and phone numbers in `src/site/data.ts` are placeholders.
-- Photos are hot-linked from Unsplash (free licence) and shown through the duotone `Portrait` component.
+- The team (Lakshay Bajaj, Priyanka Aggarwal), both chambers addresses, phone and email in `src/site/data.ts` are real.
+  Stats, client names, client stories and example matters are still placeholders.
+- Team portraits live in `public/team/`. Other photos are hot-linked from Unsplash (free licence).
+- The Team section (dark "key individuals" band) and the Clients testimonial carousel follow layouts from
+  legacylawoffices.com; the office cards in Contact and Footer follow duaassociates.com and legacylawoffices.com.

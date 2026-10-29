@@ -38,8 +38,8 @@ export function Hero() {
           Navigating the law with clarity and care
         </h1>
         <p className={`t-lead ${styles.lead}`}>
-          Leeladhar Law Chambers advises founders, businesses and families across India, and tells you where your
-          matter stands after every hearing.
+          Leeladhar Law Chambers advises businesses and families from Panipat and Chandigarh, and tells you where
+          your matter stands after every hearing.
         </p>
         <div className={styles.actions}>
           <Button href="#contact" size="lg" icon={<ArrowUpRight />}>
@@ -65,7 +65,7 @@ export function Hero() {
           alt="An advocate at his desk in the chambers"
           aspect="1/1"
         />
-        <Note className={styles.noteA} title="Interim relief granted" meta="Delhi High Court, this morning" />
+        <Note className={styles.noteA} title="Interim relief granted" meta="Punjab & Haryana High Court, this morning" />
         <Note
           className={styles.noteB}
           status="active"
