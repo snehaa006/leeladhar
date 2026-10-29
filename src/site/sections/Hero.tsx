@@ -1,9 +1,9 @@
 import { ArrowUpRight } from 'lucide-react'
 import { Button, Logo, Note, Orbit, Portrait } from '../../design-system'
-import { photos, team } from '../data'
+import { team } from '../data'
 import styles from './Hero.module.css'
 
-const lead = team[0]
+const [lead, second] = team
 
 /**
  * The conference screen, brought onto cream: a centred statement held between
@@ -61,8 +61,9 @@ export function Hero() {
         />
         <Portrait
           className={styles.photo}
-          src={photos.desk}
-          alt="An advocate at his desk in the chambers"
+          src={second.photo}
+          alt={`${second.name}, ${second.role}`}
+          badge={second.name}
           aspect="1/1"
         />
         <Note className={styles.noteA} title="Interim relief granted" meta="Punjab & Haryana High Court, this morning" />
