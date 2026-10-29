@@ -1,0 +1,46 @@
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+  align-content: start;
+}
+
+.wide,
+.submit {
+  grid-column: 1 / -1;
+}
+
+.done {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-4);
+  color: var(--text-secondary);
+}
+
+.doneIcon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--text-on-mint);
+}
+
+.doneIcon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.doneTitle {
+  color: var(--text);
+  font-size: var(--text-xl);
+  font-stretch: var(--wdth-expanded);
+  font-weight: 560;
+}
+
+@media (max-width: 560px) {
+  .form {
+    grid-template-columns: 1fr;
+  }
+}

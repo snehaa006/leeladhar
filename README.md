@@ -17,14 +17,35 @@ npm run build-storybook  # static Storybook in storybook-static/
 tokens/                         Token source (W3C design-token JSON) — edit here
 scripts/build-tokens.mjs        Builds the token library
 public/brand/                   Monogram mask cut from the supplied logo, original artwork
-src/design-system/
-  tokens/                       Generated: tokens.css, tokens.ts, tokens.json (do not edit)
-  base.css, styles.css          Element defaults and type roles (.t-display, .t-h1 …)
-  components/                   11 components, each with a .stories.tsx
-  docs/                         Storybook MDX: introduction, colour, typography, space
-  utils/contrast.ts             WCAG contrast helpers
-src/site/                       The mock website (sections, content in data.ts)
+public/team/                    Advocates' portraits
+src/design-system/              Tokens, base styles and components (each with a .stories.tsx)
+src/App.tsx                     Routes
+src/site/Layout.tsx             Nav, footer, disclaimer; scroll-to-top and in-app links
+src/site/pages/                 One component per route
+src/site/sections/              Home-page sections (also used on inner pages)
+src/site/components/            Shared pieces: page banner, practice explorer, CTA, cards
+src/site/content/               Practice areas, insights and events (each item gets a page)
+src/site/data.ts                Navigation, people, chambers, contact details, clients
+vercel.json                     Sends every path to index.html so deep links work
 ```
+
+## Pages
+
+The tabs of legacylawoffices.com and duaassociates.com, merged:
+
+| Route | Page |
+| --- | --- |
+| `/` | Home |
+| `/about` (`#why-us`, `#values`) | About us |
+| `/practice-areas`, `/practice-areas/:slug` | Practice areas (Dua-style explorer) and one page per area |
+| `/people`, `/people/:slug` | Our people and one profile per advocate |
+| `/insights?category=…`, `/insights/:slug` | Insights with categories and search, and one page per article |
+| `/events?category=…` | Events, CSR, pro bono and media |
+| `/careers` | Careers and application form |
+| `/contact` | Contact form, contact info and both chambers |
+| `/locations/:slug` | Panipat and Chandigarh chambers |
+
+To add a practice area, article or event, add an entry in `src/site/content/`; its page, menu entry and footer link follow.
 
 ## Palette
 
@@ -41,7 +62,6 @@ Mint is never used for text on cream (1.4:1); use `--accent-text` (`#147050`, 5.
 ## Notes
 
 - The team (Lakshay Bajaj, Priyanka Aggarwal), both chambers addresses, phone and email in `src/site/data.ts` are real.
-  Stats, client names, client stories and example matters are still placeholders.
-- Team portraits live in `public/team/`; the site uses no stock photos of people.
-- The Team section (dark "key individuals" band) and the Clients testimonial carousel follow layouts from
-  legacylawoffices.com; the office cards in Contact and Footer follow duaassociates.com and legacylawoffices.com.
+  Client names, client stories and events are placeholders. The forms (contact, careers) are front end only and
+  don't send anything yet.
+- Practice-area and insight visuals are drawn from the house orbit motif (`PracticeArt`), not stock photography.

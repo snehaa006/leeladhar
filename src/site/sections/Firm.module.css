@@ -67,8 +67,13 @@
   max-width: 58ch;
 }
 
-.stats {
-  grid-column: 1 / -1;
+.title em {
+  font-style: normal;
+  color: var(--accent-text);
+}
+
+.more {
+  margin-top: var(--space-6);
 }
 
 @media (max-width: 900px) {

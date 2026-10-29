@@ -8,7 +8,7 @@
 
 .top {
   display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
   gap: var(--space-8);
   padding-bottom: var(--space-8);
 }
@@ -23,25 +23,28 @@
   max-width: 20ch;
 }
 
+.reach {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.reach dt {
+  color: var(--mint-400);
+  font-size: var(--text-micro);
+  font-stretch: var(--wdth-expanded);
+  font-weight: 600;
+}
+
+.reach dd {
+  margin: 2px 0 0;
+  overflow-wrap: anywhere;
+}
+
 .cols {
   display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr) minmax(0, 1.2fr);
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.8fr) minmax(0, 1fr);
   gap: var(--space-6);
-}
-
-.offices li + li {
-  margin-top: var(--space-4);
-}
-
-.city {
-  display: block;
-  margin-bottom: 2px;
-  color: var(--cream-100);
-  font-weight: 560;
-}
-
-.cols a {
-  overflow-wrap: anywhere;
 }
 
 .colTitle {
@@ -56,13 +59,34 @@
   margin-top: var(--space-2);
 }
 
-.cols a {
+/* Two columns of practice areas, as in both reference footers. */
+.practice ul {
+  columns: 2;
+  column-gap: var(--space-5);
+}
+
+.practice li {
+  break-inside: avoid;
+}
+
+.offices li + li {
+  margin-top: var(--space-4);
+}
+
+.city {
+  display: block;
+  margin-bottom: 2px;
+  font-weight: 560;
+}
+
+.footer a {
   color: var(--cream-100);
   text-decoration: none;
 }
 
-.cols a:hover {
+.footer a:hover {
   text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .bottom {
@@ -79,18 +103,25 @@
   max-width: 70ch;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .top {
     grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 640px) {
   .cols {
     grid-template-columns: 1fr 1fr;
   }
 
-  .cols > div:last-child {
+  .practice {
     grid-column: 1 / -1;
+    grid-row: 2;
+  }
+}
+
+@media (max-width: 400px) {
+  .practice ul {
+    columns: 1;
   }
 }

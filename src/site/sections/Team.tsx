@@ -1,6 +1,7 @@
-import { Mail, Phone } from 'lucide-react'
-import { Orbit } from '../../design-system'
-import { contact, team } from '../data'
+import { Link } from 'react-router-dom'
+import { ArrowRight, Mail, Phone } from 'lucide-react'
+import { Button, Orbit } from '../../design-system'
+import { contact, team, tel } from '../data'
 import styles from './Team.module.css'
 
 /**
@@ -31,7 +32,7 @@ export function Team() {
             <div>
               <dt>Call</dt>
               <dd>
-                <a href={`tel:${contact.phone.replace(/\s/g, '')}`}>{contact.phone}</a>
+                <a href={tel(contact.phone)}>{contact.phone}</a>
               </dd>
             </div>
             <div>
@@ -41,24 +42,27 @@ export function Team() {
               </dd>
             </div>
           </dl>
+          <Button href="/people" variant="ghost-dark" className={styles.all} icon={<ArrowRight />}>
+            Meet our people
+          </Button>
         </header>
 
         <ul role="list" className={styles.people}>
           {team.map((m) => (
-            <li key={m.id}>
-              <article className={styles.card} aria-labelledby={`member-${m.id}`}>
+            <li key={m.slug}>
+              <article className={styles.card} aria-labelledby={`member-${m.slug}`}>
                 <img className={styles.photo} src={m.photo} alt={`Portrait of ${m.name}`} loading="lazy" decoding="async" />
                 <div className={styles.actions}>
                   <a href={`mailto:${contact.email}`} aria-label={`Email ${m.name}`}>
                     <Mail aria-hidden="true" />
                   </a>
-                  <a href={`tel:${contact.phone.replace(/\s/g, '')}`} aria-label={`Call ${m.name}`}>
+                  <a href={tel(contact.phone)} aria-label={`Call ${m.name}`}>
                     <Phone aria-hidden="true" />
                   </a>
                 </div>
                 <div className={styles.caption}>
-                  <h3 id={`member-${m.id}`} className={styles.name}>
-                    {m.name}
+                  <h3 id={`member-${m.slug}`} className={styles.name}>
+                    <Link to={`/people/${m.slug}`}>{m.name}</Link>
                   </h3>
                   <p className={styles.role}>{m.role}</p>
                   <p className={styles.chambers}>{m.chambers}</p>

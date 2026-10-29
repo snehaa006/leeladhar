@@ -1,0 +1,98 @@
+.hero {
+  margin-inline: var(--space-4);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  overflow: hidden;
+}
+
+.heroArt {
+  height: clamp(180px, 22vw, 320px);
+}
+
+.crumbBar {
+  margin-inline: var(--space-4);
+  padding-block: var(--space-4);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  background: var(--bg-sunken);
+}
+
+.intro {
+  margin-top: var(--space-6);
+}
+
+.forums {
+  margin-top: var(--space-5);
+}
+
+.offering {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.offering > svg {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  color: var(--accent-text);
+}
+
+.approach {
+  padding-left: var(--space-5);
+  border-left: 3px solid var(--mint-500);
+}
+
+.pager {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-top: var(--space-9);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--line);
+}
+
+.pagerLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--text);
+  font-weight: 560;
+  text-decoration: none;
+}
+
+.pagerLink small {
+  display: block;
+  color: var(--text-muted);
+  font-size: var(--text-micro);
+  font-weight: 500;
+}
+
+.pagerLink svg {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  color: var(--accent-text);
+}
+
+.pagerLink:hover span {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.pagerNext {
+  margin-left: auto;
+  text-align: right;
+}
+
+/* On narrow screens the list would push the content down; Back and the pager cover navigation. */
+@media (max-width: 960px) {
+  .sideAreas {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero,
+  .crumbBar {
+    margin-inline: var(--space-2);
+  }
+}

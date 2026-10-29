@@ -1,0 +1,95 @@
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+  gap: var(--space-5);
+  align-items: stretch;
+}
+
+.formCard {
+  padding: var(--space-7);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.form {
+  margin-top: var(--space-6);
+}
+
+.info {
+  padding: var(--space-7);
+  border-radius: var(--radius-lg);
+  background: var(--chamber-900);
+  color: var(--text-on-dark-secondary);
+}
+
+.infoTitle {
+  color: var(--cream-50);
+  font-size: var(--text-xl);
+  font-stretch: var(--wdth-expanded);
+  font-weight: 560;
+}
+
+.infoList {
+  display: grid;
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+}
+
+.infoList dt {
+  color: var(--mint-400);
+  font-size: var(--text-micro);
+  font-stretch: var(--wdth-expanded);
+  font-weight: 600;
+}
+
+.infoList dd {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: var(--space-2) 0 0;
+  color: var(--cream-100);
+  font-size: var(--text-sm);
+  overflow-wrap: anywhere;
+}
+
+.infoList svg {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  color: var(--patina-400);
+}
+
+.infoList a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.infoList a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.urgent {
+  margin-top: var(--space-7);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--line-on-dark);
+  font-size: var(--text-sm);
+}
+
+.offices {
+  margin-top: var(--space-8);
+}
+
+@media (max-width: 960px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .formCard,
+  .info {
+    padding: var(--space-5);
+  }
+}

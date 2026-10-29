@@ -1,0 +1,10 @@
+.section {
+  padding-block: var(--section-y);
+  background: var(--bg-sunken);
+}
+
+.foot {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-7);
+}

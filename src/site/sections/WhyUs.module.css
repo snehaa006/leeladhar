@@ -1,0 +1,103 @@
+.section {
+  padding-block: var(--section-y);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  gap: var(--space-8);
+  align-items: start;
+}
+
+.aside h2 {
+  max-width: 12ch;
+}
+
+.lead {
+  max-width: 34ch;
+  margin-top: var(--space-5);
+}
+
+.cards {
+  display: grid;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+  overflow: hidden;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Alternate text and artwork, as the reference does. */
+.card[data-flip] .art {
+  order: 2;
+}
+
+.art {
+  min-height: 260px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-4);
+  padding: var(--space-7) var(--space-6);
+  color: var(--text-secondary);
+}
+
+.title {
+  color: var(--text);
+  font-size: var(--text-xl);
+  font-stretch: var(--wdth-expanded);
+  font-weight: 560;
+}
+
+.more {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--accent-text);
+  font-size: var(--text-sm);
+  font-stretch: var(--wdth-wide);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.more svg {
+  width: 16px;
+  height: 16px;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.more:hover svg {
+  transform: translateX(3px);
+}
+
+@media (max-width: 960px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    grid-template-columns: 1fr;
+  }
+
+  .card[data-flip] .art {
+    order: 0;
+  }
+
+  .art {
+    min-height: 160px;
+  }
+
+  .body {
+    padding: var(--space-5);
+  }
+}

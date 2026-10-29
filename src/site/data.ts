@@ -1,14 +1,44 @@
-import type { NoteStatus, Stat } from '../design-system'
+import { practiceAreas } from './content/practiceAreas'
+import { insightCategories } from './content/insights'
+import { eventCategories } from './content/events'
 
-// All names, figures and contact details are placeholders for the mock-up.
+// ── Navigation ────────────────────────────────────────────────
+// The tabs of legacylawoffices.com and duaassociates.com, merged.
 
-export const navLinks = [
-  { href: '#solutions', label: 'Solutions' },
-  { href: '#practice', label: 'Practice' },
-  { href: '#process', label: 'Process' },
-  { href: '#team', label: 'Team' },
-  { href: '#clients', label: 'Clients' },
-  { href: '#faq', label: 'FAQ' },
+export type NavItem = { to: string; label: string; children?: { to: string; label: string }[]; wide?: boolean }
+
+export const nav: NavItem[] = [
+  { to: '/', label: 'Home' },
+  {
+    to: '/about',
+    label: 'About Us',
+    children: [
+      { to: '/about', label: 'Our chambers' },
+      { to: '/about#why-us', label: 'Why us' },
+      { to: '/about#values', label: 'Our values' },
+    ],
+  },
+  {
+    to: '/practice-areas',
+    label: 'Practice Areas',
+    wide: true,
+    children: [
+      ...practiceAreas.map((p) => ({ to: `/practice-areas/${p.slug}`, label: p.title })),
+      { to: '/practice-areas', label: 'View all practice areas' },
+    ],
+  },
+  { to: '/people', label: 'Our People' },
+  {
+    to: '/insights',
+    label: 'Insights',
+    children: insightCategories.map((c) => ({ to: `/insights?category=${c.id}`, label: c.label })),
+  },
+  {
+    to: '/events',
+    label: 'Events',
+    children: eventCategories.map((c) => ({ to: `/events?category=${c.id}`, label: c.label })),
+  },
+  { to: '/careers', label: 'Careers' },
 ]
 
 export const forums = [
@@ -20,259 +50,46 @@ export const forums = [
   'Consumer Commissions',
 ]
 
-export const stats: Stat[] = [
-  { value: '22', suffix: '+', label: 'Years in practice' },
-  { value: '3,400', suffix: '+', label: 'Matters closed' },
-  { value: '9', label: 'Courts and tribunals we appear before' },
-]
-
-// ── Solutions ─────────────────────────────────────────────────
-
-export type Solution = {
-  title: string
-  body: string
-  icon: 'building' | 'handshake' | 'users' | 'file' | 'scale' | 'landmark' | 'home' | 'scroll' | 'heart' | 'key' | 'globe' | 'video'
-}
-
-export type MatterStep = { label: string; meta: string; status: NoteStatus }
-
-export type Audience = {
-  id: string
-  label: string
-  summary: string
-  solutions: Solution[]
-  matter: { title: string; client: string; steps: MatterStep[] }
-}
-
-export const audiences: Audience[] = [
-  {
-    id: 'founders',
-    label: 'Founders & startups',
-    summary: 'From incorporation to your first priced round, paperwork that will survive due diligence.',
-    solutions: [
-      {
-        icon: 'building',
-        title: 'Incorporation and founder agreements',
-        body: 'Company or LLP, a clean cap table from day one, and vesting that holds up if a co-founder leaves.',
-      },
-      {
-        icon: 'handshake',
-        title: 'Fundraising documents',
-        body: 'Term sheets, shareholders’ and subscription agreements, and FEMA filings when the money comes from abroad.',
-      },
-      {
-        icon: 'users',
-        title: 'Employment and ESOPs',
-        body: 'Offer letters, ESOP schemes and the workplace policies a growing team is required to have.',
-      },
-    ],
-    matter: {
-      title: 'Seed round',
-      client: 'Northwind Labs Pvt Ltd',
-      steps: [
-        { label: 'Term sheet reviewed', meta: '12 comments resolved', status: 'done' },
-        { label: 'Shareholders’ agreement signed', meta: 'All four investors', status: 'done' },
-        { label: 'Board and shareholder resolutions', meta: 'Drafts with the board', status: 'active' },
-        { label: 'FC-GPR filing with the RBI', meta: 'Due within 30 days of allotment', status: 'awaiting' },
-      ],
-    },
-  },
-  {
-    id: 'businesses',
-    label: 'Businesses',
-    summary: 'Contracts that match how you trade, and a steady hand when a counterparty stops paying.',
-    solutions: [
-      {
-        icon: 'file',
-        title: 'Commercial contracts',
-        body: 'Vendor, distribution and licensing agreements written around how your business actually runs.',
-      },
-      {
-        icon: 'scale',
-        title: 'Disputes and arbitration',
-        body: 'Recovery suits, commercial court matters and arbitrations, from the first notice to the final award.',
-      },
-      {
-        icon: 'landmark',
-        title: 'Insolvency and restructuring',
-        body: 'Creditors and corporate debtors before the NCLT under the Insolvency and Bankruptcy Code.',
-      },
-    ],
-    matter: {
-      title: 'Supply dispute',
-      client: 'Arbitration under Section 9',
-      steps: [
-        { label: 'Legal notice served', meta: 'Reply received in 14 days', status: 'done' },
-        { label: 'Interim relief granted', meta: 'Punjab & Haryana High Court', status: 'done' },
-        { label: 'Tribunal constituted', meta: 'Sole arbitrator appointed', status: 'active' },
-        { label: 'Statement of claim', meta: 'To be filed by 18 November', status: 'awaiting' },
-      ],
-    },
-  },
-  {
-    id: 'families',
-    label: 'Families',
-    summary: 'Property, inheritance and matrimonial matters, handled privately and without needless conflict.',
-    solutions: [
-      {
-        icon: 'home',
-        title: 'Property and title',
-        body: 'Title searches before you buy, sale deeds and registration, and disputes over possession.',
-      },
-      {
-        icon: 'scroll',
-        title: 'Wills and succession',
-        body: 'Wills, probate and succession certificates, settled with as little friction in the family as possible.',
-      },
-      {
-        icon: 'heart',
-        title: 'Matrimonial matters',
-        body: 'Divorce, maintenance and custody, with mediation first wherever it can work.',
-      },
-    ],
-    matter: {
-      title: 'Ancestral property',
-      client: 'Partition among four heirs',
-      steps: [
-        { label: 'Title search complete', meta: '30 years, clear', status: 'done' },
-        { label: 'Family settlement drafted', meta: 'Shared with all heirs', status: 'done' },
-        { label: 'Mediation, second session', meta: 'Thursday, 11:00', status: 'active' },
-        { label: 'Registration at sub-registrar', meta: 'After all heirs sign', status: 'awaiting' },
-      ],
-    },
-  },
-  {
-    id: 'nri',
-    label: 'NRIs & overseas clients',
-    summary: 'Your property and family matters in India, managed without flying back for every hearing.',
-    solutions: [
-      {
-        icon: 'key',
-        title: 'Property you own in India',
-        body: 'Powers of attorney, tenant disputes and sales, handled while you live overseas.',
-      },
-      {
-        icon: 'globe',
-        title: 'Inheritance and repatriation',
-        body: 'Claiming inherited assets and moving the proceeds abroad within RBI limits.',
-      },
-      {
-        icon: 'video',
-        title: 'Representation from a distance',
-        body: 'Video consultations in your time zone and one named contact for every hearing.',
-      },
-    ],
-    matter: {
-      title: 'Tenant eviction',
-      client: 'Flat in Gurugram, owner in Toronto',
-      steps: [
-        { label: 'Power of attorney executed', meta: 'At the Indian consulate', status: 'done' },
-        { label: 'Eviction notice served', meta: 'Acknowledged by tenant', status: 'done' },
-        { label: 'Rent Controller hearing', meta: 'Next date: 4 December', status: 'active' },
-        { label: 'Possession handed over', meta: 'Keys couriered to family', status: 'awaiting' },
-      ],
-    },
-  },
-]
-
-// ── Practice areas ────────────────────────────────────────────
-
-export const practiceAreas = [
-  {
-    id: 'corporate',
-    title: 'Corporate & commercial',
-    body: 'Company formation, investment and M&A documentation, joint ventures, and the contracts a business signs every week.',
-    forums: ['Advisory', 'ROC', 'RBI'],
-  },
-  {
-    id: 'disputes',
-    title: 'Dispute resolution & arbitration',
-    body: 'Civil and commercial litigation, domestic and international arbitration, and enforcement of awards and decrees.',
-    forums: ['Supreme Court', 'High Courts', 'Tribunals'],
-  },
-  {
-    id: 'insolvency',
-    title: 'Insolvency & restructuring',
-    body: 'Corporate insolvency resolution, creditor claims, pre-packs and personal guarantor proceedings under the IBC.',
-    forums: ['NCLT', 'NCLAT'],
-  },
-  {
-    id: 'property',
-    title: 'Real estate & property',
-    body: 'Due diligence, conveyancing, RERA complaints, landlord–tenant disputes and partition suits.',
-    forums: ['RERA', 'Civil courts'],
-  },
-  {
-    id: 'family',
-    title: 'Family & succession',
-    body: 'Wills, probate, succession certificates, divorce, maintenance and guardianship.',
-    forums: ['Family courts', 'High Courts'],
-  },
-  {
-    id: 'criminal',
-    title: 'Criminal defence',
-    body: 'Bail, quashing petitions, white-collar and economic offences, and cheque-dishonour cases.',
-    forums: ['Sessions courts', 'High Courts'],
-  },
-  {
-    id: 'tax',
-    title: 'Tax',
-    body: 'Direct and indirect tax disputes, GST notices, assessments and appeals.',
-    forums: ['ITAT', 'CESTAT'],
-  },
-]
-
-// ── Process (a real sequence, so it is numbered) ──────────────
-
-export const process = [
-  {
-    title: 'First conversation',
-    body: 'A 30-minute call to understand what happened and what you need. Nothing to sign yet.',
-    when: 'Day 1',
-  },
-  {
-    title: 'Strategy note',
-    body: 'A written note with your options, likely timelines and our fee, before any work starts.',
-    when: 'Within 3 working days',
-  },
-  {
-    title: 'Representation',
-    body: 'One advocate leads your matter from start to finish. After every hearing you hear from us the same day.',
-    when: 'For the life of the matter',
-  },
-  {
-    title: 'Closure',
-    body: 'We close the file with a summary of what was decided and anything you still need to do.',
-    when: 'At the final order',
-  },
-]
-
-// ── Team ──────────────────────────────────────────────────────
+// ── People ────────────────────────────────────────────────────
 
 export type Member = {
-  id: string
+  slug: string
   name: string
   role: string
+  office: OfficeSlug
   chambers: string
   photo: string
+  overview: string[]
 }
 
 export const team: Member[] = [
   {
-    id: 'lakshay',
+    slug: 'lakshay-bajaj',
     name: 'Lakshay Bajaj',
     role: 'Advocate',
+    office: 'chandigarh',
     chambers: 'Punjab & Haryana High Court, Chandigarh',
     photo: '/team/lakshay-bajaj.jpg',
+    overview: [
+      'Lakshay Bajaj is an advocate with Leeladhar Law Chambers and practises before the Punjab & Haryana High Court at Chandigarh, from Bar Room No. 19.',
+      'At the High Court, the chambers handles writ petitions, bail and quashing petitions, service matters and appeals from the courts at Panipat.',
+    ],
   },
   {
-    id: 'priyanka',
+    slug: 'priyanka-aggarwal',
     name: 'Priyanka Aggarwal',
     role: 'Advocate',
+    office: 'panipat',
     chambers: 'District Court, Panipat',
     photo: '/team/priyanka-aggarwal.jpg',
+    overview: [
+      'Priyanka Aggarwal is an advocate with Leeladhar Law Chambers and practises before the District Court at Panipat, from Chamber No. 439.',
+      'At Panipat, the chambers handles civil suits, criminal trials and bail, cheque dishonour cases, family and property matters, and consumer complaints.',
+    ],
   },
 ]
+
+export const memberBySlug = (slug: string | undefined) => team.find((m) => m.slug === slug)
 
 // ── Clients ───────────────────────────────────────────────────
 // Fictional names. Replace only with clients who have agreed to be named.
@@ -357,69 +174,58 @@ export const clientStories: ClientStory[] = [
   },
 ]
 
-// ── FAQ ───────────────────────────────────────────────────────
-
-export const faqs = [
-  {
-    id: 'first',
-    q: 'What happens in the first consultation?',
-    a: 'We listen, ask about documents and dates, and tell you honestly whether you need a lawyer at all. If you do, we explain the routes open to you and send a written strategy note within three working days.',
-  },
-  {
-    id: 'fees',
-    q: 'How are fees decided?',
-    a: 'Drafting and advisory work is quoted as a fixed fee. Litigation is billed per appearance, with filing and clerkage costs listed separately. Every fee is set out in the strategy note before work starts.',
-  },
-  {
-    id: 'advocate',
-    q: 'Will an advocate handle my matter personally?',
-    a: 'Yes. One of our advocates leads every matter, appears for the hearings and is the person you call. Nothing is handed off without telling you.',
-  },
-  {
-    id: 'abroad',
-    q: 'I live outside India. Can you still act for me?',
-    a: 'Yes. We work by video and email, help you execute a power of attorney at your nearest consulate, and keep one named contact for you throughout.',
-  },
-  {
-    id: 'documents',
-    q: 'How do I share documents?',
-    a: 'After the first call you receive a private folder link. Originals, where a court needs them, can be couriered to the chambers.',
-  },
-  {
-    id: 'cities',
-    q: 'Where do you practise?',
-    a: 'From two chambers: at the District Court in Panipat and at the Punjab & Haryana High Court in Chandigarh. For courts elsewhere we work alongside local counsel we know and trust.',
-  },
-]
-
 export const matterTypes = [
-  { value: 'corporate', label: 'Business or startup' },
-  { value: 'dispute', label: 'A dispute or court case' },
-  { value: 'property', label: 'Property' },
-  { value: 'family', label: 'Family or inheritance' },
-  { value: 'criminal', label: 'Criminal matter' },
+  ...practiceAreas.map((p) => ({ value: p.slug, label: p.title })),
   { value: 'other', label: 'Something else' },
 ]
 
-export type Office = { id: string; city: string; lines: string[]; court: string }
+// ── Chambers and contact ─────────────────────────────────────
+
+export type OfficeSlug = 'panipat' | 'chandigarh'
+
+export type Office = {
+  slug: OfficeSlug
+  city: string
+  lines: string[]
+  court: string
+  intro: string
+  practices: string[] // practice area slugs most often handled here
+  /** Place name for map links and the embedded map. */
+  mapQuery: string
+}
 
 export const offices: Office[] = [
   {
-    id: 'panipat',
+    slug: 'panipat',
     city: 'Panipat',
     lines: ['Chamber No. 439', 'District Court, Panipat'],
     court: 'District & Sessions Court',
+    intro:
+      'Our Panipat chambers sit in the District Court complex. From here we handle trial-court work across civil, criminal, family, property and consumer matters for individuals, families and the city’s businesses.',
+    practices: ['civil-litigation', 'criminal-law', 'cheque-dishonour', 'family-matrimonial', 'property-real-estate', 'consumer-protection'],
+    mapQuery: 'District Court, Panipat, Haryana',
   },
   {
-    id: 'chandigarh',
+    slug: 'chandigarh',
     city: 'Chandigarh',
     lines: ['Bar Room No. 19', 'Punjab & Haryana High Court, Chandigarh'],
     court: 'Punjab & Haryana High Court',
+    intro:
+      'Our Chandigarh chambers are at the Punjab & Haryana High Court. From here we handle writ petitions, bail and quashing, service matters and appeals, as well as matters before the tribunals in Chandigarh.',
+    practices: ['writs-constitutional', 'criminal-law', 'service-matters', 'civil-litigation', 'banking-recovery-insolvency', 'land-revenue'],
+    mapQuery: 'Punjab and Haryana High Court, Sector 1, Chandigarh',
   },
 ]
+
+export const officeBySlug = (slug: string | undefined) => offices.find((o) => o.slug === slug)
 
 export const contact = {
   phone: '+91 90699 10000',
   email: 'leeladharlawchambers@gmail.com',
   hours: 'Monday to Saturday, 10:00–18:00',
 }
+
+export const mapLink = (q: string) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`
+export const mapEmbed = (q: string) => `https://www.google.com/maps?q=${encodeURIComponent(q)}&output=embed`
+
+export const tel = (phone: string) => `tel:${phone.replace(/\s/g, '')}`
