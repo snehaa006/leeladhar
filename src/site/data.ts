@@ -2,12 +2,6 @@ import type { NoteStatus, Stat } from '../design-system'
 
 // All names, figures and contact details are placeholders for the mock-up.
 
-const unsplash = (id: string, w = 900) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=70`
-
-export const photos = {
-  desk: unsplash('photo-1771244688590-1e481dba1b5a', 700),
-}
-
 export const navLinks = [
   { href: '#solutions', label: 'Solutions' },
   { href: '#practice', label: 'Practice' },
