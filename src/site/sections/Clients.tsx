@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState, type CSSProperties } from 'react'
 import { ArrowLeft, ArrowRight, Check, Quote } from 'lucide-react'
 import { clients, clientStories, type ClientStory } from '../data'
 import styles from './Clients.module.css'
@@ -30,16 +30,37 @@ function Story({ story }: { story: ClientStory }) {
   )
 }
 
-// `clients` is already alphabetical, so grouping keeps that order.
-const groups = Object.entries(
-  clients.reduce<Record<string, typeof clients>>((acc, c) => {
-    const letter = c.name[0].toUpperCase()
-    ;(acc[letter] ??= []).push(c)
-    return acc
-  }, {}),
-)
+// Typographic wordmarks stand in for logos. Five styles over a four-column grid,
+// so neighbours never share a look.
+const marks = ['wide', 'serif', 'condensed', 'serif-caps', 'light'] as const
+
+/** Holds the client grid hidden until it scrolls into view, then lets the cells rise in turn. */
+function useReveal<T extends HTMLElement>() {
+  const ref = useRef<T>(null)
+  const [state, setState] = useState<'idle' | 'waiting' | 'in'>('idle')
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el || !('IntersectionObserver' in window)) return
+    setState('waiting')
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setState('in')
+          io.disconnect()
+        }
+      },
+      { rootMargin: '0px 0px -10% 0px' },
+    )
+    io.observe(el)
+    return () => io.disconnect()
+  }, [])
+
+  return [ref, state] as const
+}
 
 export function Clients() {
+  const [grid, reveal] = useReveal<HTMLUListElement>()
   const track = useRef<HTMLUListElement>(null)
   const [page, setPage] = useState(0)
   const [pages, setPages] = useState(1)
@@ -68,42 +89,25 @@ export function Clients() {
     <section id="clients" className={styles.section} aria-labelledby="clients-title">
       <div className="container">
         <header className={styles.header}>
-          <h2 id="clients-title" className="t-h1">
-            The businesses we act for
+          <h2 id="clients-title" className={styles.eyebrow}>
+            Our clients
           </h2>
-          <p className={`t-lead ${styles.intro}`}>
-            Manufacturers, exporters, traders and healthcare businesses from Haryana, Rajasthan, Delhi, Maharashtra and
-            Karnataka.
+          <p className={styles.intro}>
+            We act for manufacturers, exporters, traders, pharmaceutical and healthcare businesses, and MSMEs in
+            Haryana, Rajasthan, Delhi, Maharashtra, Karnataka and more.
           </p>
         </header>
-      </div>
 
-      <div className="container">
-        <div className={styles.directory}>
-          <h3 id="client-list-title" className={styles.directoryTitle}>
-            List of our clients
-            <span>
-              {clients.length} clients across India
-            </span>
-          </h3>
-          <ul role="list" className={styles.groups}>
-            {groups.map(([letter, list]) => (
-              <li key={letter} className={styles.group}>
-                <span className={styles.letter} aria-hidden="true">
-                  {letter}
-                </span>
-                <ul role="list">
-                  {list.map((c) => (
-                    <li key={c.name} className={styles.client}>
-                      <span className={styles.clientName}>{c.name}</span>
-                      <span className={styles.place}>{c.place}</span>
-                    </li>
-                  ))}
-                </ul>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ul ref={grid} role="list" className={styles.grid} data-reveal={reveal}>
+          {clients.map((c, i) => (
+            <li key={c.name} className={styles.cell} style={{ '--i': i } as CSSProperties}>
+              <span className={styles.mark} data-mark={marks[i % marks.length]}>
+                {c.name}
+              </span>
+              <span className={styles.place}>{c.place}</span>
+            </li>
+          ))}
+        </ul>
       </div>
 
       <div className={styles.band}>
