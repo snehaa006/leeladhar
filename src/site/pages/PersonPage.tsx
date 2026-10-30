@@ -5,7 +5,7 @@ import { Orbit } from '../../design-system'
 import { CtaBanner } from '../components/CtaBanner'
 import { Breadcrumbs } from '../components/PageBanner'
 import { practiceBySlug } from '../content/practiceAreas'
-import { contact, memberBySlug, officeBySlug, team, tel } from '../data'
+import { contact, memberBySlug, officeBySlug, team, tel, yearsOfExperience } from '../data'
 import { usePageTitle } from '../usePageTitle'
 import { NotFoundPage } from './NotFoundPage'
 import page from './Page.module.css'
@@ -43,7 +43,9 @@ export function PersonPage() {
             <h1 id="page-title" className={`t-h1 ${styles.name}`}>
               {member.name}
             </h1>
-            <p className={styles.role}>{member.role}</p>
+            <p className={styles.role}>
+              {member.role} · {yearsOfExperience()}+ years of experience
+            </p>
             <ul role="list" className={styles.reach}>
               <li>
                 <Mail aria-hidden="true" />
@@ -55,7 +57,7 @@ export function PersonPage() {
               </li>
               <li>
                 <MapPin aria-hidden="true" />
-                <span>{member.chambers}</span>
+                <span>{office.city} chambers · Matters across India</span>
               </li>
             </ul>
           </div>
@@ -165,7 +167,7 @@ export function PersonPage() {
                     <img src={m.photo} alt="" loading="lazy" />
                     <span>
                       <strong>{m.name}</strong>
-                      {m.role}, {m.chambers}
+                      {m.role}
                     </span>
                     <ArrowRight aria-hidden="true" />
                   </Link>

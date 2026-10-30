@@ -19,7 +19,7 @@ const life = [
   },
   {
     title: 'Two courts, one practice',
-    body: 'See how a matter moves from a trial court in Panipat to the Punjab & Haryana High Court.',
+    body: 'See how a matter moves from a trial court to the High Court, for clients across India.',
   },
   {
     title: 'Close mentorship',

@@ -4,7 +4,6 @@ import { AboutPage } from './site/pages/AboutPage'
 import { ArticlePage } from './site/pages/ArticlePage'
 import { CareersPage } from './site/pages/CareersPage'
 import { ContactPage } from './site/pages/ContactPage'
-import { EventsPage } from './site/pages/EventsPage'
 import { HomePage } from './site/pages/HomePage'
 import { InsightsPage } from './site/pages/InsightsPage'
 import { LocationPage } from './site/pages/LocationPage'
@@ -27,7 +26,6 @@ export function App() {
           <Route path="people/:slug" element={<PersonPage />} />
           <Route path="insights" element={<InsightsPage />} />
           <Route path="insights/:slug" element={<ArticlePage />} />
-          <Route path="events" element={<EventsPage />} />
           <Route path="careers" element={<CareersPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="locations/:slug" element={<LocationPage />} />

@@ -16,8 +16,9 @@ function Story({ story }: { story: ClientStory }) {
         <p>{story.quote}</p>
       </blockquote>
       <figcaption className={styles.who}>
-        <span className={styles.whoName}>{story.who}</span>
+        <span className={styles.whoName}>{story.client ?? story.who}</span>
         <span className={styles.whoMeta}>
+          {story.client && `${story.who} · `}
           {story.matter} | {story.where}
         </span>
       </figcaption>
@@ -28,6 +29,15 @@ function Story({ story }: { story: ClientStory }) {
     </figure>
   )
 }
+
+// `clients` is already alphabetical, so grouping keeps that order.
+const groups = Object.entries(
+  clients.reduce<Record<string, typeof clients>>((acc, c) => {
+    const letter = c.name[0].toUpperCase()
+    ;(acc[letter] ??= []).push(c)
+    return acc
+  }, {}),
+)
 
 export function Clients() {
   const track = useRef<HTMLUListElement>(null)
@@ -59,26 +69,41 @@ export function Clients() {
       <div className="container">
         <header className={styles.header}>
           <h2 id="clients-title" className="t-h1">
-            The people and businesses we act for
+            The businesses we act for
           </h2>
           <p className={`t-lead ${styles.intro}`}>
-            Traders, family businesses and individuals across Haryana and Punjab. Most prefer not to be named, so their
-            words below are shared without names.
+            Manufacturers, exporters, traders and healthcare businesses from Haryana, Rajasthan, Delhi, Maharashtra and
+            Karnataka.
           </p>
         </header>
       </div>
 
-      <div className={styles.marquee} aria-label="Clients">
-        <ul role="list" className={styles.marqueeTrack}>
-          {[...clients, ...clients].map((c, i) => (
-            <li key={`${c.name}-${i}`} className={styles.client} aria-hidden={i >= clients.length || undefined}>
-              <span className={styles.mark} data-mark={c.mark}>
-                {c.name}
-              </span>
-              <span className={styles.sector}>{c.sector}</span>
-            </li>
-          ))}
-        </ul>
+      <div className="container">
+        <div className={styles.directory}>
+          <h3 id="client-list-title" className={styles.directoryTitle}>
+            List of our clients
+            <span>
+              {clients.length} clients across India
+            </span>
+          </h3>
+          <ul role="list" className={styles.groups}>
+            {groups.map(([letter, list]) => (
+              <li key={letter} className={styles.group}>
+                <span className={styles.letter} aria-hidden="true">
+                  {letter}
+                </span>
+                <ul role="list">
+                  {list.map((c) => (
+                    <li key={c.name} className={styles.client}>
+                      <span className={styles.clientName}>{c.name}</span>
+                      <span className={styles.place}>{c.place}</span>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
 
       <div className={styles.band}>

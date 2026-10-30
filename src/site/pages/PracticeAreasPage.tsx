@@ -16,7 +16,7 @@ export function PracticeAreasPage() {
     <>
       <PageBanner
         title="Our practice areas"
-        lead="The work we take on in the courts at Panipat and before the Punjab & Haryana High Court. Choose an area to see what it covers."
+        lead="The work we take on for clients across India, in the trial courts, tribunals and the Punjab & Haryana High Court. Choose an area to see what it covers."
         crumbs={[{ label: 'Practice areas' }]}
       />
 

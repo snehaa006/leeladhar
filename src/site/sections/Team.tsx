@@ -22,11 +22,11 @@ export function Team() {
         <header className={styles.header}>
           <p className={styles.eyebrow}>Key individuals</p>
           <h2 id="team-title" className={`t-h1 ${styles.title}`}>
-            The advocates who will stand beside you
+            The partners who will stand beside you
           </h2>
           <p className={`t-lead ${styles.intro}`}>
-            Every matter is led by one of us, from the first call to the final order. You always know whose number
-            to dial.
+            Every matter is led by a partner, from the first call to the final order, wherever in India it is
+            heard. You always know whose number to dial.
           </p>
           <dl className={styles.direct}>
             <div>
@@ -65,7 +65,6 @@ export function Team() {
                     <Link to={`/people/${m.slug}`}>{m.name}</Link>
                   </h3>
                   <p className={styles.role}>{m.role}</p>
-                  <p className={styles.chambers}>{m.chambers}</p>
                 </div>
               </article>
             </li>

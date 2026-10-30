@@ -9,7 +9,13 @@
   box-shadow: var(--shadow-panel);
 }
 
+.dialog:focus {
+  outline: none;
+}
+
 .dialog[open] {
+  display: flex;
+  flex-direction: column;
   animation: rise var(--dur-slow) var(--ease-out);
 }
 
@@ -27,6 +33,11 @@
 }
 
 .body {
+  /* Long notices scroll inside the dialog, so the title and actions stay in view on a phone. */
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   margin-top: var(--space-4);
   color: var(--text-secondary);
   font-size: var(--text-sm);
@@ -38,6 +49,7 @@
 }
 
 .actions {
+  flex: none;
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-3);
@@ -54,5 +66,14 @@
 @media (max-width: 480px) {
   .dialog {
     padding: var(--space-6) var(--space-5) var(--space-5);
+  }
+
+  .actions {
+    margin-top: var(--space-5);
+  }
+
+  .actions > * {
+    flex: 1 1 0;
+    justify-content: center;
   }
 }

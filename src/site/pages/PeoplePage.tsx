@@ -22,7 +22,7 @@ export function PeoplePage() {
     <>
       <PageBanner
         title="Our people"
-        lead="The advocates of Leeladhar Law Chambers. Every matter is led by one of them, from the first call to the final order."
+        lead="The partners of Leeladhar Law Chambers. Every matter is led by one of them, from the first call to the final order, wherever in India it is heard."
         crumbs={[{ label: 'Our people' }]}
       />
 

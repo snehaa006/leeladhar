@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { CtaBanner } from '../components/CtaBanner'
+import { HighCourtFrame } from '../components/HighCourtFrame'
 import { OfficeCard } from '../components/OfficeCard'
 import { PageBanner } from '../components/PageBanner'
 import { PracticeArt } from '../components/PracticeArt'
@@ -89,6 +90,14 @@ export function LocationPage() {
           <OfficeCard office={office} showMore={false} />
         </div>
       </section>
+
+      {office.slug === 'chandigarh' && (
+        <section className={page.sectionTight} aria-label="Punjab & Haryana High Court website">
+          <div className="container">
+            <HighCourtFrame />
+          </div>
+        </section>
+      )}
 
       <CtaBanner title={`Need an advocate in ${office.city}?`} />
     </>

@@ -30,6 +30,76 @@ export type PracticeArea = {
 
 export const practiceAreas: PracticeArea[] = [
   {
+    slug: 'commercial-suits-arbitration',
+    title: 'Commercial Suits & Arbitration',
+    icon: 'handshake',
+    summary: 'Commercial suits, recovery of dues, arbitration and contract disputes for traders, manufacturers and exporters across India.',
+    body: [
+      'Manufacturers, exporters and traders run on contracts with buyers, suppliers and agents, often in other states. When those contracts break down, we help you recover what is owed without losing the relationship if it can be kept.',
+      'We act in commercial suits, domestic arbitrations and the court proceedings around them, including interim relief and enforcement of awards.',
+    ],
+    offerings: [
+      { title: 'Contract drafting and review', body: 'Supply, distribution and agency agreements with workable dispute clauses.' },
+      { title: 'Commercial suits', body: 'Suits under the Commercial Courts Act, including pre-institution mediation.' },
+      { title: 'Arbitration', body: 'Appointment of arbitrators, conduct of the arbitration and final hearing.' },
+      { title: 'Interim measures', body: 'Section 9 petitions to secure assets before or during arbitration.' },
+      { title: 'Challenge and enforcement', body: 'Section 34 challenges and execution of arbitral awards.' },
+    ],
+    approach: 'We start with a notice that sets out the claim fully, because a well-built first letter is often what brings the other side to the table.',
+    forums: ['Commercial courts', 'Arbitral tribunals', 'Punjab & Haryana High Court'],
+    faqs: [
+      {
+        q: 'Do I have to try mediation before filing a commercial suit?',
+        a: 'Yes, unless you need urgent interim relief. Pre-institution mediation is mandatory under Section 12A of the Commercial Courts Act, 2015.',
+      },
+      {
+        q: 'What if the contract has an arbitration clause?',
+        a: 'The dispute will generally have to go to arbitration. A court can still grant interim protection under Section 9 of the Arbitration Act.',
+      },
+      {
+        q: 'Can an arbitral award be challenged?',
+        a: 'Only on limited grounds under Section 34, such as lack of a fair hearing or patent illegality. Courts do not re-hear the merits.',
+      },
+    ],
+  },
+  {
+    slug: 'msme-recovery',
+    title: 'MSME Delayed Payments & Recovery',
+    icon: 'briefcase',
+    summary: 'Recovery of delayed payments for micro and small enterprises before the MSME Facilitation Councils, with interest at three times the bank rate.',
+    body: [
+      'A micro or small enterprise that supplies goods or services has special protection when a buyer pays late. The MSMED Act, 2006 caps the credit period at 45 days and makes the buyer liable for compound interest at three times the bank rate notified by the Reserve Bank of India.',
+      'We file and argue references before the Micro and Small Enterprises Facilitation Councils of the states where our clients and their buyers are, through conciliation and then arbitration, and defend the awards in court.',
+    ],
+    offerings: [
+      { title: 'Delayed payment claims', body: 'Working out the principal and statutory interest, and filing the reference, including on the MSME Samadhaan portal.' },
+      { title: 'Conciliation and arbitration', body: 'Appearing before the Facilitation Council through conciliation and, if that fails, arbitration.' },
+      { title: 'Enforcing awards', body: 'Execution of Council awards against buyers anywhere in India.' },
+      { title: 'Challenges to awards', body: 'Section 19 proceedings, where a buyer must first deposit 75% of the amount awarded.' },
+      { title: 'Paperwork that protects you', body: 'Udyam registration timing, purchase orders and invoices with clear payment terms.' },
+    ],
+    approach: 'We start with your Udyam certificate and the invoices, because the date of registration and the terms on the invoice decide what you can claim.',
+    forums: ['MSME Facilitation Councils', 'Commercial courts', 'Punjab & Haryana High Court'],
+    faqs: [
+      {
+        q: 'Who can file before the MSME Facilitation Council?',
+        a: 'A micro or small enterprise registered on the Udyam portal that has supplied goods or services and not been paid on time. Medium enterprises are not covered by these delayed-payment provisions.',
+      },
+      {
+        q: 'How much interest can I claim?',
+        a: 'Compound interest with monthly rests at three times the bank rate notified by the RBI, from the date payment fell due under Section 15 of the MSMED Act.',
+      },
+      {
+        q: 'Does it matter when I registered?',
+        a: 'Yes. Courts have held that the protection generally applies to supplies made after the enterprise was registered, so registering early matters.',
+      },
+      {
+        q: 'Can the buyer challenge the award?',
+        a: 'Only after depositing 75% of the amount awarded with the court, under Section 19 of the MSMED Act.',
+      },
+    ],
+  },
+  {
     slug: 'civil-litigation',
     title: 'Civil Litigation',
     icon: 'scale',
@@ -37,7 +107,7 @@ export const practiceAreas: PracticeArea[] = [
       'Suits for recovery, declaration, injunction and specific performance, from the first notice to execution of the decree.',
     body: [
       'Most civil disputes we see start with something small: a payment that stopped, a boundary that moved, an agreement one side no longer wants to honour. We look at the documents first and tell you plainly whether a suit is worth bringing, what it will cost and how long it is likely to take.',
-      'We file and defend suits in the civil courts at Panipat and argue first and regular second appeals before the Punjab & Haryana High Court. Because a decree is only worth what you can recover, we plan for execution from the start.',
+      'We file and defend suits in the civil courts wherever the cause of action arises, and argue first and regular second appeals before the Punjab & Haryana High Court. Because a decree is only worth what you can recover, we plan for execution from the start.',
     ],
     offerings: [
       { title: 'Recovery suits', body: 'Money owed under invoices, loans and agreements, including summary suits on written contracts.' },
@@ -48,7 +118,7 @@ export const practiceAreas: PracticeArea[] = [
     ],
     approach:
       'Before anything is filed you get a written note on the merits, the limitation period and the likely timeline. Where a settlement is realistic, we try it first.',
-    forums: ['Civil courts, Panipat', 'Punjab & Haryana High Court'],
+    forums: ['Civil courts across India', 'Punjab & Haryana High Court'],
     faqs: [
       {
         q: 'How long do I have to file a civil suit?',
@@ -72,7 +142,7 @@ export const practiceAreas: PracticeArea[] = [
       'Regular and anticipatory bail, quashing petitions and trial defence, with someone reachable when it is urgent.',
     body: [
       'Criminal matters rarely wait for office hours. When an FIR is registered or an arrest is made, the first steps decide a great deal, and we move quickly on bail and on protecting your rights during investigation.',
-      'We appear before the courts at Panipat for bail and trials, and before the Punjab & Haryana High Court for anticipatory bail, quashing petitions and criminal appeals under the Bharatiya Nagarik Suraksha Sanhita, 2023.',
+      'We appear before the trial courts for bail and trials, and before the Punjab & Haryana High Court for anticipatory bail, quashing petitions and criminal appeals under the Bharatiya Nagarik Suraksha Sanhita, 2023.',
     ],
     offerings: [
       { title: 'Regular bail', body: 'Applications before the Magistrate, Sessions Court and High Court after arrest.' },
@@ -83,7 +153,7 @@ export const practiceAreas: PracticeArea[] = [
     ],
     approach:
       'We tell the family what will happen next, in which court and when. After every hearing you hear from us the same day.',
-    forums: ['Sessions Court, Panipat', 'Judicial Magistrates', 'Punjab & Haryana High Court'],
+    forums: ['Sessions Courts', 'Judicial Magistrates', 'Punjab & Haryana High Court'],
     faqs: [
       {
         q: 'What is the difference between regular and anticipatory bail?',
@@ -107,7 +177,7 @@ export const practiceAreas: PracticeArea[] = [
       'Legal notices, complaints and defence under Section 138 of the Negotiable Instruments Act, where the deadlines are strict.',
     body: [
       'A bounced cheque gives the payee a strong criminal remedy, but only if each step is taken on time. Miss a deadline and the complaint can fail, however good the claim.',
-      'We act for payees and for people who have been served a notice or summoned, in the Magistrate courts at Panipat and in revisions and petitions before the High Court.',
+      'We act for payees and for people who have been served a notice or summoned, in the Magistrate courts where the cheque was presented and in revisions and petitions before the High Court.',
     ],
     offerings: [
       { title: 'Statutory notice', body: 'Drafting and sending the demand notice within 30 days of the bank’s return memo.' },
@@ -118,7 +188,7 @@ export const practiceAreas: PracticeArea[] = [
     ],
     approach:
       'We put every date on one page for you on the first day, so you can see exactly when the notice must go out and when the complaint must be filed.',
-    forums: ['Judicial Magistrates, Panipat', 'Sessions Court', 'Punjab & Haryana High Court'],
+    forums: ['Judicial Magistrates', 'Sessions Courts', 'Punjab & Haryana High Court'],
     faqs: [
       {
         q: 'How soon must I send a notice after the cheque bounces?',
@@ -174,7 +244,7 @@ export const practiceAreas: PracticeArea[] = [
     summary: 'Title checks before you buy, sale deeds and mutation, partition and possession disputes, and RERA complaints.',
     body: [
       'Property is usually the largest thing a family owns, and most disputes begin with a document nobody checked. We check title before you pay, and we fight for possession when something has already gone wrong.',
-      'We handle registration and mutation work in Panipat, partition and possession suits in the civil courts, and complaints before the Haryana Real Estate Regulatory Authority.',
+      'We handle registration and mutation work, partition and possession suits in the civil courts, and complaints before the Real Estate Regulatory Authorities, including Haryana RERA.',
     ],
     offerings: [
       { title: 'Title due diligence', body: 'Searches of revenue records and the chain of title before purchase.' },
@@ -184,7 +254,7 @@ export const practiceAreas: PracticeArea[] = [
       { title: 'RERA complaints', body: 'Complaints by homebuyers for delayed possession, refunds and interest.' },
     ],
     approach: 'You get a short written opinion on title in plain language: what is clear, what is not, and what to fix before you sign.',
-    forums: ['Civil courts, Panipat', 'Haryana RERA', 'Punjab & Haryana High Court'],
+    forums: ['Civil courts', 'RERA authorities', 'Punjab & Haryana High Court'],
     faqs: [
       {
         q: 'What should I check before buying land?',
@@ -217,7 +287,7 @@ export const practiceAreas: PracticeArea[] = [
       { title: 'Inheritance disputes', body: 'Challenges to wills and claims by legal heirs, including daughters’ coparcenary rights.' },
     ],
     approach: 'We map every asset and every heir on one sheet before advising, so nothing is missed and nobody is surprised.',
-    forums: ['Civil courts, Panipat', 'Punjab & Haryana High Court'],
+    forums: ['Civil courts across India', 'Punjab & Haryana High Court'],
     faqs: [
       {
         q: 'Does a will have to be registered?',
@@ -250,7 +320,7 @@ export const practiceAreas: PracticeArea[] = [
       { title: 'Appeals', body: 'Appeals against District Commission orders before the State Commission.' },
     ],
     approach: 'We collect every bill, email and policy document first, and file only when the record is complete.',
-    forums: ['District Consumer Commission, Panipat', 'State Commission, Panchkula'],
+    forums: ['District Consumer Commissions', 'State Consumer Commissions'],
     faqs: [
       {
         q: 'Which commission do I file in?',
@@ -333,39 +403,6 @@ export const practiceAreas: PracticeArea[] = [
     ],
   },
   {
-    slug: 'arbitration-commercial',
-    title: 'Arbitration & Commercial Disputes',
-    icon: 'handshake',
-    summary: 'Commercial suits, arbitration and contract disputes for traders, manufacturers and exporters.',
-    body: [
-      'Panipat’s textile and manufacturing businesses run on contracts with buyers, suppliers and agents. When those contracts break down, we help you recover what is owed without losing the relationship if it can be kept.',
-      'We act in commercial suits, domestic arbitrations and the court proceedings around them, including interim relief and enforcement of awards.',
-    ],
-    offerings: [
-      { title: 'Contract drafting and review', body: 'Supply, distribution and agency agreements with workable dispute clauses.' },
-      { title: 'Commercial suits', body: 'Suits under the Commercial Courts Act, including pre-institution mediation.' },
-      { title: 'Arbitration', body: 'Appointment of arbitrators, conduct of the arbitration and final hearing.' },
-      { title: 'Interim measures', body: 'Section 9 petitions to secure assets before or during arbitration.' },
-      { title: 'Challenge and enforcement', body: 'Section 34 challenges and execution of arbitral awards.' },
-    ],
-    approach: 'We start with a notice that sets out the claim fully, because a well-built first letter is often what brings the other side to the table.',
-    forums: ['Commercial courts', 'Arbitral tribunals', 'Punjab & Haryana High Court'],
-    faqs: [
-      {
-        q: 'Do I have to try mediation before filing a commercial suit?',
-        a: 'Yes, unless you need urgent interim relief. Pre-institution mediation is mandatory under Section 12A of the Commercial Courts Act, 2015.',
-      },
-      {
-        q: 'What if the contract has an arbitration clause?',
-        a: 'The dispute will generally have to go to arbitration. A court can still grant interim protection under Section 9 of the Arbitration Act.',
-      },
-      {
-        q: 'Can an arbitral award be challenged?',
-        a: 'Only on limited grounds under Section 34, such as lack of a fair hearing or patent illegality. Courts do not re-hear the merits.',
-      },
-    ],
-  },
-  {
     slug: 'banking-recovery-insolvency',
     title: 'Banking, Recovery & Insolvency',
     icon: 'bank',
@@ -415,7 +452,7 @@ export const practiceAreas: PracticeArea[] = [
       { title: 'Revenue appeals', body: 'Appeals and revisions before the Collector, Commissioner and Financial Commissioner.' },
     ],
     approach: 'We start with certified copies of the revenue record, because most land disputes are won or lost on what those entries say.',
-    forums: ['Revenue courts, Panipat', 'Reference courts', 'Punjab & Haryana High Court'],
+    forums: ['Revenue courts', 'Reference courts', 'Punjab & Haryana High Court'],
     faqs: [
       {
         q: 'The compensation for my acquired land is too low. Can it be increased?',

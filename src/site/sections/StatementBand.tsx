@@ -9,8 +9,8 @@ export function StatementBand() {
     <section className={styles.band} aria-label="Our chambers">
       <div className={`container ${styles.inner}`}>
         <p className={styles.statement}>
-          From the District Court at Panipat to the Punjab &amp; Haryana High Court at Chandigarh, the same advocates
-          take your matter from the first hearing to the last appeal.
+          From the trial court to the High Court, in Haryana or anywhere else in India, the same team takes your matter
+          from the first hearing to the last appeal.
         </p>
         <ul role="list" className={styles.places}>
           {offices.map((o) => (

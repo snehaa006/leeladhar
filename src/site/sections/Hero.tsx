@@ -38,8 +38,8 @@ export function Hero() {
           Navigating the law with clarity and care
         </h1>
         <p className={`t-lead ${styles.lead}`}>
-          Leeladhar Law Chambers advises businesses and families from Panipat and Chandigarh, and tells you where
-          your matter stands after every hearing.
+          Leeladhar Law Chambers advises businesses and families across India, from chambers in Chandigarh and
+          Panipat, and tells you where your matter stands after every hearing.
         </p>
         <div className={styles.actions}>
           <Button href="/contact" size="lg" icon={<ArrowUpRight />}>

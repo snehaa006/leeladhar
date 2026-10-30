@@ -19,7 +19,11 @@ export function Dialog({ open, onClose, title, children, actions, className }: D
   useEffect(() => {
     const el = ref.current
     if (!el) return
-    if (open && !el.open) el.showModal()
+    if (open && !el.open) {
+      el.showModal()
+      // Start focus on the dialog itself, not on a scrollable body or the first action.
+      el.focus()
+    }
     if (!open && el.open) el.close()
   }, [open])
 
@@ -28,6 +32,7 @@ export function Dialog({ open, onClose, title, children, actions, className }: D
       ref={ref}
       className={[styles.dialog, className].filter(Boolean).join(' ')}
       aria-labelledby={titleId}
+      tabIndex={-1}
       onCancel={(e) => {
         if (!onClose) e.preventDefault()
         else onClose()

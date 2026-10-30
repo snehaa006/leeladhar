@@ -59,6 +59,18 @@
   margin-top: var(--space-2);
 }
 
+/* Roomier tap targets on touch screens. */
+@media (pointer: coarse) {
+  .cols li + li {
+    margin-top: var(--space-1);
+  }
+
+  .cols a {
+    display: inline-block;
+    padding-block: 6px;
+  }
+}
+
 /* Two columns of practice areas, as in both reference footers. */
 .practice ul {
   columns: 2;

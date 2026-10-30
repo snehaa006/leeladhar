@@ -61,6 +61,37 @@
   padding-top: var(--space-3);
 }
 
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5) var(--space-8);
+  margin-top: var(--space-7);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--line);
+}
+
+.stats div {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--space-1);
+}
+
+.stats dt {
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+
+.stats dd {
+  margin: 0;
+  color: var(--accent-text);
+  font-size: clamp(2.25rem, 1.6rem + 2.4vw, 3.5rem);
+  font-stretch: var(--wdth-expanded);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
 .body {
   margin-top: var(--space-4);
   color: var(--text-secondary);
@@ -76,6 +107,10 @@
   margin-top: var(--space-6);
 }
 
+.court {
+  margin-top: var(--space-8);
+}
+
 @media (max-width: 900px) {
   .forumsInner {
     flex-direction: column;
@@ -83,8 +118,28 @@
     gap: var(--space-3);
   }
 
+  /* On a phone the names wrap as small pills rather than a ragged dotted line. */
+  .forumList {
+    gap: var(--space-2);
+  }
+
   .forumList li {
+    padding: 6px var(--space-3);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-pill);
     font-size: var(--text-micro);
+  }
+
+  .forumList li + li::before {
+    content: none;
+  }
+
+  .stats {
+    margin-top: var(--space-6);
+  }
+
+  .court {
+    margin-top: var(--space-7);
   }
 
   .grid {

@@ -1,6 +1,5 @@
 import { practiceAreas } from './content/practiceAreas'
 import { insightCategories } from './content/insights'
-import { eventCategories } from './content/events'
 
 // ── Navigation ────────────────────────────────────────────────
 // The tabs of legacylawoffices.com and duaassociates.com, merged.
@@ -14,6 +13,7 @@ export const nav: NavItem[] = [
     label: 'About Us',
     children: [
       { to: '/about', label: 'Our chambers' },
+      { to: '/about#story', label: 'Our story' },
       { to: '/about#why-us', label: 'Why us' },
       { to: '/about#values', label: 'Our values' },
     ],
@@ -33,22 +33,30 @@ export const nav: NavItem[] = [
     label: 'Insights',
     children: insightCategories.map((c) => ({ to: `/insights?category=${c.id}`, label: c.label })),
   },
-  {
-    to: '/events',
-    label: 'Events',
-    children: eventCategories.map((c) => ({ to: `/events?category=${c.id}`, label: c.label })),
-  },
   { to: '/careers', label: 'Careers' },
 ]
 
 export const forums = [
   'Punjab & Haryana High Court',
-  'District & Sessions Court, Panipat',
-  'Family Courts',
+  'Commercial Courts',
+  'MSME Facilitation Councils',
+  'District & Sessions Courts',
   'National Company Law Tribunal',
   'Debts Recovery Tribunal',
   'Consumer Commissions',
 ]
+
+// ── The firm ──────────────────────────────────────────────────
+
+export const practisingSince = 2011
+/** Whole years since the partners started practice, so the figure never goes stale. */
+export const yearsOfExperience = () => new Date().getFullYear() - practisingSince
+
+export const phhc = {
+  name: 'Punjab & Haryana High Court',
+  url: 'https://new.phhc.gov.in',
+  host: 'new.phhc.gov.in',
+}
 
 // ── People ────────────────────────────────────────────────────
 
@@ -57,7 +65,6 @@ export type Member = {
   name: string
   role: string
   office: OfficeSlug
-  chambers: string
   photo: string
   overview: string[]
 }
@@ -66,25 +73,23 @@ export const team: Member[] = [
   {
     slug: 'lakshay-bajaj',
     name: 'Lakshay Bajaj',
-    role: 'Advocate',
+    role: 'Partner',
     office: 'chandigarh',
-    chambers: 'Punjab & Haryana High Court, Chandigarh',
     photo: '/team/lakshay-bajaj.jpg',
     overview: [
-      'Lakshay Bajaj is an advocate with Leeladhar Law Chambers and practises before the Punjab & Haryana High Court at Chandigarh, from Bar Room No. 19.',
-      'At the High Court, the chambers handles writ petitions, bail and quashing petitions, service matters and appeals from the courts at Panipat.',
+      'Lakshay Bajaj is a partner at Leeladhar Law Chambers and works from the chambers in Chandigarh, at Bar Room No. 19 of the Punjab & Haryana High Court.',
+      'The work spans commercial suits, MSME recovery, writ petitions, bail and quashing, and appeals, for clients from across India.',
     ],
   },
   {
     slug: 'priyanka-aggarwal',
     name: 'Priyanka Aggarwal',
-    role: 'Advocate',
+    role: 'Partner',
     office: 'panipat',
-    chambers: 'District Court, Panipat',
     photo: '/team/priyanka-aggarwal.jpg',
     overview: [
-      'Priyanka Aggarwal is an advocate with Leeladhar Law Chambers and practises before the District Court at Panipat, from Chamber No. 439.',
-      'At Panipat, the chambers handles civil suits, criminal trials and bail, cheque dishonour cases, family and property matters, and consumer complaints.',
+      'Priyanka Aggarwal is a partner at Leeladhar Law Chambers and works from the chambers in Panipat, at Chamber No. 439 of the District Court.',
+      'The work spans commercial suits, MSME recovery, cheque dishonour, civil and criminal trials, and family and property matters, for clients from across India.',
     ],
   },
 ]
@@ -92,23 +97,43 @@ export const team: Member[] = [
 export const memberBySlug = (slug: string | undefined) => team.find((m) => m.slug === slug)
 
 // ── Clients ───────────────────────────────────────────────────
-// Fictional names. Replace only with clients who have agreed to be named.
 
-export type ClientMark = 'wide' | 'condensed' | 'serif' | 'serif-caps'
-
-export const clients: { name: string; sector: string; mark: ClientMark }[] = [
-  { name: 'Northwind Labs', sector: 'Fintech', mark: 'wide' },
-  { name: 'Kaveri Looms', sector: 'Textiles', mark: 'serif' },
-  { name: 'Tarang Mobility', sector: 'Electric vehicles', mark: 'condensed' },
-  { name: 'Banyan Homes', sector: 'Real estate', mark: 'serif-caps' },
-  { name: 'Saptarishi Foods', sector: 'Packaged foods', mark: 'condensed' },
-  { name: 'Meridian Freight', sector: 'Logistics', mark: 'wide' },
-  { name: 'Ankur Health', sector: 'Hospitals', mark: 'serif-caps' },
-  { name: 'Deccan Agro', sector: 'Agriculture', mark: 'serif' },
+const clientList: { name: string; place: string }[] = [
+  { name: 'Indo Flex Pvt. Ltd.', place: 'Maharashtra' },
+  { name: 'Vetvista Pvt. Ltd.', place: 'Bangalore' },
+  { name: 'Unnat Biotech', place: 'Haryana' },
+  { name: 'Krishna Marketing', place: 'Haryana' },
+  { name: 'Karp Traders', place: 'Haryana' },
+  { name: 'Jain Packers', place: 'Haryana' },
+  { name: 'Shree Shyam Enterprises', place: 'Haryana' },
+  { name: 'Virsa Fashion', place: 'Haryana' },
+  { name: 'Sadashiv Pumps & Lubricants', place: 'Haryana' },
+  { name: 'Sahil International Pvt. Ltd.', place: 'Haryana' },
+  { name: 'Nile Overseas', place: 'Haryana' },
+  { name: 'DRJ Chemicals Ltd.', place: 'Haryana' },
+  { name: 'Aakash International', place: 'Haryana' },
+  { name: 'M.N. Carpets', place: 'Haryana' },
+  { name: 'Master Exports', place: 'Haryana' },
+  { name: 'P.V. Rugs', place: 'Haryana' },
+  { name: 'T.H. Woolen Mills', place: 'Rajasthan' },
+  { name: 'Priya Enterprises', place: 'Rajasthan' },
+  { name: 'Sandeep Tayal & Co.', place: 'New Delhi' },
+  { name: 'Barsat Machinery', place: 'Haryana' },
+  { name: 'Shiv Shakti Textile', place: 'Haryana' },
+  { name: 'Aggarwal Fabrics', place: 'Haryana' },
+  { name: 'Navkar Woolen Mills Pvt. Ltd.', place: 'Rajasthan' },
+  { name: 'SM Healthcare & Medical Pvt. Ltd.', place: 'Haryana' },
+  { name: 'SM Pharmaceutical', place: 'Haryana' },
+  { name: 'Surya Hatchery', place: 'Haryana' },
+  { name: 'Dharamshetra, The GYM', place: 'Haryana' },
 ]
+
+export const clients = [...clientList].sort((a, b) => a.name.localeCompare(b.name, 'en', { sensitivity: 'base' }))
 
 export type ClientStory = {
   id: string
+  /** Set only when the client has agreed to be named alongside the quote. */
+  client?: string
   quote: string
   who: string
   where: string
@@ -116,17 +141,17 @@ export type ClientStory = {
   outcome: string
 }
 
-// Anonymised on purpose: most clients of a chambers don't want to be named.
-// Placeholder stories for the mock-up. Replace with real, consented feedback.
+// Placeholder stories for the mock-up, deliberately not tied to any named client.
+// Replace with real feedback, adding `client` only where that client has agreed to be quoted.
 export const clientStories: ClientStory[] = [
   {
-    id: 'founder',
+    id: 'msme',
     quote:
-      'We had a term sheet on Friday and a board meeting on Monday. They read every clause over the weekend and told us which three were worth fighting for.',
-    who: 'Founder, fintech startup',
-    where: 'Bengaluru',
-    matter: 'Seed round',
-    outcome: 'Closed in 19 days',
+      'A buyer in another state had held our payments for over a year. They filed before the MSME Facilitation Council, and the award came with interest at three times the bank rate.',
+    who: 'Proprietor, manufacturing MSME',
+    where: 'Haryana',
+    matter: 'MSME delayed payment',
+    outcome: 'Award with statutory interest',
   },
   {
     id: 'family',
@@ -180,6 +205,7 @@ export const matterTypes = [
 ]
 
 // ── Chambers and contact ─────────────────────────────────────
+// We take on matters anywhere in India; these are the two chambers we work from.
 
 export type OfficeSlug = 'panipat' | 'chandigarh'
 
@@ -196,24 +222,24 @@ export type Office = {
 
 export const offices: Office[] = [
   {
-    slug: 'panipat',
-    city: 'Panipat',
-    lines: ['Chamber No. 439', 'District Court, Panipat'],
-    court: 'District & Sessions Court',
-    intro:
-      'Our Panipat chambers sit in the District Court complex. From here we handle trial-court work across civil, criminal, family, property and consumer matters for individuals, families and the city’s businesses.',
-    practices: ['civil-litigation', 'criminal-law', 'cheque-dishonour', 'family-matrimonial', 'property-real-estate', 'consumer-protection'],
-    mapQuery: 'District Court, Panipat, Haryana',
-  },
-  {
     slug: 'chandigarh',
     city: 'Chandigarh',
     lines: ['Bar Room No. 19', 'Punjab & Haryana High Court, Chandigarh'],
     court: 'Punjab & Haryana High Court',
     intro:
-      'Our Chandigarh chambers are at the Punjab & Haryana High Court. From here we handle writ petitions, bail and quashing, service matters and appeals, as well as matters before the tribunals in Chandigarh.',
-    practices: ['writs-constitutional', 'criminal-law', 'service-matters', 'civil-litigation', 'banking-recovery-insolvency', 'land-revenue'],
+      'Our Chandigarh chambers are at the Punjab & Haryana High Court. From here we handle writ petitions, bail and quashing, commercial appeals and tribunal matters, and coordinate work for clients in other states.',
+    practices: ['commercial-suits-arbitration', 'msme-recovery', 'writs-constitutional', 'criminal-law', 'banking-recovery-insolvency', 'service-matters'],
     mapQuery: 'Punjab and Haryana High Court, Sector 1, Chandigarh',
+  },
+  {
+    slug: 'panipat',
+    city: 'Panipat',
+    lines: ['Chamber No. 439', 'District Court, Panipat'],
+    court: 'District & Sessions Court',
+    intro:
+      'Our Panipat chambers sit in the District Court complex. From here we handle commercial suits, MSME recovery and trial-court work for businesses, families and individuals, in Haryana and wherever else in India a matter takes us.',
+    practices: ['commercial-suits-arbitration', 'msme-recovery', 'cheque-dishonour', 'civil-litigation', 'criminal-law', 'family-matrimonial'],
+    mapQuery: 'District Court, Panipat, Haryana',
   },
 ]
 

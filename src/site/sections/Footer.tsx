@@ -75,7 +75,7 @@ export function Footer() {
           advertisement or solicitation.
         </p>
         <p>
-          © {new Date().getFullYear()} Leeladhar Law Chambers. Mock-up: figures, client stories and events are
+          © {new Date().getFullYear()} Leeladhar Law Chambers. Mock-up: client stories are
           placeholders.
         </p>
       </div>

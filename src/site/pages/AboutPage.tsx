@@ -2,14 +2,14 @@ import { Link } from 'react-router-dom'
 import { CtaBanner } from '../components/CtaBanner'
 import { PageBanner } from '../components/PageBanner'
 import { PracticeArt } from '../components/PracticeArt'
-import { offices } from '../data'
+import { offices, practisingSince, yearsOfExperience } from '../data'
 import { Team } from '../sections/Team'
 import { usePageTitle } from '../usePageTitle'
 import page from './Page.module.css'
 import styles from './AboutPage.module.css'
 
 const principles = [
-  { title: 'One advocate, start to finish', body: 'The person you first meet leads your matter and appears for the hearings.' },
+  { title: 'One partner, start to finish', body: 'The partner you first meet leads your matter and appears for the hearings.' },
   { title: 'Plain words', body: 'You hear what the law says about your situation without jargon, including when the honest answer is “don’t litigate”.' },
   { title: 'Fees agreed upfront', body: 'Drafting is quoted as a fixed fee; court work is billed per appearance, set out before work starts.' },
   { title: 'A call after every hearing', body: 'The same evening, you hear what happened and what comes next.' },
@@ -22,7 +22,7 @@ export function AboutPage() {
     <>
       <PageBanner
         title="About Leeladhar Law Chambers"
-        lead="Shaping outcomes through preparation, plain advice and steady representation."
+        lead={`First-generation lawyers, in practice since ${practisingSince}: ${yearsOfExperience()} years of preparation, plain advice and steady representation.`}
         crumbs={[{ label: 'About us' }]}
       />
 
@@ -36,18 +36,24 @@ export function AboutPage() {
             <span className={page.rule} aria-hidden="true" />
             <div className={`${page.prose} ${styles.copy}`}>
               <p>
-                Leeladhar Law Chambers is a practice of advocates with chambers at the District Court in Panipat and at
-                the Punjab &amp; Haryana High Court in Chandigarh.
+                Leeladhar Law Chambers has been in practice since {practisingSince}, with chambers at the Punjab &amp;
+                Haryana High Court in Chandigarh and the District Court in Panipat. Our practice is not limited to
+                either city: we take on matters across India, for clients in Haryana, Rajasthan, Delhi, Maharashtra,
+                Karnataka and beyond.
               </p>
               <p>
-                Working from both courts means a matter that begins in Panipat, a bail application, a civil suit or a
-                family dispute, can be carried to the High Court by the same people, without starting again with a new
-                lawyer who has to learn the file.
+                A matter that begins in a trial court, a commercial suit, an MSME claim or a bail application, is
+                carried to the High Court by the same team, without starting again with a new lawyer who has to learn
+                the file.
               </p>
               <p>
-                We act for individuals, families, traders and businesses across Haryana and Punjab, in civil, criminal,
-                family, property, consumer, service and constitutional matters.{' '}
+                We act for manufacturers, exporters, traders, MSMEs, families and individuals, in commercial, civil,
+                criminal, family, property, consumer, service and constitutional matters.{' '}
                 <Link to="/practice-areas">See our practice areas</Link>.
+              </p>
+              <p>
+                The chambers is now being constituted as a limited liability partnership (LLP), with its advocates as
+                partners.
               </p>
             </div>
             <ul role="list" className={styles.places}>
@@ -64,14 +70,43 @@ export function AboutPage() {
         </div>
       </section>
 
-      <section className={`${page.section} ${page.sunken}`} aria-labelledby="principles">
+      <section id="story" className={`${page.section} ${page.sunken}`} aria-labelledby="story-title">
         <div className={`container ${styles.split} ${styles.flip}`}>
+          <div>
+            <h2 id="story-title" className="t-h1">
+              First-generation lawyers
+            </h2>
+            <span className={page.rule} aria-hidden="true" />
+            <div className={`${page.prose} ${styles.copy}`}>
+              <p>
+                Neither of our partners was born into the profession. There was no family chamber to inherit, no
+                senior’s practice handed down and no list of clients waiting. Since {practisingSince}, the practice has
+                been built one matter at a time, on the strength of the work and on the word of clients who came back
+                and sent others.
+              </p>
+              <p>
+                That beginning shapes how we work. We remember walking into court without knowing anyone, so we explain
+                every step and never assume a client already knows how the system works.
+              </p>
+              <p>
+                It is also why we work so well with first-generation entrepreneurs: manufacturers, exporters and
+                traders who built something from nothing and want advisers who understand what is at stake.
+              </p>
+            </div>
+          </div>
+          <PracticeArt icon="scroll" index={1} className={styles.art} />
+        </div>
+      </section>
+
+      <section className={page.section} aria-labelledby="principles">
+        <div className={`container ${styles.split}`}>
+          <PracticeArt icon="scale" index={1} className={styles.art} />
           <div>
             <h2 id="principles" className="t-h1">
               A practice defined by care and candour
             </h2>
             <p className={`t-lead ${styles.lead}`}>
-              What clients can expect from us, whichever court their matter is in.
+              What clients can expect from us, whichever court in India their matter is in.
             </p>
             <ul role="list" className={styles.principles}>
               {principles.map((p) => (
@@ -81,13 +116,11 @@ export function AboutPage() {
               ))}
             </ul>
           </div>
-          <PracticeArt icon="scale" index={1} className={styles.art} />
         </div>
       </section>
 
-      <section id="why-us" className={page.section} aria-labelledby="why-us-title">
-        <div className={`container ${styles.split}`}>
-          <PracticeArt icon="handshake" index={2} className={styles.art} />
+      <section id="why-us" className={`${page.section} ${page.sunken}`} aria-labelledby="why-us-title">
+        <div className={`container ${styles.split} ${styles.flip}`}>
           <div>
             <h2 id="why-us-title" className="t-h1">
               Why us
@@ -95,20 +128,22 @@ export function AboutPage() {
             <span className={page.rule} aria-hidden="true" />
             <div className={`${page.prose} ${styles.copy}`}>
               <p>
-                Large firms divide a matter among many hands. We keep it with one advocate who knows the file, the
-                court and you, and who is reachable on the phone.
+                Large firms divide a matter among many hands. We keep it with one partner who knows the file, the court
+                and you, and who is reachable on the phone.
               </p>
               <p>
-                Because we practise in both the trial court and the High Court, we draft every pleading in Panipat with
-                the appeal in mind, and we argue every appeal in Chandigarh knowing exactly how the record was built.
+                Because we practise in both the trial courts and the High Court, we draft every pleading with the appeal
+                in mind, and we argue every appeal knowing exactly how the record was built.
               </p>
             </div>
           </div>
+          <PracticeArt icon="handshake" index={2} className={styles.art} />
         </div>
       </section>
 
-      <section id="values" className={`${page.section} ${page.sunken}`} aria-labelledby="values-title">
-        <div className={`container ${styles.split} ${styles.flip}`}>
+      <section id="values" className={page.section} aria-labelledby="values-title">
+        <div className={`container ${styles.split}`}>
+          <PracticeArt icon="shield" index={0} className={styles.art} />
           <div>
             <h2 id="values-title" className="t-h1">
               Our values
@@ -125,7 +160,6 @@ export function AboutPage() {
               </p>
             </div>
           </div>
-          <PracticeArt icon="shield" index={0} className={styles.art} />
         </div>
       </section>
 
