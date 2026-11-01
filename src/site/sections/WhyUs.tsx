@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { PracticeArt } from '../components/PracticeArt'
+import { ScrollText } from '../motion/ScrollText'
+import { TypeOnView } from '../motion/TypeOnView'
 import styles from './WhyUs.module.css'
 
 const cards = [
@@ -25,11 +27,15 @@ export function WhyUs() {
       <div className={`container ${styles.grid}`}>
         <div className={styles.aside} data-reveal="left">
           <h2 id="why-title" className="t-h1">
-            Counsel you can reach
+            Counsel you can{' '}
+            <em>
+              <TypeOnView text="reach" />
+            </em>
           </h2>
-          <p className={`t-lead ${styles.lead}`}>
-            A small chambers by design, so the advocate you meet is the advocate who argues your case.
-          </p>
+          <ScrollText
+            className={`t-lead ${styles.lead}`}
+            text="A small chambers by design, so **the advocate you meet** is ==the advocate who argues your case==."
+          />
         </div>
         <div className={styles.cards} data-reveal="stagger">
           {cards.map((c, i) => (

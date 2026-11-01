@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useRef, useState, type CSSProperties } from 'react'
 import { ArrowLeft, ArrowRight, Check, Quote } from 'lucide-react'
 import { clients, clientStories, type ClientStory } from '../data'
+import { ScrollText } from '../motion/ScrollText'
+import { TypeOnView } from '../motion/TypeOnView'
 import styles from './Clients.module.css'
 
 function Story({ story }: { story: ClientStory }) {
@@ -30,31 +32,31 @@ function Story({ story }: { story: ClientStory }) {
   )
 }
 
-// Typographic wordmarks stand in for logos. Five styles over a four-column grid,
-// so neighbours never share a look.
+// Typographic wordmarks stand in for logos. Five styles, so neighbours never share a look.
 const marks = ['wide', 'serif', 'condensed', 'serif-caps', 'light'] as const
 
-const PER_ROW = 4
+const ROWS = 3
 
 /**
- * The wall keeps its four-column grid, but every row is a loop that runs left
- * to right and comes round again. Clients are shared out so every row holds at
- * least a full grid's width (27 → 5, 5, 5, 4, 4, 4), and no name shows twice at
- * once. Each row is rendered twice so the loop joins up; the copy is hidden
- * from assistive tech.
+ * The wall runs edge to edge in three long rows (27 → 9, 9, 9). Rows take
+ * turns running left to right and right to left, each at a slightly different
+ * pace, so the wall drifts rather than sliding as one block. Each row is
+ * rendered twice so the loop joins up; the copy is hidden from assistive tech.
  */
 const rows = (() => {
-  const count = Math.max(1, Math.floor(clients.length / PER_ROW))
-  const base = Math.floor(clients.length / count)
-  const extra = clients.length % count
+  const base = Math.floor(clients.length / ROWS)
+  const extra = clients.length % ROWS
   let start = 0
-  return Array.from({ length: count }, (_, r) => {
+  return Array.from({ length: ROWS }, (_, r) => {
     const size = base + (r < extra ? 1 : 0)
     const items = clients.slice(start, start + size).map((c, j) => ({ ...c, i: start + j }))
     start += size
     return items
   })
 })()
+
+/** Seconds per name: a touch slower or faster on each row. */
+const pace = [6.4, 7.6, 7]
 
 function ClientCell({ name, place, i, copy }: { name: string; place: string; i: number; copy?: boolean }) {
   return (
@@ -99,36 +101,50 @@ export function Clients() {
           <h2 id="clients-title" className={styles.eyebrow}>
             Our clients
           </h2>
-          <p className={styles.intro}>
-            We act for manufacturers, exporters, traders, pharmaceutical and healthcare businesses, and MSMEs in
-            Haryana, Rajasthan, Delhi, Maharashtra, Karnataka and more.
-          </p>
+          <ScrollText
+            className={styles.intro}
+            text="We act for **manufacturers, exporters, traders**, pharmaceutical and healthcare businesses, and ==MSMEs== in Haryana, Rajasthan, Delhi, Maharashtra, Karnataka and more."
+          />
         </header>
+      </div>
 
-        <div className={styles.wall}>
-          {rows.map((row, r) => (
-            <div
-              key={r}
-              className={styles.row}
-              data-reveal
-              style={{ '--n': row.length, '--reveal-delay': `${(r % 3) * 70}ms` } as CSSProperties}
-            >
-              <ul role="list" className={styles.loop}>
-                {row.map((c) => (
-                  <ClientCell key={c.name} {...c} />
-                ))}
-                {row.map((c) => (
-                  <ClientCell key={`copy-${c.name}`} {...c} copy />
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+      <div className={styles.wall}>
+        {rows.map((row, r) => (
+          <div
+            key={r}
+            className={styles.row}
+            data-reveal={r % 2 ? 'right' : 'left'}
+            data-dir={r % 2 ? 'rtl' : 'ltr'}
+            style={
+              {
+                '--n': row.length,
+                '--pace': `${pace[r % pace.length]}s`,
+                '--offset': `${-r * 2.3}s`,
+                '--reveal-delay': `${r * 90}ms`,
+              } as CSSProperties
+            }
+          >
+            <ul role="list" className={styles.loop}>
+              {row.map((c) => (
+                <ClientCell key={c.name} {...c} />
+              ))}
+              {row.map((c) => (
+                <ClientCell key={`copy-${c.name}`} {...c} copy />
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
 
       <div className={styles.band}>
         <div className="container">
-          <h3 className={styles.bandTitle} data-reveal>What our clients say about working with us</h3>
+          <h3 className={styles.bandTitle} data-reveal>
+            What our clients{' '}
+            <em>
+              <TypeOnView text="say" />
+            </em>{' '}
+            about working with us
+          </h3>
 
           <ul
             ref={track}

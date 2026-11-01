@@ -28,6 +28,7 @@
 }
 
 .inner {
+  position: relative;
   display: grid;
   justify-items: center;
   gap: var(--space-7);

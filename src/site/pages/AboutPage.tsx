@@ -3,6 +3,8 @@ import { CtaBanner } from '../components/CtaBanner'
 import { PageBanner } from '../components/PageBanner'
 import { PracticeArt } from '../components/PracticeArt'
 import { about, offices, practisingSince } from '../data'
+import { Particles } from '../motion/Particles'
+import { ScrollText } from '../motion/ScrollText'
 import { Team } from '../sections/Team'
 import { usePageTitle } from '../usePageTitle'
 import page from './Page.module.css'
@@ -28,18 +30,18 @@ export function AboutPage() {
 
       <section id="story" className={page.section} aria-labelledby="who">
         <div className={`container ${styles.split}`}>
-          <div className={styles.artWrap} data-reveal="left">
+          <div className={styles.artWrap} data-reveal="wipe">
             <PracticeArt icon="landmark" index={0} className={styles.art} />
           </div>
           <div>
             <h2 id="who" className="t-h1" data-reveal>
               Who we are
             </h2>
-            <span className={page.rule} aria-hidden="true" />
-            <div className={`${page.prose} ${styles.copy}`} data-reveal="stagger">
-              <p className={styles.vision}>{about.vision}</p>
+            <span className={page.rule} aria-hidden="true" data-reveal="wipe" />
+            <div className={`${page.prose} ${styles.copy}`}>
+              <ScrollText className={styles.vision} text={about.vision} />
               {about.story.map((p) => (
-                <p key={p}>{p}</p>
+                <ScrollText key={p} text={p} />
               ))}
             </div>
             <ul role="list" className={styles.places} data-reveal="stagger">
@@ -57,10 +59,9 @@ export function AboutPage() {
       </section>
 
       <section className={styles.legacy} aria-label="Our motto">
+        <Particles tone="dark" density={0.8} />
         <div className={`container ${styles.legacyInner}`}>
-          <p className={styles.legacyQuote} data-reveal>
-            {about.legacy}
-          </p>
+          <ScrollText tone="dark" className={styles.legacyQuote} text="No inherited legacy. Just a **legacy in the making**." />
           <p className={styles.legacyTagline} data-reveal style={{ ['--reveal-delay' as string]: '180ms' }}>
             Decoding Law <span aria-hidden="true">|</span>
             <span className="visually-hidden">,</span> Delivering Solutions
@@ -70,7 +71,7 @@ export function AboutPage() {
 
       <section className={page.section} aria-labelledby="principles">
         <div className={`container ${styles.split}`}>
-          <div className={styles.artWrap} data-reveal="left">
+          <div className={styles.artWrap} data-reveal="wipe">
             <PracticeArt icon="scale" index={1} className={styles.art} />
           </div>
           <div>
@@ -97,7 +98,7 @@ export function AboutPage() {
             <h2 id="why-us-title" className="t-h1" data-reveal>
               Why us
             </h2>
-            <span className={page.rule} aria-hidden="true" />
+            <span className={page.rule} aria-hidden="true" data-reveal="wipe" />
             <div className={`${page.prose} ${styles.copy}`} data-reveal="stagger">
               <p>
                 Large firms divide a matter among many hands. We keep it with one partner who knows the file, the court
@@ -109,7 +110,7 @@ export function AboutPage() {
               </p>
             </div>
           </div>
-          <div className={styles.artWrap} data-reveal="right">
+          <div className={styles.artWrap} data-reveal="wipe">
             <PracticeArt icon="handshake" index={2} className={styles.art} />
           </div>
         </div>
@@ -117,14 +118,14 @@ export function AboutPage() {
 
       <section id="values" className={page.section} aria-labelledby="values-title">
         <div className={`container ${styles.split}`}>
-          <div className={styles.artWrap} data-reveal="left">
+          <div className={styles.artWrap} data-reveal="wipe">
             <PracticeArt icon="shield" index={0} className={styles.art} />
           </div>
           <div>
             <h2 id="values-title" className="t-h1" data-reveal>
               Our values
             </h2>
-            <span className={page.rule} aria-hidden="true" />
+            <span className={page.rule} aria-hidden="true" data-reveal="wipe" />
             <div className={`${page.prose} ${styles.copy}`} data-reveal="stagger">
               <p>
                 We conduct our practice in keeping with the Bar Council of India’s standards of professional conduct:

@@ -27,6 +27,11 @@
   height: 100%;
 }
 
+.title em {
+  font-style: normal;
+  color: var(--teal-300);
+}
+
 .copy {
   max-width: 46rem;
 }

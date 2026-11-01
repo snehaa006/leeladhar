@@ -10,7 +10,7 @@ export function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={`container ${styles.top}`}>
-        <div className={styles.brand}>
+        <div data-reveal="left" className={styles.brand}>
           <Logo tone="cream" size={44} />
           <p className={styles.motto}>{about.legacy}</p>
           <dl className={styles.reach}>
@@ -33,7 +33,7 @@ export function Footer() {
           </dl>
         </div>
 
-        <nav aria-label="Footer" className={styles.cols}>
+        <nav data-reveal="stagger" aria-label="Footer" className={styles.cols}>
           <div>
             <h2 className={styles.colTitle}>Quick links</h2>
             <ul role="list">

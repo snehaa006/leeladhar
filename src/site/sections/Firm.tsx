@@ -1,6 +1,8 @@
 import { ArrowRight } from 'lucide-react'
 import { Button } from '../../design-system'
-import { CountUp } from '../components/CountUp'
+import { CountUp } from '../motion/CountUp'
+import { ScrollText } from '../motion/ScrollText'
+import { TypeOnView } from '../motion/TypeOnView'
 import { HighCourtFrame } from '../components/HighCourtFrame'
 import { about, forums, practisingSince } from '../data'
 import styles from './Firm.module.css'
@@ -16,7 +18,10 @@ export function Firm() {
               About us
             </p>
             <h2 id="firm-title" className={`t-h1 ${styles.title}`} data-reveal style={{ ['--reveal-delay' as string]: '80ms' }}>
-              No inherited legacy. Just a <em>legacy in the making.</em>
+              No inherited legacy. Just a{' '}
+              <em>
+                <TypeOnView text="legacy in the making." />
+              </em>
             </h2>
             <dl className={styles.stats} data-reveal="stagger" style={{ ['--reveal-delay' as string]: '160ms' }}>
               <div>
@@ -34,18 +39,9 @@ export function Firm() {
             </dl>
           </div>
           <div className={styles.copy}>
-            <p className="t-lead" data-reveal="right">
-              {about.vision}
-            </p>
-            {about.story.map((p, i) => (
-              <p
-                key={p}
-                className={`t-body ${styles.body}`}
-                data-reveal="right"
-                style={{ ['--reveal-delay' as string]: `${(i + 1) * 90}ms` }}
-              >
-                {p}
-              </p>
+            <ScrollText text={about.vision} className={`t-lead ${styles.lead}`} />
+            {about.story.map((p) => (
+              <ScrollText key={p} text={p} className={`t-body ${styles.body}`} />
             ))}
             <div data-reveal style={{ ['--reveal-delay' as string]: '200ms' }}>
               <Button href="/about" variant="ghost" className={styles.more} icon={<ArrowRight />}>

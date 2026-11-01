@@ -1,7 +1,7 @@
-import type { CSSProperties } from 'react'
+import type { CSSProperties, HTMLAttributes } from 'react'
 import styles from './Portrait.module.css'
 
-type PortraitProps = {
+type PortraitProps = Omit<HTMLAttributes<HTMLElement>, 'className' | 'style'> & {
   src: string
   alt: string
   /** Name shown in the round badge, after the conference-screen portrait. */
@@ -28,9 +28,11 @@ export function Portrait({
   aspect = '4/5',
   className,
   style,
+  ...rest
 }: PortraitProps) {
   return (
     <figure
+      {...rest}
       className={[styles.portrait, className].filter(Boolean).join(' ')}
       data-duotone={duotone}
       data-reveal={revealOnHover || undefined}

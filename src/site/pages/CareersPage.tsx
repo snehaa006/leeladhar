@@ -72,7 +72,7 @@ export function CareersPage() {
       <section className={`${page.section} ${page.sunken}`} aria-labelledby="life">
         <div className="container">
           <SectionHead id="life" title="Life at Leeladhar Law Chambers" />
-          <ol role="list" className={styles.steps}>
+          <ol data-reveal="stagger" role="list" className={styles.steps}>
             {life.map((l, i) => (
               <li key={l.title}>
                 <span className={styles.num} aria-hidden="true">

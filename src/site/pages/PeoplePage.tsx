@@ -63,7 +63,7 @@ export function PeoplePage() {
             {visible.length === 0 ? (
               <p className={`${page.empty} ${styles.empty}`}>No one matches that search.</p>
             ) : (
-              <ul role="list" className={styles.grid}>
+              <ul data-reveal="stagger" role="list" className={styles.grid}>
                 {visible.map((m) => (
                   <li key={m.slug}>
                     <Link to={`/people/${m.slug}`} className={styles.card}>

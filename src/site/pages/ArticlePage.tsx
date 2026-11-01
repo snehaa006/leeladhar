@@ -46,7 +46,7 @@ export function ArticlePage() {
           <article className={page.prose}>
             <p className={styles.lede}>{article.excerpt}</p>
             {article.sections.map((s, i) => (
-              <section key={i}>
+              <section data-reveal key={i}>
                 {s.heading && <h2>{s.heading}</h2>}
                 {s.paragraphs.map((p) => (
                   <p key={p}>{p}</p>
@@ -73,7 +73,7 @@ export function ArticlePage() {
             <h2 id="latest" className={page.sideTitle}>
               Latest insights
             </h2>
-            <ul role="list" className={styles.latest}>
+            <ul data-reveal="stagger" role="list" className={styles.latest}>
               {latest.map((i) => (
                 <li key={i.slug}>
                   <Link to={`/insights/${i.slug}`}>

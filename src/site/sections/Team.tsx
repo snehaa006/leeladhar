@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Mail, Phone } from 'lucide-react'
 import { Button, Orbit } from '../../design-system'
 import { contact, team, tel } from '../data'
+import { Particles } from '../motion/Particles'
+import { ScrollText } from '../motion/ScrollText'
+import { TypeOnView } from '../motion/TypeOnView'
 import styles from './Team.module.css'
 
 /**
@@ -11,6 +14,7 @@ import styles from './Team.module.css'
 export function Team() {
   return (
     <section id="team" className={styles.section} aria-labelledby="team-title">
+      <Particles tone="dark" density={0.7} />
       <Orbit
         className={styles.orbit}
         tone="dark"
@@ -22,12 +26,16 @@ export function Team() {
         <header className={styles.header} data-reveal="left">
           <p className={styles.eyebrow}>Key individuals</p>
           <h2 id="team-title" className={`t-h1 ${styles.title}`}>
-            The partners who will stand beside you
+            The partners who will{' '}
+            <em>
+              <TypeOnView text="stand beside you" />
+            </em>
           </h2>
-          <p className={`t-lead ${styles.intro}`}>
-            Every matter is led by a partner, from the first call to the final order, wherever in India it is
-            heard. You always know whose number to dial.
-          </p>
+          <ScrollText
+            tone="dark"
+            className={`t-lead ${styles.intro}`}
+            text="Every matter is **led by a partner**, from the first call to the final order, wherever in India it is heard. You always know ==whose number to dial==."
+          />
           <dl className={styles.direct}>
             <div>
               <dt>Call</dt>
@@ -51,7 +59,14 @@ export function Team() {
           {team.map((m) => (
             <li key={m.slug}>
               <article className={styles.card} aria-labelledby={`member-${m.slug}`}>
-                <img className={styles.photo} src={m.photo} alt={`Portrait of ${m.name}`} loading="lazy" decoding="async" />
+                <img
+                  className={styles.photo}
+                  src={m.photo}
+                  alt={`Portrait of ${m.name}`}
+                  loading="lazy"
+                  decoding="async"
+                  data-parallax="0.05"
+                />
                 <div className={styles.actions}>
                   <a href={`mailto:${contact.email}`} aria-label={`Email ${m.name}`}>
                     <Mail aria-hidden="true" />

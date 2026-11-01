@@ -1,17 +1,21 @@
 import { Link } from 'react-router-dom'
 import { MapPin } from 'lucide-react'
 import { offices } from '../data'
+import { Particles } from '../motion/Particles'
+import { ScrollText } from '../motion/ScrollText'
 import styles from './StatementBand.module.css'
 
 /** One large sentence on a coloured band, after the offices statement on duaassociates.com. */
 export function StatementBand() {
   return (
     <section className={styles.band} aria-label="Our chambers">
+      <Particles tone="dark" density={0.5} />
       <div className={`container ${styles.inner}`}>
-        <p className={styles.statement} data-reveal>
-          From the trial court to the High Court, in Haryana or anywhere else in India, the same team takes your matter
-          from the first hearing to the last appeal.
-        </p>
+        <ScrollText
+          tone="dark"
+          className={styles.statement}
+          text="From the trial court to the High Court, in Haryana or anywhere else in India, **the same team** takes your matter from the first hearing to the last appeal."
+        />
         <ul role="list" className={styles.places} data-reveal="stagger" style={{ ['--reveal-delay' as string]: '200ms' }}>
           {offices.map((o) => (
             <li key={o.slug}>

@@ -35,7 +35,7 @@ export function ContactPage() {
             </div>
           </div>
 
-          <aside className={styles.info} aria-labelledby="info-title">
+          <aside data-reveal="right" className={styles.info} aria-labelledby="info-title">
             <h2 id="info-title" className={styles.infoTitle}>
               Contact info
             </h2>
@@ -76,7 +76,7 @@ export function ContactPage() {
       <section className={`${page.section} ${page.sunken}`} aria-labelledby="presence">
         <div className="container">
           <SectionHead id="presence" title="Our presence" lead="Two chambers, at the High Court and the District Court, serving clients across India." />
-          <ul role="list" className={`${page.grid2} ${styles.offices}`}>
+          <ul data-reveal="stagger" role="list" className={`${page.grid2} ${styles.offices}`}>
             {offices.map((o) => (
               <li key={o.slug}>
                 <OfficeCard office={o} />

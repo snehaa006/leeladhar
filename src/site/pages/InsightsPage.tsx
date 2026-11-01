@@ -49,7 +49,7 @@ export function InsightsPage() {
               <Search aria-hidden="true" />
             </label>
             <h2 className={`${page.sideTitle} ${styles.catTitle}`}>Categories</h2>
-            <ul role="list" className={page.sideList}>
+            <ul data-reveal="stagger" role="list" className={page.sideList}>
               <li>
                 <Link to="/insights" aria-current={!current ? 'page' : undefined}>
                   All insights <span className={styles.count}>{insights.length}</span>
@@ -74,7 +74,7 @@ export function InsightsPage() {
               {visible.length === 0 ? (
                 <p className={`${page.empty} ${styles.list}`}>Nothing matches “{q}”. Try another word.</p>
               ) : (
-                <ul role="list" className={`${page.grid2} ${styles.list}`}>
+                <ul data-reveal="stagger" role="list" className={`${page.grid2} ${styles.list}`}>
                   {visible.map((i, n) => (
                     <li key={i.slug}>
                       <InsightCard insight={i} index={n} />

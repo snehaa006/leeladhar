@@ -65,12 +65,19 @@ cream, so it is kept for large words (`--highlight`), lines and icons.
 
 ## Motion
 
-- Add `data-reveal` (`up` by default, or `left`, `right`, `zoom`, `fade`) to fade an element in as it scrolls into
-  view and back out as it leaves, in both directions; `data-reveal="stagger"` brings a list's children in one after
-  another, and `--reveal-delay` offsets either. `useScrollReveal()` in the layout drives it. Nothing is hidden for
-  visitors who ask for reduced motion.
-- The client wall loops each row left to right, the courts strip runs as a ticker; both pause on hover.
-- `CountUp` counts the home-page figures up as they come into view.
+Everything lives in `src/site/motion/` and switches off for visitors who ask for reduced motion.
+
+- `ScrollText` reads a paragraph in word by word as it scrolls up the screen and fades it again on the way back;
+  phrases marked `**teal**` or `==brick==` take their colour and a highlighter stroke once read.
+- `TypeOnView` types a heading's emphasised words behind a caret each time they come into view; `Typewriter`
+  rotates the practice areas in the hero.
+- `Particles` drifts dots behind the hero and the dark bands; `CountUp` counts the home-page figures.
+- Add `data-reveal` (`up` by default, or `left`, `right`, `zoom`, `fade`, `blur`, `wipe`) to fade an element in as
+  it scrolls into view and out as it leaves, in both directions; `data-reveal="stagger"` brings a list's children in
+  one after another, and `--reveal-delay` offsets either. `data-parallax="0.08"` makes an element drift against
+  the scroll.
+- The client wall runs edge to edge in three rows that alternate direction at slightly different speeds; the
+  courts strip runs as a ticker; both pause on hover. A bar at the top of the window tracks reading progress.
 
 ## Notes
 

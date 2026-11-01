@@ -62,7 +62,7 @@ export function PracticeArt({
   return (
     <div className={[styles.art, className].filter(Boolean).join(' ')} data-hue={index % 3} aria-hidden="true">
       <Orbit className={styles.orbit} tone="dark" animate={false} viewBox="0 0 1200 680" rings={layouts[index % 3]} />
-      <Icon className={styles.icon} strokeWidth={0.6} />
+      <Icon className={styles.icon} strokeWidth={0.6} data-parallax="0.07" />
       {number !== undefined && <span className={styles.number}>{String(number).padStart(2, '0')}</span>}
     </div>
   )
