@@ -4,6 +4,7 @@ import { AboutPage } from './site/pages/AboutPage'
 import { ArticlePage } from './site/pages/ArticlePage'
 import { CareersPage } from './site/pages/CareersPage'
 import { ContactPage } from './site/pages/ContactPage'
+import { CreditsPage } from './site/pages/CreditsPage'
 import { HomePage } from './site/pages/HomePage'
 import { InsightsPage } from './site/pages/InsightsPage'
 import { LocationPage } from './site/pages/LocationPage'
@@ -29,6 +30,7 @@ export function App() {
           <Route path="careers" element={<CareersPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="locations/:slug" element={<LocationPage />} />
+          <Route path="credits" element={<CreditsPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

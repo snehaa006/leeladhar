@@ -34,7 +34,7 @@ export function PracticeExplorer({ headingLevel = 2 }: { headingLevel?: 2 | 3 })
 
   return (
     <div className={styles.stage}>
-      <PracticeArt key={area.slug} icon={area.icon} index={active} className={styles.visual} />
+      <PracticeArt key={area.slug} icon={area.icon} index={active} photo={area.photo} className={styles.visual} />
 
       <div className={`container ${styles.inner}`}>
         <div className={styles.listPanel}>
@@ -73,7 +73,7 @@ export function PracticeExplorer({ headingLevel = 2 }: { headingLevel?: 2 | 3 })
           aria-labelledby={`${base}-tab-${active}`}
           className={styles.card}
         >
-          <PracticeArt icon={area.icon} index={active} className={styles.cardArt} />
+          <PracticeArt icon={area.icon} index={active} photo={area.photo} className={styles.cardArt} />
           <p className={styles.kicker}>
             {String(active + 1).padStart(2, '0')} / {String(practiceAreas.length).padStart(2, '0')}
           </p>

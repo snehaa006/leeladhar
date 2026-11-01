@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowUpRight } from 'lucide-react'
 import { CtaBanner } from '../components/CtaBanner'
 import { PageBanner } from '../components/PageBanner'
+import { photos } from '../content/photos'
 import { PracticeArt } from '../components/PracticeArt'
 import { PracticeExplorer } from '../components/PracticeExplorer'
 import { SectionHead } from '../components/SectionHead'
@@ -18,6 +19,7 @@ export function PracticeAreasPage() {
         title="Our practice areas"
         lead="The work we take on for clients across India, in the trial courts, tribunals and the Punjab & Haryana High Court. Choose an area to see what it covers."
         crumbs={[{ label: 'Practice areas' }]}
+        photo={photos.scales}
       />
 
       <section className={`${page.section} ${page.sunken}`} aria-label="Explore practice areas">
@@ -32,7 +34,7 @@ export function PracticeAreasPage() {
               <li key={p.slug}>
                 <article className={styles.card}>
                   <div className={styles.thumb}>
-                    <PracticeArt icon={p.icon} index={i} number={i + 1} className={styles.art} />
+                    <PracticeArt icon={p.icon} index={i} number={i + 1} photo={p.photo} className={styles.art} />
                     <span className={styles.arrow} aria-hidden="true">
                       <ArrowUpRight />
                     </span>

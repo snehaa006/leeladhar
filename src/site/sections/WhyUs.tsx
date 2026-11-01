@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { PracticeArt } from '../components/PracticeArt'
+import { photos } from '../content/photos'
 import { ScrollText } from '../motion/ScrollText'
 import { TypeOnView } from '../motion/TypeOnView'
 import styles from './WhyUs.module.css'
@@ -11,12 +12,14 @@ const cards = [
     title: 'Why us',
     body: 'One advocate leads your matter from the first call to the final order, in the trial court and the High Court alike. You always know whose number to dial.',
     icon: 'scale' as const,
+    photo: photos.scales,
   },
   {
     id: 'values',
     title: 'Our values',
     body: 'Plain words, honest odds, fees agreed upfront and a call after every hearing. We would rather tell you not to litigate than take a case we can’t help with.',
     icon: 'handshake' as const,
+    photo: photos.signing,
   },
 ]
 
@@ -40,7 +43,7 @@ export function WhyUs() {
         <div className={styles.cards} data-reveal="stagger">
           {cards.map((c, i) => (
             <article key={c.id} className={styles.card} data-flip={i % 2 === 1 || undefined}>
-              <PracticeArt icon={c.icon} index={i + 1} className={styles.art} />
+              <PracticeArt icon={c.icon} index={i + 1} photo={c.photo} className={styles.art} />
               <div className={styles.body}>
                 <h3 className={styles.title}>{c.title}</h3>
                 <p>{c.body}</p>

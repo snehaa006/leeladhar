@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { CtaBanner } from '../components/CtaBanner'
 import { PageBanner } from '../components/PageBanner'
 import { PracticeArt } from '../components/PracticeArt'
+import { photos } from '../content/photos'
 import { about, offices, practisingSince } from '../data'
 import { Particles } from '../motion/Particles'
 import { ScrollText } from '../motion/ScrollText'
@@ -26,12 +27,13 @@ export function AboutPage() {
         title="About Leeladhar Law Chambers"
         lead={`Founded by first-generation lawyers, in practice since ${practisingSince}.`}
         crumbs={[{ label: 'About us' }]}
+        photo={photos.courtroom}
       />
 
       <section id="story" className={page.section} aria-labelledby="who">
         <div className={`container ${styles.split}`}>
           <div className={styles.artWrap} data-reveal="wipe">
-            <PracticeArt icon="landmark" index={0} className={styles.art} />
+            <PracticeArt icon="landmark" index={0} photo={photos.lawBooks} className={styles.art} />
           </div>
           <div>
             <h2 id="who" className="t-h1" data-reveal>
@@ -72,7 +74,7 @@ export function AboutPage() {
       <section className={page.section} aria-labelledby="principles">
         <div className={`container ${styles.split}`}>
           <div className={styles.artWrap} data-reveal="wipe">
-            <PracticeArt icon="scale" index={1} className={styles.art} />
+            <PracticeArt icon="scale" index={1} photo={photos.ladyJustice} className={styles.art} />
           </div>
           <div>
             <h2 id="principles" className="t-h1" data-reveal>
@@ -111,7 +113,7 @@ export function AboutPage() {
             </div>
           </div>
           <div className={styles.artWrap} data-reveal="wipe">
-            <PracticeArt icon="handshake" index={2} className={styles.art} />
+            <PracticeArt icon="handshake" index={2} photo={photos.handshake} className={styles.art} />
           </div>
         </div>
       </section>
@@ -119,7 +121,7 @@ export function AboutPage() {
       <section id="values" className={page.section} aria-labelledby="values-title">
         <div className={`container ${styles.split}`}>
           <div className={styles.artWrap} data-reveal="wipe">
-            <PracticeArt icon="shield" index={0} className={styles.art} />
+            <PracticeArt icon="shield" index={0} photo={photos.justiceStatue} className={styles.art} />
           </div>
           <div>
             <h2 id="values-title" className="t-h1" data-reveal>

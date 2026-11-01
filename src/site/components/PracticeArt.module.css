@@ -19,6 +19,33 @@
     linear-gradient(200deg, var(--teal-600), var(--teal-950));
 }
 
+/* Photograph, then a teal wash so the orbit lines and numerals stay legible and every photo sits in the palette. */
+.photo {
+  position: absolute;
+  inset: -8% 0;
+  z-index: -3;
+  width: 100%;
+  height: 116%;
+  object-fit: cover;
+  filter: saturate(0.9) contrast(1.04);
+  transition: scale 900ms var(--ease-out);
+}
+
+.art[data-photo]::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(180deg, rgba(23, 56, 54, 0.05) 30%, rgba(23, 56, 54, 0.55) 100%),
+    linear-gradient(135deg, rgba(35, 79, 76, 0.42), rgba(194, 64, 31, 0.12));
+}
+
+:global(a:hover) .photo,
+:global(article:hover) .photo {
+  scale: 1.05;
+}
+
 .orbit {
   position: absolute;
   inset: 0;

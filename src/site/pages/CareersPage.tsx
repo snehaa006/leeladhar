@@ -2,6 +2,7 @@ import { useState, type FormEvent } from 'react'
 import { ArrowUpRight, Check, Upload } from 'lucide-react'
 import { Button, SelectField, TextArea, TextField } from '../../design-system'
 import { PageBanner } from '../components/PageBanner'
+import { photos } from '../content/photos'
 import { SectionHead } from '../components/SectionHead'
 import { contact } from '../data'
 import { usePageTitle } from '../usePageTitle'
@@ -67,6 +68,7 @@ export function CareersPage() {
         title="Careers"
         lead="Internships for law students and openings for young advocates who want to learn trial and High Court practice."
         crumbs={[{ label: 'Careers' }]}
+        photo={photos.lawBooks2}
       />
 
       <section className={`${page.section} ${page.sunken}`} aria-labelledby="life">

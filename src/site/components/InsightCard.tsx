@@ -10,7 +10,7 @@ export function InsightCard({ insight, index }: { insight: Insight; index: numbe
   return (
     <article className={styles.card}>
       <div className={styles.thumb}>
-        {area && <PracticeArt icon={area.icon} index={index} className={styles.art} />}
+        {area && <PracticeArt icon={area.icon} index={index} photo={area.photo} className={styles.art} />}
         <span className={styles.category}>{categoryLabel(insight.category)}</span>
       </div>
       <div className={styles.body}>

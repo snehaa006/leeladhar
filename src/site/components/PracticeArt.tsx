@@ -15,6 +15,7 @@ import {
   type LucideIcon,
 } from 'lucide-react'
 import { Orbit } from '../../design-system'
+import type { Photo } from '../content/photos'
 import type { PracticeIcon } from '../content/practiceAreas'
 import styles from './PracticeArt.module.css'
 
@@ -42,13 +43,14 @@ const layouts = [
 ]
 
 /**
- * Artwork for a practice area: the house orbit motif and a large line icon on
- * a deep teal gradient. Stands in for photography so every area has a visual.
+ * Artwork for a practice area: a photograph under a deep teal wash, with the
+ * house orbit motif over it. Without a photo, a large line icon stands in.
  */
 export function PracticeArt({
   icon,
   index,
   number,
+  photo,
   className,
 }: {
   icon: PracticeIcon
@@ -56,13 +58,30 @@ export function PracticeArt({
   index: number
   /** Large numeral in the corner, for numbered practice-area listings. */
   number?: number
+  photo?: Photo
   className?: string
 }) {
   const Icon = practiceIcons[icon]
   return (
-    <div className={[styles.art, className].filter(Boolean).join(' ')} data-hue={index % 3} aria-hidden="true">
+    <div
+      className={[styles.art, className].filter(Boolean).join(' ')}
+      data-hue={index % 3}
+      data-photo={photo ? true : undefined}
+      aria-hidden="true"
+    >
+      {photo && (
+        <img
+          className={styles.photo}
+          src={photo.src}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          style={{ objectPosition: photo.position }}
+          data-parallax="0.06"
+        />
+      )}
       <Orbit className={styles.orbit} tone="dark" animate={false} viewBox="0 0 1200 680" rings={layouts[index % 3]} />
-      <Icon className={styles.icon} strokeWidth={0.6} data-parallax="0.07" />
+      {!photo && <Icon className={styles.icon} strokeWidth={0.6} data-parallax="0.07" />}
       {number !== undefined && <span className={styles.number}>{String(number).padStart(2, '0')}</span>}
     </div>
   )

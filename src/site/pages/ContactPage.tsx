@@ -3,6 +3,7 @@ import { Clock, Mail, Phone } from 'lucide-react'
 import { ContactForm } from '../components/ContactForm'
 import { OfficeCard } from '../components/OfficeCard'
 import { PageBanner } from '../components/PageBanner'
+import { photos } from '../content/photos'
 import { SectionHead } from '../components/SectionHead'
 import { practiceBySlug } from '../content/practiceAreas'
 import { contact, offices, tel } from '../data'
@@ -22,6 +23,7 @@ export function ContactPage() {
         title="Speak with us for clear guidance"
         lead="Leave your number and a line about the matter. A member of the chambers calls back within one working day."
         crumbs={[{ label: 'Contact us' }]}
+        photo={photos.sealedDeed}
       />
 
       <section className={page.section} aria-labelledby="enquiry">

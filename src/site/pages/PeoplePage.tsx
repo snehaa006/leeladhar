@@ -4,6 +4,7 @@ import { Search } from 'lucide-react'
 import { FilterChip } from '../../design-system'
 import { CtaBanner } from '../components/CtaBanner'
 import { PageBanner } from '../components/PageBanner'
+import { photos } from '../content/photos'
 import { offices, team, type OfficeSlug } from '../data'
 import { usePageTitle } from '../usePageTitle'
 import page from './Page.module.css'
@@ -24,6 +25,7 @@ export function PeoplePage() {
         title="Our people"
         lead="The partners of Leeladhar Law Chambers. Every matter is led by one of them, from the first call to the final order, wherever in India it is heard."
         crumbs={[{ label: 'Our people' }]}
+        photo={photos.gavel}
       />
 
       <section className={page.section} aria-labelledby="people-list">
