@@ -23,7 +23,7 @@ const meta = {
           width: 'min(100vw - 48px, 960px)',
           aspectRatio: '1440 / 860',
           borderRadius: 20,
-          background: ctx.args.tone === 'dark' ? '#1E223D' : '#F6EEDF',
+          background: ctx.args.tone === 'dark' ? '#234F4C' : '#F6F1E9',
           boxShadow: 'inset 0 0 0 1px rgba(21,33,31,.12)',
           overflow: 'hidden',
         }}

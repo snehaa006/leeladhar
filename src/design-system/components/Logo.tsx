@@ -1,6 +1,6 @@
 import styles from './Logo.module.css'
 
-type Tone = 'ink' | 'flame' | 'sand'
+type Tone = 'ink' | 'brick' | 'cream'
 
 type LogoProps = {
   /** `mark` is the monogram alone; `lockup` adds the wordmark and tagline. */

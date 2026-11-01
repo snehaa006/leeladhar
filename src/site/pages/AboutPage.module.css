@@ -37,7 +37,7 @@
   position: absolute;
   z-index: -1;
   inset: -40% -10%;
-  background: radial-gradient(40% 50% at 30% 50%, rgba(245, 79, 27, 0.28), transparent 70%);
+  background: radial-gradient(40% 50% at 30% 50%, rgba(194, 64, 31, 0.28), transparent 70%);
   animation: drift 14s var(--ease-in-out) infinite alternate;
 }
 
@@ -137,7 +137,7 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--flame-500);
+  background: var(--brick-500);
 }
 
 .principles strong {

@@ -11,7 +11,7 @@ export function Footer() {
     <footer className={styles.footer}>
       <div className={`container ${styles.top}`}>
         <div className={styles.brand}>
-          <Logo tone="flame" size={44} />
+          <Logo tone="cream" size={44} />
           <p className={styles.motto}>{about.legacy}</p>
           <dl className={styles.reach}>
             <div>

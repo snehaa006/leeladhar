@@ -49,17 +49,19 @@ To add a practice area, article or event, add an entry in `src/site/content/`; i
 
 ## Palette
 
-The client's palette: Gargoyle Gas, Space Cadet and Orange.
+Three colours from the client's references: cream, brick red and teal.
 
 | Role | Token | Hex | Source |
 | --- | --- | --- | --- |
-| Background | `--sand-100` | `#F6EEDF` | A light tint of Gargoyle Gas |
-| Bands, sunken surfaces | `--sand-200` | `#E6D5B7` | Gargoyle Gas |
-| Primary | `--flame-400` | `#F54F1B` | Orange |
-| Dark sections, text | `--cadet-900` / `--ink-900` | `#1E223D` | Space Cadet |
+| Background | `--cream-100` | `#F6F1E9` | The cream of the “Client wins” reference |
+| Primary | `--brick-400` | `#C2401F` | The red of the “Client wins” reference |
+| Emphasis, orbit lines | `--teal-400` | `#468A86` | The teal of the “Customers” reference |
+| Dark sections | `--teal-900` | `#234F4C` | A deeper shade of that teal, so text on it stays legible |
+| Text | `--ink-900` | `#1A2E2C` | Teal-black |
 
-Orange is never used for small text on sand (3.0:1); use `--accent-text` (`#A7300B`, 5.9:1) there and
-`--accent-on-dark` (`#FF7A4D`, 6.0:1) on Space Cadet. Text on an orange fill is `--text-on-accent` (`#14172B`, 5.1:1).
+Brick on cream is 4.6:1, so it can be text; `--accent-text` (`#AD3719`, 5.6:1) is used for small text, and
+`--accent-on-dark` (`#F8D3C6`, 6.6:1) on teal. Text on a brick fill is cream (4.9:1). The brand teal is 3.6:1 on
+cream, so it is kept for large words (`--highlight`), lines and icons.
 
 ## Motion
 

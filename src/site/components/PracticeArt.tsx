@@ -43,7 +43,7 @@ const layouts = [
 
 /**
  * Artwork for a practice area: the house orbit motif and a large line icon on
- * a Space Cadet gradient. Stands in for photography so every area has a visual.
+ * a deep teal gradient. Stands in for photography so every area has a visual.
  */
 export function PracticeArt({
   icon,

@@ -32,7 +32,7 @@
 }
 
 .head[data-tone='dark'] .title {
-  color: var(--sand-50);
+  color: var(--cream-50);
 }
 
 .head[data-tone='dark'] .lead {

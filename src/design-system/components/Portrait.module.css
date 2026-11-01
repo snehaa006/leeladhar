@@ -1,6 +1,6 @@
 .portrait {
-  --duo-light: var(--sand-100);
-  --duo-dark: var(--cadet-900);
+  --duo-light: var(--cream-100);
+  --duo-dark: var(--teal-900);
 
   position: relative;
   isolation: isolate;
@@ -9,8 +9,8 @@
   background: var(--duo-light);
 }
 
-.portrait[data-duotone='flame'] {
-  --duo-light: var(--flame-200);
+.portrait[data-duotone='brick'] {
+  --duo-light: var(--brick-200);
 }
 
 .portrait img {
@@ -26,7 +26,7 @@
   transition: filter var(--dur-slow) var(--ease-out);
 }
 
-/* lift the blacks to Space Cadet */
+/* lift the blacks to deep teal */
 .portrait::after {
   content: '';
   position: absolute;
@@ -69,7 +69,7 @@ a:focus-visible .portrait[data-reveal]::after {
   height: 84px;
   padding: var(--space-2);
   border-radius: 50%;
-  background: var(--sand-50);
+  background: var(--cream-50);
   box-shadow: var(--shadow-note);
   text-align: center;
 }

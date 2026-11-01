@@ -215,7 +215,7 @@
   bottom: -10%;
   width: min(46vw, 620px);
   aspect-ratio: 1;
-  background: rgba(245, 79, 27, 0.12);
+  background: rgba(194, 64, 31, 0.12);
   clip-path: polygon(100% 0, 100% 100%, 0 100%);
 }
 
@@ -223,12 +223,12 @@
   right: 12%;
   bottom: -30%;
   width: min(30vw, 420px);
-  background: rgba(246, 238, 223, 0.05);
+  background: rgba(246, 241, 233, 0.05);
   clip-path: polygon(50% 0, 100% 100%, 0 100%);
 }
 
 .bandTitle {
-  color: var(--sand-50);
+  color: var(--cream-50);
   font-size: var(--text-2xl);
   font-stretch: var(--wdth-wide);
   font-weight: 500;
@@ -256,7 +256,7 @@
 }
 
 .track:focus-visible {
-  outline: 2px solid var(--flame-400);
+  outline: 2px solid var(--accent-on-dark);
   outline-offset: 6px;
 }
 
@@ -288,7 +288,7 @@
 }
 
 .badge > span:first-child {
-  background: rgba(246, 238, 223, 0.18);
+  background: rgba(246, 241, 233, 0.18);
 }
 
 .badge > span:last-child {
@@ -308,7 +308,7 @@
   margin-top: var(--space-5);
   font-size: var(--text-base);
   line-height: 1.6;
-  color: var(--sand-50);
+  color: var(--cream-50);
 }
 
 .who {
@@ -320,7 +320,7 @@
 }
 
 .whoName {
-  color: var(--sand-50);
+  color: var(--cream-50);
   font-stretch: var(--wdth-wide);
   font-weight: 600;
 }
@@ -360,10 +360,10 @@
   place-items: center;
   width: 52px;
   height: 36px;
-  border: 1px solid rgba(246, 238, 223, 0.5);
+  border: 1px solid rgba(246, 241, 233, 0.5);
   border-radius: var(--radius-pill);
   background: transparent;
-  color: var(--sand-50);
+  color: var(--cream-50);
   cursor: pointer;
   transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
 }
@@ -406,19 +406,19 @@
   content: '';
   width: 12px;
   height: 12px;
-  border: 1px solid var(--sand-50);
+  border: 1px solid var(--cream-50);
   border-radius: 50%;
 }
 
 .dot[aria-current]::before {
   border-color: var(--accent);
   background: var(--accent);
-  box-shadow: 0 0 0 3px rgba(246, 238, 223, 0.25);
+  box-shadow: 0 0 0 3px rgba(246, 241, 233, 0.25);
 }
 
 .arrow:focus-visible,
 .dot:focus-visible {
-  outline: 2px solid var(--flame-400);
+  outline: 2px solid var(--accent-on-dark);
   outline-offset: 3px;
 }
 

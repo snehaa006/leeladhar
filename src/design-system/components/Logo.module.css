@@ -11,16 +11,17 @@
   --logo-text: var(--ink-900);
   --logo-tagline: var(--accent-text);
 }
-/* On a dark ground: an orange monogram with a sand wordmark. */
-[data-tone='flame'] {
-  --logo-fill: var(--flame-400);
-  --logo-text: var(--sand-100);
-  --logo-tagline: var(--accent-on-dark);
+/* A brick monogram beside an ink wordmark, for cream grounds. */
+[data-tone='brick'] {
+  --logo-fill: var(--brick-400);
+  --logo-text: var(--ink-900);
+  --logo-tagline: var(--accent-text);
 }
-[data-tone='sand'] {
-  --logo-fill: var(--sand-100);
-  --logo-text: var(--sand-100);
-  --logo-tagline: var(--sand-200);
+/* For teal grounds. */
+[data-tone='cream'] {
+  --logo-fill: var(--cream-100);
+  --logo-text: var(--cream-100);
+  --logo-tagline: var(--accent-on-dark);
 }
 
 .lockup {

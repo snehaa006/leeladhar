@@ -13,8 +13,8 @@ A 4px base scale. Sections use `--section-y` (72 → 136px) and pages use `--gut
   {tokensIn('space').map((t) => (
     <div key={t.name} style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
       <code style={{ width: 90 }}>{t.cssVar}</code>
-      <span style={{ height: 12, width: t.resolved, borderRadius: 2, background: '#F54F1B' }} />
-      <span style={{ fontSize: 12, color: '#43476A' }}>{t.resolved}</span>
+      <span style={{ height: 12, width: t.resolved, borderRadius: 2, background: '#C2401F' }} />
+      <span style={{ fontSize: 12, color: '#3D4F4D' }}>{t.resolved}</span>
     </div>
   ))}
 </div>
@@ -30,23 +30,23 @@ Radius scales with the size of the element. Never one radius for everything.
         style={{
           width: 88,
           height: 64,
-          background: '#FCF8F1',
+          background: '#FBF8F3',
           border: '1px solid rgba(21,33,31,.24)',
           borderRadius: t.resolved,
         }}
       />
       <code>{t.cssVar}</code>
-      <span style={{ fontSize: 12, color: '#43476A' }}>{t.description}</span>
+      <span style={{ fontSize: 12, color: '#3D4F4D' }}>{t.description}</span>
     </div>
   ))}
 </div>
 
 ## Depth and light
 
-Shadows are tinted with Space Cadet, never neutral grey. The orange glow marks the primary action on hover.
+Shadows are tinted with teal-black, never neutral grey. The brick-red glow marks the primary action on hover.
 
 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 24, margin: '16px 0 32px' }}>
-  {['shadow-note', 'shadow-panel', 'glow-flame'].map((n) => (
+  {['shadow-note', 'shadow-panel', 'glow-brick'].map((n) => (
     <div
       key={n}
       style={{
@@ -54,7 +54,7 @@ Shadows are tinted with Space Cadet, never neutral grey. The orange glow marks t
         placeItems: 'center',
         height: 96,
         borderRadius: 14,
-        background: '#FCF8F1',
+        background: '#FBF8F3',
         boxShadow: `var(--${n})`,
       }}
     >
@@ -67,8 +67,8 @@ Shadows are tinted with Space Cadet, never neutral grey. The orange glow marks t
       placeItems: 'center',
       height: 96,
       borderRadius: 14,
-      background: 'var(--cadet-900) var(--glow-stage)',
-      color: '#F6EEDF',
+      background: 'var(--teal-900) var(--glow-stage)',
+      color: '#F6F1E9',
     }}
   >
     <code>--glow-stage</code>

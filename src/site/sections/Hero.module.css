@@ -68,7 +68,7 @@
 
 .title em {
   font-style: normal;
-  color: var(--accent);
+  color: var(--highlight);
 }
 
 /* The “|” of the tagline, laid on its side between the two lines. */

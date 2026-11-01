@@ -9,12 +9,12 @@ const meta = {
   args: {
     src: photo('photo-1742981365880-698cfb84492d'),
     alt: 'Portrait of Rajiv Malhotra',
-    duotone: 'sand',
+    duotone: 'cream',
     aspect: '4/5',
     revealOnHover: false,
   },
   argTypes: {
-    duotone: { control: 'inline-radio', options: ['sand', 'flame', 'none'] },
+    duotone: { control: 'inline-radio', options: ['cream', 'brick', 'none'] },
     aspect: { control: 'inline-radio', options: ['1/1', '4/5', '3/4', '16/10'] },
   },
   decorators: [
@@ -28,7 +28,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'The house photographic treatment: a cadet-to-sand duotone (CSS blend modes, no image processing) so stock and studio portraits read as one set. ' +
+          'The house photographic treatment: a teal-to-cream duotone (CSS blend modes, no image processing) so stock and studio portraits read as one set. ' +
           'The round name badge echoes the conference-screen portrait.',
       },
     },
@@ -44,8 +44,8 @@ export const WithBadge: Story = {
   args: { badge: 'Rajiv Malhotra' },
 }
 
-export const FlameDuotone: Story = {
-  args: { duotone: 'flame', badge: 'Managing Partner' },
+export const BrickDuotone: Story = {
+  args: { duotone: 'brick', badge: 'Managing Partner' },
 }
 
 export const RevealOnHover: Story = {

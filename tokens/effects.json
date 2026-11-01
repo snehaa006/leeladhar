@@ -1,15 +1,15 @@
 {
   "shadow": {
     "$type": "shadow",
-    "$description": "Shadows are tinted with Space Cadet, never neutral grey.",
-    "note": { "$value": "0 1px 0 rgba(30, 34, 61, 0.04), 0 14px 32px -16px rgba(30, 34, 61, 0.28)", "$description": "Floating matter notes" },
-    "panel": { "$value": "0 1px 0 rgba(30, 34, 61, 0.05), 0 30px 60px -36px rgba(30, 34, 61, 0.45)", "$description": "Large panels" }
+    "$description": "Shadows are tinted with teal-black, never neutral grey.",
+    "note": { "$value": "0 1px 0 rgba(26, 46, 44, 0.04), 0 14px 32px -16px rgba(26, 46, 44, 0.28)", "$description": "Floating matter notes" },
+    "panel": { "$value": "0 1px 0 rgba(26, 46, 44, 0.05), 0 30px 60px -36px rgba(26, 46, 44, 0.45)", "$description": "Large panels" }
   },
   "glow": {
     "$type": "shadow",
-    "$description": "The stagelight — an orange glow for live and actionable moments.",
-    "flame": { "$value": "0 0 0 1px rgba(245, 79, 27, 0.45), 0 0 26px 2px rgba(245, 79, 27, 0.38)", "$description": "Primary button hover, live node" },
-    "stage": { "$value": "radial-gradient(60% 80% at 50% 100%, rgba(245, 79, 27, 0.32), rgba(245, 79, 27, 0) 70%)", "$description": "Glow under a dark block" }
+    "$description": "The stagelight — a brick-red glow for live and actionable moments.",
+    "brick": { "$value": "0 0 0 1px rgba(194, 64, 31, 0.4), 0 0 26px 2px rgba(194, 64, 31, 0.32)", "$description": "Primary button hover, live node" },
+    "stage": { "$value": "radial-gradient(60% 80% at 50% 100%, rgba(194, 64, 31, 0.3), rgba(194, 64, 31, 0) 70%)", "$description": "Glow under a dark block" }
   },
   "ease": {
     "$type": "cubicBezier",

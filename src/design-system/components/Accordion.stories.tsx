@@ -89,7 +89,7 @@ export const PracticeList: Story = {
       },
     ],
   },
-  parameters: { backgrounds: { default: 'cadet' } },
+  parameters: { backgrounds: { default: 'teal' } },
 }
 
 export const AllClosed: Story = {

@@ -40,7 +40,7 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: var(--sand-400);
+  background: var(--cream-400);
 }
 
 .address {
@@ -79,7 +79,7 @@
   align-items: center;
   gap: var(--space-4) var(--space-6);
   padding: var(--space-6) var(--space-7);
-  background: var(--cadet-900);
+  background: var(--teal-900);
   color: var(--text-on-dark);
 }
 
@@ -91,7 +91,7 @@
   height: 72px;
   border-radius: 50%;
   border: 1px solid var(--line-on-dark);
-  color: var(--flame-300);
+  color: var(--brick-300);
 }
 
 .crest svg {
@@ -113,7 +113,7 @@
 }
 
 .title {
-  color: var(--sand-50);
+  color: var(--cream-50);
   font-size: var(--text-xl);
   font-stretch: var(--wdth-expanded);
   font-weight: 540;
@@ -147,7 +147,7 @@
 .shortcuts svg {
   width: 14px;
   height: 14px;
-  color: var(--flame-300);
+  color: var(--brick-300);
 }
 
 .open {

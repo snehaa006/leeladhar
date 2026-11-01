@@ -6,8 +6,8 @@ type PortraitProps = {
   alt: string
   /** Name shown in the round badge, after the conference-screen portrait. */
   badge?: string
-  /** `sand` is the default photographic treatment; `flame` is for hero moments. */
-  duotone?: 'sand' | 'flame' | 'none'
+  /** `cream` is the default photographic treatment; `brick` is for hero moments. */
+  duotone?: 'cream' | 'brick' | 'none'
   /** Reveal natural colour on hover or when an ancestor link is focused. */
   revealOnHover?: boolean
   aspect?: '1/1' | '4/5' | '3/4' | '16/10'
@@ -16,14 +16,14 @@ type PortraitProps = {
 }
 
 /**
- * A photograph in the house treatment: a cadet-to-sand duotone so mixed
+ * A photograph in the house treatment: a teal-to-cream duotone so mixed
  * stock and studio portraits sit together as one set.
  */
 export function Portrait({
   src,
   alt,
   badge,
-  duotone = 'sand',
+  duotone = 'cream',
   revealOnHover = false,
   aspect = '4/5',
   className,

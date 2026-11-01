@@ -2,7 +2,7 @@
   position: relative;
   isolation: isolate;
   padding-block: var(--space-9);
-  background: var(--flame-400);
+  background: var(--brick-400);
   color: var(--text-on-accent);
   overflow: hidden;
 }
@@ -23,7 +23,7 @@
 
 .band::after {
   inset: 0 0 0 60%;
-  background: rgba(20, 23, 43, 0.08);
+  background: rgba(23, 56, 54, 0.1);
   clip-path: polygon(40% 0, 100% 0, 100% 100%, 0 100%);
 }
 
@@ -55,7 +55,7 @@
   align-items: flex-start;
   gap: var(--space-2);
   padding: var(--space-3) var(--space-5) var(--space-3) var(--space-4);
-  border: 1px solid rgba(20, 23, 43, 0.4);
+  border: 1px solid rgba(251, 248, 243, 0.55);
   border-radius: var(--radius-pill);
   color: var(--text-on-accent);
   font-size: var(--text-sm);
@@ -65,12 +65,12 @@
 }
 
 .places a:hover {
-  background: var(--cadet-950);
-  color: var(--sand-100);
+  background: var(--teal-950);
+  color: var(--cream-100);
 }
 
 .places a:focus-visible {
-  outline-color: var(--cadet-950);
+  outline-color: var(--teal-950);
 }
 
 .places strong {

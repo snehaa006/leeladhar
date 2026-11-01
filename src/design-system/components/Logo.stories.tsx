@@ -7,7 +7,7 @@ const meta = {
   args: { variant: 'lockup', tone: 'ink', size: 48 },
   argTypes: {
     variant: { control: 'inline-radio', options: ['lockup', 'mark'] },
-    tone: { control: 'inline-radio', options: ['ink', 'flame', 'sand'] },
+    tone: { control: 'inline-radio', options: ['ink', 'brick', 'cream'] },
     size: { control: { type: 'range', min: 20, max: 160, step: 2 } },
   },
   parameters: {
@@ -26,9 +26,13 @@ type Story = StoryObj<typeof meta>
 
 export const Lockup: Story = {}
 
-export const FlameOnCadet: Story = {
-  args: { tone: 'flame' },
-  parameters: { backgrounds: { default: 'cadet' } },
+export const CreamOnTeal: Story = {
+  args: { tone: 'cream' },
+  parameters: { backgrounds: { default: 'teal' } },
+}
+
+export const Brick: Story = {
+  args: { tone: 'brick' },
 }
 
 export const WithoutTagline: Story = {
@@ -39,12 +43,11 @@ export const Mark: Story = {
   args: { variant: 'mark', size: 120 },
 }
 
-export const MarkOnFlame: Story = {
-  args: { variant: 'mark', size: 120 },
-  parameters: { backgrounds: { default: 'flame' } },
+export const CreamMarkOnBrick: Story = {
+  args: { variant: 'mark', size: 120, tone: 'cream' },
+  parameters: { backgrounds: { default: 'brick' } },
 }
 
-export const FlameMark: Story = {
-  args: { variant: 'mark', size: 120, tone: 'flame' },
-  parameters: { backgrounds: { default: 'cadet' } },
+export const BrickMark: Story = {
+  args: { variant: 'mark', size: 120, tone: 'brick' },
 }

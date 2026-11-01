@@ -2,7 +2,7 @@
   position: relative;
   isolation: isolate;
   padding-block: var(--section-y);
-  background: var(--cadet-950);
+  background: var(--teal-950);
   color: var(--text-on-dark);
   overflow: hidden;
 }
@@ -41,7 +41,7 @@
   height: 8px;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: var(--glow-flame);
+  box-shadow: var(--glow-brick);
 }
 
 .title {
@@ -107,7 +107,7 @@
   display: grid;
   aspect-ratio: 4 / 5;
   border-radius: var(--radius-lg);
-  background: var(--cadet-800);
+  background: var(--teal-800);
   overflow: hidden;
 }
 
@@ -139,8 +139,8 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: rgba(20, 23, 43, 0.55);
-  color: var(--sand-100);
+  background: rgba(23, 56, 54, 0.55);
+  color: var(--cream-100);
   backdrop-filter: blur(6px);
   transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
 }
@@ -160,11 +160,11 @@
   grid-area: 1 / 1;
   align-self: end;
   padding: 30% var(--space-5) var(--space-5);
-  background: linear-gradient(to top, rgba(20, 23, 43, 0.92), rgba(20, 23, 43, 0));
+  background: linear-gradient(to top, rgba(23, 56, 54, 0.92), rgba(23, 56, 54, 0));
 }
 
 .name {
-  color: var(--sand-50);
+  color: var(--cream-50);
   font-size: var(--text-xl);
   font-stretch: var(--wdth-expanded);
   font-weight: 560;
@@ -189,7 +189,7 @@
 }
 
 .card:has(.name a:focus-visible) {
-  outline: 2px solid var(--flame-400);
+  outline: 2px solid var(--accent-on-dark);
   outline-offset: 4px;
 }
 
@@ -202,7 +202,7 @@
   align-items: center;
   gap: var(--space-2);
   margin-top: var(--space-2);
-  color: var(--flame-300);
+  color: var(--accent-on-dark);
   font-size: var(--text-sm);
   font-weight: 560;
 }

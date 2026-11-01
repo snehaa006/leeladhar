@@ -45,7 +45,7 @@ export const Ghost: Story = {
 
 export const GhostOnDark: Story = {
   args: { variant: 'ghost-dark', children: 'Send another request' },
-  parameters: { backgrounds: { default: 'cadet' } },
+  parameters: { backgrounds: { default: 'teal' } },
 }
 
 export const Link: Story = {
