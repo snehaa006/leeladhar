@@ -18,7 +18,7 @@ export function SectionHead({
   as?: 'h1' | 'h2'
 }) {
   return (
-    <header className={styles.head} data-align={align} data-tone={tone}>
+    <header className={styles.head} data-align={align} data-tone={tone} data-reveal>
       <Tag id={id} className={`t-h1 ${styles.title}`}>
         {title}
       </Tag>

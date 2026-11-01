@@ -4,6 +4,6 @@ const SITE = 'Leeladhar Law Chambers'
 
 export function usePageTitle(title?: string) {
   useEffect(() => {
-    document.title = title ? `${title} | ${SITE}` : `${SITE} | Advocates, Panipat & Chandigarh`
+    document.title = title ? `${title} | ${SITE}` : `${SITE} | Decoding Law, Delivering Solutions`
   }, [title])
 }

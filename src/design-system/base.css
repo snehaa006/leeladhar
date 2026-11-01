@@ -75,7 +75,7 @@ a {
 }
 
 ::selection {
-  background: var(--mint-200);
+  background: var(--brick-200);
   color: var(--ink-900);
 }
 
@@ -194,6 +194,78 @@ a {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Scroll reveal ──────────────────────────────────────────
+   Mark an element with data-reveal (up, the default; left; right; zoom; fade),
+   or data-reveal="stagger" to bring its children in one after another.
+   The site's useScrollReveal() toggles data-shown as it enters and leaves view.
+   Nothing is hidden unless <html data-motion> is set, i.e. motion is allowed. */
+
+:root[data-motion] [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 32px, 0);
+  transition:
+    opacity 900ms var(--ease-out),
+    transform 900ms var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+:root[data-motion] [data-reveal='left'] {
+  transform: translate3d(-40px, 0, 0);
+}
+
+:root[data-motion] [data-reveal='right'] {
+  transform: translate3d(40px, 0, 0);
+}
+
+:root[data-motion] [data-reveal='zoom'] {
+  transform: scale(0.94);
+}
+
+:root[data-motion] [data-reveal='fade'] {
+  transform: none;
+}
+
+:root[data-motion] [data-reveal][data-shown] {
+  opacity: 1;
+  transform: none;
+}
+
+:root[data-motion] [data-reveal='stagger'] {
+  opacity: 1;
+  transform: none;
+}
+
+:root[data-motion] [data-reveal='stagger'] > * {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  transition:
+    opacity 800ms var(--ease-out),
+    transform 800ms var(--ease-out);
+  transition-delay: calc(var(--reveal-delay, 0ms) + var(--i, 0) * 90ms);
+}
+
+:root[data-motion] [data-reveal='stagger'][data-shown] > * {
+  opacity: 1;
+  transform: none;
+}
+
+[data-reveal='stagger'] > :nth-child(2) { --i: 1; }
+[data-reveal='stagger'] > :nth-child(3) { --i: 2; }
+[data-reveal='stagger'] > :nth-child(4) { --i: 3; }
+[data-reveal='stagger'] > :nth-child(5) { --i: 4; }
+[data-reveal='stagger'] > :nth-child(6) { --i: 5; }
+[data-reveal='stagger'] > :nth-child(7) { --i: 6; }
+[data-reveal='stagger'] > :nth-child(8) { --i: 7; }
+[data-reveal='stagger'] > :nth-child(n + 9) { --i: 8; }
+
+@media print {
+  [data-reveal],
+  [data-reveal] > * {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 

@@ -43,7 +43,7 @@
   height: 40px;
   border-radius: 50%;
   background: var(--cream-50);
-  color: var(--chamber-900);
+  color: var(--teal-900);
 }
 
 .arrow svg {

@@ -14,7 +14,7 @@ const meta = {
     revealOnHover: false,
   },
   argTypes: {
-    duotone: { control: 'inline-radio', options: ['cream', 'mint', 'none'] },
+    duotone: { control: 'inline-radio', options: ['cream', 'brick', 'none'] },
     aspect: { control: 'inline-radio', options: ['1/1', '4/5', '3/4', '16/10'] },
   },
   decorators: [
@@ -28,7 +28,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'The house photographic treatment: a chamber-to-cream duotone (CSS blend modes, no image processing) so stock and studio portraits read as one set. ' +
+          'The house photographic treatment: a teal-to-cream duotone (CSS blend modes, no image processing) so stock and studio portraits read as one set. ' +
           'The round name badge echoes the conference-screen portrait.',
       },
     },
@@ -44,8 +44,8 @@ export const WithBadge: Story = {
   args: { badge: 'Rajiv Malhotra' },
 }
 
-export const MintDuotone: Story = {
-  args: { duotone: 'mint', badge: 'Managing Partner' },
+export const BrickDuotone: Story = {
+  args: { duotone: 'brick', badge: 'Managing Partner' },
 }
 
 export const RevealOnHover: Story = {

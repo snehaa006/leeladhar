@@ -32,7 +32,7 @@
   padding: 4px 10px;
   border-radius: var(--radius-pill);
   background: var(--cream-50);
-  color: var(--chamber-900);
+  color: var(--teal-900);
   font-size: var(--text-micro);
   font-weight: 600;
 }

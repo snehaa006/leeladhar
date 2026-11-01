@@ -23,7 +23,7 @@ export const Default: Story = {}
 
 export const OnDark: Story = {
   args: { tone: 'dark', children: 'NCLT' },
-  parameters: { backgrounds: { default: 'chamber' } },
+  parameters: { backgrounds: { default: 'teal' } },
 }
 
 export const Group: Story = {

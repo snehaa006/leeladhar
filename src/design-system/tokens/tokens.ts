@@ -38,9 +38,9 @@ export const tokens = [
     "type": "color",
     "category": "color",
     "tier": "primitive",
-    "value": "#FAF9F6",
-    "resolved": "#FAF9F6",
-    "description": "Raised surface — cards, notes"
+    "value": "#FBF8F3",
+    "resolved": "#FBF8F3",
+    "description": "Raised surface — cards, notes; text on brick"
   },
   {
     "name": "cream-100",
@@ -52,8 +52,8 @@ export const tokens = [
     "type": "color",
     "category": "color",
     "tier": "primitive",
-    "value": "#F3F1ED",
-    "resolved": "#F3F1ED",
+    "value": "#F6F1E9",
+    "resolved": "#F6F1E9",
     "description": "Page background"
   },
   {
@@ -66,8 +66,8 @@ export const tokens = [
     "type": "color",
     "category": "color",
     "tier": "primitive",
-    "value": "#E9E5DD",
-    "resolved": "#E9E5DD",
+    "value": "#ECE3D5",
+    "resolved": "#ECE3D5",
     "description": "Sunken band"
   },
   {
@@ -80,8 +80,8 @@ export const tokens = [
     "type": "color",
     "category": "color",
     "tier": "primitive",
-    "value": "#DAD5CA",
-    "resolved": "#DAD5CA",
+    "value": "#DDD0BC",
+    "resolved": "#DDD0BC",
     "description": "Strong divider, input border"
   },
   {
@@ -94,267 +94,238 @@ export const tokens = [
     "type": "color",
     "category": "color",
     "tier": "primitive",
-    "value": "#C4BDAE",
-    "resolved": "#C4BDAE"
+    "value": "#C9B89E",
+    "resolved": "#C9B89E"
   },
   {
-    "name": "mint-50",
+    "name": "brick-50",
     "path": [
-      "mint",
+      "brick",
       "50"
     ],
-    "cssVar": "--mint-50",
+    "cssVar": "--brick-50",
     "type": "color",
     "category": "color",
     "tier": "primitive",
-    "value": "#EAFCF4",
-    "resolved": "#EAFCF4"
+    "value": "#FCEFEA",
+    "resolved": "#FCEFEA"
   },
   {
-    "name": "mint-100",
+    "name": "brick-100",
     "path": [
-      "mint",
+      "brick",
       "100"
     ],
-    "cssVar": "--mint-100",
+    "cssVar": "--brick-100",
     "type": "color",
     "category": "color",
     "tier": "primitive",
-    "value": "#D3F8E8",
-    "resolved": "#D3F8E8"
+    "value": "#F8DCD2",
+    "resolved": "#F8DCD2"
   },
   {
-    "name": "mint-200",
+    "name": "brick-200",
     "path": [
-      "mint",
+      "brick",
       "200"
     ],
-    "cssVar": "--mint-200",
+    "cssVar": "--brick-200",
     "type": "color",
     "category": "color",
     "tier": "primitive",
-    "value": "#A9F2D3",
-    "resolved": "#A9F2D3",
-    "description": "Text selection"
+    "value": "#F8D3C6",
+    "resolved": "#F8D3C6",
+    "description": "Brick text on teal (6.6:1 on teal-900); text selection"
   },
   {
-    "name": "mint-300",
+    "name": "brick-300",
     "path": [
-      "mint",
+      "brick",
       "300"
     ],
-    "cssVar": "--mint-300",
+    "cssVar": "--brick-300",
     "type": "color",
     "category": "color",
     "tier": "primitive",
-    "value": "#82EDC3",
-    "resolved": "#82EDC3",
-    "description": "Hover"
+    "value": "#F08A6C",
+    "resolved": "#F08A6C",
+    "description": "Icons and large text on teal"
   },
   {
-    "name": "mint-400",
+    "name": "brick-400",
     "path": [
-      "mint",
+      "brick",
       "400"
     ],
-    "cssVar": "--mint-400",
+    "cssVar": "--brick-400",
     "type": "color",
     "category": "color",
     "tier": "primitive",
-    "value": "#62E8B3",
-    "resolved": "#62E8B3",
-    "description": "Brand"
+    "value": "#C2401F",
+    "resolved": "#C2401F",
+    "description": "Brand (4.6:1 on cream-100)"
   },
   {
-    "name": "mint-500",
+    "name": "brick-500",
     "path": [
-      "mint",
+      "brick",
       "500"
     ],
-    "cssVar": "--mint-500",
+    "cssVar": "--brick-500",
     "type": "color",
     "category": "color",
     "tier": "primitive",
-    "value": "#38D497",
-    "resolved": "#38D497",
+    "value": "#AD3719",
+    "resolved": "#AD3719",
+    "description": "Hover; brick text on cream (5.6:1)"
+  },
+  {
+    "name": "brick-600",
+    "path": [
+      "brick",
+      "600"
+    ],
+    "cssVar": "--brick-600",
+    "type": "color",
+    "category": "color",
+    "tier": "primitive",
+    "value": "#962E14",
+    "resolved": "#962E14",
     "description": "Pressed"
   },
   {
-    "name": "mint-600",
+    "name": "brick-700",
     "path": [
-      "mint",
-      "600"
-    ],
-    "cssVar": "--mint-600",
-    "type": "color",
-    "category": "color",
-    "tier": "primitive",
-    "value": "#1FAE78",
-    "resolved": "#1FAE78",
-    "description": "Focus ring"
-  },
-  {
-    "name": "mint-700",
-    "path": [
-      "mint",
+      "brick",
       "700"
     ],
-    "cssVar": "--mint-700",
+    "cssVar": "--brick-700",
     "type": "color",
     "category": "color",
     "tier": "primitive",
-    "value": "#147050",
-    "resolved": "#147050",
-    "description": "Mint text on cream (5.4:1)"
+    "value": "#7C2611",
+    "resolved": "#7C2611"
   },
   {
-    "name": "mint-800",
+    "name": "teal-200",
     "path": [
-      "mint",
-      "800"
+      "teal",
+      "200"
     ],
-    "cssVar": "--mint-800",
+    "cssVar": "--teal-200",
     "type": "color",
     "category": "color",
     "tier": "primitive",
-    "value": "#0F5640",
-    "resolved": "#0F5640"
+    "value": "#D3E6E4",
+    "resolved": "#D3E6E4"
   },
   {
-    "name": "mint-900",
+    "name": "teal-300",
     "path": [
-      "mint",
-      "900"
+      "teal",
+      "300"
     ],
-    "cssVar": "--mint-900",
+    "cssVar": "--teal-300",
     "type": "color",
     "category": "color",
     "tier": "primitive",
-    "value": "#0B3D2E",
-    "resolved": "#0B3D2E"
+    "value": "#A3CBC7",
+    "resolved": "#A3CBC7"
   },
   {
-    "name": "chamber-600",
+    "name": "teal-400",
     "path": [
-      "chamber",
+      "teal",
+      "400"
+    ],
+    "cssVar": "--teal-400",
+    "type": "color",
+    "category": "color",
+    "tier": "primitive",
+    "value": "#468A86",
+    "resolved": "#468A86",
+    "description": "Brand teal — orbit lines and large emphasis only (3.6:1 on cream)"
+  },
+  {
+    "name": "teal-500",
+    "path": [
+      "teal",
+      "500"
+    ],
+    "cssVar": "--teal-500",
+    "type": "color",
+    "category": "color",
+    "tier": "primitive",
+    "value": "#3B7A76",
+    "resolved": "#3B7A76"
+  },
+  {
+    "name": "teal-600",
+    "path": [
+      "teal",
       "600"
     ],
-    "cssVar": "--chamber-600",
+    "cssVar": "--teal-600",
     "type": "color",
     "category": "color",
     "tier": "primitive",
-    "value": "#2A5257",
-    "resolved": "#2A5257"
+    "value": "#33706C",
+    "resolved": "#33706C"
   },
   {
-    "name": "chamber-700",
+    "name": "teal-700",
     "path": [
-      "chamber",
+      "teal",
       "700"
     ],
-    "cssVar": "--chamber-700",
+    "cssVar": "--teal-700",
     "type": "color",
     "category": "color",
     "tier": "primitive",
-    "value": "#1F4146",
-    "resolved": "#1F4146"
+    "value": "#2E6662",
+    "resolved": "#2E6662"
   },
   {
-    "name": "chamber-800",
+    "name": "teal-800",
     "path": [
-      "chamber",
+      "teal",
       "800"
     ],
-    "cssVar": "--chamber-800",
+    "cssVar": "--teal-800",
     "type": "color",
     "category": "color",
     "tier": "primitive",
-    "value": "#1C3A42",
-    "resolved": "#1C3A42",
+    "value": "#2C605C",
+    "resolved": "#2C605C",
     "description": "Card on dark"
   },
   {
-    "name": "chamber-900",
+    "name": "teal-900",
     "path": [
-      "chamber",
+      "teal",
       "900"
     ],
-    "cssVar": "--chamber-900",
+    "cssVar": "--teal-900",
     "type": "color",
     "category": "color",
     "tier": "primitive",
-    "value": "#17302F",
-    "resolved": "#17302F",
+    "value": "#234F4C",
+    "resolved": "#234F4C",
     "description": "Dark section"
   },
   {
-    "name": "chamber-950",
+    "name": "teal-950",
     "path": [
-      "chamber",
+      "teal",
       "950"
     ],
-    "cssVar": "--chamber-950",
+    "cssVar": "--teal-950",
     "type": "color",
     "category": "color",
     "tier": "primitive",
-    "value": "#0F1D1B",
-    "resolved": "#0F1D1B",
+    "value": "#173836",
+    "resolved": "#173836",
     "description": "Footer, deepest"
-  },
-  {
-    "name": "patina-200",
-    "path": [
-      "patina",
-      "200"
-    ],
-    "cssVar": "--patina-200",
-    "type": "color",
-    "category": "color",
-    "tier": "primitive",
-    "value": "#C9E1E4",
-    "resolved": "#C9E1E4"
-  },
-  {
-    "name": "patina-400",
-    "path": [
-      "patina",
-      "400"
-    ],
-    "cssVar": "--patina-400",
-    "type": "color",
-    "category": "color",
-    "tier": "primitive",
-    "value": "#78B4BC",
-    "resolved": "#78B4BC",
-    "description": "Logo on dark"
-  },
-  {
-    "name": "patina-600",
-    "path": [
-      "patina",
-      "600"
-    ],
-    "cssVar": "--patina-600",
-    "type": "color",
-    "category": "color",
-    "tier": "primitive",
-    "value": "#3E7C86",
-    "resolved": "#3E7C86",
-    "description": "Orbit lines on cream"
-  },
-  {
-    "name": "patina-700",
-    "path": [
-      "patina",
-      "700"
-    ],
-    "cssVar": "--patina-700",
-    "type": "color",
-    "category": "color",
-    "tier": "primitive",
-    "value": "#2F6A73",
-    "resolved": "#2F6A73",
-    "description": "Patina text on cream (5.4:1)"
   },
   {
     "name": "ink-300",
@@ -366,8 +337,8 @@ export const tokens = [
     "type": "color",
     "category": "color",
     "tier": "primitive",
-    "value": "#9AA39F",
-    "resolved": "#9AA39F",
+    "value": "#A2ADAB",
+    "resolved": "#A2ADAB",
     "description": "Decorative only — fails text contrast"
   },
   {
@@ -380,9 +351,9 @@ export const tokens = [
     "type": "color",
     "category": "color",
     "tier": "primitive",
-    "value": "#626D69",
-    "resolved": "#626D69",
-    "description": "Muted text (4.8:1)"
+    "value": "#586967",
+    "resolved": "#586967",
+    "description": "Muted text (5.1:1 on cream-100, 4.6:1 on cream-200)"
   },
   {
     "name": "ink-700",
@@ -394,9 +365,9 @@ export const tokens = [
     "type": "color",
     "category": "color",
     "tier": "primitive",
-    "value": "#4A5653",
-    "resolved": "#4A5653",
-    "description": "Secondary text (6.8:1)"
+    "value": "#3D4F4D",
+    "resolved": "#3D4F4D",
+    "description": "Secondary text (7.7:1)"
   },
   {
     "name": "ink-900",
@@ -408,9 +379,9 @@ export const tokens = [
     "type": "color",
     "category": "color",
     "tier": "primitive",
-    "value": "#15211F",
-    "resolved": "#15211F",
-    "description": "Primary text (14.7:1)"
+    "value": "#1A2E2C",
+    "resolved": "#1A2E2C",
+    "description": "Primary text (12.7:1)"
   },
   {
     "name": "seal-100",
@@ -475,7 +446,7 @@ export const tokens = [
     "category": "color",
     "tier": "semantic",
     "value": "{cream.100}",
-    "resolved": "#F3F1ED",
+    "resolved": "#F6F1E9",
     "alias": "cream-100",
     "description": "Page"
   },
@@ -490,7 +461,7 @@ export const tokens = [
     "category": "color",
     "tier": "semantic",
     "value": "{cream.200}",
-    "resolved": "#E9E5DD",
+    "resolved": "#ECE3D5",
     "alias": "cream-200",
     "description": "Alternate band"
   },
@@ -505,7 +476,7 @@ export const tokens = [
     "category": "color",
     "tier": "semantic",
     "value": "{cream.50}",
-    "resolved": "#FAF9F6",
+    "resolved": "#FBF8F3",
     "alias": "cream-50",
     "description": "Card, note, input"
   },
@@ -519,9 +490,9 @@ export const tokens = [
     "type": "color",
     "category": "color",
     "tier": "semantic",
-    "value": "{chamber.900}",
-    "resolved": "#17302F",
-    "alias": "chamber-900",
+    "value": "{teal.900}",
+    "resolved": "#234F4C",
+    "alias": "teal-900",
     "description": "Dark section"
   },
   {
@@ -534,9 +505,9 @@ export const tokens = [
     "type": "color",
     "category": "color",
     "tier": "semantic",
-    "value": "{chamber.800}",
-    "resolved": "#1C3A42",
-    "alias": "chamber-800",
+    "value": "{teal.800}",
+    "resolved": "#2C605C",
+    "alias": "teal-800",
     "description": "Card on a dark section"
   },
   {
@@ -550,7 +521,7 @@ export const tokens = [
     "category": "color",
     "tier": "semantic",
     "value": "{ink.900}",
-    "resolved": "#15211F",
+    "resolved": "#1A2E2C",
     "alias": "ink-900"
   },
   {
@@ -564,7 +535,7 @@ export const tokens = [
     "category": "color",
     "tier": "semantic",
     "value": "{ink.700}",
-    "resolved": "#4A5653",
+    "resolved": "#3D4F4D",
     "alias": "ink-700"
   },
   {
@@ -578,7 +549,7 @@ export const tokens = [
     "category": "color",
     "tier": "semantic",
     "value": "{ink.500}",
-    "resolved": "#626D69",
+    "resolved": "#586967",
     "alias": "ink-500"
   },
   {
@@ -592,7 +563,7 @@ export const tokens = [
     "category": "color",
     "tier": "semantic",
     "value": "{cream.100}",
-    "resolved": "#F3F1ED",
+    "resolved": "#F6F1E9",
     "alias": "cream-100"
   },
   {
@@ -605,23 +576,24 @@ export const tokens = [
     "type": "color",
     "category": "color",
     "tier": "semantic",
-    "value": "#A9BDB8",
-    "resolved": "#A9BDB8",
-    "description": "7.1:1 on chamber-900"
+    "value": "#C3D6D3",
+    "resolved": "#C3D6D3",
+    "description": "6.1:1 on teal-900, 4.7:1 on teal-800"
   },
   {
-    "name": "text-on-mint",
+    "name": "text-on-accent",
     "path": [
       "text",
-      "on-mint"
+      "on-accent"
     ],
-    "cssVar": "--text-on-mint",
+    "cssVar": "--text-on-accent",
     "type": "color",
     "category": "color",
     "tier": "semantic",
-    "value": "{ink.900}",
-    "resolved": "#15211F",
-    "alias": "ink-900"
+    "value": "{cream.50}",
+    "resolved": "#FBF8F3",
+    "alias": "cream-50",
+    "description": "Text on brick (4.9:1)"
   },
   {
     "name": "accent",
@@ -633,9 +605,9 @@ export const tokens = [
     "type": "color",
     "category": "color",
     "tier": "semantic",
-    "value": "{mint.400}",
-    "resolved": "#62E8B3",
-    "alias": "mint-400"
+    "value": "{brick.400}",
+    "resolved": "#C2401F",
+    "alias": "brick-400"
   },
   {
     "name": "accent-hover",
@@ -647,9 +619,9 @@ export const tokens = [
     "type": "color",
     "category": "color",
     "tier": "semantic",
-    "value": "{mint.300}",
-    "resolved": "#82EDC3",
-    "alias": "mint-300"
+    "value": "{brick.500}",
+    "resolved": "#AD3719",
+    "alias": "brick-500"
   },
   {
     "name": "accent-text",
@@ -661,10 +633,40 @@ export const tokens = [
     "type": "color",
     "category": "color",
     "tier": "semantic",
-    "value": "{mint.700}",
-    "resolved": "#147050",
-    "alias": "mint-700",
+    "value": "{brick.500}",
+    "resolved": "#AD3719",
+    "alias": "brick-500",
     "description": "Use when the accent must be read as text on cream"
+  },
+  {
+    "name": "accent-on-dark",
+    "path": [
+      "accent",
+      "on-dark"
+    ],
+    "cssVar": "--accent-on-dark",
+    "type": "color",
+    "category": "color",
+    "tier": "semantic",
+    "value": "{brick.200}",
+    "resolved": "#F8D3C6",
+    "alias": "brick-200",
+    "description": "Use when the accent must be read as text on teal"
+  },
+  {
+    "name": "highlight",
+    "path": [
+      "highlight",
+      "default"
+    ],
+    "cssVar": "--highlight",
+    "type": "color",
+    "category": "color",
+    "tier": "semantic",
+    "value": "{teal.400}",
+    "resolved": "#468A86",
+    "alias": "teal-400",
+    "description": "Emphasised words in headings — large text only"
   },
   {
     "name": "line",
@@ -676,8 +678,8 @@ export const tokens = [
     "type": "color",
     "category": "color",
     "tier": "semantic",
-    "value": "rgba(21, 33, 31, 0.12)",
-    "resolved": "rgba(21, 33, 31, 0.12)"
+    "value": "rgba(26, 46, 44, 0.13)",
+    "resolved": "rgba(26, 46, 44, 0.13)"
   },
   {
     "name": "line-strong",
@@ -689,8 +691,8 @@ export const tokens = [
     "type": "color",
     "category": "color",
     "tier": "semantic",
-    "value": "rgba(21, 33, 31, 0.24)",
-    "resolved": "rgba(21, 33, 31, 0.24)"
+    "value": "rgba(26, 46, 44, 0.26)",
+    "resolved": "rgba(26, 46, 44, 0.26)"
   },
   {
     "name": "line-on-dark",
@@ -702,8 +704,8 @@ export const tokens = [
     "type": "color",
     "category": "color",
     "tier": "semantic",
-    "value": "rgba(243, 241, 237, 0.14)",
-    "resolved": "rgba(243, 241, 237, 0.14)"
+    "value": "rgba(246, 241, 233, 0.16)",
+    "resolved": "rgba(246, 241, 233, 0.16)"
   },
   {
     "name": "orbit",
@@ -715,9 +717,9 @@ export const tokens = [
     "type": "color",
     "category": "color",
     "tier": "semantic",
-    "value": "{patina.600}",
-    "resolved": "#3E7C86",
-    "alias": "patina-600"
+    "value": "{teal.400}",
+    "resolved": "#468A86",
+    "alias": "teal-400"
   },
   {
     "name": "orbit-on-dark",
@@ -729,8 +731,8 @@ export const tokens = [
     "type": "color",
     "category": "color",
     "tier": "semantic",
-    "value": "rgba(120, 180, 188, 0.45)",
-    "resolved": "rgba(120, 180, 188, 0.45)"
+    "value": "rgba(246, 241, 233, 0.28)",
+    "resolved": "rgba(246, 241, 233, 0.28)"
   },
   {
     "name": "focus",
@@ -742,9 +744,9 @@ export const tokens = [
     "type": "color",
     "category": "color",
     "tier": "semantic",
-    "value": "{mint.600}",
-    "resolved": "#1FAE78",
-    "alias": "mint-600",
+    "value": "{brick.500}",
+    "resolved": "#AD3719",
+    "alias": "brick-500",
     "description": "Keyboard focus ring"
   },
   {
@@ -1229,8 +1231,8 @@ export const tokens = [
     "type": "shadow",
     "category": "effects",
     "tier": "primitive",
-    "value": "0 1px 0 rgba(21, 33, 31, 0.04), 0 14px 32px -16px rgba(23, 48, 47, 0.28)",
-    "resolved": "0 1px 0 rgba(21, 33, 31, 0.04), 0 14px 32px -16px rgba(23, 48, 47, 0.28)",
+    "value": "0 1px 0 rgba(26, 46, 44, 0.04), 0 14px 32px -16px rgba(26, 46, 44, 0.28)",
+    "resolved": "0 1px 0 rgba(26, 46, 44, 0.04), 0 14px 32px -16px rgba(26, 46, 44, 0.28)",
     "description": "Floating matter notes"
   },
   {
@@ -1243,22 +1245,22 @@ export const tokens = [
     "type": "shadow",
     "category": "effects",
     "tier": "primitive",
-    "value": "0 1px 0 rgba(21, 33, 31, 0.05), 0 30px 60px -36px rgba(23, 48, 47, 0.45)",
-    "resolved": "0 1px 0 rgba(21, 33, 31, 0.05), 0 30px 60px -36px rgba(23, 48, 47, 0.45)",
+    "value": "0 1px 0 rgba(26, 46, 44, 0.05), 0 30px 60px -36px rgba(26, 46, 44, 0.45)",
+    "resolved": "0 1px 0 rgba(26, 46, 44, 0.05), 0 30px 60px -36px rgba(26, 46, 44, 0.45)",
     "description": "Large panels"
   },
   {
-    "name": "glow-mint",
+    "name": "glow-brick",
     "path": [
       "glow",
-      "mint"
+      "brick"
     ],
-    "cssVar": "--glow-mint",
+    "cssVar": "--glow-brick",
     "type": "shadow",
     "category": "effects",
     "tier": "primitive",
-    "value": "0 0 0 1px rgba(98, 232, 179, 0.5), 0 0 24px 2px rgba(98, 232, 179, 0.45)",
-    "resolved": "0 0 0 1px rgba(98, 232, 179, 0.5), 0 0 24px 2px rgba(98, 232, 179, 0.45)",
+    "value": "0 0 0 1px rgba(194, 64, 31, 0.4), 0 0 26px 2px rgba(194, 64, 31, 0.32)",
+    "resolved": "0 0 0 1px rgba(194, 64, 31, 0.4), 0 0 26px 2px rgba(194, 64, 31, 0.32)",
     "description": "Primary button hover, live node"
   },
   {
@@ -1271,8 +1273,8 @@ export const tokens = [
     "type": "shadow",
     "category": "effects",
     "tier": "primitive",
-    "value": "radial-gradient(60% 80% at 50% 100%, rgba(98, 232, 179, 0.38), rgba(98, 232, 179, 0) 70%)",
-    "resolved": "radial-gradient(60% 80% at 50% 100%, rgba(98, 232, 179, 0.38), rgba(98, 232, 179, 0) 70%)",
+    "value": "radial-gradient(60% 80% at 50% 100%, rgba(194, 64, 31, 0.3), rgba(194, 64, 31, 0) 70%)",
+    "resolved": "radial-gradient(60% 80% at 50% 100%, rgba(194, 64, 31, 0.3), rgba(194, 64, 31, 0) 70%)",
     "description": "Glow under a dark block"
   },
   {
@@ -1351,37 +1353,27 @@ export const tokenGroups = [
     "type": "color",
     "category": "color",
     "tier": "primitive",
-    "description": "Page background and light surfaces. Sampled from the Mosey compliance site background."
+    "description": "Page background and light surfaces. The cream of the client's “Client wins” reference."
   },
   {
-    "name": "mint",
+    "name": "brick",
     "path": [
-      "mint"
+      "brick"
     ],
     "type": "color",
     "category": "color",
     "tier": "primitive",
-    "description": "Primary — calls to action, live states, focus and glow. Sampled from the stage-floor glow in the Legal Point conference photo."
+    "description": "Primary — calls to action and highlights. The red of the client's “Client wins” reference."
   },
   {
-    "name": "chamber",
+    "name": "teal",
     "path": [
-      "chamber"
+      "teal"
     ],
     "type": "color",
     "category": "color",
     "tier": "primitive",
-    "description": "Secondary — dark sections. The conference screen teal, pulled toward the mint hue."
-  },
-  {
-    "name": "patina",
-    "path": [
-      "patina"
-    ],
-    "type": "color",
-    "category": "color",
-    "tier": "primitive",
-    "description": "Secondary — the monogram, orbit lines and quiet accents. The teal of the Leeladhar monogram."
+    "description": "Secondary — emphasis and dark sections. The teal of the client's “Customers” reference."
   },
   {
     "name": "ink",
@@ -1391,7 +1383,7 @@ export const tokenGroups = [
     "type": "color",
     "category": "color",
     "tier": "primitive",
-    "description": "Text on cream. Green-black from the shadows of the conference photo."
+    "description": "Text on cream. Teal-black."
   },
   {
     "name": "seal",
@@ -1454,6 +1446,15 @@ export const tokenGroups = [
     "description": "Brand accent roles"
   },
   {
+    "name": "highlight",
+    "path": [
+      "highlight"
+    ],
+    "type": "color",
+    "category": "color",
+    "tier": "semantic"
+  },
+  {
     "name": "line",
     "path": [
       "line"
@@ -1471,7 +1472,7 @@ export const tokenGroups = [
     "type": "color",
     "category": "color",
     "tier": "semantic",
-    "description": "The thin orbital lines from the conference screen"
+    "description": "The thin orbital lines"
   },
   {
     "name": "focus",
@@ -1549,7 +1550,7 @@ export const tokenGroups = [
     "type": "shadow",
     "category": "effects",
     "tier": "primitive",
-    "description": "Shadows are tinted with chamber green, never neutral grey."
+    "description": "Shadows are tinted with teal-black, never neutral grey."
   },
   {
     "name": "glow",
@@ -1559,7 +1560,7 @@ export const tokenGroups = [
     "type": "shadow",
     "category": "effects",
     "tier": "primitive",
-    "description": "The stagelight — mint light borrowed from the conference stage floor."
+    "description": "The stagelight — a brick-red glow for live and actionable moments."
   },
   {
     "name": "ease",

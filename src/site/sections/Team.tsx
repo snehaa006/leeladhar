@@ -19,7 +19,7 @@ export function Team() {
         rings={[{ cx: 1500, cy: 980, r: 640, nodes: [196, 232], live: 196 }]}
       />
       <div className={`container ${styles.inner}`}>
-        <header className={styles.header}>
+        <header className={styles.header} data-reveal="left">
           <p className={styles.eyebrow}>Key individuals</p>
           <h2 id="team-title" className={`t-h1 ${styles.title}`}>
             The partners who will stand beside you
@@ -47,7 +47,7 @@ export function Team() {
           </Button>
         </header>
 
-        <ul role="list" className={styles.people}>
+        <ul role="list" className={styles.people} data-reveal="stagger" style={{ ['--reveal-delay' as string]: '150ms' }}>
           {team.map((m) => (
             <li key={m.slug}>
               <article className={styles.card} aria-labelledby={`member-${m.slug}`}>

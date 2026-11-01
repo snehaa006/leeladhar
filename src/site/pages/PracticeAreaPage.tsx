@@ -83,7 +83,7 @@ export function PracticeAreaPage() {
                     <Check aria-hidden="true" />
                     <div>
                       <h3 className={page.panelTitle}>{o.title}</h3>
-                      <p>{o.body}</p>
+                      {o.body && <p>{o.body}</p>}
                     </div>
                   </li>
                 ))}
@@ -97,15 +97,17 @@ export function PracticeAreaPage() {
               <p className={`${page.prose} ${styles.approach}`}>{area.approach}</p>
             </section>
 
-            <section className={page.block} aria-labelledby="faqs">
-              <h2 id="faqs" className={page.h2}>
-                Frequently asked questions
-              </h2>
-              <Accordion
-                key={area.slug}
-                items={area.faqs.map((f, i) => ({ id: String(i), title: f.q, content: <p>{f.a}</p> }))}
-              />
-            </section>
+            {area.faqs.length > 0 && (
+              <section className={page.block} aria-labelledby="faqs">
+                <h2 id="faqs" className={page.h2}>
+                  Frequently asked questions
+                </h2>
+                <Accordion
+                  key={area.slug}
+                  items={area.faqs.map((f, i) => ({ id: String(i), title: f.q, content: <p>{f.a}</p> }))}
+                />
+              </section>
+            )}
 
             {related.length > 0 && (
               <section className={page.block} aria-labelledby="related">

@@ -1,6 +1,6 @@
 .portrait {
   --duo-light: var(--cream-100);
-  --duo-dark: var(--chamber-900);
+  --duo-dark: var(--teal-900);
 
   position: relative;
   isolation: isolate;
@@ -9,8 +9,8 @@
   background: var(--duo-light);
 }
 
-.portrait[data-duotone='mint'] {
-  --duo-light: var(--mint-200);
+.portrait[data-duotone='brick'] {
+  --duo-light: var(--brick-200);
 }
 
 .portrait img {
@@ -26,7 +26,7 @@
   transition: filter var(--dur-slow) var(--ease-out);
 }
 
-/* lift the blacks to chamber green */
+/* lift the blacks to deep teal */
 .portrait::after {
   content: '';
   position: absolute;

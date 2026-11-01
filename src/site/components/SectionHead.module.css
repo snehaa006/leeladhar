@@ -17,7 +17,13 @@
   height: 3px;
   margin-top: var(--space-5);
   border-radius: 2px;
-  background: var(--mint-500);
+  background: var(--accent);
+  transition: transform 900ms var(--ease-out) 300ms;
+}
+
+/* The rule draws out from the centre each time the heading comes into view. */
+:global(:root[data-motion]) .head:not([data-shown]) .rule {
+  transform: scaleX(0);
 }
 
 .lead {

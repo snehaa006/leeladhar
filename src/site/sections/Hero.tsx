@@ -1,13 +1,13 @@
 import { ArrowUpRight } from 'lucide-react'
-import { Button, Logo, Note, Orbit, Portrait } from '../../design-system'
+import { Button, Logo, Orbit, Portrait } from '../../design-system'
 import { team } from '../data'
 import styles from './Hero.module.css'
 
 const [lead, second] = team
 
 /**
- * The conference screen, brought onto cream: a centred statement held between
- * two orbital lines, a portrait with its name badge, marginal notes at the edges,
+ * A centred statement (the house tagline) held between two orbital lines, the
+ * two partners' portraits with their name badges, marginal notes at the edges,
  * and the monogram at the foot.
  */
 export function Hero() {
@@ -35,7 +35,16 @@ export function Hero() {
 
       <div className={`container ${styles.center}`}>
         <h1 id="hero-title" className={`t-display ${styles.title}`}>
-          Navigating the law with clarity and care
+          <span className={styles.line}>
+            <span>Decoding Law</span>
+          </span>
+          <span className={styles.pipe} aria-hidden="true" />
+          <span className="visually-hidden"> | </span>
+          <span className={styles.line}>
+            <span>
+              Delivering <em>Solutions</em>
+            </span>
+          </span>
         </h1>
         <p className={`t-lead ${styles.lead}`}>
           Leeladhar Law Chambers advises businesses and families across India, from chambers in Chandigarh and
@@ -65,20 +74,6 @@ export function Hero() {
           alt={`${second.name}, ${second.role}`}
           badge={second.name}
           aspect="1/1"
-        />
-        <Note className={styles.noteA} title="Interim relief granted" meta="Punjab & Haryana High Court, this morning" />
-        <Note
-          className={styles.noteB}
-          status="active"
-          title="Strategy note sent"
-          meta="Two days after the first call"
-        />
-        <Note
-          className={styles.noteC}
-          tone="dark"
-          status="awaiting"
-          title="Next hearing on 4 December"
-          meta="We’ll call you the same evening"
         />
       </div>
 

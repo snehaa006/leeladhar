@@ -9,10 +9,10 @@ const preview: Preview = {
     backgrounds: {
       default: 'cream',
       values: [
-        { name: 'cream', value: '#F3F1ED' },
-        { name: 'sunken', value: '#E9E5DD' },
-        { name: 'chamber', value: '#17302F' },
-        { name: 'mint', value: '#62E8B3' },
+        { name: 'cream', value: '#F6F1E9' },
+        { name: 'sunken', value: '#ECE3D5' },
+        { name: 'teal', value: '#234F4C' },
+        { name: 'brick', value: '#C2401F' },
       ],
     },
     controls: {

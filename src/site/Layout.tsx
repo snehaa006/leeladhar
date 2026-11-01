@@ -3,6 +3,7 @@ import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { Disclaimer } from './Disclaimer'
 import { Footer } from './sections/Footer'
 import { Nav } from './sections/Nav'
+import { useScrollReveal } from './useScrollReveal'
 
 /** Scroll to the top on a new page, or to the #section a link points at. */
 function useScrollManager() {
@@ -52,6 +53,7 @@ function useInAppLinks() {
 export function Layout() {
   useScrollManager()
   useInAppLinks()
+  useScrollReveal()
 
   return (
     <>

@@ -5,7 +5,7 @@ import { Orbit } from '../../design-system'
 import { CtaBanner } from '../components/CtaBanner'
 import { Breadcrumbs } from '../components/PageBanner'
 import { practiceBySlug } from '../content/practiceAreas'
-import { contact, memberBySlug, officeBySlug, team, tel, yearsOfExperience } from '../data'
+import { contact, memberBySlug, officeBySlug, practisingSince, team, tel } from '../data'
 import { usePageTitle } from '../usePageTitle'
 import { NotFoundPage } from './NotFoundPage'
 import page from './Page.module.css'
@@ -44,7 +44,7 @@ export function PersonPage() {
               {member.name}
             </h1>
             <p className={styles.role}>
-              {member.role} · {yearsOfExperience()}+ years of experience
+              {member.role} · In practice since {practisingSince}
             </p>
             <ul role="list" className={styles.reach}>
               <li>

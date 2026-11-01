@@ -23,7 +23,7 @@ const meta = {
           width: 'min(100vw - 48px, 960px)',
           aspectRatio: '1440 / 860',
           borderRadius: 20,
-          background: ctx.args.tone === 'dark' ? '#17302F' : '#F3F1ED',
+          background: ctx.args.tone === 'dark' ? '#234F4C' : '#F6F1E9',
           boxShadow: 'inset 0 0 0 1px rgba(21,33,31,.12)',
           overflow: 'hidden',
         }}
@@ -37,7 +37,7 @@ const meta = {
       description: {
         component:
           'Thin orbital lines with nodes — the signature motif from the Legal Point conference screen. Rings are positioned in viewBox units; ' +
-          'nodes are placed in degrees clockwise from 3 o’clock. Give one node per view the mint `live` state. Decorative only (aria-hidden). ' +
+          'nodes are placed in degrees clockwise from 3 o’clock. Give one node per view the orange `live` state. Decorative only (aria-hidden). ' +
           'Rings draw in on mount; reduced-motion users see them static.',
       },
     },

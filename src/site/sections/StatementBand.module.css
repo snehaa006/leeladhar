@@ -2,8 +2,8 @@
   position: relative;
   isolation: isolate;
   padding-block: var(--space-9);
-  background: var(--patina-700);
-  color: var(--cream-50);
+  background: var(--brick-400);
+  color: var(--text-on-accent);
   overflow: hidden;
 }
 
@@ -13,7 +13,7 @@
   content: '';
   position: absolute;
   z-index: -1;
-  background: rgba(243, 241, 237, 0.06);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .band::before {
@@ -23,7 +23,7 @@
 
 .band::after {
   inset: 0 0 0 60%;
-  background: rgba(15, 29, 27, 0.14);
+  background: rgba(23, 56, 54, 0.1);
   clip-path: polygon(40% 0, 100% 0, 100% 100%, 0 100%);
 }
 
@@ -55,9 +55,9 @@
   align-items: flex-start;
   gap: var(--space-2);
   padding: var(--space-3) var(--space-5) var(--space-3) var(--space-4);
-  border: 1px solid rgba(243, 241, 237, 0.35);
+  border: 1px solid rgba(251, 248, 243, 0.55);
   border-radius: var(--radius-pill);
-  color: var(--cream-100);
+  color: var(--text-on-accent);
   font-size: var(--text-sm);
   text-align: left;
   text-decoration: none;
@@ -65,8 +65,12 @@
 }
 
 .places a:hover {
-  background: var(--cream-50);
-  color: var(--chamber-900);
+  background: var(--teal-950);
+  color: var(--cream-100);
+}
+
+.places a:focus-visible {
+  outline-color: var(--teal-950);
 }
 
 .places strong {

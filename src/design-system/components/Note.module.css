@@ -2,8 +2,8 @@
   --note-bg: var(--cream-50);
   --note-fg: var(--ink-900);
   --note-meta: var(--ink-500);
-  --icon-bg: var(--mint-100);
-  --icon-fg: var(--mint-700);
+  --icon-bg: var(--brick-100);
+  --icon-fg: var(--brick-700);
 
   display: inline-flex;
   align-items: center;
@@ -17,17 +17,17 @@
 }
 
 .note[data-tone='dark'] {
-  --note-bg: var(--chamber-800);
+  --note-bg: var(--teal-800);
   --note-fg: var(--cream-100);
   --note-meta: var(--text-on-dark-secondary);
-  --icon-bg: rgba(98, 232, 179, 0.16);
-  --icon-fg: var(--mint-400);
-  box-shadow: 0 18px 40px -20px rgba(15, 29, 27, 0.7);
+  --icon-bg: rgba(194, 64, 31, 0.16);
+  --icon-fg: var(--brick-200);
+  box-shadow: 0 18px 40px -20px rgba(23, 56, 54, 0.7);
 }
 
 .note[data-status='active'] {
-  --icon-bg: var(--mint-400);
-  --icon-fg: var(--ink-900);
+  --icon-bg: var(--brick-400);
+  --icon-fg: var(--cream-50);
 }
 
 .note[data-status='awaiting'] {

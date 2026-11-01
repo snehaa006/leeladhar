@@ -55,6 +55,6 @@
 }
 
 .filter[aria-pressed='true'] .count {
-  background: var(--mint-400);
-  color: var(--ink-900);
+  background: var(--brick-400);
+  color: var(--text-on-accent);
 }

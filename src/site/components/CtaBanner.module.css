@@ -12,7 +12,7 @@
   gap: var(--space-6);
   padding-block: var(--space-8);
   border-radius: var(--radius-xl);
-  background: var(--chamber-800);
+  background: var(--teal-800);
   color: var(--text-on-dark);
   overflow: hidden;
   /* the container's own gutter becomes the panel's inner padding */

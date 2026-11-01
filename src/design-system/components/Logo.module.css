@@ -9,18 +9,19 @@
 [data-tone='ink'] {
   --logo-fill: var(--ink-900);
   --logo-text: var(--ink-900);
+  --logo-tagline: var(--accent-text);
 }
-[data-tone='patina'] {
-  --logo-fill: var(--patina-400);
-  --logo-text: var(--cream-100);
+/* A brick monogram beside an ink wordmark, for cream grounds. */
+[data-tone='brick'] {
+  --logo-fill: var(--brick-400);
+  --logo-text: var(--ink-900);
+  --logo-tagline: var(--accent-text);
 }
-[data-tone='mint'] {
-  --logo-fill: var(--mint-400);
-  --logo-text: var(--cream-100);
-}
+/* For teal grounds. */
 [data-tone='cream'] {
   --logo-fill: var(--cream-100);
   --logo-text: var(--cream-100);
+  --logo-tagline: var(--accent-on-dark);
 }
 
 .lockup {
@@ -56,4 +57,16 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   opacity: 0.72;
+}
+
+/* The tagline is part of the lockup: a hairline-spaced line under the wordmark. */
+.tagline {
+  margin-top: calc(var(--logo-h) * 0.05);
+  color: var(--logo-tagline);
+  font-size: max(8.5px, calc(var(--logo-h) * 0.22));
+  font-weight: 640;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
 }

@@ -31,7 +31,7 @@ export const Default: Story = {}
 
 export const OnDark: Story = {
   args: { tone: 'dark' },
-  parameters: { backgrounds: { default: 'chamber' } },
+  parameters: { backgrounds: { default: 'teal' } },
 }
 
 export const TwoStats: Story = {

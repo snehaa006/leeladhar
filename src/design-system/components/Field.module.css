@@ -15,12 +15,14 @@
 
 .field[data-tone='dark'] {
   --f-label: var(--cream-100);
-  --f-bg: rgba(243, 241, 237, 0.04);
+  --f-bg: rgba(246, 241, 233, 0.04);
   --f-fg: var(--cream-100);
   --f-border: var(--line-on-dark);
-  --f-border-hover: rgba(243, 241, 237, 0.32);
+  --f-border-hover: rgba(246, 241, 233, 0.32);
   --f-hint: var(--text-on-dark-secondary);
-  --f-placeholder: #8fa49f;
+  --f-placeholder: #a9bdba;
+  --f-focus: var(--accent-on-dark);
+  --f-focus-glow: rgba(248, 211, 198, 0.3);
 }
 
 .label {
@@ -55,8 +57,8 @@
 
 .control:focus-visible {
   outline: none;
-  border-color: var(--mint-600);
-  box-shadow: 0 0 0 3px rgba(98, 232, 179, 0.35);
+  border-color: var(--f-focus, var(--focus));
+  box-shadow: 0 0 0 3px var(--f-focus-glow, rgba(194, 64, 31, 0.3));
 }
 
 .textarea {

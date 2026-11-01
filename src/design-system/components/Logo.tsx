@@ -1,19 +1,21 @@
 import styles from './Logo.module.css'
 
-type Tone = 'ink' | 'patina' | 'mint' | 'cream'
+type Tone = 'ink' | 'brick' | 'cream'
 
 type LogoProps = {
-  /** `mark` is the monogram alone; `lockup` adds the wordmark. */
+  /** `mark` is the monogram alone; `lockup` adds the wordmark and tagline. */
   variant?: 'mark' | 'lockup'
   tone?: Tone
   /** Height of the monogram in px. */
   size?: number
+  /** Show the “Decoding law | Delivering solutions” line under the wordmark. Lockup only. */
+  tagline?: boolean
   className?: string
 }
 
 // The monogram is a luminance mask cut from the supplied artwork, so any token
 // colour can fill it without a second asset.
-export function Logo({ variant = 'lockup', tone = 'ink', size = 40, className }: LogoProps) {
+export function Logo({ variant = 'lockup', tone = 'ink', size = 40, tagline = true, className }: LogoProps) {
   const mark = (
     <span
       className={styles.mark}
@@ -33,6 +35,12 @@ export function Logo({ variant = 'lockup', tone = 'ink', size = 40, className }:
       <span className={styles.words}>
         <span className={styles.name}>Leeladhar</span>
         <span className={styles.sub}>Law Chambers</span>
+        {tagline && (
+          <span className={styles.tagline}>
+            Decoding Law <span aria-hidden="true">|</span>
+            <span className="visually-hidden">,</span> Delivering Solutions
+          </span>
+        )}
       </span>
     </span>
   )

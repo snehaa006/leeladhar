@@ -4,8 +4,8 @@
   margin-inline: var(--space-4);
   border-radius: var(--radius-xl);
   background:
-    radial-gradient(120% 140% at 85% 120%, rgba(98, 232, 179, 0.16), transparent 55%),
-    var(--chamber-900);
+    radial-gradient(120% 140% at 85% 120%, rgba(194, 64, 31, 0.16), transparent 55%),
+    var(--teal-900);
   color: var(--text-on-dark);
   overflow: hidden;
 }
@@ -24,7 +24,7 @@
 
 .eyebrow {
   margin-top: var(--space-7);
-  color: var(--mint-300);
+  color: var(--accent-on-dark);
   font-size: var(--text-sm);
   font-stretch: var(--wdth-wide);
   font-weight: 560;

@@ -49,15 +49,28 @@ To add a practice area, article or event, add an entry in `src/site/content/`; i
 
 ## Palette
 
+Three colours from the client's references: cream, brick red and teal.
+
 | Role | Token | Hex | Source |
 | --- | --- | --- | --- |
-| Background | `--cream-100` | `#F3F1ED` | Mosey compliance site background |
-| Primary | `--mint-400` | `#62E8B3` | Stage-floor glow in the Legal Point conference photo |
-| Dark sections | `--chamber-900` | `#17302F` | The conference screen teal |
-| Monogram | `--patina-400` | `#78B4BC` | The supplied logo |
-| Text | `--ink-900` | `#15211F` | Shadows of the conference photo |
+| Background | `--cream-100` | `#F6F1E9` | The cream of the “Client wins” reference |
+| Primary | `--brick-400` | `#C2401F` | The red of the “Client wins” reference |
+| Emphasis, orbit lines | `--teal-400` | `#468A86` | The teal of the “Customers” reference |
+| Dark sections | `--teal-900` | `#234F4C` | A deeper shade of that teal, so text on it stays legible |
+| Text | `--ink-900` | `#1A2E2C` | Teal-black |
 
-Mint is never used for text on cream (1.4:1); use `--accent-text` (`#147050`, 5.4:1) instead.
+Brick on cream is 4.6:1, so it can be text; `--accent-text` (`#AD3719`, 5.6:1) is used for small text, and
+`--accent-on-dark` (`#F8D3C6`, 6.6:1) on teal. Text on a brick fill is cream (4.9:1). The brand teal is 3.6:1 on
+cream, so it is kept for large words (`--highlight`), lines and icons.
+
+## Motion
+
+- Add `data-reveal` (`up` by default, or `left`, `right`, `zoom`, `fade`) to fade an element in as it scrolls into
+  view and back out as it leaves, in both directions; `data-reveal="stagger"` brings a list's children in one after
+  another, and `--reveal-delay` offsets either. `useScrollReveal()` in the layout drives it. Nothing is hidden for
+  visitors who ask for reduced motion.
+- The client wall loops each row left to right, the courts strip runs as a ticker; both pause on hover.
+- `CountUp` counts the home-page figures up as they come into view.
 
 ## Notes
 
@@ -65,3 +78,4 @@ Mint is never used for text on cream (1.4:1); use `--accent-text` (`#147050`, 5.
   Client names, client stories and events are placeholders. The forms (contact, careers) are front end only and
   don't send anything yet.
 - Practice-area and insight visuals are drawn from the house orbit motif (`PracticeArt`), not stock photography.
+- The tagline “Decoding Law | Delivering Solutions” is part of the logo lockup (`<Logo tagline={false} />` hides it).

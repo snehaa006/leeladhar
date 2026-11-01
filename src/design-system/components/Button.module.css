@@ -3,7 +3,7 @@
   --btn-fg: var(--text);
   --btn-border: transparent;
   --knob-bg: var(--ink-900);
-  --knob-fg: var(--mint-400);
+  --knob-fg: var(--cream-50);
 
   position: relative;
   display: inline-flex;
@@ -91,25 +91,25 @@
 
 /* variants */
 .primary {
-  --btn-bg: var(--mint-400);
-  --btn-fg: var(--ink-900);
+  --btn-bg: var(--brick-400);
+  --btn-fg: var(--text-on-accent);
 }
 .primary:hover:not(:disabled) {
-  --btn-bg: var(--mint-300);
-  box-shadow: var(--glow-mint);
+  --btn-bg: var(--brick-500);
+  box-shadow: var(--glow-brick);
 }
 .primary:active:not(:disabled) {
-  --btn-bg: var(--mint-500);
+  --btn-bg: var(--brick-600);
 }
 
 .secondary {
   --btn-bg: var(--ink-900);
   --btn-fg: var(--cream-100);
-  --knob-bg: var(--mint-400);
-  --knob-fg: var(--ink-900);
+  --knob-bg: var(--brick-400);
+  --knob-fg: var(--cream-50);
 }
 .secondary:hover:not(:disabled) {
-  --btn-bg: var(--chamber-800);
+  --btn-bg: var(--teal-800);
 }
 
 .ghost {
@@ -124,12 +124,12 @@
 .ghost-dark {
   --btn-border: var(--line-on-dark);
   --btn-fg: var(--cream-100);
-  --knob-bg: var(--mint-400);
-  --knob-fg: var(--ink-900);
+  --knob-bg: var(--brick-400);
+  --knob-fg: var(--cream-50);
 }
 .ghost-dark:hover:not(:disabled) {
-  --btn-border: var(--mint-400);
-  --btn-fg: var(--mint-300);
+  --btn-border: var(--accent-on-dark);
+  --btn-fg: var(--accent-on-dark);
 }
 
 .link {

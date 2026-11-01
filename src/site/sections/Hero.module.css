@@ -42,16 +42,51 @@
 }
 
 .title {
-  max-width: 17ch;
-  font-size: clamp(2.125rem, 0.9rem + 4.6vw, 5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: clamp(2.125rem, 0.6rem + 4vw, 4.25rem);
+  line-height: 1;
   text-transform: uppercase;
-  animation: rise 900ms var(--ease-out) 150ms both;
+}
+
+/* Each line rises out of its own mask. */
+.line {
+  display: block;
+  overflow: hidden;
+  padding-block: 0.04em 0.08em;
+}
+
+.line > span {
+  display: inline-block;
+  animation: lineUp 1100ms var(--ease-out) 150ms both;
+}
+
+.line:last-child > span {
+  animation-delay: 420ms;
+}
+
+.title em {
+  font-style: normal;
+  color: var(--highlight);
+}
+
+/* The “|” of the tagline, laid on its side between the two lines. */
+.pipe {
+  display: block;
+  width: clamp(48px, 6vw, 88px);
+  height: 4px;
+  margin-block: 0.16em 0.12em;
+  border-radius: 2px;
+  background: var(--accent);
+  transform-origin: center;
+  animation: grow 900ms var(--ease-out) 320ms both;
 }
 
 .lead {
   max-width: 50ch;
-  margin-top: var(--space-5);
-  animation: rise 900ms var(--ease-out) 300ms both;
+  margin-top: var(--space-6);
+  animation: rise 900ms var(--ease-out) 600ms both;
 }
 
 .actions {
@@ -60,10 +95,10 @@
   justify-content: center;
   gap: var(--space-3);
   margin-top: var(--space-6);
-  animation: rise 900ms var(--ease-out) 420ms both;
+  animation: rise 900ms var(--ease-out) 720ms both;
 }
 
-/* ── stage: photographs and matter notes around the statement ── */
+/* ── stage: the partners' photographs around the statement ── */
 
 .stage {
   position: absolute;
@@ -81,32 +116,18 @@
   left: clamp(24px, 9vw, 150px);
   bottom: 9%;
   width: clamp(150px, 13vw, 200px);
-  animation: rise 900ms var(--ease-out) 1100ms both;
+  animation:
+    rise 900ms var(--ease-out) 1100ms both,
+    float 9s var(--ease-in-out) 2.1s infinite;
 }
 
 .photo {
   right: clamp(24px, 9vw, 150px);
   top: 7%;
   width: clamp(150px, 15vw, 220px);
-  animation: rise 900ms var(--ease-out) 1250ms both;
-}
-
-.noteA {
-  left: clamp(16px, 6vw, 110px);
-  top: 15%;
-  animation: rise 700ms var(--ease-out) 1500ms both;
-}
-
-.noteB {
-  right: clamp(16px, 7vw, 120px);
-  bottom: 22%;
-  animation: rise 700ms var(--ease-out) 1650ms both;
-}
-
-.noteC {
-  right: clamp(140px, 20vw, 320px);
-  bottom: 7%;
-  animation: rise 700ms var(--ease-out) 1800ms both;
+  animation:
+    rise 900ms var(--ease-out) 1250ms both,
+    float 10s var(--ease-in-out) 2.4s infinite reverse;
 }
 
 .mark {
@@ -124,59 +145,75 @@
   }
 }
 
+@keyframes lineUp {
+  from {
+    transform: translateY(105%);
+  }
+}
+
+@keyframes grow {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
 @keyframes fade {
   from {
     opacity: 0;
   }
 }
 
-/* Between tablet and small desktop the notes crowd the headline. */
+/* Between tablet and small desktop the portraits crowd the headline. */
 @media (max-width: 1180px) {
-  .noteA,
-  .noteC {
-    display: none;
+  .photo {
+    top: 4%;
+    width: clamp(130px, 13vw, 170px);
+  }
+
+  .portrait {
+    width: clamp(130px, 12vw, 170px);
   }
 }
 
+/* On a phone the hero is just the statement and the two actions, so “About us” follows straight after. */
 @media (max-width: 900px) {
   .hero {
     display: flex;
     flex-direction: column;
     align-items: stretch;
     min-height: 0;
-    padding-block: var(--space-7) var(--space-8);
+    padding-block: var(--space-8) var(--space-7);
   }
 
   .marginLeft,
   .marginRight,
-  .photo,
+  .stage,
   .mark {
     display: none;
   }
 
-  .stage {
-    position: relative;
-    inset: auto;
-    display: grid;
-    grid-template-columns: minmax(0, 132px) minmax(0, 1fr);
-    align-items: end;
-    gap: var(--space-4);
-    margin: var(--space-8) var(--gutter) 0;
+  .lead {
+    margin-top: var(--space-5);
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: clamp(1.75rem, 0.6rem + 6.2vw, 2.25rem);
   }
 
-  .stage > * {
-    position: relative;
-    inset: auto;
-  }
-
-  .portrait {
-    width: 100%;
-    grid-row: span 2;
-  }
-
-  .noteA,
-  .noteB {
-    display: inline-flex;
-    max-width: 100%;
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
   }
 }

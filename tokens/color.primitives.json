@@ -1,51 +1,45 @@
 {
   "cream": {
     "$type": "color",
-    "$description": "Page background and light surfaces. Sampled from the Mosey compliance site background.",
-    "50": { "$value": "#FAF9F6", "$description": "Raised surface — cards, notes" },
-    "100": { "$value": "#F3F1ED", "$description": "Page background" },
-    "200": { "$value": "#E9E5DD", "$description": "Sunken band" },
-    "300": { "$value": "#DAD5CA", "$description": "Strong divider, input border" },
-    "400": { "$value": "#C4BDAE" }
+    "$description": "Page background and light surfaces. The cream of the client's “Client wins” reference.",
+    "50": { "$value": "#FBF8F3", "$description": "Raised surface — cards, notes; text on brick" },
+    "100": { "$value": "#F6F1E9", "$description": "Page background" },
+    "200": { "$value": "#ECE3D5", "$description": "Sunken band" },
+    "300": { "$value": "#DDD0BC", "$description": "Strong divider, input border" },
+    "400": { "$value": "#C9B89E" }
   },
-  "mint": {
+  "brick": {
     "$type": "color",
-    "$description": "Primary — calls to action, live states, focus and glow. Sampled from the stage-floor glow in the Legal Point conference photo.",
-    "50": { "$value": "#EAFCF4" },
-    "100": { "$value": "#D3F8E8" },
-    "200": { "$value": "#A9F2D3", "$description": "Text selection" },
-    "300": { "$value": "#82EDC3", "$description": "Hover" },
-    "400": { "$value": "#62E8B3", "$description": "Brand" },
-    "500": { "$value": "#38D497", "$description": "Pressed" },
-    "600": { "$value": "#1FAE78", "$description": "Focus ring" },
-    "700": { "$value": "#147050", "$description": "Mint text on cream (5.4:1)" },
-    "800": { "$value": "#0F5640" },
-    "900": { "$value": "#0B3D2E" }
+    "$description": "Primary — calls to action and highlights. The red of the client's “Client wins” reference.",
+    "50": { "$value": "#FCEFEA" },
+    "100": { "$value": "#F8DCD2" },
+    "200": { "$value": "#F8D3C6", "$description": "Brick text on teal (6.6:1 on teal-900); text selection" },
+    "300": { "$value": "#F08A6C", "$description": "Icons and large text on teal" },
+    "400": { "$value": "#C2401F", "$description": "Brand (4.6:1 on cream-100)" },
+    "500": { "$value": "#AD3719", "$description": "Hover; brick text on cream (5.6:1)" },
+    "600": { "$value": "#962E14", "$description": "Pressed" },
+    "700": { "$value": "#7C2611" }
   },
-  "chamber": {
+  "teal": {
     "$type": "color",
-    "$description": "Secondary — dark sections. The conference screen teal, pulled toward the mint hue.",
-    "600": { "$value": "#2A5257" },
-    "700": { "$value": "#1F4146" },
-    "800": { "$value": "#1C3A42", "$description": "Card on dark" },
-    "900": { "$value": "#17302F", "$description": "Dark section" },
-    "950": { "$value": "#0F1D1B", "$description": "Footer, deepest" }
-  },
-  "patina": {
-    "$type": "color",
-    "$description": "Secondary — the monogram, orbit lines and quiet accents. The teal of the Leeladhar monogram.",
-    "200": { "$value": "#C9E1E4" },
-    "400": { "$value": "#78B4BC", "$description": "Logo on dark" },
-    "600": { "$value": "#3E7C86", "$description": "Orbit lines on cream" },
-    "700": { "$value": "#2F6A73", "$description": "Patina text on cream (5.4:1)" }
+    "$description": "Secondary — emphasis and dark sections. The teal of the client's “Customers” reference.",
+    "200": { "$value": "#D3E6E4" },
+    "300": { "$value": "#A3CBC7" },
+    "400": { "$value": "#468A86", "$description": "Brand teal — orbit lines and large emphasis only (3.6:1 on cream)" },
+    "500": { "$value": "#3B7A76" },
+    "600": { "$value": "#33706C" },
+    "700": { "$value": "#2E6662" },
+    "800": { "$value": "#2C605C", "$description": "Card on dark" },
+    "900": { "$value": "#234F4C", "$description": "Dark section" },
+    "950": { "$value": "#173836", "$description": "Footer, deepest" }
   },
   "ink": {
     "$type": "color",
-    "$description": "Text on cream. Green-black from the shadows of the conference photo.",
-    "300": { "$value": "#9AA39F", "$description": "Decorative only — fails text contrast" },
-    "500": { "$value": "#626D69", "$description": "Muted text (4.8:1)" },
-    "700": { "$value": "#4A5653", "$description": "Secondary text (6.8:1)" },
-    "900": { "$value": "#15211F", "$description": "Primary text (14.7:1)" }
+    "$description": "Text on cream. Teal-black.",
+    "300": { "$value": "#A2ADAB", "$description": "Decorative only — fails text contrast" },
+    "500": { "$value": "#586967", "$description": "Muted text (5.1:1 on cream-100, 4.6:1 on cream-200)" },
+    "700": { "$value": "#3D4F4D", "$description": "Secondary text (7.7:1)" },
+    "900": { "$value": "#1A2E2C", "$description": "Primary text (12.7:1)" }
   },
   "seal": {
     "$type": "color",

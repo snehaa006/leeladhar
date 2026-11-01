@@ -1,5 +1,6 @@
 .forums {
-  border-block: 1px solid var(--line);
+  background: var(--surface-dark);
+  color: var(--text-on-dark);
 }
 
 .forumsInner {
@@ -11,15 +12,39 @@
 
 .forumsLabel {
   flex: none;
-  color: var(--text-muted);
+  color: var(--text-on-dark-secondary);
   font-size: var(--text-sm);
+}
+
+/* The courts run past as a ticker, right to left; hover holds it still. */
+.ticker {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.tickerTrack {
+  display: flex;
+  width: max-content;
+  animation: ticker 42s linear infinite;
+}
+
+.ticker:hover .tickerTrack {
+  animation-play-state: paused;
+}
+
+@keyframes ticker {
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .forumList {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: var(--space-2) 0;
+  padding: 0;
 }
 
 .forumList li {
@@ -28,18 +53,39 @@
   font-size: var(--text-sm);
   font-stretch: var(--wdth-expanded);
   font-weight: 560;
-  color: var(--text);
+  color: var(--text-on-dark);
   white-space: nowrap;
 }
 
-/* orbit node between names */
-.forumList li + li::before {
+/* orbit node before every name, so the two copies join seamlessly */
+.forumList li::before {
   content: '';
-  width: 5px;
-  height: 5px;
-  margin-inline: var(--space-4);
+  width: 6px;
+  height: 6px;
+  margin-inline: var(--space-5);
   border-radius: 50%;
-  background: var(--orbit);
+  background: var(--brick-300);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .tickerTrack {
+    width: auto;
+    animation: none;
+  }
+
+  .forumList {
+    flex-wrap: wrap;
+    row-gap: var(--space-2);
+  }
+
+  .forumList[data-copy] {
+    display: none;
+  }
 }
 
 .firm {
@@ -53,8 +99,29 @@
   align-items: start;
 }
 
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+  color: var(--accent-text);
+  font-size: var(--text-sm);
+  font-stretch: var(--wdth-expanded);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--accent);
+}
+
 .title {
-  max-width: 18ch;
+  max-width: 16ch;
 }
 
 .copy {
@@ -83,13 +150,19 @@
 
 .stats dd {
   margin: 0;
-  color: var(--accent-text);
+  color: var(--accent);
   font-size: clamp(2.25rem, 1.6rem + 2.4vw, 3.5rem);
   font-stretch: var(--wdth-expanded);
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.02em;
   font-variant-numeric: tabular-nums;
+}
+
+.unit {
+  font-size: 0.55em;
+  font-weight: 700;
+  letter-spacing: 0;
 }
 
 .body {
@@ -100,7 +173,7 @@
 
 .title em {
   font-style: normal;
-  color: var(--accent-text);
+  color: var(--highlight);
 }
 
 .more {
@@ -114,24 +187,21 @@
 @media (max-width: 900px) {
   .forumsInner {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     gap: var(--space-3);
+    padding-block: var(--space-4);
   }
 
-  /* On a phone the names wrap as small pills rather than a ragged dotted line. */
-  .forumList {
-    gap: var(--space-2);
-  }
-
-  .forumList li {
-    padding: 6px var(--space-3);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-pill);
+  .forumsLabel {
     font-size: var(--text-micro);
   }
 
-  .forumList li + li::before {
-    content: none;
+  .forumList li {
+    font-size: var(--text-micro);
+  }
+
+  .forumList li::before {
+    margin-inline: var(--space-4);
   }
 
   .stats {

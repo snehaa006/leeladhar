@@ -9,7 +9,7 @@
   --tab-fg: var(--text-on-dark-secondary);
   --tab-fg-active: var(--cream-100);
   --tab-rule: var(--line-on-dark);
-  --tab-bar: var(--mint-400);
+  --tab-bar: var(--brick-400);
 }
 
 .list {

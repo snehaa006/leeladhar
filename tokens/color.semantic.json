@@ -9,8 +9,8 @@
     "$type": "color",
     "$description": "Surfaces that sit on a background",
     "default": { "$value": "{cream.50}", "$description": "Card, note, input" },
-    "dark": { "$value": "{chamber.900}", "$description": "Dark section" },
-    "dark-raised": { "$value": "{chamber.800}", "$description": "Card on a dark section" }
+    "dark": { "$value": "{teal.900}", "$description": "Dark section" },
+    "dark-raised": { "$value": "{teal.800}", "$description": "Card on a dark section" }
   },
   "text": {
     "$type": "color",
@@ -19,31 +19,36 @@
     "secondary": { "$value": "{ink.700}" },
     "muted": { "$value": "{ink.500}" },
     "on-dark": { "$value": "{cream.100}" },
-    "on-dark-secondary": { "$value": "#A9BDB8", "$description": "7.1:1 on chamber-900" },
-    "on-mint": { "$value": "{ink.900}" }
+    "on-dark-secondary": { "$value": "#C3D6D3", "$description": "6.1:1 on teal-900, 4.7:1 on teal-800" },
+    "on-accent": { "$value": "{cream.50}", "$description": "Text on brick (4.9:1)" }
   },
   "accent": {
     "$type": "color",
     "$description": "Brand accent roles",
-    "default": { "$value": "{mint.400}" },
-    "hover": { "$value": "{mint.300}" },
-    "text": { "$value": "{mint.700}", "$description": "Use when the accent must be read as text on cream" }
+    "default": { "$value": "{brick.400}" },
+    "hover": { "$value": "{brick.500}" },
+    "text": { "$value": "{brick.500}", "$description": "Use when the accent must be read as text on cream" },
+    "on-dark": { "$value": "{brick.200}", "$description": "Use when the accent must be read as text on teal" }
+  },
+  "highlight": {
+    "$type": "color",
+    "default": { "$value": "{teal.400}", "$description": "Emphasised words in headings — large text only" }
   },
   "line": {
     "$type": "color",
     "$description": "Hairlines and borders",
-    "default": { "$value": "rgba(21, 33, 31, 0.12)" },
-    "strong": { "$value": "rgba(21, 33, 31, 0.24)" },
-    "on-dark": { "$value": "rgba(243, 241, 237, 0.14)" }
+    "default": { "$value": "rgba(26, 46, 44, 0.13)" },
+    "strong": { "$value": "rgba(26, 46, 44, 0.26)" },
+    "on-dark": { "$value": "rgba(246, 241, 233, 0.16)" }
   },
   "orbit": {
     "$type": "color",
-    "$description": "The thin orbital lines from the conference screen",
-    "default": { "$value": "{patina.600}" },
-    "on-dark": { "$value": "rgba(120, 180, 188, 0.45)" }
+    "$description": "The thin orbital lines",
+    "default": { "$value": "{teal.400}" },
+    "on-dark": { "$value": "rgba(246, 241, 233, 0.28)" }
   },
   "focus": {
     "$type": "color",
-    "default": { "$value": "{mint.600}", "$description": "Keyboard focus ring" }
+    "default": { "$value": "{brick.500}", "$description": "Keyboard focus ring" }
   }
 }
