@@ -1,21 +1,20 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { Search } from 'lucide-react'
+import { Link, Navigate, useParams } from 'react-router-dom'
+import { Mail, Phone } from 'lucide-react'
+import { Chip } from '../../design-system'
 import { CtaBanner } from '../components/CtaBanner'
 import { PageBanner } from '../components/PageBanner'
 import { photos } from '../content/photos'
-import { team } from '../data'
+import { contact, memberBySlug, team, tel } from '../data'
 import { usePageTitle } from '../usePageTitle'
 import page from './Page.module.css'
 import styles from './PeoplePage.module.css'
 
-/** Our people: search by name, after duaassociates.com/our-people. */
+/**
+ * Our people: both partners' full profiles on the one page, one after the
+ * other, so nothing sits behind a click.
+ */
 export function PeoplePage() {
   usePageTitle('Our people')
-  const [query, setQuery] = useState('')
-
-  const q = query.trim().toLowerCase()
-  const visible = team.filter((m) => !q || m.name.toLowerCase().includes(q))
 
   return (
     <>
@@ -26,43 +25,58 @@ export function PeoplePage() {
         photo={photos.gavel}
       />
 
-      <section className={page.section} aria-labelledby="people-list">
+      <section className={page.section} aria-label="Our partners">
         <div className="container">
-          <h2 id="people-list" className="visually-hidden">
-            Advocates
-          </h2>
-          <div className={styles.filters}>
-            <label className={styles.search}>
-              <span className="visually-hidden">Search by name</span>
-              <Search aria-hidden="true" />
-              <input
-                type="search"
-                placeholder="Search by name"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-              />
-            </label>
-          </div>
+          <ul role="list" className={styles.profiles}>
+            {team.map((m) => (
+              <li key={m.slug}>
+                <article id={m.slug} className={styles.profile} aria-labelledby={`${m.slug}-name`}>
+                  <img className={styles.photo} src={m.photo} alt={`Portrait of ${m.name}`} decoding="async" />
 
-          <div aria-live="polite">
-            {visible.length === 0 ? (
-              <p className={`${page.empty} ${styles.empty}`}>No one matches that search.</p>
-            ) : (
-              <ul data-reveal="stagger" role="list" className={styles.grid}>
-                {visible.map((m) => (
-                  <li key={m.slug}>
-                    <Link to={`/people/${m.slug}`} className={styles.card}>
-                      <img src={m.photo} alt="" loading="lazy" decoding="async" />
-                      <span className={styles.caption}>
-                        <span className={styles.name}>{m.name}</span>
-                        <span className={styles.role}>{m.role}</span>
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
+                  <div className={styles.body}>
+                    <h2 id={`${m.slug}-name`} className={`t-h1 ${styles.name}`}>
+                      {m.name}
+                    </h2>
+                    <p className={styles.role}>
+                      {m.role}, Leeladhar Law Chambers · In practice since {m.since}
+                    </p>
+
+                    <div className={`${page.prose} ${styles.bio}`}>
+                      {m.overview.map((p) => (
+                        <p key={p}>{p}</p>
+                      ))}
+                    </div>
+
+                    <h3 className={styles.areasTitle}>Practice areas</h3>
+                    <ul role="list" className={page.chips}>
+                      {m.practices.map((p) => (
+                        <li key={p.label}>
+                          {p.slug ? (
+                            <Link to={`/practice-areas/${p.slug}`} className={styles.chipLink}>
+                              <Chip>{p.label}</Chip>
+                            </Link>
+                          ) : (
+                            <Chip>{p.label}</Chip>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <ul role="list" className={styles.reach}>
+                      <li>
+                        <Mail aria-hidden="true" />
+                        <a href={`mailto:${contact.email}`}>{contact.email}</a>
+                      </li>
+                      <li>
+                        <Phone aria-hidden="true" />
+                        <a href={tel(contact.phone)}>{contact.phone}</a>
+                      </li>
+                    </ul>
+                  </div>
+                </article>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -74,4 +88,10 @@ export function PeoplePage() {
       />
     </>
   )
+}
+
+/** Old /people/:slug links land on that partner's profile on /people. */
+export function PersonRedirect() {
+  const { slug } = useParams()
+  return <Navigate to={memberBySlug(slug) ? `/people#${slug}` : '/people'} replace />
 }

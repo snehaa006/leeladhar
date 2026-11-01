@@ -77,7 +77,7 @@ export function Team() {
                 </div>
                 <div className={styles.caption}>
                   <h3 id={`member-${m.slug}`} className={styles.name}>
-                    <Link to={`/people/${m.slug}`}>{m.name}</Link>
+                    <Link to={`/people#${m.slug}`}>{m.name}</Link>
                   </h3>
                   <p className={styles.role}>{m.role}</p>
                 </div>

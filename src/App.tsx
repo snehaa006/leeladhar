@@ -9,8 +9,7 @@ import { HomePage } from './site/pages/HomePage'
 import { InsightsPage } from './site/pages/InsightsPage'
 import { LocationPage } from './site/pages/LocationPage'
 import { NotFoundPage } from './site/pages/NotFoundPage'
-import { PeoplePage } from './site/pages/PeoplePage'
-import { PersonPage } from './site/pages/PersonPage'
+import { PeoplePage, PersonRedirect } from './site/pages/PeoplePage'
 import { PracticeAreaPage } from './site/pages/PracticeAreaPage'
 import { PracticeAreasPage } from './site/pages/PracticeAreasPage'
 
@@ -24,7 +23,7 @@ export function App() {
           <Route path="practice-areas" element={<PracticeAreasPage />} />
           <Route path="practice-areas/:slug" element={<PracticeAreaPage />} />
           <Route path="people" element={<PeoplePage />} />
-          <Route path="people/:slug" element={<PersonPage />} />
+          <Route path="people/:slug" element={<PersonRedirect />} />
           <Route path="insights" element={<InsightsPage />} />
           <Route path="insights/:slug" element={<ArticlePage />} />
           <Route path="careers" element={<CareersPage />} />

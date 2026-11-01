@@ -72,7 +72,7 @@ export function LocationPage() {
               <ul data-reveal="stagger" role="list" className={styles.people}>
                 {people.map((m) => (
                   <li key={m.slug}>
-                    <Link to={`/people/${m.slug}`} className={styles.person}>
+                    <Link to={`/people#${m.slug}`} className={styles.person}>
                       <img src={m.photo} alt="" loading="lazy" />
                       <span>
                         <strong>{m.name}</strong>

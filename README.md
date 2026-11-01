@@ -38,7 +38,7 @@ The tabs of legacylawoffices.com and duaassociates.com, merged:
 | `/` | Home |
 | `/about` (`#why-us`, `#values`) | About us |
 | `/practice-areas`, `/practice-areas/:slug` | Practice areas (Dua-style explorer) and one page per area |
-| `/people`, `/people/:slug` | Our people and one profile per advocate |
+| `/people` | Both partners' full profiles on one page (`/people/:slug` redirects to `/people#slug`) |
 | `/insights?category=…`, `/insights/:slug` | Insights with categories and search, and one page per article |
 | `/events?category=…` | Events, CSR, pro bono and media |
 | `/careers` | Careers and application form |
