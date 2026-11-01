@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom'
 import { ArrowLeft, Clock } from 'lucide-react'
 import { CtaBanner } from '../components/CtaBanner'
 import { PageBanner } from '../components/PageBanner'
+import { photos } from '../content/photos'
 import { categoryLabel, formatDate, insightBySlug, insights } from '../content/insights'
 import { practiceBySlug } from '../content/practiceAreas'
 import { usePageTitle } from '../usePageTitle'
@@ -27,6 +28,7 @@ export function ArticlePage() {
       <PageBanner
         title={article.title}
         eyebrow={categoryLabel(article.category)}
+        photo={area?.photo ?? photos.lawReports}
         crumbs={[
           { to: '/insights', label: 'Insights' },
           { to: `/insights?category=${article.category}`, label: categoryLabel(article.category) },

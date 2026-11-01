@@ -1,5 +1,5 @@
 import { PageBanner } from '../components/PageBanner'
-import { photoCredits } from '../content/photos'
+import { photoCredits, photos } from '../content/photos'
 import { usePageTitle } from '../usePageTitle'
 import page from './Page.module.css'
 import styles from './CreditsPage.module.css'
@@ -13,6 +13,7 @@ export function CreditsPage() {
         title="Photo credits"
         lead="The photographs on this site come from Wikimedia Commons, under the licences listed here."
         crumbs={[{ label: 'Photo credits' }]}
+        photo={photos.lawReports}
       />
       <section className={page.section} aria-label="Photographs">
         <div className="container">
