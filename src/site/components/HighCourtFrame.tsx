@@ -1,4 +1,5 @@
 import { ArrowUpRight, FileSearch, Landmark, ListOrdered, Lock, ScrollText } from 'lucide-react'
+import { photos } from '../content/photos'
 import { phhc } from '../data'
 import styles from './HighCourtFrame.module.css'
 
@@ -33,6 +34,15 @@ export function HighCourtFrame({ className }: { className?: string }) {
       </span>
 
       <span className={styles.screen}>
+        <img
+          className={styles.shot}
+          src={photos.courtroom.src}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          style={{ objectPosition: photos.courtroom.position }}
+          data-parallax="0.05"
+        />
         <span className={styles.crest} aria-hidden="true">
           <Landmark />
         </span>

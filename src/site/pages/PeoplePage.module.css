@@ -1,105 +1,138 @@
-.filters {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-4);
-  padding: var(--space-4);
-  border-radius: var(--radius-lg);
-  background: var(--bg-sunken);
+.profiles {
+  display: grid;
+  padding: 0;
 }
 
-.search {
-  position: relative;
-  display: flex;
-  flex: 1 1 280px;
-  max-width: 420px;
+/* Each partner in full: portrait beside the profile; the second mirrors the first. */
+.profile {
+  display: grid;
+  grid-template-columns: minmax(220px, 5fr) minmax(0, 7fr);
+  gap: var(--space-8);
+  align-items: start;
+  padding-block: var(--space-8);
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 96px;
 }
 
-.search svg {
-  position: absolute;
-  top: 50%;
-  left: var(--space-4);
-  width: 18px;
-  height: 18px;
-  color: var(--text-muted);
-  transform: translateY(-50%);
-  pointer-events: none;
+.profiles > li:first-child .profile {
+  padding-top: 0;
+  border-top: 0;
 }
 
-.search input {
+.profiles > li:nth-child(even) .profile {
+  grid-template-columns: minmax(0, 7fr) minmax(220px, 5fr);
+}
+
+.profiles > li:nth-child(even) .photo {
+  order: 2;
+}
+
+.photo {
+  position: sticky;
+  top: 104px;
   width: 100%;
-  min-height: 44px;
-  padding: 0 var(--space-4) 0 calc(var(--space-4) + 28px);
-  border: 1px solid var(--line-strong);
-  border-radius: var(--radius-pill);
-  background: var(--surface);
-  color: var(--text);
-  font: inherit;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 18%;
+  border-radius: var(--radius-lg);
+  background: var(--teal-800);
 }
 
-.search input:focus-visible {
+.name {
+  color: var(--text);
+}
+
+.role {
+  display: inline-block;
+  margin-top: var(--space-4);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  color: var(--text-on-accent);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.bio {
+  margin-top: var(--space-6);
+}
+
+.areasTitle {
+  margin-block: var(--space-6) var(--space-3);
+  font-size: var(--text-lg);
+  font-weight: 600;
+}
+
+.chipLink {
+  display: inline-flex;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+}
+
+.chipLink:hover > span {
+  border-color: var(--accent);
+  color: var(--accent-text);
+}
+
+.chipLink:focus-visible {
   outline: 2px solid var(--focus);
   outline-offset: 2px;
 }
 
-.empty {
+.reach {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-6);
   margin-top: var(--space-6);
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
-  gap: var(--space-5);
-  margin-top: var(--space-7);
   padding: 0;
 }
 
-.card {
-  position: relative;
-  display: grid;
-  aspect-ratio: 4 / 5;
-  border-radius: var(--radius-lg);
-  background: var(--teal-800);
-  color: var(--cream-50);
-  overflow: hidden;
+.reach li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  overflow-wrap: anywhere;
+}
+
+.reach svg {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  color: var(--accent);
+}
+
+.reach a {
+  color: var(--text);
   text-decoration: none;
 }
 
-.card img {
-  grid-area: 1 / 1;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 20%;
-  transition: transform var(--dur-slow) var(--ease-out);
+.reach a:hover {
+  color: var(--accent-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-.card:hover img {
-  transform: scale(1.03);
-}
+@media (max-width: 900px) {
+  .profile {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-6);
+    padding-block: var(--space-7);
+  }
 
-.caption {
-  grid-area: 1 / 1;
-  align-self: end;
-  display: grid;
-  gap: 2px;
-  padding: 30% var(--space-5) var(--space-5);
-  background: linear-gradient(to top, rgba(23, 56, 54, 0.92), rgba(23, 56, 54, 0));
-}
+  .profiles > li:nth-child(even) .profile {
+    grid-template-columns: minmax(0, 1fr);
+  }
 
-.name {
-  font-size: var(--text-lg);
-  font-stretch: var(--wdth-expanded);
-  font-weight: 560;
-}
+  .profiles > li:nth-child(even) .photo {
+    order: 0;
+  }
 
-.role {
-  color: var(--accent-on-dark);
-  font-size: var(--text-sm);
-}
+  .photo {
+    position: static;
+    max-width: 360px;
+  }
 
-.card:focus-visible {
-  outline: 2px solid var(--focus);
-  outline-offset: 3px;
+  .role {
+    border-radius: var(--radius-md);
+  }
 }
