@@ -18,14 +18,11 @@ export function Firm() {
               About us
             </p>
             <h2 id="firm-title" className={`t-h1 ${styles.title}`} data-reveal style={{ ['--reveal-delay' as string]: '80ms' }}>
-              Every legal challenge has an{' '}
+              Every matter begins with{' '}
               <em>
-                <TypeOnView text="answer." />
+                <TypeOnView text="understanding." />
               </em>
             </h2>
-            <p className={`t-lead ${styles.answer}`} data-reveal style={{ ['--reveal-delay' as string]: '140ms' }}>
-              {about.answer}
-            </p>
             <dl className={styles.stats} data-reveal style={{ ['--reveal-delay' as string]: '200ms' }}>
               <div>
                 <dt>In practice since</dt>
@@ -36,7 +33,8 @@ export function Firm() {
             </dl>
           </div>
           <div className={styles.copy}>
-            <ScrollText text={about.intro} className={`t-lead ${styles.lead}`} />
+            <ScrollText text={`${about.question} ${about.answer}`} className={`t-lead ${styles.lead}`} />
+            <ScrollText text={about.intro} className={`t-body ${styles.body}`} />
             {about.story.map((p) => (
               <ScrollText key={p} text={p} className={`t-body ${styles.body}`} />
             ))}

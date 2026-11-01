@@ -16,7 +16,7 @@ export function OfficeCard({ office, showMore = true }: { office: Office; showMo
       />
       <div className={styles.body}>
         <h3 id={`office-${office.slug}`} className={styles.city}>
-          {office.city} chambers
+          {office.city}
         </h3>
         <p className={styles.court}>{office.court}</p>
         <address className={styles.address}>

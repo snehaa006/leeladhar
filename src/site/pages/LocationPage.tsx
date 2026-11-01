@@ -21,7 +21,7 @@ export function LocationPage() {
   usePageTitle(office ? `Advocates in ${office.city}` : 'Page not found')
   if (!office) return <NotFoundPage />
 
-  const people = team.filter((m) => m.office === office.slug)
+  const people = team
   const other = offices.find((o) => o.slug !== office.slug)
 
   return (

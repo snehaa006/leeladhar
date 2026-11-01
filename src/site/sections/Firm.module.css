@@ -159,12 +159,6 @@
   font-variant-numeric: tabular-nums;
 }
 
-.answer {
-  margin-top: var(--space-4);
-  max-width: 30ch;
-  color: var(--text-secondary);
-}
-
 .lead {
   color: var(--text);
 }
