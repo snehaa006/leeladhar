@@ -35,7 +35,7 @@ export function LocationPage() {
 
       <section className={page.section} aria-labelledby="loc-practice">
         <div className="container">
-          <SectionHead id="loc-practice" title="Practice areas" lead={`The work we most often handle at our ${office.city} chambers.`} />
+          <SectionHead id="loc-practice" title="Practice areas" lead="The work we most often handle at our chambers." />
           <ul data-reveal="stagger" role="list" className={`${page.grid3} ${styles.areas}`}>
             {office.practices.map((s) => {
               const p = practiceBySlug(s)!
@@ -65,7 +65,7 @@ export function LocationPage() {
         <div className={`container ${styles.officeGrid}`}>
           <div>
             <h2 data-reveal id="loc-office" className="t-h1">
-              Our {office.city} chambers
+              Our chambers
             </h2>
             <span className={page.rule} aria-hidden="true" data-reveal="wipe" />
             {people.length > 0 && (
@@ -86,7 +86,7 @@ export function LocationPage() {
             )}
             {other && (
               <p className={styles.other}>
-                Also see our <Link to={`/locations/${other.slug}`}>{other.city} chambers</Link>.
+                Also see our <Link to={`/locations/${other.slug}`}>other chambers</Link>.
               </p>
             )}
           </div>

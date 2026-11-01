@@ -272,7 +272,7 @@ export const offices: Office[] = [
     lines: ['Bar Room No. 19', 'Punjab & Haryana High Court, Chandigarh'],
     court: 'Punjab & Haryana High Court',
     intro:
-      'Our Chandigarh chambers are at the Punjab & Haryana High Court. From here we handle writ petitions, bail and quashing, commercial appeals and tribunal matters, and coordinate work for clients in other states.',
+      'Our chambers are at the Punjab & Haryana High Court. From here we handle writ petitions, bail and quashing, commercial appeals and tribunal matters, and coordinate work for clients in other states.',
     practices: ['commercial-suits-arbitration', 'msme-recovery', 'writs-constitutional', 'criminal-law', 'banking-recovery-insolvency', 'service-matters'],
     mapQuery: 'Punjab and Haryana High Court, Sector 1, Chandigarh',
   },
@@ -282,7 +282,7 @@ export const offices: Office[] = [
     lines: ['Chamber No. 439', 'District Court, Panipat'],
     court: 'District & Sessions Court',
     intro:
-      'Our Panipat chambers sit in the District Court complex. From here we handle commercial suits, MSME recovery and trial-court work for businesses, families and individuals, in Haryana and wherever else in India a matter takes us.',
+      'Our chambers are in the District Court complex. From here we handle commercial suits, MSME recovery and trial-court work for businesses, families and individuals, in Haryana and wherever else in India a matter takes us.',
     practices: ['commercial-suits-arbitration', 'msme-recovery', 'cheque-dishonour', 'civil-litigation', 'criminal-law', 'family-matrimonial'],
     mapQuery: 'District Court, Panipat, Haryana',
   },
