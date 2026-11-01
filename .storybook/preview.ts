@@ -7,12 +7,12 @@ const preview: Preview = {
   parameters: {
     layout: 'centered',
     backgrounds: {
-      default: 'cream',
+      default: 'sand',
       values: [
-        { name: 'cream', value: '#F3F1ED' },
-        { name: 'sunken', value: '#E9E5DD' },
-        { name: 'chamber', value: '#17302F' },
-        { name: 'mint', value: '#62E8B3' },
+        { name: 'sand', value: '#F6EEDF' },
+        { name: 'sunken', value: '#E6D5B7' },
+        { name: 'cadet', value: '#1E223D' },
+        { name: 'flame', value: '#F54F1B' },
       ],
     },
     controls: {

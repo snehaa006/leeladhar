@@ -49,15 +49,26 @@ To add a practice area, article or event, add an entry in `src/site/content/`; i
 
 ## Palette
 
+The client's palette: Gargoyle Gas, Space Cadet and Orange.
+
 | Role | Token | Hex | Source |
 | --- | --- | --- | --- |
-| Background | `--cream-100` | `#F3F1ED` | Mosey compliance site background |
-| Primary | `--mint-400` | `#62E8B3` | Stage-floor glow in the Legal Point conference photo |
-| Dark sections | `--chamber-900` | `#17302F` | The conference screen teal |
-| Monogram | `--patina-400` | `#78B4BC` | The supplied logo |
-| Text | `--ink-900` | `#15211F` | Shadows of the conference photo |
+| Background | `--sand-100` | `#F6EEDF` | A light tint of Gargoyle Gas |
+| Bands, sunken surfaces | `--sand-200` | `#E6D5B7` | Gargoyle Gas |
+| Primary | `--flame-400` | `#F54F1B` | Orange |
+| Dark sections, text | `--cadet-900` / `--ink-900` | `#1E223D` | Space Cadet |
 
-Mint is never used for text on cream (1.4:1); use `--accent-text` (`#147050`, 5.4:1) instead.
+Orange is never used for small text on sand (3.0:1); use `--accent-text` (`#A7300B`, 5.9:1) there and
+`--accent-on-dark` (`#FF7A4D`, 6.0:1) on Space Cadet. Text on an orange fill is `--text-on-accent` (`#14172B`, 5.1:1).
+
+## Motion
+
+- Add `data-reveal` (`up` by default, or `left`, `right`, `zoom`, `fade`) to fade an element in as it scrolls into
+  view and back out as it leaves, in both directions; `data-reveal="stagger"` brings a list's children in one after
+  another, and `--reveal-delay` offsets either. `useScrollReveal()` in the layout drives it. Nothing is hidden for
+  visitors who ask for reduced motion.
+- The client wall loops each row left to right, the courts strip runs as a ticker; both pause on hover.
+- `CountUp` counts the home-page figures up as they come into view.
 
 ## Notes
 
@@ -65,3 +76,4 @@ Mint is never used for text on cream (1.4:1); use `--accent-text` (`#147050`, 5.
   Client names, client stories and events are placeholders. The forms (contact, careers) are front end only and
   don't send anything yet.
 - Practice-area and insight visuals are drawn from the house orbit motif (`PracticeArt`), not stock photography.
+- The tagline “Decoding Law | Delivering Solutions” is part of the logo lockup (`<Logo tagline={false} />` hides it).

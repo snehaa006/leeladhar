@@ -12,7 +12,7 @@ export function LatestInsights() {
     <section className={styles.section} aria-labelledby="insights-title">
       <div className="container">
         <SectionHead id="insights-title" title="Insights" lead="Plain-language notes on the law our clients ask about most." />
-        <ul role="list" className={styles.grid}>
+        <ul role="list" className={styles.grid} data-reveal="stagger">
           {latest.map((i, n) => (
             <li key={i.slug}>
               <InsightCard insight={i} index={n} />

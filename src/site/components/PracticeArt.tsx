@@ -1,6 +1,7 @@
 import {
   Banknote,
   Briefcase,
+  FilePenLine,
   Gavel,
   Handshake,
   House,
@@ -30,6 +31,7 @@ export const practiceIcons: Record<PracticeIcon, LucideIcon> = {
   handshake: Handshake,
   bank: Banknote,
   map: Map,
+  contract: FilePenLine,
 }
 
 // A few ring layouts, so neighbouring areas don't look identical.
@@ -41,7 +43,7 @@ const layouts = [
 
 /**
  * Artwork for a practice area: the house orbit motif and a large line icon on
- * a chamber gradient. Stands in for photography so every area has a visual.
+ * a Space Cadet gradient. Stands in for photography so every area has a visual.
  */
 export function PracticeArt({
   icon,

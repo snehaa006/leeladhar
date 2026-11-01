@@ -2,8 +2,8 @@
   --f-label: var(--text);
   --f-bg: var(--surface);
   --f-fg: var(--text);
-  --f-border: var(--cream-300);
-  --f-border-hover: var(--cream-400);
+  --f-border: var(--sand-300);
+  --f-border-hover: var(--sand-400);
   --f-hint: var(--text-muted);
   --f-placeholder: var(--ink-500);
 
@@ -14,13 +14,13 @@
 }
 
 .field[data-tone='dark'] {
-  --f-label: var(--cream-100);
-  --f-bg: rgba(243, 241, 237, 0.04);
-  --f-fg: var(--cream-100);
+  --f-label: var(--sand-100);
+  --f-bg: rgba(246, 238, 223, 0.04);
+  --f-fg: var(--sand-100);
   --f-border: var(--line-on-dark);
-  --f-border-hover: rgba(243, 241, 237, 0.32);
+  --f-border-hover: rgba(246, 238, 223, 0.32);
   --f-hint: var(--text-on-dark-secondary);
-  --f-placeholder: #8fa49f;
+  --f-placeholder: #a09a8e;
 }
 
 .label {
@@ -55,8 +55,8 @@
 
 .control:focus-visible {
   outline: none;
-  border-color: var(--mint-600);
-  box-shadow: 0 0 0 3px rgba(98, 232, 179, 0.35);
+  border-color: var(--flame-600);
+  box-shadow: 0 0 0 3px rgba(245, 79, 27, 0.35);
 }
 
 .textarea {
@@ -76,7 +76,7 @@
 
 .select option {
   color: var(--ink-900);
-  background: var(--cream-50);
+  background: var(--sand-50);
 }
 
 .chevron {

@@ -11,7 +11,7 @@ Generated from `tokens/color.primitives.json` and `tokens/color.semantic.json`. 
 ## Primitive ramps
 
 <ColorPalette>
-  {['cream', 'mint', 'chamber', 'patina', 'ink', 'seal', 'brass'].map((group) => (
+  {['sand', 'flame', 'cadet', 'ink', 'seal', 'brass'].map((group) => (
     <ColorItem
       key={group}
       title={group[0].toUpperCase() + group.slice(1)}
@@ -53,7 +53,7 @@ Components use these, never the ramps directly. Each one points at a primitive, 
                 borderRadius: 4,
                 verticalAlign: -2,
                 background: t.resolved,
-                boxShadow: 'inset 0 0 0 1px rgba(21,33,31,.24)',
+                boxShadow: 'inset 0 0 0 1px rgba(30,34,61,.24)',
               }}
             />
             <code>{t.resolved}</code>
@@ -76,14 +76,15 @@ Components use these, never the ramps directly. Each one points at a primitive, 
   </thead>
   <tbody>
     {[
-      ['ink-900', 'cream-100'],
-      ['ink-700', 'cream-100'],
-      ['ink-500', 'cream-100'],
-      ['ink-900', 'mint-400'],
-      ['mint-700', 'cream-100'],
-      ['mint-400', 'chamber-900'],
-      ['cream-100', 'chamber-900'],
-      ['mint-400', 'cream-100'],
+      ['ink-900', 'sand-100'],
+      ['ink-700', 'sand-100'],
+      ['ink-500', 'sand-100'],
+      ['ink-500', 'sand-200'],
+      ['cadet-950', 'flame-400'],
+      ['flame-700', 'sand-100'],
+      ['flame-300', 'cadet-900'],
+      ['sand-100', 'cadet-900'],
+      ['flame-400', 'sand-100'],
     ].map(([fg, bg]) => {
       const f = tokens.find((t) => t.name === fg).resolved
       const b = tokens.find((t) => t.name === bg).resolved

@@ -15,10 +15,10 @@
   border: 0;
   /* Shown until the map loads, or if it can't. */
   background:
-    radial-gradient(circle at 50% 46%, var(--patina-400) 0 7px, transparent 8px),
-    repeating-linear-gradient(0deg, transparent 0 39px, rgba(23, 48, 47, 0.08) 39px 40px),
-    repeating-linear-gradient(90deg, transparent 0 39px, rgba(23, 48, 47, 0.08) 39px 40px),
-    var(--patina-200);
+    radial-gradient(circle at 50% 46%, var(--flame-400) 0 7px, transparent 8px),
+    repeating-linear-gradient(0deg, transparent 0 39px, rgba(30, 34, 61, 0.08) 39px 40px),
+    repeating-linear-gradient(90deg, transparent 0 39px, rgba(30, 34, 61, 0.08) 39px 40px),
+    var(--sand-200);
 }
 
 .body {

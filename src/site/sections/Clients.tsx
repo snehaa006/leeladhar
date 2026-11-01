@@ -34,33 +34,40 @@ function Story({ story }: { story: ClientStory }) {
 // so neighbours never share a look.
 const marks = ['wide', 'serif', 'condensed', 'serif-caps', 'light'] as const
 
-/** Holds the client grid hidden until it scrolls into view, then lets the cells rise in turn. */
-function useReveal<T extends HTMLElement>() {
-  const ref = useRef<T>(null)
-  const [state, setState] = useState<'idle' | 'waiting' | 'in'>('idle')
+const PER_ROW = 4
 
-  useEffect(() => {
-    const el = ref.current
-    if (!el || !('IntersectionObserver' in window)) return
-    setState('waiting')
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setState('in')
-          io.disconnect()
-        }
-      },
-      { rootMargin: '0px 0px -10% 0px' },
-    )
-    io.observe(el)
-    return () => io.disconnect()
-  }, [])
+/**
+ * The wall keeps its four-column grid, but every row is a loop that runs left
+ * to right and comes round again. Clients are shared out so every row holds at
+ * least a full grid's width (27 → 5, 5, 5, 4, 4, 4), and no name shows twice at
+ * once. Each row is rendered twice so the loop joins up; the copy is hidden
+ * from assistive tech.
+ */
+const rows = (() => {
+  const count = Math.max(1, Math.floor(clients.length / PER_ROW))
+  const base = Math.floor(clients.length / count)
+  const extra = clients.length % count
+  let start = 0
+  return Array.from({ length: count }, (_, r) => {
+    const size = base + (r < extra ? 1 : 0)
+    const items = clients.slice(start, start + size).map((c, j) => ({ ...c, i: start + j }))
+    start += size
+    return items
+  })
+})()
 
-  return [ref, state] as const
+function ClientCell({ name, place, i, copy }: { name: string; place: string; i: number; copy?: boolean }) {
+  return (
+    <li className={styles.cell} aria-hidden={copy || undefined} data-copy={copy || undefined}>
+      <span className={styles.mark} data-mark={marks[i % marks.length]}>
+        {name}
+      </span>
+      <span className={styles.place}>{place}</span>
+    </li>
+  )
 }
 
 export function Clients() {
-  const [grid, reveal] = useReveal<HTMLUListElement>()
   const track = useRef<HTMLUListElement>(null)
   const [page, setPage] = useState(0)
   const [pages, setPages] = useState(1)
@@ -88,7 +95,7 @@ export function Clients() {
   return (
     <section id="clients" className={styles.section} aria-labelledby="clients-title">
       <div className="container">
-        <header className={styles.header}>
+        <header className={styles.header} data-reveal>
           <h2 id="clients-title" className={styles.eyebrow}>
             Our clients
           </h2>
@@ -98,21 +105,30 @@ export function Clients() {
           </p>
         </header>
 
-        <ul ref={grid} role="list" className={styles.grid} data-reveal={reveal}>
-          {clients.map((c, i) => (
-            <li key={c.name} className={styles.cell} style={{ '--i': i } as CSSProperties}>
-              <span className={styles.mark} data-mark={marks[i % marks.length]}>
-                {c.name}
-              </span>
-              <span className={styles.place}>{c.place}</span>
-            </li>
+        <div className={styles.wall}>
+          {rows.map((row, r) => (
+            <div
+              key={r}
+              className={styles.row}
+              data-reveal
+              style={{ '--n': row.length, '--reveal-delay': `${(r % 3) * 70}ms` } as CSSProperties}
+            >
+              <ul role="list" className={styles.loop}>
+                {row.map((c) => (
+                  <ClientCell key={c.name} {...c} />
+                ))}
+                {row.map((c) => (
+                  <ClientCell key={`copy-${c.name}`} {...c} copy />
+                ))}
+              </ul>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
 
       <div className={styles.band}>
         <div className="container">
-          <h3 className={styles.bandTitle}>What our clients say about working with us</h3>
+          <h3 className={styles.bandTitle} data-reveal>What our clients say about working with us</h3>
 
           <ul
             ref={track}

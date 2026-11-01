@@ -10,8 +10,10 @@ export function PracticeSection() {
       <div className="container">
         <SectionHead id="practice-title" title="Practice areas" />
       </div>
-      <PracticeExplorer headingLevel={3} />
-      <div className={`container ${styles.foot}`}>
+      <div data-reveal style={{ ['--reveal-delay' as string]: '120ms' }}>
+        <PracticeExplorer headingLevel={3} />
+      </div>
+      <div className={`container ${styles.foot}`} data-reveal>
         <Button href="/practice-areas" variant="ghost" icon={<ArrowRight />}>
           View all practice areas
         </Button>

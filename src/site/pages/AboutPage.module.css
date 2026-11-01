@@ -14,6 +14,65 @@
   border-radius: var(--radius-lg);
 }
 
+.vision {
+  color: var(--text);
+  font-size: var(--text-lg);
+  font-weight: 500;
+}
+
+/* ── the motto band ───────────────────────────────────────── */
+
+.legacy {
+  position: relative;
+  isolation: isolate;
+  padding-block: var(--space-9);
+  background: var(--surface-dark);
+  color: var(--text-on-dark);
+  overflow: hidden;
+}
+
+/* A slow orange glow drifting behind the line. */
+.legacy::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: -40% -10%;
+  background: radial-gradient(40% 50% at 30% 50%, rgba(245, 79, 27, 0.28), transparent 70%);
+  animation: drift 14s var(--ease-in-out) infinite alternate;
+}
+
+@keyframes drift {
+  to {
+    transform: translateX(30%);
+  }
+}
+
+.legacyInner {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-5);
+  text-align: center;
+}
+
+.legacyQuote {
+  max-width: 22ch;
+  font-family: var(--font-evidence);
+  font-size: clamp(2rem, 1.2rem + 3vw, 3.75rem);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.legacyTagline {
+  color: var(--accent-on-dark);
+  font-size: var(--text-sm);
+  font-stretch: var(--wdth-expanded);
+  font-weight: 640;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
 .copy {
   margin-top: var(--space-6);
 }
@@ -78,7 +137,7 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--mint-500);
+  background: var(--flame-500);
 }
 
 .principles strong {
@@ -92,8 +151,17 @@
     gap: var(--space-6);
   }
 
-  .flip .art {
+  .flip .artWrap {
     order: -1;
+  }
+
+  .legacy {
+    padding-block: var(--space-8);
+  }
+
+  .legacyTagline {
+    font-size: var(--text-micro);
+    letter-spacing: 0.1em;
   }
 
   .art {

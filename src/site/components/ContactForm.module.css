@@ -24,7 +24,7 @@
   height: 48px;
   border-radius: 50%;
   background: var(--accent);
-  color: var(--text-on-mint);
+  color: var(--text-on-accent);
 }
 
 .doneIcon svg {

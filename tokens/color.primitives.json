@@ -1,51 +1,43 @@
 {
-  "cream": {
+  "sand": {
     "$type": "color",
-    "$description": "Page background and light surfaces. Sampled from the Mosey compliance site background.",
-    "50": { "$value": "#FAF9F6", "$description": "Raised surface — cards, notes" },
-    "100": { "$value": "#F3F1ED", "$description": "Page background" },
-    "200": { "$value": "#E9E5DD", "$description": "Sunken band" },
-    "300": { "$value": "#DAD5CA", "$description": "Strong divider, input border" },
-    "400": { "$value": "#C4BDAE" }
+    "$description": "Page background and light surfaces. Tints of Gargoyle Gas #E6D5B7.",
+    "50": { "$value": "#FCF8F1", "$description": "Raised surface — cards, notes" },
+    "100": { "$value": "#F6EEDF", "$description": "Page background" },
+    "200": { "$value": "#E6D5B7", "$description": "Gargoyle Gas — sunken band" },
+    "300": { "$value": "#D9C49E", "$description": "Strong divider, input border" },
+    "400": { "$value": "#C7AE82" }
   },
-  "mint": {
+  "flame": {
     "$type": "color",
-    "$description": "Primary — calls to action, live states, focus and glow. Sampled from the stage-floor glow in the Legal Point conference photo.",
-    "50": { "$value": "#EAFCF4" },
-    "100": { "$value": "#D3F8E8" },
-    "200": { "$value": "#A9F2D3", "$description": "Text selection" },
-    "300": { "$value": "#82EDC3", "$description": "Hover" },
-    "400": { "$value": "#62E8B3", "$description": "Brand" },
-    "500": { "$value": "#38D497", "$description": "Pressed" },
-    "600": { "$value": "#1FAE78", "$description": "Focus ring" },
-    "700": { "$value": "#147050", "$description": "Mint text on cream (5.4:1)" },
-    "800": { "$value": "#0F5640" },
-    "900": { "$value": "#0B3D2E" }
+    "$description": "Primary — calls to action, live states, highlights. Orange #F54F1B.",
+    "50": { "$value": "#FFF3EE" },
+    "100": { "$value": "#FFE3D7" },
+    "200": { "$value": "#FFC3AA", "$description": "Text selection" },
+    "300": { "$value": "#FF7A4D", "$description": "Hover; flame text on dark (6.0:1 on cadet-900)" },
+    "400": { "$value": "#F54F1B", "$description": "Brand" },
+    "500": { "$value": "#E0420F", "$description": "Pressed" },
+    "600": { "$value": "#C2380C", "$description": "Focus ring" },
+    "700": { "$value": "#A7300B", "$description": "Flame text on sand (5.9:1)" },
+    "800": { "$value": "#7E2508" },
+    "900": { "$value": "#561906" }
   },
-  "chamber": {
+  "cadet": {
     "$type": "color",
-    "$description": "Secondary — dark sections. The conference screen teal, pulled toward the mint hue.",
-    "600": { "$value": "#2A5257" },
-    "700": { "$value": "#1F4146" },
-    "800": { "$value": "#1C3A42", "$description": "Card on dark" },
-    "900": { "$value": "#17302F", "$description": "Dark section" },
-    "950": { "$value": "#0F1D1B", "$description": "Footer, deepest" }
-  },
-  "patina": {
-    "$type": "color",
-    "$description": "Secondary — the monogram, orbit lines and quiet accents. The teal of the Leeladhar monogram.",
-    "200": { "$value": "#C9E1E4" },
-    "400": { "$value": "#78B4BC", "$description": "Logo on dark" },
-    "600": { "$value": "#3E7C86", "$description": "Orbit lines on cream" },
-    "700": { "$value": "#2F6A73", "$description": "Patina text on cream (5.4:1)" }
+    "$description": "Secondary — dark sections. Space Cadet #1E223D.",
+    "600": { "$value": "#3A4170" },
+    "700": { "$value": "#2E345B" },
+    "800": { "$value": "#282D50", "$description": "Card on dark" },
+    "900": { "$value": "#1E223D", "$description": "Space Cadet — dark section" },
+    "950": { "$value": "#14172B", "$description": "Footer, deepest; text on flame (5.1:1)" }
   },
   "ink": {
     "$type": "color",
-    "$description": "Text on cream. Green-black from the shadows of the conference photo.",
-    "300": { "$value": "#9AA39F", "$description": "Decorative only — fails text contrast" },
-    "500": { "$value": "#626D69", "$description": "Muted text (4.8:1)" },
-    "700": { "$value": "#4A5653", "$description": "Secondary text (6.8:1)" },
-    "900": { "$value": "#15211F", "$description": "Primary text (14.7:1)" }
+    "$description": "Text on sand. Space Cadet and its greys.",
+    "300": { "$value": "#A4A6B6", "$description": "Decorative only — fails text contrast" },
+    "500": { "$value": "#52567A", "$description": "Muted text (6.1:1 on sand-100, 4.9:1 on sand-200)" },
+    "700": { "$value": "#43476A", "$description": "Secondary text (7.8:1)" },
+    "900": { "$value": "#1E223D", "$description": "Primary text (13.5:1)" }
   },
   "seal": {
     "$type": "color",

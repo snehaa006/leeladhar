@@ -38,7 +38,7 @@
 .filter[aria-pressed='true'] {
   border-color: var(--ink-900);
   background: var(--ink-900);
-  color: var(--cream-100);
+  color: var(--sand-100);
 }
 
 .count {
@@ -48,13 +48,13 @@
   height: 20px;
   padding: 0 6px;
   border-radius: var(--radius-pill);
-  background: var(--cream-200);
+  background: var(--sand-200);
   color: var(--ink-700);
   font-size: 0.6875rem;
   font-variant-numeric: tabular-nums;
 }
 
 .filter[aria-pressed='true'] .count {
-  background: var(--mint-400);
+  background: var(--flame-400);
   color: var(--ink-900);
 }

@@ -21,7 +21,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Pill buttons. **Primary** (mint) is the one action you most want taken in a view — use it once per screen. ' +
+          'Pill buttons. **Primary** (orange) is the one action you most want taken in a view — use it once per screen. ' +
           'The round icon knob is reserved for that main action.',
       },
     },
@@ -45,7 +45,7 @@ export const Ghost: Story = {
 
 export const GhostOnDark: Story = {
   args: { variant: 'ghost-dark', children: 'Send another request' },
-  parameters: { backgrounds: { default: 'chamber' } },
+  parameters: { backgrounds: { default: 'cadet' } },
 }
 
 export const Link: Story = {

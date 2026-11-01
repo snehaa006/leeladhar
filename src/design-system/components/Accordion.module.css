@@ -4,22 +4,22 @@
   --acc-rule: var(--line);
   --acc-card: var(--surface);
   --acc-card-open: var(--ink-900);
-  --acc-fg-open: var(--cream-100);
+  --acc-fg-open: var(--sand-100);
   --acc-body-open: var(--text-on-dark-secondary);
   --acc-icon: var(--ink-900);
-  --acc-icon-open: var(--mint-400);
+  --acc-icon-open: var(--flame-400);
 
   display: flex;
   flex-direction: column;
 }
 
 .accordion[data-tone='dark'] {
-  --acc-fg: var(--cream-100);
+  --acc-fg: var(--sand-100);
   --acc-body: var(--text-on-dark-secondary);
   --acc-rule: var(--line-on-dark);
   --acc-card: var(--surface-dark-raised);
   --acc-card-open: var(--surface-dark-raised);
-  --acc-icon: var(--cream-100);
+  --acc-icon: var(--sand-100);
 }
 
 .heading {
@@ -136,7 +136,7 @@
 }
 
 [data-variant='list'] .trigger:hover .title {
-  color: var(--mint-400);
+  color: var(--accent-on-dark);
 }
 
 .accordion[data-tone='light'][data-variant='list'] .trigger:hover .title {

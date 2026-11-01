@@ -40,7 +40,7 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: var(--cream-400);
+  background: var(--sand-400);
 }
 
 .address {
@@ -79,7 +79,7 @@
   align-items: center;
   gap: var(--space-4) var(--space-6);
   padding: var(--space-6) var(--space-7);
-  background: var(--chamber-900);
+  background: var(--cadet-900);
   color: var(--text-on-dark);
 }
 
@@ -91,7 +91,7 @@
   height: 72px;
   border-radius: 50%;
   border: 1px solid var(--line-on-dark);
-  color: var(--mint-300);
+  color: var(--flame-300);
 }
 
 .crest svg {
@@ -106,14 +106,14 @@
 }
 
 .kicker {
-  color: var(--mint-400);
+  color: var(--accent-on-dark);
   font-size: var(--text-micro);
   font-stretch: var(--wdth-expanded);
   font-weight: 600;
 }
 
 .title {
-  color: var(--cream-50);
+  color: var(--sand-50);
   font-size: var(--text-xl);
   font-stretch: var(--wdth-expanded);
   font-weight: 540;
@@ -147,7 +147,7 @@
 .shortcuts svg {
   width: 14px;
   height: 14px;
-  color: var(--mint-300);
+  color: var(--flame-300);
 }
 
 .open {
@@ -160,7 +160,7 @@
   padding: 0 var(--space-5);
   border-radius: var(--radius-pill);
   background: var(--accent);
-  color: var(--text-on-mint);
+  color: var(--text-on-accent);
   font-size: var(--text-sm);
   font-weight: 600;
   white-space: nowrap;

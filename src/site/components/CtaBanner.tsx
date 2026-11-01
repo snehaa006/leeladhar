@@ -18,7 +18,7 @@ export function CtaBanner({
 }) {
   return (
     <section className={styles.cta} aria-labelledby="cta-title">
-      <div className={`container ${styles.inner}`}>
+      <div className={`container ${styles.inner}`} data-reveal="zoom">
         <Orbit
           className={styles.orbit}
           tone="dark"

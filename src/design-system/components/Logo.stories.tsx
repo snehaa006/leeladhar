@@ -7,7 +7,7 @@ const meta = {
   args: { variant: 'lockup', tone: 'ink', size: 48 },
   argTypes: {
     variant: { control: 'inline-radio', options: ['lockup', 'mark'] },
-    tone: { control: 'inline-radio', options: ['ink', 'patina', 'mint', 'cream'] },
+    tone: { control: 'inline-radio', options: ['ink', 'flame', 'sand'] },
     size: { control: { type: 'range', min: 20, max: 160, step: 2 } },
   },
   parameters: {
@@ -15,7 +15,7 @@ const meta = {
       description: {
         component:
           'The Leeladhar monogram, cut as a luminance mask from the supplied artwork so any token colour can fill it. ' +
-          'Use the lockup in navigation and the footer; the mark alone from 24px up.',
+          'Use the lockup, with its tagline, in navigation and the footer; the mark alone from 24px up.',
       },
     },
   },
@@ -26,21 +26,25 @@ type Story = StoryObj<typeof meta>
 
 export const Lockup: Story = {}
 
-export const PatinaOnChamber: Story = {
-  args: { tone: 'patina' },
-  parameters: { backgrounds: { default: 'chamber' } },
+export const FlameOnCadet: Story = {
+  args: { tone: 'flame' },
+  parameters: { backgrounds: { default: 'cadet' } },
+}
+
+export const WithoutTagline: Story = {
+  args: { tagline: false },
 }
 
 export const Mark: Story = {
   args: { variant: 'mark', size: 120 },
 }
 
-export const MarkOnMint: Story = {
+export const MarkOnFlame: Story = {
   args: { variant: 'mark', size: 120 },
-  parameters: { backgrounds: { default: 'mint' } },
+  parameters: { backgrounds: { default: 'flame' } },
 }
 
-export const MintMark: Story = {
-  args: { variant: 'mark', size: 120, tone: 'mint' },
-  parameters: { backgrounds: { default: 'chamber' } },
+export const FlameMark: Story = {
+  args: { variant: 'mark', size: 120, tone: 'flame' },
+  parameters: { backgrounds: { default: 'cadet' } },
 }

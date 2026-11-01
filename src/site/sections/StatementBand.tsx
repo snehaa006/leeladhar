@@ -8,11 +8,11 @@ export function StatementBand() {
   return (
     <section className={styles.band} aria-label="Our chambers">
       <div className={`container ${styles.inner}`}>
-        <p className={styles.statement}>
+        <p className={styles.statement} data-reveal>
           From the trial court to the High Court, in Haryana or anywhere else in India, the same team takes your matter
           from the first hearing to the last appeal.
         </p>
-        <ul role="list" className={styles.places}>
+        <ul role="list" className={styles.places} data-reveal="stagger" style={{ ['--reveal-delay' as string]: '200ms' }}>
           {offices.map((o) => (
             <li key={o.slug}>
               <Link to={`/locations/${o.slug}`}>

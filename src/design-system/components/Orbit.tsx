@@ -8,7 +8,7 @@ export type OrbitRing = {
   r: number
   /** Positions of nodes on the ring, in degrees clockwise from 3 o'clock. */
   nodes?: number[]
-  /** Node that glows mint — the "live" point on the ring. */
+  /** Node that glows orange — the "live" point on the ring. */
   live?: number
 }
 

@@ -4,8 +4,8 @@
   margin-inline: var(--space-4);
   border-radius: var(--radius-xl);
   background:
-    radial-gradient(120% 140% at 85% 120%, rgba(98, 232, 179, 0.16), transparent 55%),
-    var(--chamber-900);
+    radial-gradient(120% 140% at 85% 120%, rgba(245, 79, 27, 0.16), transparent 55%),
+    var(--cadet-900);
   color: var(--text-on-dark);
   overflow: hidden;
 }
@@ -41,7 +41,7 @@
 
 .name {
   margin-top: var(--space-6);
-  color: var(--cream-50);
+  color: var(--sand-50);
 }
 
 .role {
@@ -50,7 +50,7 @@
   padding: 6px 14px;
   border-radius: var(--radius-pill);
   background: var(--accent);
-  color: var(--text-on-mint);
+  color: var(--text-on-accent);
   font-size: var(--text-sm);
   font-weight: 600;
 }
@@ -66,7 +66,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  color: var(--cream-100);
+  color: var(--sand-100);
   overflow-wrap: anywhere;
 }
 
@@ -74,7 +74,7 @@
   flex: none;
   width: 18px;
   height: 18px;
-  color: var(--mint-400);
+  color: var(--flame-400);
 }
 
 .reach a {

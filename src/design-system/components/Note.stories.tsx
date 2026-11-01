@@ -41,7 +41,7 @@ export const Awaiting: Story = {
 
 export const Dark: Story = {
   args: { tone: 'dark', status: 'awaiting', title: 'Next hearing on 4 December', meta: 'We’ll call you the same evening' },
-  parameters: { backgrounds: { default: 'chamber' } },
+  parameters: { backgrounds: { default: 'cadet' } },
 }
 
 export const WithPortrait: Story = {
@@ -59,7 +59,7 @@ export const WithPortrait: Story = {
 
 export const MatterTimeline: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 12, padding: 24, background: '#17302F', borderRadius: 20 }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 12, padding: 24, background: '#1E223D', borderRadius: 20 }}>
       <Note tone="dark" title="Title search complete" meta="30 years, clear" />
       <Note tone="dark" title="Family settlement drafted" meta="Shared with all heirs" />
       <Note tone="dark" status="active" title="Mediation, second session" meta="Thursday, 11:00" />

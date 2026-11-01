@@ -42,8 +42,8 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--cream-50);
-  color: var(--chamber-900);
+  background: var(--sand-50);
+  color: var(--cadet-900);
 }
 
 .arrow svg {

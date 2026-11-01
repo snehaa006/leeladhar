@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Logo } from '../../design-system'
 import { practiceAreas } from '../content/practiceAreas'
-import { contact, nav, offices, tel } from '../data'
+import { about, contact, nav, offices, tel } from '../data'
 import styles from './Footer.module.css'
 
 const quickLinks = [...nav.map(({ to, label }) => ({ to, label })), { to: '/contact', label: 'Contact Us' }]
@@ -11,8 +11,8 @@ export function Footer() {
     <footer className={styles.footer}>
       <div className={`container ${styles.top}`}>
         <div className={styles.brand}>
-          <Logo tone="patina" size={44} />
-          <p className={styles.motto}>Navigating the law with clarity and care.</p>
+          <Logo tone="flame" size={44} />
+          <p className={styles.motto}>{about.legacy}</p>
           <dl className={styles.reach}>
             <div>
               <dt>Call</dt>

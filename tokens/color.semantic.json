@@ -2,15 +2,15 @@
   "bg": {
     "$type": "color",
     "$description": "Backgrounds",
-    "default": { "$value": "{cream.100}", "$description": "Page" },
-    "sunken": { "$value": "{cream.200}", "$description": "Alternate band" }
+    "default": { "$value": "{sand.100}", "$description": "Page" },
+    "sunken": { "$value": "{sand.200}", "$description": "Alternate band" }
   },
   "surface": {
     "$type": "color",
     "$description": "Surfaces that sit on a background",
-    "default": { "$value": "{cream.50}", "$description": "Card, note, input" },
-    "dark": { "$value": "{chamber.900}", "$description": "Dark section" },
-    "dark-raised": { "$value": "{chamber.800}", "$description": "Card on a dark section" }
+    "default": { "$value": "{sand.50}", "$description": "Card, note, input" },
+    "dark": { "$value": "{cadet.900}", "$description": "Dark section" },
+    "dark-raised": { "$value": "{cadet.800}", "$description": "Card on a dark section" }
   },
   "text": {
     "$type": "color",
@@ -18,32 +18,33 @@
     "default": { "$value": "{ink.900}" },
     "secondary": { "$value": "{ink.700}" },
     "muted": { "$value": "{ink.500}" },
-    "on-dark": { "$value": "{cream.100}" },
-    "on-dark-secondary": { "$value": "#A9BDB8", "$description": "7.1:1 on chamber-900" },
-    "on-mint": { "$value": "{ink.900}" }
+    "on-dark": { "$value": "{sand.100}" },
+    "on-dark-secondary": { "$value": "#B5AE9F", "$description": "7.0:1 on cadet-900" },
+    "on-accent": { "$value": "{cadet.950}", "$description": "Text on flame (5.1:1)" }
   },
   "accent": {
     "$type": "color",
     "$description": "Brand accent roles",
-    "default": { "$value": "{mint.400}" },
-    "hover": { "$value": "{mint.300}" },
-    "text": { "$value": "{mint.700}", "$description": "Use when the accent must be read as text on cream" }
+    "default": { "$value": "{flame.400}" },
+    "hover": { "$value": "{flame.300}" },
+    "text": { "$value": "{flame.700}", "$description": "Use when the accent must be read as text on sand" },
+    "on-dark": { "$value": "{flame.300}", "$description": "Use when the accent must be read as text on cadet" }
   },
   "line": {
     "$type": "color",
     "$description": "Hairlines and borders",
-    "default": { "$value": "rgba(21, 33, 31, 0.12)" },
-    "strong": { "$value": "rgba(21, 33, 31, 0.24)" },
-    "on-dark": { "$value": "rgba(243, 241, 237, 0.14)" }
+    "default": { "$value": "rgba(30, 34, 61, 0.13)" },
+    "strong": { "$value": "rgba(30, 34, 61, 0.26)" },
+    "on-dark": { "$value": "rgba(246, 238, 223, 0.15)" }
   },
   "orbit": {
     "$type": "color",
-    "$description": "The thin orbital lines from the conference screen",
-    "default": { "$value": "{patina.600}" },
-    "on-dark": { "$value": "rgba(120, 180, 188, 0.45)" }
+    "$description": "The thin orbital lines",
+    "default": { "$value": "{flame.400}" },
+    "on-dark": { "$value": "rgba(246, 238, 223, 0.28)" }
   },
   "focus": {
     "$type": "color",
-    "default": { "$value": "{mint.600}", "$description": "Keyboard focus ring" }
+    "default": { "$value": "{flame.600}", "$description": "Keyboard focus ring" }
   }
 }

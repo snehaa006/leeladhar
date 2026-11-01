@@ -66,8 +66,8 @@
   display: grid;
   aspect-ratio: 4 / 5;
   border-radius: var(--radius-lg);
-  background: var(--chamber-800);
-  color: var(--cream-50);
+  background: var(--cadet-800);
+  color: var(--sand-50);
   overflow: hidden;
   text-decoration: none;
 }
@@ -91,7 +91,7 @@
   display: grid;
   gap: 2px;
   padding: 30% var(--space-5) var(--space-5);
-  background: linear-gradient(to top, rgba(15, 29, 27, 0.92), rgba(15, 29, 27, 0));
+  background: linear-gradient(to top, rgba(20, 23, 43, 0.92), rgba(20, 23, 43, 0));
 }
 
 .name {
@@ -101,7 +101,7 @@
 }
 
 .role {
-  color: var(--mint-300);
+  color: var(--flame-300);
   font-size: var(--text-sm);
 }
 

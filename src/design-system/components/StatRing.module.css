@@ -12,7 +12,7 @@
 
 .rings[data-tone='dark'] {
   --ring-line: var(--orbit-on-dark);
-  --ring-fg: var(--cream-100);
+  --ring-fg: var(--sand-100);
   --ring-label: var(--text-on-dark-secondary);
 }
 
@@ -68,7 +68,7 @@
 }
 
 .rings[data-tone='dark'] .suffix {
-  color: var(--mint-400);
+  color: var(--accent-on-dark);
 }
 
 .label {

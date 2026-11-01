@@ -49,7 +49,7 @@ export const WithError: Story = {
 
 export const OnDark: Story = {
   args: { tone: 'dark', hint: 'We’ll only use this to call you back.' },
-  parameters: { backgrounds: { default: 'chamber' } },
+  parameters: { backgrounds: { default: 'cadet' } },
 }
 
 export const Select: Story = {

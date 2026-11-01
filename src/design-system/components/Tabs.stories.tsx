@@ -62,7 +62,7 @@ export const Filled: Story = {
 
 export const OnDark: Story = {
   args: { tone: 'dark' },
-  parameters: { backgrounds: { default: 'chamber' } },
+  parameters: { backgrounds: { default: 'cadet' } },
 }
 
 export const KeyboardNavigation: Story = {

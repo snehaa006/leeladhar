@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { CtaBanner } from '../components/CtaBanner'
 import { PageBanner } from '../components/PageBanner'
 import { PracticeArt } from '../components/PracticeArt'
-import { offices, practisingSince, yearsOfExperience } from '../data'
+import { about, offices, practisingSince } from '../data'
 import { Team } from '../sections/Team'
 import { usePageTitle } from '../usePageTitle'
 import page from './Page.module.css'
@@ -22,41 +22,27 @@ export function AboutPage() {
     <>
       <PageBanner
         title="About Leeladhar Law Chambers"
-        lead={`First-generation lawyers, in practice since ${practisingSince}: ${yearsOfExperience()} years of preparation, plain advice and steady representation.`}
+        lead={`Founded by first-generation lawyers, in practice since ${practisingSince}.`}
         crumbs={[{ label: 'About us' }]}
       />
 
-      <section className={page.section} aria-labelledby="who">
+      <section id="story" className={page.section} aria-labelledby="who">
         <div className={`container ${styles.split}`}>
-          <PracticeArt icon="landmark" index={0} className={styles.art} />
+          <div className={styles.artWrap} data-reveal="left">
+            <PracticeArt icon="landmark" index={0} className={styles.art} />
+          </div>
           <div>
-            <h2 id="who" className="t-h1">
+            <h2 id="who" className="t-h1" data-reveal>
               Who we are
             </h2>
             <span className={page.rule} aria-hidden="true" />
-            <div className={`${page.prose} ${styles.copy}`}>
-              <p>
-                Leeladhar Law Chambers has been in practice since {practisingSince}, with chambers at the Punjab &amp;
-                Haryana High Court in Chandigarh and the District Court in Panipat. Our practice is not limited to
-                either city: we take on matters across India, for clients in Haryana, Rajasthan, Delhi, Maharashtra,
-                Karnataka and beyond.
-              </p>
-              <p>
-                A matter that begins in a trial court, a commercial suit, an MSME claim or a bail application, is
-                carried to the High Court by the same team, without starting again with a new lawyer who has to learn
-                the file.
-              </p>
-              <p>
-                We act for manufacturers, exporters, traders, MSMEs, families and individuals, in commercial, civil,
-                criminal, family, property, consumer, service and constitutional matters.{' '}
-                <Link to="/practice-areas">See our practice areas</Link>.
-              </p>
-              <p>
-                The chambers is now being constituted as a limited liability partnership (LLP), with its advocates as
-                partners.
-              </p>
+            <div className={`${page.prose} ${styles.copy}`} data-reveal="stagger">
+              <p className={styles.vision}>{about.vision}</p>
+              {about.story.map((p) => (
+                <p key={p}>{p}</p>
+              ))}
             </div>
-            <ul role="list" className={styles.places}>
+            <ul role="list" className={styles.places} data-reveal="stagger">
               {offices.map((o) => (
                 <li key={o.slug}>
                   <Link to={`/locations/${o.slug}`}>
@@ -70,45 +56,31 @@ export function AboutPage() {
         </div>
       </section>
 
-      <section id="story" className={`${page.section} ${page.sunken}`} aria-labelledby="story-title">
-        <div className={`container ${styles.split} ${styles.flip}`}>
-          <div>
-            <h2 id="story-title" className="t-h1">
-              First-generation lawyers
-            </h2>
-            <span className={page.rule} aria-hidden="true" />
-            <div className={`${page.prose} ${styles.copy}`}>
-              <p>
-                Neither of our partners was born into the profession. There was no family chamber to inherit, no
-                senior’s practice handed down and no list of clients waiting. Since {practisingSince}, the practice has
-                been built one matter at a time, on the strength of the work and on the word of clients who came back
-                and sent others.
-              </p>
-              <p>
-                That beginning shapes how we work. We remember walking into court without knowing anyone, so we explain
-                every step and never assume a client already knows how the system works.
-              </p>
-              <p>
-                It is also why we work so well with first-generation entrepreneurs: manufacturers, exporters and
-                traders who built something from nothing and want advisers who understand what is at stake.
-              </p>
-            </div>
-          </div>
-          <PracticeArt icon="scroll" index={1} className={styles.art} />
+      <section className={styles.legacy} aria-label="Our motto">
+        <div className={`container ${styles.legacyInner}`}>
+          <p className={styles.legacyQuote} data-reveal>
+            {about.legacy}
+          </p>
+          <p className={styles.legacyTagline} data-reveal style={{ ['--reveal-delay' as string]: '180ms' }}>
+            Decoding Law <span aria-hidden="true">|</span>
+            <span className="visually-hidden">,</span> Delivering Solutions
+          </p>
         </div>
       </section>
 
       <section className={page.section} aria-labelledby="principles">
         <div className={`container ${styles.split}`}>
-          <PracticeArt icon="scale" index={1} className={styles.art} />
+          <div className={styles.artWrap} data-reveal="left">
+            <PracticeArt icon="scale" index={1} className={styles.art} />
+          </div>
           <div>
-            <h2 id="principles" className="t-h1">
+            <h2 id="principles" className="t-h1" data-reveal>
               A practice defined by care and candour
             </h2>
             <p className={`t-lead ${styles.lead}`}>
               What clients can expect from us, whichever court in India their matter is in.
             </p>
-            <ul role="list" className={styles.principles}>
+            <ul role="list" className={styles.principles} data-reveal="stagger">
               {principles.map((p) => (
                 <li key={p.title}>
                   <strong>{p.title}</strong> – {p.body}
@@ -122,11 +94,11 @@ export function AboutPage() {
       <section id="why-us" className={`${page.section} ${page.sunken}`} aria-labelledby="why-us-title">
         <div className={`container ${styles.split} ${styles.flip}`}>
           <div>
-            <h2 id="why-us-title" className="t-h1">
+            <h2 id="why-us-title" className="t-h1" data-reveal>
               Why us
             </h2>
             <span className={page.rule} aria-hidden="true" />
-            <div className={`${page.prose} ${styles.copy}`}>
+            <div className={`${page.prose} ${styles.copy}`} data-reveal="stagger">
               <p>
                 Large firms divide a matter among many hands. We keep it with one partner who knows the file, the court
                 and you, and who is reachable on the phone.
@@ -137,19 +109,23 @@ export function AboutPage() {
               </p>
             </div>
           </div>
-          <PracticeArt icon="handshake" index={2} className={styles.art} />
+          <div className={styles.artWrap} data-reveal="right">
+            <PracticeArt icon="handshake" index={2} className={styles.art} />
+          </div>
         </div>
       </section>
 
       <section id="values" className={page.section} aria-labelledby="values-title">
         <div className={`container ${styles.split}`}>
-          <PracticeArt icon="shield" index={0} className={styles.art} />
+          <div className={styles.artWrap} data-reveal="left">
+            <PracticeArt icon="shield" index={0} className={styles.art} />
+          </div>
           <div>
-            <h2 id="values-title" className="t-h1">
+            <h2 id="values-title" className="t-h1" data-reveal>
               Our values
             </h2>
             <span className={page.rule} aria-hidden="true" />
-            <div className={`${page.prose} ${styles.copy}`}>
+            <div className={`${page.prose} ${styles.copy}`} data-reveal="stagger">
               <p>
                 We conduct our practice in keeping with the Bar Council of India’s standards of professional conduct:
                 honesty with the court, confidentiality for the client and fairness to the other side.

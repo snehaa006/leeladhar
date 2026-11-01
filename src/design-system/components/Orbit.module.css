@@ -7,7 +7,7 @@
 
 .orbit[data-tone='dark'] {
   --ring: var(--orbit-on-dark);
-  --node: var(--patina-400);
+  --node: var(--sand-200);
 }
 
 .ring {
@@ -22,11 +22,11 @@
 }
 
 .liveNode circle {
-  fill: var(--mint-400);
+  fill: var(--flame-400);
 }
 
 .halo {
-  fill: var(--mint-400);
+  fill: var(--flame-400);
   opacity: 0.25;
   transform-box: fill-box;
   transform-origin: center;

@@ -23,7 +23,7 @@ export function WhyUs() {
   return (
     <section className={styles.section} aria-labelledby="why-title">
       <div className={`container ${styles.grid}`}>
-        <div className={styles.aside}>
+        <div className={styles.aside} data-reveal="left">
           <h2 id="why-title" className="t-h1">
             Counsel you can reach
           </h2>
@@ -31,7 +31,7 @@ export function WhyUs() {
             A small chambers by design, so the advocate you meet is the advocate who argues your case.
           </p>
         </div>
-        <div className={styles.cards}>
+        <div className={styles.cards} data-reveal="stagger">
           {cards.map((c, i) => (
             <article key={c.id} className={styles.card} data-flip={i % 2 === 1 || undefined}>
               <PracticeArt icon={c.icon} index={i + 1} className={styles.art} />
