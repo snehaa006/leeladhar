@@ -7,6 +7,7 @@ import { PracticeArt } from '../components/PracticeArt'
 import { practiceAreas, practiceBySlug } from '../content/practiceAreas'
 import { insights } from '../content/insights'
 import { InsightCard } from '../components/InsightCard'
+import { ScrollText } from '../motion/ScrollText'
 import { usePageTitle } from '../usePageTitle'
 import { NotFoundPage } from './NotFoundPage'
 import page from './Page.module.css'
@@ -44,7 +45,7 @@ export function PracticeAreaPage() {
             <Link to="/practice-areas" className={page.back}>
               <ArrowLeft aria-hidden="true" /> Back to practice areas
             </Link>
-            <ul role="list" className={`${page.sideList} ${styles.sideAreas}`}>
+            <ul data-reveal="stagger" role="list" className={`${page.sideList} ${styles.sideAreas}`}>
               {practiceAreas.map((p) => (
                 <li key={p.slug}>
                   <Link to={`/practice-areas/${p.slug}`} aria-current={p.slug === area.slug ? 'page' : undefined}>
@@ -56,28 +57,28 @@ export function PracticeAreaPage() {
           </aside>
 
           <article>
-            <h1 id="page-title" className={`t-h1 ${page.pageTitle}`}>
+            <h1 data-reveal id="page-title" className={`t-h1 ${page.pageTitle}`}>
               {area.title}
             </h1>
-            <span className={page.rule} aria-hidden="true" />
+            <span className={page.rule} aria-hidden="true" data-reveal="wipe" />
 
             <div className={`${page.prose} ${styles.intro}`}>
               {area.body.map((p) => (
-                <p key={p}>{p}</p>
+                <ScrollText key={p} text={p} />
               ))}
             </div>
 
-            <div className={`${page.chips} ${styles.forums}`} aria-label="Where we appear">
+            <div data-reveal="stagger" className={`${page.chips} ${styles.forums}`} aria-label="Where we appear">
               {area.forums.map((f) => (
                 <Chip key={f}>{f}</Chip>
               ))}
             </div>
 
             <section className={page.block} aria-labelledby="offerings">
-              <h2 id="offerings" className={page.h2}>
+              <h2 data-reveal id="offerings" className={page.h2}>
                 Key offerings
               </h2>
-              <ul role="list" className={page.grid2}>
+              <ul data-reveal="stagger" role="list" className={page.grid2}>
                 {area.offerings.map((o) => (
                   <li key={o.title} className={`${page.panel} ${styles.offering}`}>
                     <Check aria-hidden="true" />
@@ -91,15 +92,15 @@ export function PracticeAreaPage() {
             </section>
 
             <section className={page.block} aria-labelledby="approach">
-              <h2 id="approach" className={page.h2}>
+              <h2 data-reveal id="approach" className={page.h2}>
                 Approach
               </h2>
-              <p className={`${page.prose} ${styles.approach}`}>{area.approach}</p>
+              <ScrollText className={`${page.prose} ${styles.approach}`} text={area.approach} />
             </section>
 
             {area.faqs.length > 0 && (
               <section className={page.block} aria-labelledby="faqs">
-                <h2 id="faqs" className={page.h2}>
+                <h2 data-reveal id="faqs" className={page.h2}>
                   Frequently asked questions
                 </h2>
                 <Accordion
@@ -111,10 +112,10 @@ export function PracticeAreaPage() {
 
             {related.length > 0 && (
               <section className={page.block} aria-labelledby="related">
-                <h2 id="related" className={page.h2}>
+                <h2 data-reveal id="related" className={page.h2}>
                   Further reading
                 </h2>
-                <ul role="list" className={page.grid2}>
+                <ul data-reveal="stagger" role="list" className={page.grid2}>
                   {related.map((r, i) => (
                     <li key={r.slug}>
                       <InsightCard insight={r} index={index + i} />
@@ -124,7 +125,7 @@ export function PracticeAreaPage() {
               </section>
             )}
 
-            <nav className={styles.pager} aria-label="Other practice areas">
+            <nav data-reveal className={styles.pager} aria-label="Other practice areas">
               {prev ? (
                 <Link to={`/practice-areas/${prev.slug}`} className={styles.pagerLink}>
                   <ArrowLeft aria-hidden="true" />

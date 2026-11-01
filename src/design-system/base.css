@@ -144,6 +144,14 @@ a {
   letter-spacing: 0.01em;
 }
 
+/* Emphasised words in headings take the brand teal. */
+.t-display em,
+.t-h1 em,
+.t-h2 em {
+  font-style: normal;
+  color: var(--highlight);
+}
+
 /* Evidence — Bodoni is reserved for numbers and testimony. */
 .t-evidence {
   font-family: var(--font-evidence);
@@ -198,7 +206,7 @@ a {
 }
 
 /* ── Scroll reveal ──────────────────────────────────────────
-   Mark an element with data-reveal (up, the default; left; right; zoom; fade),
+   Mark an element with data-reveal (up, the default; left; right; zoom; fade; blur; wipe),
    or data-reveal="stagger" to bring its children in one after another.
    The site's useScrollReveal() toggles data-shown as it enters and leaves view.
    Nothing is hidden unless <html data-motion> is set, i.e. motion is allowed. */
@@ -208,7 +216,9 @@ a {
   transform: translate3d(0, 32px, 0);
   transition:
     opacity 900ms var(--ease-out),
-    transform 900ms var(--ease-out);
+    transform 900ms var(--ease-out),
+    filter 900ms var(--ease-out),
+    clip-path 1100ms var(--ease-out);
   transition-delay: var(--reveal-delay, 0ms);
 }
 
@@ -226,6 +236,26 @@ a {
 
 :root[data-motion] [data-reveal='fade'] {
   transform: none;
+}
+
+:root[data-motion] [data-reveal='blur'] {
+  filter: blur(12px);
+  transform: translate3d(0, 16px, 0);
+}
+
+/* A curtain drawn back from left to right. */
+:root[data-motion] [data-reveal='wipe'] {
+  opacity: 1;
+  transform: none;
+  clip-path: inset(0 100% 0 0);
+}
+
+:root[data-motion] [data-reveal='wipe'][data-shown] {
+  clip-path: inset(0 0 0 0);
+}
+
+:root[data-motion] [data-reveal][data-shown] {
+  filter: none;
 }
 
 :root[data-motion] [data-reveal][data-shown] {
@@ -260,6 +290,30 @@ a {
 [data-reveal='stagger'] > :nth-child(7) { --i: 6; }
 [data-reveal='stagger'] > :nth-child(8) { --i: 7; }
 [data-reveal='stagger'] > :nth-child(n + 9) { --i: 8; }
+
+/* Parallax: the site's scroll loop sets --py on [data-parallax] elements. `translate`
+   composes with any transform animation the element already has. */
+:root[data-motion] [data-parallax] {
+  translate: 0 calc(var(--py, 0) * 1px);
+}
+
+/* A hairline at the top of the window that fills as the page is read. */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  height: 3px;
+  background: linear-gradient(90deg, var(--teal-400), var(--accent));
+  transform: scaleX(var(--scroll, 0));
+  transform-origin: 0 50%;
+  pointer-events: none;
+}
+
+:root:not([data-motion]) .scroll-progress {
+  display: none;
+}
 
 @media print {
   [data-reveal],

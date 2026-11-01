@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { ScrollText } from '../motion/ScrollText'
 import styles from './SectionHead.module.css'
 
 /** Centred section title with a short rule beneath, as on duaassociates.com. */
@@ -23,7 +24,11 @@ export function SectionHead({
         {title}
       </Tag>
       <span className={styles.rule} aria-hidden="true" />
-      {lead && <p className={`t-lead ${styles.lead}`}>{lead}</p>}
+      {typeof lead === 'string' ? (
+        <ScrollText tone={tone} className={`t-lead ${styles.lead}`} text={lead} />
+      ) : (
+        lead && <p className={`t-lead ${styles.lead}`}>{lead}</p>
+      )}
     </header>
   )
 }

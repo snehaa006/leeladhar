@@ -50,6 +50,10 @@
   color: var(--text-on-dark);
 }
 
+.title em {
+  color: var(--teal-300);
+}
+
 .intro {
   max-width: 38ch;
   margin-top: var(--space-5);
@@ -117,6 +121,8 @@
   height: 100%;
   object-fit: cover;
   object-position: center 20%;
+  /* A little larger than its frame, so the parallax drift never shows an edge. */
+  scale: 1.08;
   transition: transform var(--dur-slow) var(--ease-out);
 }
 

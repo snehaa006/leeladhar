@@ -3,7 +3,7 @@ import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { Disclaimer } from './Disclaimer'
 import { Footer } from './sections/Footer'
 import { Nav } from './sections/Nav'
-import { useScrollReveal } from './useScrollReveal'
+import { useScrollReveal } from './motion/useScrollReveal'
 
 /** Scroll to the top on a new page, or to the #section a link points at. */
 function useScrollManager() {
@@ -57,6 +57,7 @@ export function Layout() {
 
   return (
     <>
+      <div className="scroll-progress" aria-hidden="true" />
       <a href="#main" className="skip-link">
         Skip to content
       </a>

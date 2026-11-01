@@ -37,7 +37,7 @@ export function PersonPage() {
           rings={[{ cx: 1300, cy: 520, r: 420, nodes: [200, 236], live: 200 }]}
         />
         <div className={`container ${styles.bannerInner}`}>
-          <img className={styles.photo} src={member.photo} alt={`Portrait of ${member.name}`} />
+          <img data-reveal="zoom" className={styles.photo} src={member.photo} alt={`Portrait of ${member.name}`} />
           <div className={styles.bannerCopy}>
             <Breadcrumbs crumbs={[{ to: '/people', label: 'Our people' }, { label: member.name }]} />
             <h1 id="page-title" className={`t-h1 ${styles.name}`}>
@@ -88,8 +88,8 @@ export function PersonPage() {
           </aside>
 
           <div id={`${base}-panel`} role="tabpanel" aria-labelledby={`${base}-${tab}`} className={styles.panel}>
-            <h2 className={page.h2}>{tab}</h2>
-            <span className={page.rule} aria-hidden="true" />
+            <h2 data-reveal className={page.h2}>{tab}</h2>
+            <span className={page.rule} aria-hidden="true" data-reveal="wipe" />
 
             {tab === 'Profile overview' && (
               <div className={`${page.prose} ${styles.body}`}>
@@ -119,7 +119,7 @@ export function PersonPage() {
             )}
 
             {tab === 'Practice' && (
-              <ul role="list" className={`${page.grid2} ${styles.body}`}>
+              <ul data-reveal="stagger" role="list" className={`${page.grid2} ${styles.body}`}>
                 {office.practices.map((s) => {
                   const p = practiceBySlug(s)!
                   return (
@@ -160,7 +160,7 @@ export function PersonPage() {
             <h2 id="others" className={page.h2}>
               Other key individuals
             </h2>
-            <ul role="list" className={styles.others}>
+            <ul data-reveal="stagger" role="list" className={styles.others}>
               {others.map((m) => (
                 <li key={m.slug}>
                   <Link to={`/people/${m.slug}`} className={styles.other}>

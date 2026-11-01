@@ -2,6 +2,8 @@ import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { ChevronRight } from 'lucide-react'
 import { Orbit } from '../../design-system'
+import { Particles } from '../motion/Particles'
+import { ScrollText } from '../motion/ScrollText'
 import styles from './PageBanner.module.css'
 
 export type Crumb = { to?: string; label: string }
@@ -19,6 +21,7 @@ type PageBannerProps = {
 export function PageBanner({ title, lead, crumbs, eyebrow, children }: PageBannerProps) {
   return (
     <section className={styles.banner} aria-labelledby="page-title">
+      <Particles tone="dark" density={0.8} />
       <Orbit
         className={styles.orbit}
         tone="dark"
@@ -31,11 +34,23 @@ export function PageBanner({ title, lead, crumbs, eyebrow, children }: PageBanne
       />
       <div className={`container ${styles.inner}`}>
         <Breadcrumbs crumbs={crumbs} />
-        {eyebrow && <p className={styles.eyebrow}>{eyebrow}</p>}
-        <h1 id="page-title" className={`t-h1 ${styles.title}`}>
+        {eyebrow && (
+          <p className={styles.eyebrow} data-reveal>
+            {eyebrow}
+          </p>
+        )}
+        <h1 id="page-title" className={`t-h1 ${styles.title}`} data-reveal="blur">
           {title}
         </h1>
-        {lead && <p className={`t-lead ${styles.lead}`}>{lead}</p>}
+        {typeof lead === 'string' ? (
+          <ScrollText tone="dark" className={`t-lead ${styles.lead}`} text={lead} />
+        ) : (
+          lead && (
+            <p className={`t-lead ${styles.lead}`} data-reveal style={{ ['--reveal-delay' as string]: '150ms' }}>
+              {lead}
+            </p>
+          )
+        )}
         {children}
       </div>
     </section>

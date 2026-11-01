@@ -1,5 +1,8 @@
 import { ArrowUpRight } from 'lucide-react'
 import { Button, Orbit } from '../../design-system'
+import { Particles } from '../motion/Particles'
+import { ScrollText } from '../motion/ScrollText'
+import { TypeOnView } from '../motion/TypeOnView'
 import styles from './CtaBanner.module.css'
 
 /** Closing call to action, after the "Need legal guidance on …?" band on legacylawoffices.com. */
@@ -19,6 +22,7 @@ export function CtaBanner({
   return (
     <section className={styles.cta} aria-labelledby="cta-title">
       <div className={`container ${styles.inner}`} data-reveal="zoom">
+        <Particles tone="dark" density={0.8} />
         <Orbit
           className={styles.orbit}
           tone="dark"
@@ -28,9 +32,17 @@ export function CtaBanner({
         />
         <div className={styles.copy}>
           <h2 id="cta-title" className={styles.title}>
-            {title ?? (topic ? `Need legal guidance on ${topic}?` : 'Need legal guidance?')}
+            {title ?? (
+              <>
+                Need legal{' '}
+                <em>
+                  <TypeOnView text="guidance" />
+                </em>
+                {topic ? ` on ${topic}?` : '?'}
+              </>
+            )}
           </h2>
-          <p className={styles.body}>{body}</p>
+          <ScrollText tone="dark" className={styles.body} text={body} />
         </div>
         <Button href={href} size="lg" icon={<ArrowUpRight />}>
           {action}

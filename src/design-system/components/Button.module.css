@@ -93,6 +93,24 @@
 .primary {
   --btn-bg: var(--brick-400);
   --btn-fg: var(--text-on-accent);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* A sheen that sweeps across the primary button on hover. */
+.primary::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 750ms var(--ease-out);
+  pointer-events: none;
+}
+
+.primary:hover:not(:disabled)::before {
+  transform: translateX(120%);
 }
 .primary:hover:not(:disabled) {
   --btn-bg: var(--brick-500);

@@ -1,9 +1,20 @@
 import { ArrowUpRight } from 'lucide-react'
 import { Button, Logo, Orbit, Portrait } from '../../design-system'
 import { team } from '../data'
+import { Particles } from '../motion/Particles'
+import { Typewriter } from '../motion/Typewriter'
 import styles from './Hero.module.css'
 
 const [lead, second] = team
+
+const matters = [
+  'contract management',
+  'commercial disputes',
+  'MSME payment recovery',
+  'bail and criminal defence',
+  'property and succession',
+  'writ petitions',
+]
 
 /**
  * A centred statement (the house tagline) held between two orbital lines, the
@@ -13,6 +24,7 @@ const [lead, second] = team
 export function Hero() {
   return (
     <section className={styles.hero} aria-labelledby="hero-title">
+      <Particles />
       <Orbit
         className={styles.orbit}
         viewBox="0 0 1440 860"
@@ -46,6 +58,9 @@ export function Hero() {
             </span>
           </span>
         </h1>
+        <p className={styles.typed}>
+          Advocates for <Typewriter phrases={matters} />
+        </p>
         <p className={`t-lead ${styles.lead}`}>
           Leeladhar Law Chambers advises businesses and families across India, from chambers in Chandigarh and
           Panipat, and tells you where your matter stands after every hearing.
@@ -67,6 +82,7 @@ export function Hero() {
           alt={`${lead.name}, ${lead.role}`}
           badge={lead.name}
           aspect="4/5"
+          data-parallax="0.12"
         />
         <Portrait
           className={styles.photo}
@@ -74,6 +90,7 @@ export function Hero() {
           alt={`${second.name}, ${second.role}`}
           badge={second.name}
           aspect="1/1"
+          data-parallax="-0.1"
         />
       </div>
 

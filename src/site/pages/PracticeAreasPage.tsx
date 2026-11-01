@@ -27,7 +27,7 @@ export function PracticeAreasPage() {
       <section className={page.section} aria-labelledby="all-areas">
         <div className="container">
           <SectionHead id="all-areas" title="Every practice area at a glance" />
-          <ul role="list" className={styles.grid}>
+          <ul data-reveal="stagger" role="list" className={styles.grid}>
             {practiceAreas.map((p, i) => (
               <li key={p.slug}>
                 <article className={styles.card}>
