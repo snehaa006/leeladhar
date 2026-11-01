@@ -10,6 +10,13 @@ html {
   scroll-padding-top: 88px;
 }
 
+/* Nothing may widen the page sideways, so a phone never pans left and right.
+   clip (unlike hidden) keeps the sticky header working. */
+html,
+body {
+  overflow-x: clip;
+}
+
 body {
   margin: 0;
   background: var(--bg);
@@ -232,6 +239,14 @@ a {
 
 :root[data-motion] [data-reveal='zoom'] {
   transform: scale(0.94);
+}
+
+/* On narrow screens, side entrances rise instead: a sideways start would poke past the screen edge. */
+@media (max-width: 900px) {
+  :root[data-motion] [data-reveal='left'],
+  :root[data-motion] [data-reveal='right'] {
+    transform: translate3d(0, 28px, 0);
+  }
 }
 
 :root[data-motion] [data-reveal='fade'] {

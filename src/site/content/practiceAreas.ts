@@ -1,3 +1,5 @@
+import { photos, type Photo } from './photos'
+
 // Practice areas. Each one gets a page at /practice-areas/:slug.
 // Statements of law are general information and current as of 2026.
 
@@ -20,6 +22,7 @@ export type PracticeArea = {
   slug: string
   title: string
   icon: PracticeIcon
+  photo?: Photo
   /** One or two sentences: the explorer card and listings. */
   summary: string
   body: string[]
@@ -35,6 +38,7 @@ export const practiceAreas: PracticeArea[] = [
     slug: 'contract-management',
     title: 'Contract Management',
     icon: 'contract',
+    photo: photos.signing,
     summary:
       'From drafting and reviewing contracts to managing obligations and mitigating risks, we help businesses navigate their contractual relationships with clarity and confidence. Our focus is on delivering legally sound and commercially practical solutions throughout the contract lifecycle.',
     body: [
@@ -56,6 +60,7 @@ export const practiceAreas: PracticeArea[] = [
     slug: 'commercial-suits-arbitration',
     title: 'Commercial Suits & Arbitration',
     icon: 'handshake',
+    photo: photos.handshake,
     summary: 'Commercial suits, recovery of dues, arbitration and contract disputes for traders, manufacturers and exporters across India.',
     body: [
       'Manufacturers, exporters and traders run on contracts with buyers, suppliers and agents, often in other states. When those contracts break down, we help you recover what is owed without losing the relationship if it can be kept.',
@@ -89,6 +94,7 @@ export const practiceAreas: PracticeArea[] = [
     slug: 'msme-recovery',
     title: 'MSME Delayed Payments & Recovery',
     icon: 'briefcase',
+    photo: photos.money,
     summary: 'Recovery of delayed payments for micro and small enterprises before the MSME Facilitation Councils, with interest at three times the bank rate.',
     body: [
       'A micro or small enterprise that supplies goods or services has special protection when a buyer pays late. The MSMED Act, 2006 caps the credit period at 45 days and makes the buyer liable for compound interest at three times the bank rate notified by the Reserve Bank of India.',
@@ -126,6 +132,7 @@ export const practiceAreas: PracticeArea[] = [
     slug: 'civil-litigation',
     title: 'Civil Litigation',
     icon: 'scale',
+    photo: photos.gavel,
     summary:
       'Suits for recovery, declaration, injunction and specific performance, from the first notice to execution of the decree.',
     body: [
@@ -161,6 +168,7 @@ export const practiceAreas: PracticeArea[] = [
     slug: 'criminal-law',
     title: 'Criminal Law & Bail',
     icon: 'gavel',
+    photo: photos.handcuffs,
     summary:
       'Regular and anticipatory bail, quashing petitions and trial defence, with someone reachable when it is urgent.',
     body: [
@@ -196,6 +204,7 @@ export const practiceAreas: PracticeArea[] = [
     slug: 'cheque-dishonour',
     title: 'Cheque Dishonour (Section 138)',
     icon: 'cheque',
+    photo: photos.cheque,
     summary:
       'Legal notices, complaints and defence under Section 138 of the Negotiable Instruments Act, where the deadlines are strict.',
     body: [
@@ -231,6 +240,7 @@ export const practiceAreas: PracticeArea[] = [
     slug: 'family-matrimonial',
     title: 'Family & Matrimonial',
     icon: 'family',
+    photo: photos.family,
     summary: 'Divorce, maintenance, custody and domestic violence matters, handled privately and with mediation first where it can work.',
     body: [
       'Family cases are about people before they are about law. We listen first, explain the realistic outcomes and look for an agreed way out wherever that protects you and your children.',
@@ -264,6 +274,7 @@ export const practiceAreas: PracticeArea[] = [
     slug: 'property-real-estate',
     title: 'Property & Real Estate',
     icon: 'home',
+    photo: photos.property,
     summary: 'Title checks before you buy, sale deeds and mutation, partition and possession disputes, and RERA complaints.',
     body: [
       'Property is usually the largest thing a family owns, and most disputes begin with a document nobody checked. We check title before you pay, and we fight for possession when something has already gone wrong.',
@@ -297,6 +308,7 @@ export const practiceAreas: PracticeArea[] = [
     slug: 'wills-succession',
     title: 'Wills, Succession & Probate',
     icon: 'scroll',
+    photo: photos.will,
     summary: 'Wills that will stand up, succession certificates, probate and inheritance disputes, settled with as little friction as possible.',
     body: [
       'A well-drafted will saves a family years. We draft wills that are clear about who gets what, and we help families take over assets when someone has passed away without one.',
@@ -330,6 +342,7 @@ export const practiceAreas: PracticeArea[] = [
     slug: 'consumer-protection',
     title: 'Consumer Protection',
     icon: 'shield',
+    photo: photos.consumer,
     summary: 'Complaints for defective goods, poor services, insurance claims and medical negligence before the consumer commissions.',
     body: [
       'Consumer commissions exist so that ordinary people can hold sellers, builders, banks and insurers to account without a long civil suit. We help you file a complaint that is complete the first time.',
@@ -363,6 +376,7 @@ export const practiceAreas: PracticeArea[] = [
     slug: 'service-matters',
     title: 'Service Matters',
     icon: 'briefcase',
+    photo: photos.courtroomOld,
     summary: 'Appointment, promotion, seniority, pay and pension disputes of government and public-sector employees.',
     body: [
       'Employees of the government and public bodies often have the strongest claims and the least time to pursue them. We take on service disputes from the departmental representation onwards.',
@@ -396,6 +410,7 @@ export const practiceAreas: PracticeArea[] = [
     slug: 'writs-constitutional',
     title: 'Writ Petitions & Constitutional Law',
     icon: 'landmark',
+    photo: photos.constitution,
     summary: 'Writ petitions under Article 226 against the State, its departments and authorities, including urgent protection.',
     body: [
       'When a government department, board or authority acts unlawfully or fails to act at all, the High Court’s writ jurisdiction is often the fastest effective remedy.',
@@ -429,6 +444,7 @@ export const practiceAreas: PracticeArea[] = [
     slug: 'banking-recovery-insolvency',
     title: 'Banking, Recovery & Insolvency',
     icon: 'bank',
+    photo: photos.bankruptcy,
     summary: 'SARFAESI actions, Debts Recovery Tribunal proceedings, one-time settlements and insolvency before the NCLT.',
     body: [
       'For borrowers, a SARFAESI notice can put a home or a factory at risk within weeks. For creditors, recovery depends on choosing the right forum early. We act for both.',
@@ -462,6 +478,7 @@ export const practiceAreas: PracticeArea[] = [
     slug: 'land-revenue',
     title: 'Land Acquisition & Revenue',
     icon: 'map',
+    photo: photos.deed,
     summary: 'Compensation in land acquisition, mutation, demarcation and partition of agricultural land before revenue courts.',
     body: [
       'Agricultural land in Haryana is governed as much by revenue records as by deeds. Errors in those records, or a low acquisition award, can cost a family dearly.',

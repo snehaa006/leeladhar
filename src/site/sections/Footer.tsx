@@ -76,7 +76,7 @@ export function Footer() {
         </p>
         <p>
           © {new Date().getFullYear()} Leeladhar Law Chambers. Mock-up: client stories are
-          placeholders.
+          placeholders. <Link to="/credits">Photo credits</Link>.
         </p>
       </div>
     </footer>

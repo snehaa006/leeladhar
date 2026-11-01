@@ -113,7 +113,7 @@ export function Clients() {
           <div
             key={r}
             className={styles.row}
-            data-reveal={r % 2 ? 'right' : 'left'}
+            data-reveal
             data-dir={r % 2 ? 'rtl' : 'ltr'}
             style={
               {

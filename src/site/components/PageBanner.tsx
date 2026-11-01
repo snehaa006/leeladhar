@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { ChevronRight } from 'lucide-react'
 import { Orbit } from '../../design-system'
+import type { Photo } from '../content/photos'
 import { Particles } from '../motion/Particles'
 import { ScrollText } from '../motion/ScrollText'
 import styles from './PageBanner.module.css'
@@ -14,13 +15,25 @@ type PageBannerProps = {
   /** Trail after "Home". The last crumb is the current page. */
   crumbs: Crumb[]
   eyebrow?: string
+  /** A photograph behind the band, under the teal wash. */
+  photo?: Photo
   children?: ReactNode
 }
 
 /** Inner-page header: a dark band with breadcrumb, title and lead. */
-export function PageBanner({ title, lead, crumbs, eyebrow, children }: PageBannerProps) {
+export function PageBanner({ title, lead, crumbs, eyebrow, photo, children }: PageBannerProps) {
   return (
-    <section className={styles.banner} aria-labelledby="page-title">
+    <section className={styles.banner} data-photo={photo ? true : undefined} aria-labelledby="page-title">
+      {photo && (
+        <img
+          className={styles.photo}
+          src={photo.src}
+          alt=""
+          decoding="async"
+          style={{ objectPosition: photo.position }}
+          data-parallax="0.12"
+        />
+      )}
       <Particles tone="dark" density={0.8} />
       <Orbit
         className={styles.orbit}

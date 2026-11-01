@@ -3,6 +3,7 @@ import { Search } from 'lucide-react'
 import { CtaBanner } from '../components/CtaBanner'
 import { InsightCard } from '../components/InsightCard'
 import { PageBanner } from '../components/PageBanner'
+import { photos } from '../content/photos'
 import { insightCategories, insights, type Insight, type InsightCategory } from '../content/insights'
 import { usePageTitle } from '../usePageTitle'
 import page from './Page.module.css'
@@ -38,6 +39,7 @@ export function InsightsPage() {
         title="Legal insights"
         lead="Plain-language notes on the law our clients ask about most: what changed, what it means, and what to do next."
         crumbs={current ? [{ to: '/insights', label: 'Insights' }, { label: current.label }] : [{ label: 'Insights' }]}
+        photo={photos.lawBooks}
       />
 
       <section className={page.section} aria-labelledby="resources">

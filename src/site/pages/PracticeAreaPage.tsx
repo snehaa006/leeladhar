@@ -31,7 +31,14 @@ export function PracticeAreaPage() {
   return (
     <>
       <div className={styles.hero}>
-        <PracticeArt key={area.slug} icon={area.icon} index={index} number={index + 1} className={styles.heroArt} />
+        <PracticeArt
+          key={area.slug}
+          icon={area.icon}
+          index={index}
+          number={index + 1}
+          photo={area.photo}
+          className={styles.heroArt}
+        />
       </div>
       <div className={styles.crumbBar}>
         <div className="container">

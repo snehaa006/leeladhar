@@ -44,6 +44,7 @@ The tabs of legacylawoffices.com and duaassociates.com, merged:
 | `/careers` | Careers and application form |
 | `/contact` | Contact form, contact info and both chambers |
 | `/locations/:slug` | Panipat and Chandigarh chambers |
+| `/credits` | Photo credits |
 
 To add a practice area, article or event, add an entry in `src/site/content/`; its page, menu entry and footer link follow.
 
@@ -84,5 +85,7 @@ Everything lives in `src/site/motion/` and switches off for visitors who ask for
 - The team (Lakshay Bajaj, Priyanka Aggarwal), both chambers addresses, phone and email in `src/site/data.ts` are real.
   Client names, client stories and events are placeholders. The forms (contact, careers) are front end only and
   don't send anything yet.
-- Practice-area and insight visuals are drawn from the house orbit motif (`PracticeArt`), not stock photography.
+- Practice-area, insight and About visuals are freely licensed photographs from Wikimedia Commons, in
+  `public/photos/`, shown under a teal wash with the house orbit motif (`PracticeArt`). Their authors and licences
+  are in `src/site/content/photos.ts` and listed on `/credits`, as the CC BY and CC BY-SA licences require.
 - The tagline “Decoding Law | Delivering Solutions” is part of the logo lockup (`<Logo tagline={false} />` hides it).

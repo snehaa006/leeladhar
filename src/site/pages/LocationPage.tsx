@@ -4,6 +4,7 @@ import { CtaBanner } from '../components/CtaBanner'
 import { HighCourtFrame } from '../components/HighCourtFrame'
 import { OfficeCard } from '../components/OfficeCard'
 import { PageBanner } from '../components/PageBanner'
+import { photos } from '../content/photos'
 import { PracticeArt } from '../components/PracticeArt'
 import { SectionHead } from '../components/SectionHead'
 import { practiceAreas, practiceBySlug } from '../content/practiceAreas'
@@ -29,6 +30,7 @@ export function LocationPage() {
         title={`Advocates in ${office.city}`}
         lead={office.intro}
         crumbs={[{ label: 'Locations' }, { label: office.city }]}
+        photo={photos.justiceStatue}
       />
 
       <section className={page.section} aria-labelledby="loc-practice">
@@ -44,6 +46,7 @@ export function LocationPage() {
                       icon={p.icon}
                       index={practiceAreas.indexOf(p)}
                       number={practiceAreas.indexOf(p) + 1}
+                      photo={p.photo}
                       className={styles.art}
                     />
                     <span className={styles.areaBody}>
