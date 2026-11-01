@@ -14,7 +14,7 @@ export function StatementBand() {
         <ScrollText
           tone="dark"
           className={styles.statement}
-          text="From the trial court to the High Court, in Haryana or anywhere else in India, **the same team** takes your matter from the first hearing to the last appeal."
+          text="From the trial court to any High Court in India, **the same team** takes your matter from the first hearing to the last appeal."
         />
         <ul role="list" className={styles.places} data-reveal="stagger" style={{ ['--reveal-delay' as string]: '200ms' }}>
           {offices.map((o) => (

@@ -35,28 +35,6 @@ export type PracticeArea = {
 
 export const practiceAreas: PracticeArea[] = [
   {
-    slug: 'contract-management',
-    title: 'Contract Management',
-    icon: 'contract',
-    photo: photos.signing,
-    summary:
-      'From drafting and reviewing contracts to managing obligations and mitigating risks, we help businesses navigate their contractual relationships with clarity and confidence. Our focus is on delivering legally sound and commercially practical solutions throughout the contract lifecycle.',
-    body: [
-      'We provide comprehensive support across the contract lifecycle—from drafting, reviewing and negotiating agreements to managing contractual obligations and mitigating potential risks.',
-    ],
-    offerings: [
-      { title: 'Contract Drafting & Review' },
-      { title: 'Contract Negotiation Support' },
-      { title: 'Commercial Agreements' },
-      { title: 'Contract Compliance & Risk Management' },
-      { title: 'Contract Lifecycle Management' },
-    ],
-    approach:
-      'Our approach focuses on creating clear, commercially practical and legally sound solutions that protect our clients’ interests.',
-    forums: ['Advisory & drafting', 'Negotiations', 'Commercial courts'],
-    faqs: [],
-  },
-  {
     slug: 'commercial-suits-arbitration',
     title: 'Commercial Suits & Arbitration',
     icon: 'handshake',
@@ -235,6 +213,28 @@ export const practiceAreas: PracticeArea[] = [
         a: 'Yes. The offence under Section 138 is compoundable, and courts encourage settlement at every stage.',
       },
     ],
+  },
+  {
+    slug: 'contract-management',
+    title: 'Contract Management',
+    icon: 'contract',
+    photo: photos.signing,
+    summary:
+      'From drafting and reviewing contracts to managing obligations and mitigating risks, we help businesses navigate their contractual relationships with clarity and confidence. Our focus is on delivering legally sound and commercially practical solutions throughout the contract lifecycle.',
+    body: [
+      'We provide comprehensive support across the contract lifecycle—from drafting, reviewing and negotiating agreements to managing contractual obligations and mitigating potential risks.',
+    ],
+    offerings: [
+      { title: 'Contract Drafting & Review' },
+      { title: 'Contract Negotiation Support' },
+      { title: 'Commercial Agreements' },
+      { title: 'Contract Compliance & Risk Management' },
+      { title: 'Contract Lifecycle Management' },
+    ],
+    approach:
+      'Our approach focuses on creating clear, commercially practical and legally sound solutions that protect our clients’ interests.',
+    forums: ['Advisory & drafting', 'Negotiations', 'Commercial courts'],
+    faqs: [],
   },
   {
     slug: 'family-matrimonial',

@@ -100,7 +100,7 @@
 }
 
 .lead {
-  max-width: 50ch;
+  max-width: 62ch;
   margin-top: var(--space-4);
   animation: rise 900ms var(--ease-out) 680ms both;
 }
@@ -144,14 +144,6 @@
   animation:
     rise 900ms var(--ease-out) 1250ms both,
     float 10s var(--ease-in-out) 2.4s infinite reverse;
-}
-
-.mark {
-  position: absolute;
-  bottom: var(--space-6);
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0.85;
 }
 
 @keyframes rise {
@@ -213,13 +205,16 @@
 
   .marginLeft,
   .marginRight,
-  .stage,
-  .mark {
+  .stage {
     display: none;
   }
 
   .typed {
     font-size: var(--text-lg);
+  }
+
+  .lead {
+    font-size: var(--text-base);
   }
 
   /* The longest phrase would not fit beside “Advocates for” on a phone. */

@@ -51,18 +51,19 @@ export const forums = [
 export const practisingSince = 2011
 
 /**
- * The firm's own account of itself, used on the home page and on /about.
+ * The firm's own account of itself, used on the home page, on /about and in the footer.
  * **words** and ==words== are the phrases that light up in teal and brick as the text scrolls in.
  */
 export const about = {
-  vision:
-    'Leeladhar Law Chambers is built on the vision that **excellence in law** is earned through ==knowledge, integrity and perseverance==.',
+  question: 'Every legal challenge has an answer.',
+  answer: 'The key lies in knowing where to find it.',
+  intro:
+    'At Leeladhar Law Chambers, we look **beyond the obvious** to understand the law, uncover possibilities and build ==strategies that move matters towards solutions==.',
   story: [
-    'Founded by **first-generation lawyers** Adv. Lakshay Bajaj and Adv. Priyanka Aggarwal, the firm represents a journey of independent effort, professional dedication and a commitment to ==building trust through legal excellence==.',
-    'Our practice is driven by a **solution-oriented approach**, with a focus on understanding the finer aspects of every dispute, developing ==sound legal strategies== and representing our clients with diligence and commitment.',
+    "Our approach is simple yet focused — **decode the complexity, identify the opportunity and deliver the solution**. With strategic thinking, thorough preparation and a clear understanding of our clients' objectives, we turn legal challenges into ==a well-defined course of action==. Our practice is driven by a **solution-oriented approach**, with a focus on understanding the finer aspects of every dispute, developing ==sound legal strategies== and representing our clients with diligence and commitment.",
     'We believe in understanding **the law beyond its text**, approaching every challenge with strategic insight and delivering ==practical, solution-oriented legal services==.',
   ],
-  legacy: 'No inherited legacy. Just a legacy in the making.',
+  closing: 'Because the right solution begins with asking the right questions.',
 }
 
 export const phhc = {

@@ -1,5 +1,5 @@
 import { ArrowUpRight } from 'lucide-react'
-import { Button, Logo, Orbit, Portrait } from '../../design-system'
+import { Button, Orbit, Portrait } from '../../design-system'
 import { team } from '../data'
 import { Particles } from '../motion/Particles'
 import { Typewriter } from '../motion/Typewriter'
@@ -8,18 +8,17 @@ import styles from './Hero.module.css'
 const [lead, second] = team
 
 const matters = [
-  'contract management',
   'commercial disputes',
   'MSME payment recovery',
   'bail and criminal defence',
   'property and succession',
+  'contract management',
   'writ petitions',
 ]
 
 /**
  * A centred statement (the house tagline) held between two orbital lines, the
- * two partners' portraits with their name badges, marginal notes at the edges,
- * and the monogram at the foot.
+ * two partners' portraits with their name badges and marginal notes at the edges.
  */
 export function Hero() {
   return (
@@ -62,8 +61,9 @@ export function Hero() {
           Advocates for <Typewriter phrases={matters} />
         </p>
         <p className={`t-lead ${styles.lead}`}>
-          Leeladhar Law Chambers advises businesses and families across India, from chambers in Chandigarh and
-          Panipat, and tells you where your matter stands after every hearing.
+          Leeladhar Law Chambers provides strategic legal counsel and dedicated representation to clients across India,
+          guided by an unwavering commitment to their interests and a promise of transparency through clear and timely
+          updates on the progress of every matter after each hearing.
         </p>
         <div className={styles.actions}>
           <Button href="/contact" size="lg" icon={<ArrowUpRight />}>
@@ -93,8 +93,6 @@ export function Hero() {
           data-parallax="-0.1"
         />
       </div>
-
-      <Logo variant="mark" size={26} tone="ink" className={styles.mark} />
     </section>
   )
 }

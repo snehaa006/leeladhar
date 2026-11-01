@@ -2,17 +2,13 @@
 .text {
   --floor: 0.16;
   --hl-teal: var(--teal-600);
-  --hl-teal-bg: rgba(70, 138, 134, 0.2);
   --hl-brick: var(--accent-text);
-  --hl-brick-bg: rgba(194, 64, 31, 0.14);
 }
 
 .text[data-tone='dark'] {
   --floor: 0.22;
   --hl-teal: var(--teal-200);
-  --hl-teal-bg: rgba(211, 230, 228, 0.16);
   --hl-brick: var(--brick-200);
-  --hl-brick-bg: rgba(248, 211, 198, 0.16);
 }
 
 /* Each word brightens over about three words' worth of scroll, starting at its place in the line. */
@@ -20,26 +16,17 @@
   opacity: clamp(var(--floor), calc(var(--floor) + (var(--p, 1) * (var(--n) + 3) - var(--i)) * 0.36), 1);
 }
 
+/* Key phrases carry the brand colours (no highlighter behind them). */
 .mark {
-  /* 0 → 1 once the whole phrase has been read. */
-  --x: clamp(0, calc((var(--p, 1) * (var(--n) + 3) - var(--b) - 1) / 2), 1);
-
-  padding-inline: 0.06em;
-  margin-inline: -0.06em;
-  border-radius: 0.12em;
-  background: linear-gradient(var(--mark-bg), var(--mark-bg)) no-repeat 0 92% / calc(var(--x) * 100%) 0.5em;
+  background: none;
   color: var(--mark-fg);
   font-weight: 600;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
 }
 
 .mark[data-tone='teal'] {
   --mark-fg: var(--hl-teal);
-  --mark-bg: var(--hl-teal-bg);
 }
 
 .mark[data-tone='brick'] {
   --mark-fg: var(--hl-brick);
-  --mark-bg: var(--hl-brick-bg);
 }

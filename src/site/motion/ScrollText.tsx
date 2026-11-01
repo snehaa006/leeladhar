@@ -25,8 +25,7 @@ export const plainText = (source: string) => source.replace(/\*\*|==/g, '')
 /**
  * Text that reads itself in as you scroll: every word starts faded and lights
  * up in turn as the block moves up the screen, then fades again as you scroll
- * back. Highlighted phrases take their colour and a highlighter stroke once
- * they are read. Driven by one CSS variable, `--p`, set by the shared scroll loop.
+ * back. Key phrases are set in teal or brick. Driven by one CSS variable, `--p`, set by the shared scroll loop.
  * With reduced motion the text is simply shown.
  */
 export function ScrollText({
@@ -57,7 +56,6 @@ export function ScrollText({
   const nodes: ReactNode[] = []
 
   parts.forEach((part, k) => {
-    const first = index
     const words = part.text.split(/(\s+)/).map((w, j) => {
       if (!w || /^\s+$/.test(w)) return w
       return (
@@ -68,7 +66,7 @@ export function ScrollText({
     })
     nodes.push(
       part.tone ? (
-        <mark key={k} className={styles.mark} data-tone={part.tone} style={{ '--a': first, '--b': index - 1 } as CSSProperties}>
+        <mark key={k} className={styles.mark} data-tone={part.tone}>
           {words}
         </mark>
       ) : (
