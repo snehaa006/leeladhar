@@ -33,7 +33,7 @@ export function AboutPage() {
       <section id="story" className={page.section} aria-labelledby="who">
         <div className={`container ${styles.split}`}>
           <div className={styles.artWrap} data-reveal="wipe">
-            <PracticeArt icon="landmark" index={0} photo={photos.lawBooks} className={styles.art} />
+            <PracticeArt icon="landmark" index={0} photo={photos.lawReports} className={styles.art} />
           </div>
           <div>
             <h2 id="who" className="t-h1" data-reveal>
