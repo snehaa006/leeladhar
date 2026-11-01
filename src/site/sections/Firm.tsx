@@ -18,18 +18,12 @@ export function Firm() {
               About us
             </p>
             <h2 id="firm-title" className={`t-h1 ${styles.title}`} data-reveal style={{ ['--reveal-delay' as string]: '80ms' }}>
-              No inherited legacy. Just a{' '}
+              Every matter begins with{' '}
               <em>
-                <TypeOnView text="legacy in the making." />
+                <TypeOnView text="understanding." />
               </em>
             </h2>
-            <dl className={styles.stats} data-reveal="stagger" style={{ ['--reveal-delay' as string]: '160ms' }}>
-              <div>
-                <dt>Of experience</dt>
-                <dd>
-                  <CountUp to={2} duration={900} /> <span className={styles.unit}>Decades</span>
-                </dd>
-              </div>
+            <dl className={styles.stats} data-reveal style={{ ['--reveal-delay' as string]: '200ms' }}>
               <div>
                 <dt>In practice since</dt>
                 <dd>
@@ -39,10 +33,16 @@ export function Firm() {
             </dl>
           </div>
           <div className={styles.copy}>
-            <ScrollText text={about.vision} className={`t-lead ${styles.lead}`} />
+            <ScrollText text={`${about.question} ${about.answer}`} className={`t-lead ${styles.lead}`} />
+            <ScrollText text={about.intro} className={`t-body ${styles.body}`} />
             {about.story.map((p) => (
               <ScrollText key={p} text={p} className={`t-body ${styles.body}`} />
             ))}
+            <p className={styles.tagline} data-reveal>
+              Decoding Law <span aria-hidden="true">|</span>
+              <span className="visually-hidden">,</span> Delivering Solutions
+            </p>
+            <ScrollText text={about.closing} className={styles.closing} />
             <div data-reveal style={{ ['--reveal-delay' as string]: '200ms' }}>
               <Button href="/about" variant="ghost" className={styles.more} icon={<ArrowRight />}>
                 More about us

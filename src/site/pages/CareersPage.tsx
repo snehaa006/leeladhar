@@ -68,7 +68,7 @@ export function CareersPage() {
         title="Careers"
         lead="Internships for law students and openings for young advocates who want to learn trial and High Court practice."
         crumbs={[{ label: 'Careers' }]}
-        photo={photos.lawBooks2}
+        photo={photos.lawLibrary}
       />
 
       <section className={`${page.section} ${page.sunken}`} aria-labelledby="life">

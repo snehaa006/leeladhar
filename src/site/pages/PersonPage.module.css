@@ -102,6 +102,23 @@
   margin-top: var(--space-6);
 }
 
+.areasTitle {
+  margin-block: var(--space-6) var(--space-3);
+  font-size: var(--text-lg);
+  font-weight: 600;
+}
+
+.chipLink {
+  display: inline-flex;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+}
+
+.chipLink:hover > span {
+  border-color: var(--accent);
+  color: var(--accent-text);
+}
+
 .line {
   display: block;
 }

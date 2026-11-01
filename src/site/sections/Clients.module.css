@@ -259,33 +259,17 @@
   text-align: center;
 }
 
-.track {
-  --per-view: 3;
-  --gap: var(--space-5);
-
+/* Every testimonial at once, as cards — no paging. */
+.stories {
   display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: calc((100% - var(--gap) * (var(--per-view) - 1)) / var(--per-view));
-  gap: var(--gap);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5);
   margin-top: var(--space-8);
   padding: 0;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
 }
 
-.track::-webkit-scrollbar {
-  display: none;
-}
-
-.track:focus-visible {
-  outline: 2px solid var(--accent-on-dark);
-  outline-offset: 6px;
-}
-
-.track > li {
+.stories > li {
   display: flex;
-  scroll-snap-align: start;
 }
 
 .story {
@@ -293,8 +277,18 @@
   flex-direction: column;
   width: 100%;
   margin: 0;
-  padding: 0 var(--space-5);
-  border-left: 1px solid var(--line-on-dark);
+  padding: var(--space-6);
+  border: 1px solid var(--line-on-dark);
+  border-radius: var(--radius-lg);
+  background: var(--surface-dark-raised);
+  transition:
+    transform var(--dur-base, 240ms) var(--ease-out),
+    border-color var(--dur-base, 240ms) var(--ease-out);
+}
+
+.story:hover {
+  transform: translateY(-4px);
+  border-color: rgba(246, 241, 233, 0.32);
 }
 
 /* Two overlapping rounds, the second carrying the quote mark. */
@@ -368,92 +362,20 @@
   height: 16px;
 }
 
-/* ── controls ──────────────────────────────────────────────── */
-
-.controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-5);
-  margin-top: var(--space-7);
-}
-
-.arrow {
-  display: grid;
-  place-items: center;
-  width: 52px;
-  height: 36px;
-  border: 1px solid rgba(246, 241, 233, 0.5);
-  border-radius: var(--radius-pill);
-  background: transparent;
-  color: var(--cream-50);
-  cursor: pointer;
-  transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
-}
-
-.arrow:hover:not(:disabled) {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--text-on-accent);
-}
-
-.arrow:disabled {
-  opacity: 0.35;
-  cursor: default;
-}
-
-.arrow svg {
-  width: 18px;
-  height: 18px;
-}
-
-.dots {
-  display: flex;
-  gap: 0;
-}
-
-/* A 24px tap target around a 12px dot. */
-.dot {
-  display: grid;
-  place-items: center;
-  width: 24px;
-  height: 24px;
-  padding: 0;
-  border: 0;
-  border-radius: 50%;
-  background: transparent;
-  cursor: pointer;
-}
-
-.dot::before {
-  content: '';
-  width: 12px;
-  height: 12px;
-  border: 1px solid var(--cream-50);
-  border-radius: 50%;
-}
-
-.dot[aria-current]::before {
-  border-color: var(--accent);
-  background: var(--accent);
-  box-shadow: 0 0 0 3px rgba(246, 241, 233, 0.25);
-}
-
-.arrow:focus-visible,
-.dot:focus-visible {
-  outline: 2px solid var(--accent-on-dark);
-  outline-offset: 3px;
-}
-
 @media (max-width: 960px) {
-  .track {
-    --per-view: 2;
+  .stories {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 600px) {
-  .track {
-    --per-view: 1;
+  .stories {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: var(--space-6);
+  }
+
+  .story {
+    padding: var(--space-5);
   }
 
   .wall {
@@ -490,10 +412,5 @@
 
   .band {
     padding-block: var(--space-8) var(--space-7);
-  }
-
-  .arrow {
-    width: 56px;
-    height: 44px;
   }
 }

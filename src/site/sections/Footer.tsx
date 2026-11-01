@@ -12,7 +12,7 @@ export function Footer() {
       <div className={`container ${styles.top}`}>
         <div data-reveal="left" className={styles.brand}>
           <Logo tone="cream" size={44} />
-          <p className={styles.motto}>{about.legacy}</p>
+          <p className={styles.motto}>{about.motto}</p>
           <dl className={styles.reach}>
             <div>
               <dt>Call</dt>

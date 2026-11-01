@@ -1,17 +1,17 @@
 import { useId, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { ArrowRight, Mail, MapPin, Phone } from 'lucide-react'
-import { Orbit } from '../../design-system'
+import { ArrowRight, Mail, Phone } from 'lucide-react'
+import { Chip, Orbit } from '../../design-system'
 import { CtaBanner } from '../components/CtaBanner'
 import { Breadcrumbs } from '../components/PageBanner'
 import { practiceBySlug } from '../content/practiceAreas'
-import { contact, memberBySlug, officeBySlug, practisingSince, team, tel } from '../data'
+import { contact, memberBySlug, team, tel } from '../data'
 import { usePageTitle } from '../usePageTitle'
 import { NotFoundPage } from './NotFoundPage'
 import page from './Page.module.css'
 import styles from './PersonPage.module.css'
 
-const tabs = ['Profile overview', 'Chambers', 'Practice', 'Get in touch'] as const
+const tabs = ['Profile overview', 'Practice', 'Get in touch'] as const
 type Tab = (typeof tabs)[number]
 
 /** /people/:slug — profile banner and tabbed sidebar, after the profile pages of legacylawoffices.com. */
@@ -23,7 +23,6 @@ export function PersonPage() {
   usePageTitle(member?.name ?? 'Page not found')
   if (!member) return <NotFoundPage />
 
-  const office = officeBySlug(member.office)!
   const others = team.filter((m) => m.slug !== member.slug)
 
   return (
@@ -44,7 +43,7 @@ export function PersonPage() {
               {member.name}
             </h1>
             <p className={styles.role}>
-              {member.role} · In practice since {practisingSince}
+              {member.role}, Leeladhar Law Chambers · In practice since {member.since}
             </p>
             <ul role="list" className={styles.reach}>
               <li>
@@ -54,10 +53,6 @@ export function PersonPage() {
               <li>
                 <Phone aria-hidden="true" />
                 <a href={tel(contact.phone)}>{contact.phone}</a>
-              </li>
-              <li>
-                <MapPin aria-hidden="true" />
-                <span>{office.city} chambers · Matters across India</span>
               </li>
             </ul>
           </div>
@@ -92,47 +87,45 @@ export function PersonPage() {
             <span className={page.rule} aria-hidden="true" data-reveal="wipe" />
 
             {tab === 'Profile overview' && (
-              <div className={`${page.prose} ${styles.body}`}>
-                {member.overview.map((p) => (
-                  <p key={p}>{p}</p>
-                ))}
-              </div>
-            )}
-
-            {tab === 'Chambers' && (
               <div className={styles.body}>
-                <div className={page.panel}>
-                  <h3 className={page.panelTitle}>{office.city}</h3>
-                  <p>
-                    {office.lines.map((l) => (
-                      <span key={l} className={styles.line}>
-                        {l}
-                      </span>
-                    ))}
-                  </p>
+                <div className={page.prose}>
+                  {member.overview.map((p) => (
+                    <p key={p}>{p}</p>
+                  ))}
                 </div>
-                <p className={`${page.prose} ${styles.after}`}>{office.intro}</p>
-                <Link to={`/locations/${office.slug}`} className={styles.link}>
-                  About our {office.city} chambers <ArrowRight aria-hidden="true" />
-                </Link>
+                <h3 className={styles.areasTitle}>Practice areas</h3>
+                <ul role="list" className={page.chips}>
+                  {member.practices.map((p) => (
+                    <li key={p.label}>
+                      {p.slug ? (
+                        <Link to={`/practice-areas/${p.slug}`} className={styles.chipLink}>
+                          <Chip>{p.label}</Chip>
+                        </Link>
+                      ) : (
+                        <Chip>{p.label}</Chip>
+                      )}
+                    </li>
+                  ))}
+                </ul>
               </div>
             )}
 
             {tab === 'Practice' && (
               <ul data-reveal="stagger" role="list" className={`${page.grid2} ${styles.body}`}>
-                {office.practices.map((s) => {
-                  const p = practiceBySlug(s)!
-                  return (
-                    <li key={s} className={page.panel}>
-                      <h3 className={page.panelTitle}>
+                {member.practices.map((p) => (
+                  <li key={p.label} className={page.panel}>
+                    <h3 className={page.panelTitle}>
+                      {p.slug ? (
                         <Link to={`/practice-areas/${p.slug}`} className={styles.plain}>
-                          {p.title}
+                          {p.label}
                         </Link>
-                      </h3>
-                      <p>{p.summary}</p>
-                    </li>
-                  )
-                })}
+                      ) : (
+                        p.label
+                      )}
+                    </h3>
+                    <p>{p.slug ? practiceBySlug(p.slug)?.summary : p.note}</p>
+                  </li>
+                ))}
               </ul>
             )}
 

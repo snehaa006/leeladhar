@@ -43,12 +43,6 @@
   outline-offset: 2px;
 }
 
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-}
-
 .empty {
   margin-top: var(--space-6);
 }

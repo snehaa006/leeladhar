@@ -3,7 +3,7 @@ import { CtaBanner } from '../components/CtaBanner'
 import { PageBanner } from '../components/PageBanner'
 import { PracticeArt } from '../components/PracticeArt'
 import { photos } from '../content/photos'
-import { about, offices, practisingSince } from '../data'
+import { about, offices } from '../data'
 import { Particles } from '../motion/Particles'
 import { ScrollText } from '../motion/ScrollText'
 import { Team } from '../sections/Team'
@@ -25,7 +25,7 @@ export function AboutPage() {
     <>
       <PageBanner
         title="About Leeladhar Law Chambers"
-        lead={`Founded by first-generation lawyers, in practice since ${practisingSince}.`}
+        lead={`${about.question} ${about.answer}`}
         crumbs={[{ label: 'About us' }]}
         photo={photos.courtroom}
       />
@@ -33,7 +33,7 @@ export function AboutPage() {
       <section id="story" className={page.section} aria-labelledby="who">
         <div className={`container ${styles.split}`}>
           <div className={styles.artWrap} data-reveal="wipe">
-            <PracticeArt icon="landmark" index={0} photo={photos.lawBooks} className={styles.art} />
+            <PracticeArt icon="landmark" index={0} photo={photos.lawReports} className={styles.art} />
           </div>
           <div>
             <h2 id="who" className="t-h1" data-reveal>
@@ -41,7 +41,7 @@ export function AboutPage() {
             </h2>
             <span className={page.rule} aria-hidden="true" data-reveal="wipe" />
             <div className={`${page.prose} ${styles.copy}`}>
-              <ScrollText className={styles.vision} text={about.vision} />
+              <ScrollText className={styles.vision} text={about.intro} />
               {about.story.map((p) => (
                 <ScrollText key={p} text={p} />
               ))}
@@ -63,7 +63,11 @@ export function AboutPage() {
       <section className={styles.legacy} aria-label="Our motto">
         <Particles tone="dark" density={0.8} />
         <div className={`container ${styles.legacyInner}`}>
-          <ScrollText tone="dark" className={styles.legacyQuote} text="No inherited legacy. Just a **legacy in the making**." />
+          <ScrollText
+            tone="dark"
+            className={styles.legacyQuote}
+            text="Because the right solution begins with **asking the right questions**."
+          />
           <p className={styles.legacyTagline} data-reveal style={{ ['--reveal-delay' as string]: '180ms' }}>
             Decoding Law <span aria-hidden="true">|</span>
             <span className="visually-hidden">,</span> Delivering Solutions

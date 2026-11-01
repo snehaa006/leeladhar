@@ -159,12 +159,6 @@
   font-variant-numeric: tabular-nums;
 }
 
-.unit {
-  font-size: 0.55em;
-  font-weight: 700;
-  letter-spacing: 0;
-}
-
 .lead {
   color: var(--text);
 }
@@ -178,6 +172,37 @@
 .title em {
   font-style: normal;
   color: var(--highlight);
+}
+
+.tagline {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+  color: var(--accent-text);
+  font-size: var(--text-sm);
+  font-stretch: var(--wdth-expanded);
+  font-weight: 640;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.tagline::before {
+  content: '';
+  width: 28px;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--accent);
+}
+
+.closing {
+  margin-top: var(--space-3);
+  max-width: 34ch;
+  color: var(--text);
+  font-family: var(--font-evidence);
+  font-size: var(--text-xl);
+  font-style: italic;
+  line-height: 1.35;
 }
 
 .more {

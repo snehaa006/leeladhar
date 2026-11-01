@@ -39,7 +39,7 @@ export function InsightsPage() {
         title="Legal insights"
         lead="Plain-language notes on the law our clients ask about most: what changed, what it means, and what to do next."
         crumbs={current ? [{ to: '/insights', label: 'Insights' }, { label: current.label }] : [{ label: 'Insights' }]}
-        photo={photos.lawBooks}
+        photo={photos.constitution}
       />
 
       <section className={page.section} aria-labelledby="resources">

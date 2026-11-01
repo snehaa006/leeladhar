@@ -77,7 +77,7 @@ export function ContactPage() {
 
       <section className={`${page.section} ${page.sunken}`} aria-labelledby="presence">
         <div className="container">
-          <SectionHead id="presence" title="Our presence" lead="Two chambers, at the High Court and the District Court, serving clients across India." />
+          <SectionHead id="presence" title="Our presence" />
           <ul data-reveal="stagger" role="list" className={`${page.grid2} ${styles.offices}`}>
             {offices.map((o) => (
               <li key={o.slug}>

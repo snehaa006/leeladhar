@@ -51,18 +51,20 @@ export const forums = [
 export const practisingSince = 2011
 
 /**
- * The firm's own account of itself, used on the home page and on /about.
+ * The firm's own account of itself, used on the home page, on /about and in the footer.
  * **words** and ==words== are the phrases that light up in teal and brick as the text scrolls in.
  */
 export const about = {
-  vision:
-    'Leeladhar Law Chambers is built on the vision that **excellence in law** is earned through ==knowledge, integrity and perseverance==.',
+  question: 'Every legal challenge has an answer.',
+  answer: 'The key lies in knowing where to find it.',
+  intro:
+    'At Leeladhar Law Chambers, we look **beyond the obvious** to understand the law, uncover possibilities and build ==strategies that move matters towards solutions==.',
   story: [
-    'Founded by **first-generation lawyers** Adv. Lakshay Bajaj and Adv. Priyanka Aggarwal, the firm represents a journey of independent effort, professional dedication and a commitment to ==building trust through legal excellence==.',
-    'Our practice is driven by a **solution-oriented approach**, with a focus on understanding the finer aspects of every dispute, developing ==sound legal strategies== and representing our clients with diligence and commitment.',
+    "Our approach is simple yet focused — **decode the complexity, identify the opportunity and deliver the solution**. With strategic thinking, thorough preparation and a clear understanding of our clients' objectives, we turn legal challenges into ==a well-defined course of action==. Our practice is driven by a **solution-oriented approach**, with a focus on understanding the finer aspects of every dispute, developing ==sound legal strategies== and representing our clients with diligence and commitment.",
     'We believe in understanding **the law beyond its text**, approaching every challenge with strategic insight and delivering ==practical, solution-oriented legal services==.',
   ],
-  legacy: 'No inherited legacy. Just a legacy in the making.',
+  closing: 'Because the right solution begins with asking the right questions.',
+  motto: 'Every matter begins with understanding.',
 }
 
 export const phhc = {
@@ -77,9 +79,17 @@ export type Member = {
   slug: string
   name: string
   role: string
-  office: OfficeSlug
+  /** The year the advocate began practising. */
+  since: number
   photo: string
   overview: string[]
+  /** As the partner lists them; `slug` links to the practice-area page where there is one. */
+  practices: { label: string; slug?: string; note?: string }[]
+}
+
+const execution = {
+  label: 'Execution Proceedings',
+  note: 'Enforcing decrees, awards and orders so that a judgment in your favour is actually honoured.',
 }
 
 export const team: Member[] = [
@@ -87,22 +97,44 @@ export const team: Member[] = [
     slug: 'lakshay-bajaj',
     name: 'Lakshay Bajaj',
     role: 'Partner',
-    office: 'chandigarh',
+    since: 2014,
     photo: '/team/lakshay-bajaj.jpg',
     overview: [
-      'Lakshay Bajaj is a partner at Leeladhar Law Chambers and works from the chambers in Chandigarh, at Bar Room No. 19 of the Punjab & Haryana High Court.',
-      'The work spans commercial suits, MSME recovery, writ petitions, bail and quashing, and appeals, for clients from across India.',
+      'He has been practising law since 2014. With the years of experience, he has built a strong practice in civil, criminal and execution matters, appearing before trial courts and the High Court.',
+      'His approach is to understand each case thoroughly, give clear and practical advice, and represent his clients diligently. He explains legal procedure in plain language so that clients stay informed at every stage.',
+      'As a Partner at Leeladhar Law Chambers, he is committed to providing clients with dependable legal support.',
+    ],
+    practices: [
+      { label: 'Commercial Disputes', slug: 'commercial-suits-arbitration' },
+      { label: 'Civil Litigation', slug: 'civil-litigation' },
+      { label: 'Criminal Law', slug: 'criminal-law' },
+      { label: 'MSME', slug: 'msme-recovery' },
+      execution,
+      { label: 'Property Disputes', slug: 'property-real-estate' },
+      { label: 'High Court Matters', note: 'Writ petitions, appeals and revisions before the High Court.' },
     ],
   },
   {
     slug: 'priyanka-aggarwal',
     name: 'Priyanka Aggarwal',
     role: 'Partner',
-    office: 'panipat',
+    since: 2011,
     photo: '/team/priyanka-aggarwal.jpg',
     overview: [
-      'Priyanka Aggarwal is a partner at Leeladhar Law Chambers and works from the chambers in Panipat, at Chamber No. 439 of the District Court.',
-      'The work spans commercial suits, MSME recovery, cheque dishonour, civil and criminal trials, and family and property matters, for clients from across India.',
+      'She has been practising law since 2011 and has extensive courtroom experience. Her work is marked by careful preparation, clarity and sensitivity to her clients’ concerns.',
+      'She studies every aspect of a case closely and shapes her strategy around the client’s needs. She believes good legal advice is advice that arrives on time and is easy to understand.',
+      'As a Partner at Leeladhar Law Chambers, she guides clients through the legal process with confidence and care.',
+    ],
+    practices: [
+      { label: 'Civil Litigation', slug: 'civil-litigation' },
+      { label: 'Family Matters', slug: 'family-matrimonial' },
+      { label: 'Contract Management', slug: 'contract-management' },
+      { label: 'Property Disputes', slug: 'property-real-estate' },
+      execution,
+      {
+        label: 'Documentation & Advisory',
+        note: 'Drafting and reviewing documents, and advice before a dispute arises.',
+      },
     ],
   },
 ]
@@ -240,7 +272,7 @@ export const offices: Office[] = [
     lines: ['Bar Room No. 19', 'Punjab & Haryana High Court, Chandigarh'],
     court: 'Punjab & Haryana High Court',
     intro:
-      'Our Chandigarh chambers are at the Punjab & Haryana High Court. From here we handle writ petitions, bail and quashing, commercial appeals and tribunal matters, and coordinate work for clients in other states.',
+      'Our chambers are at the Punjab & Haryana High Court. From here we handle writ petitions, bail and quashing, commercial appeals and tribunal matters, and coordinate work for clients in other states.',
     practices: ['commercial-suits-arbitration', 'msme-recovery', 'writs-constitutional', 'criminal-law', 'banking-recovery-insolvency', 'service-matters'],
     mapQuery: 'Punjab and Haryana High Court, Sector 1, Chandigarh',
   },
@@ -250,7 +282,7 @@ export const offices: Office[] = [
     lines: ['Chamber No. 439', 'District Court, Panipat'],
     court: 'District & Sessions Court',
     intro:
-      'Our Panipat chambers sit in the District Court complex. From here we handle commercial suits, MSME recovery and trial-court work for businesses, families and individuals, in Haryana and wherever else in India a matter takes us.',
+      'Our chambers are in the District Court complex. From here we handle commercial suits, MSME recovery and trial-court work for businesses, families and individuals, in Haryana and wherever else in India a matter takes us.',
     practices: ['commercial-suits-arbitration', 'msme-recovery', 'cheque-dishonour', 'civil-litigation', 'criminal-law', 'family-matrimonial'],
     mapQuery: 'District Court, Panipat, Haryana',
   },

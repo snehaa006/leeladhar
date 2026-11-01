@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useRef, useState, type CSSProperties } from 'react'
-import { ArrowLeft, ArrowRight, Check, Quote } from 'lucide-react'
+import type { CSSProperties } from 'react'
+import { Check, Quote } from 'lucide-react'
 import { clients, clientStories, type ClientStory } from '../data'
 import { ScrollText } from '../motion/ScrollText'
 import { TypeOnView } from '../motion/TypeOnView'
@@ -70,30 +70,6 @@ function ClientCell({ name, place, i, copy }: { name: string; place: string; i: 
 }
 
 export function Clients() {
-  const track = useRef<HTMLUListElement>(null)
-  const [page, setPage] = useState(0)
-  const [pages, setPages] = useState(1)
-
-  const measure = useCallback(() => {
-    const el = track.current
-    if (!el) return
-    setPages(Math.max(1, Math.round(el.scrollWidth / el.clientWidth)))
-    setPage(Math.round(el.scrollLeft / el.clientWidth))
-  }, [])
-
-  useEffect(() => {
-    measure()
-    window.addEventListener('resize', measure)
-    return () => window.removeEventListener('resize', measure)
-  }, [measure])
-
-  const go = (to: number) => {
-    const el = track.current
-    if (!el) return
-    const next = Math.min(Math.max(to, 0), pages - 1)
-    el.scrollTo({ left: next * el.clientWidth, behavior: 'smooth' })
-  }
-
   return (
     <section id="clients" className={styles.section} aria-labelledby="clients-title">
       <div className="container">
@@ -146,50 +122,13 @@ export function Clients() {
             about working with us
           </h3>
 
-          <ul
-            ref={track}
-            role="list"
-            className={styles.track}
-            onScroll={measure}
-            aria-label="Client testimonials"
-            tabIndex={0}
-          >
+          <ul role="list" className={styles.stories} aria-label="Client testimonials" data-reveal="stagger">
             {clientStories.map((s) => (
               <li key={s.id}>
                 <Story story={s} />
               </li>
             ))}
           </ul>
-
-          {pages > 1 && (
-            <div className={styles.controls}>
-              <button type="button" className={styles.arrow} onClick={() => go(page - 1)} disabled={page === 0}>
-                <ArrowLeft aria-hidden="true" />
-                <span className="visually-hidden">Previous testimonials</span>
-              </button>
-              <div className={styles.dots}>
-                {Array.from({ length: pages }, (_, i) => (
-                  <button
-                    key={i}
-                    type="button"
-                    className={styles.dot}
-                    aria-current={i === page || undefined}
-                    aria-label={`Show testimonials, page ${i + 1} of ${pages}`}
-                    onClick={() => go(i)}
-                  />
-                ))}
-              </div>
-              <button
-                type="button"
-                className={styles.arrow}
-                onClick={() => go(page + 1)}
-                disabled={page === pages - 1}
-              >
-                <ArrowRight aria-hidden="true" />
-                <span className="visually-hidden">Next testimonials</span>
-              </button>
-            </div>
-          )}
         </div>
       </div>
     </section>
