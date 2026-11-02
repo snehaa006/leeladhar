@@ -6,7 +6,7 @@ export default create({
   brandTitle:
     '<span style="display:flex;align-items:center;gap:12px;font-weight:640;line-height:1.1;font-stretch:125%">' +
     '<img src="/brand/storybook-brand.png" alt="" height="30" />' +
-    '<span>Leeladhar<br/><span style="font-size:10px;letter-spacing:.14em;font-weight:500;opacity:.7">LAW CHAMBERS</span></span></span>',
+    '<span>LEELADHAR<br/><span style="font-size:10px;letter-spacing:.14em;font-weight:500;opacity:.7">LAW CHAMBERS</span></span></span>',
   brandTarget: '_self',
 
   colorPrimary: '#1A2E2C',

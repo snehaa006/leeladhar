@@ -148,7 +148,6 @@ const clientList: { name: string; place: string }[] = [
   { name: 'Vetvista Pvt. Ltd.', place: 'Bangalore' },
   { name: 'Unnat Biotech', place: 'Haryana' },
   { name: 'Krishna Marketing', place: 'Haryana' },
-  { name: 'Karp Traders', place: 'Haryana' },
   { name: 'Jain Packers', place: 'Haryana' },
   { name: 'Shree Shyam Enterprises', place: 'Haryana' },
   { name: 'Virsa Fashion', place: 'Haryana' },
