@@ -11,13 +11,6 @@ import { usePageTitle } from '../usePageTitle'
 import page from './Page.module.css'
 import styles from './AboutPage.module.css'
 
-const principles = [
-  { title: 'One partner, start to finish', body: 'The partner you first meet leads your matter and appears for the hearings.' },
-  { title: 'Plain words', body: 'You hear what the law says about your situation without jargon, including when the honest answer is “don’t litigate”.' },
-  { title: 'Fees agreed upfront', body: 'Drafting is quoted as a fixed fee; court work is billed per appearance, set out before work starts.' },
-  { title: 'A call after every hearing', body: 'The same evening, you hear what happened and what comes next.' },
-]
-
 /** /about — after legacylawoffices.com/about-our-company, with Why us and Our values from duaassociates.com/about-us. */
 export function AboutPage() {
   usePageTitle('About us')
@@ -72,29 +65,6 @@ export function AboutPage() {
             Decoding Law <span aria-hidden="true">|</span>
             <span className="visually-hidden">,</span> Delivering Solutions
           </p>
-        </div>
-      </section>
-
-      <section className={page.section} aria-labelledby="principles">
-        <div className={`container ${styles.split}`}>
-          <div className={styles.artWrap} data-reveal="wipe">
-            <PracticeArt icon="scale" index={1} photo={photos.ladyJustice} className={styles.art} />
-          </div>
-          <div>
-            <h2 id="principles" className="t-h1" data-reveal>
-              A practice defined by care and candour
-            </h2>
-            <p className={`t-lead ${styles.lead}`}>
-              What clients can expect from us, whichever court in India their matter is in.
-            </p>
-            <ul role="list" className={styles.principles} data-reveal="stagger">
-              {principles.map((p) => (
-                <li key={p.title}>
-                  <strong>{p.title}</strong> – {p.body}
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
       </section>
 

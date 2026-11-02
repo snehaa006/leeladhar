@@ -83,11 +83,6 @@
   font-weight: 600;
 }
 
-.lead {
-  max-width: 44ch;
-  margin-top: var(--space-5);
-}
-
 .places {
   display: flex;
   flex-wrap: wrap;
@@ -115,34 +110,6 @@
 .places a:hover strong {
   text-decoration: underline;
   text-underline-offset: 3px;
-}
-
-.principles {
-  display: grid;
-  gap: var(--space-4);
-  margin-top: var(--space-6);
-  padding: 0;
-  color: var(--text-secondary);
-}
-
-.principles li {
-  position: relative;
-  padding-left: var(--space-5);
-}
-
-.principles li::before {
-  content: '';
-  position: absolute;
-  top: 0.6em;
-  left: 0;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--brick-500);
-}
-
-.principles strong {
-  color: var(--text);
 }
 
 @media (max-width: 900px) {
