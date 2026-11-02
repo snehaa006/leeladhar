@@ -33,6 +33,7 @@
   justify-items: center;
   gap: var(--space-7);
   text-align: center;
+  text-align-last: center;
 }
 
 .statement {

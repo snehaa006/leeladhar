@@ -10,8 +10,8 @@ import page from './Page.module.css'
 import styles from './PeoplePage.module.css'
 
 /**
- * Our people: both partners' full profiles on the one page, one after the
- * other, so nothing sits behind a click.
+ * Our people: both partners' full profiles side by side on the one page, so
+ * both are on screen together and nothing sits behind a click.
  */
 export function PeoplePage() {
   usePageTitle('Our people')
@@ -31,15 +31,19 @@ export function PeoplePage() {
             {team.map((m) => (
               <li key={m.slug}>
                 <article id={m.slug} className={styles.profile} aria-labelledby={`${m.slug}-name`}>
-                  <img className={styles.photo} src={m.photo} alt={`Portrait of ${m.name}`} decoding="async" />
+                  <header className={styles.head}>
+                    <img className={styles.photo} src={m.photo} alt={`Portrait of ${m.name}`} decoding="async" />
+                    <div>
+                      <h2 id={`${m.slug}-name`} className={`t-h2 ${styles.name}`}>
+                        {m.name}
+                      </h2>
+                      <p className={styles.role}>
+                        {m.role} · In practice since {m.since}
+                      </p>
+                    </div>
+                  </header>
 
                   <div className={styles.body}>
-                    <h2 id={`${m.slug}-name`} className={`t-h1 ${styles.name}`}>
-                      {m.name}
-                    </h2>
-                    <p className={styles.role}>
-                      {m.role}, Leeladhar Law Chambers · In practice since {m.since}
-                    </p>
 
                     <div className={`${page.prose} ${styles.bio}`}>
                       {m.overview.map((p) => (

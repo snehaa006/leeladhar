@@ -1,40 +1,32 @@
 .profiles {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-8);
   padding: 0;
 }
 
-/* Each partner in full: portrait beside the profile; the second mirrors the first. */
+/* The two partners side by side, each a compact portrait and name above the profile. */
 .profile {
-  display: grid;
-  grid-template-columns: minmax(220px, 5fr) minmax(0, 7fr);
-  gap: var(--space-8);
-  align-items: start;
-  padding-block: var(--space-8);
-  border-top: 1px solid var(--line);
+  height: 100%;
+  padding: var(--space-6);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
   scroll-margin-top: 96px;
 }
 
-.profiles > li:first-child .profile {
-  padding-top: 0;
-  border-top: 0;
-}
-
-.profiles > li:nth-child(even) .profile {
-  grid-template-columns: minmax(0, 7fr) minmax(220px, 5fr);
-}
-
-.profiles > li:nth-child(even) .photo {
-  order: 2;
+.head {
+  display: grid;
+  grid-template-columns: 132px minmax(0, 1fr);
+  gap: var(--space-5);
+  align-items: center;
 }
 
 .photo {
-  position: sticky;
-  top: 104px;
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
   object-position: center 18%;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   background: var(--teal-800);
 }
 
@@ -44,13 +36,14 @@
 
 .role {
   display: inline-block;
-  margin-top: var(--space-4);
+  margin-top: var(--space-3);
   padding: 6px 14px;
   border-radius: var(--radius-pill);
   background: var(--accent);
   color: var(--text-on-accent);
   font-size: var(--text-sm);
   font-weight: 600;
+  text-align: left;
 }
 
 .bio {
@@ -113,23 +106,18 @@
 }
 
 @media (max-width: 900px) {
-  .profile {
+  .profiles {
     grid-template-columns: minmax(0, 1fr);
     gap: var(--space-6);
-    padding-block: var(--space-7);
   }
 
-  .profiles > li:nth-child(even) .profile {
-    grid-template-columns: minmax(0, 1fr);
+  .profile {
+    padding: var(--space-5);
   }
 
-  .profiles > li:nth-child(even) .photo {
-    order: 0;
-  }
-
-  .photo {
-    position: static;
-    max-width: 360px;
+  .head {
+    grid-template-columns: 104px minmax(0, 1fr);
+    gap: var(--space-4);
   }
 
   .role {

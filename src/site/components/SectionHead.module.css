@@ -6,6 +6,7 @@
 .head[data-align='center'] {
   align-items: center;
   text-align: center;
+  text-align-last: center;
 }
 
 .title {

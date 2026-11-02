@@ -30,6 +30,7 @@
   border: 1px solid var(--ring-line);
   border-radius: 50%;
   text-align: center;
+  text-align-last: center;
 }
 
 .ring + .ring {

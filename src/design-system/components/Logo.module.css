@@ -46,7 +46,8 @@
   font-stretch: var(--wdth-expanded);
   font-weight: 640;
   line-height: 1;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 .sub {

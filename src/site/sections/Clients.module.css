@@ -6,6 +6,7 @@
   display: grid;
   justify-items: center;
   text-align: center;
+  text-align-last: center;
 }
 
 /* Small spaced capitals with a hairline running off to the right, after the reference. */
@@ -109,6 +110,7 @@
   padding: var(--space-4) var(--space-4);
   border-right: 1px solid var(--line);
   text-align: center;
+  text-align-last: center;
 }
 
 /* A brick rule that draws across the foot of a name on hover. */
@@ -257,6 +259,7 @@
   font-weight: 500;
   line-height: 1.2;
   text-align: center;
+  text-align-last: center;
 }
 
 /* Every testimonial at once, as cards — no paging. */
