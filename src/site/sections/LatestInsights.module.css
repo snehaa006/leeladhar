@@ -25,6 +25,7 @@
   font-stretch: var(--wdth-wide);
   font-weight: 560;
   text-align: center;
+  text-align-last: center;
   text-decoration: none;
   transition: background var(--dur-fast) var(--ease-out);
 }

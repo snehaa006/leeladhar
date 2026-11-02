@@ -6,7 +6,6 @@ import { LatestInsights } from '../sections/LatestInsights'
 import { PracticeSection } from '../sections/PracticeSection'
 import { StatementBand } from '../sections/StatementBand'
 import { Team } from '../sections/Team'
-import { WhyUs } from '../sections/WhyUs'
 import { usePageTitle } from '../usePageTitle'
 
 // Only sections that appear on the legacylawoffices.com or duaassociates.com homepages.
@@ -18,7 +17,6 @@ export function HomePage() {
       <Firm />
       <PracticeSection />
       <StatementBand />
-      <WhyUs />
       <Team />
       <Clients />
       <LatestInsights />

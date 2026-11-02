@@ -81,6 +81,7 @@
 .pagerNext {
   margin-left: auto;
   text-align: right;
+  text-align-last: right;
 }
 
 /* On narrow screens the list would push the content down; Back and the pager cover navigation. */

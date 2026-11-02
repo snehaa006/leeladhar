@@ -8,7 +8,6 @@ import { Hero } from '../sections/Hero'
 import { LatestInsights } from '../sections/LatestInsights'
 import { StatementBand } from '../sections/StatementBand'
 import { Team } from '../sections/Team'
-import { WhyUs } from '../sections/WhyUs'
 
 const meta = {
   title: 'Patterns/Site sections',
@@ -36,7 +35,6 @@ type Story = StoryObj<typeof meta>
 export const HeroSection: Story = { name: 'Hero', render: () => <Hero /> }
 export const PracticeExplorerSection: Story = { name: 'Practice explorer', render: () => <PracticeExplorer /> }
 export const StatementSection: Story = { name: 'Statement band', render: () => <StatementBand /> }
-export const WhyUsSection: Story = { name: 'Why us', render: () => <WhyUs /> }
 export const TeamSection: Story = { name: 'Key individuals', render: () => <Team /> }
 export const ClientsSection: Story = { name: 'Clients', render: () => <Clients /> }
 export const InsightsSection: Story = { name: 'Latest insights', render: () => <LatestInsights /> }

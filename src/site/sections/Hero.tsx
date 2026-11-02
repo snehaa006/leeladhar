@@ -18,7 +18,7 @@ const matters = [
 
 /**
  * A centred statement (the house tagline) held between two orbital lines, the
- * two partners' portraits with their name badges and marginal notes at the edges.
+ * two partners' portraits, each named underneath, and marginal notes at the edges.
  */
 export function Hero() {
   return (
@@ -76,22 +76,14 @@ export function Hero() {
       </div>
 
       <div className={styles.stage}>
-        <Portrait
-          className={styles.portrait}
-          src={lead.photo}
-          alt={`${lead.name}, ${lead.role}`}
-          badge={lead.name}
-          aspect="4/5"
-          data-parallax="0.12"
-        />
-        <Portrait
-          className={styles.photo}
-          src={second.photo}
-          alt={`${second.name}, ${second.role}`}
-          badge={second.name}
-          aspect="1/1"
-          data-parallax="-0.1"
-        />
+        <figure className={`${styles.person} ${styles.portrait}`} data-parallax="0.12">
+          <Portrait src={lead.photo} alt={`${lead.name}, ${lead.role}`} aspect="4/5" />
+          <figcaption className={styles.name}>{lead.name}</figcaption>
+        </figure>
+        <figure className={`${styles.person} ${styles.photo}`} data-parallax="-0.1">
+          <Portrait src={second.photo} alt={`${second.name}, ${second.role}`} aspect="4/5" />
+          <figcaption className={styles.name}>{second.name}</figcaption>
+        </figure>
       </div>
     </section>
   )

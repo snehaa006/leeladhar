@@ -52,6 +52,7 @@
   justify-items: center;
   gap: var(--space-5);
   text-align: center;
+  text-align-last: center;
 }
 
 .legacyQuote {

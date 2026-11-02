@@ -31,6 +31,7 @@
 .marginRight {
   right: var(--gutter);
   text-align: right;
+  text-align-last: right;
 }
 
 .center {
@@ -40,6 +41,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  text-align-last: center;
 }
 
 .title {
@@ -128,6 +130,22 @@
   pointer-events: auto;
 }
 
+.person {
+  margin: 0;
+}
+
+/* The partner's name sits under the photograph, never over it. */
+.name {
+  margin-top: var(--space-2);
+  color: var(--text);
+  font-size: var(--text-sm);
+  font-stretch: var(--wdth-expanded);
+  font-weight: 640;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
 .portrait {
   left: clamp(24px, 9vw, 150px);
   bottom: 9%;
@@ -139,8 +157,8 @@
 
 .photo {
   right: clamp(24px, 9vw, 150px);
-  top: 7%;
-  width: clamp(150px, 15vw, 220px);
+  bottom: 9%;
+  width: clamp(150px, 13vw, 200px);
   animation:
     rise 900ms var(--ease-out) 1250ms both,
     float 10s var(--ease-in-out) 2.4s infinite reverse;
@@ -181,15 +199,30 @@
   }
 }
 
-/* Between tablet and small desktop the portraits crowd the headline. */
+/* Below small desktop the portraits would crowd the statement, so the two
+   partners sit side by side under the actions instead. */
 @media (max-width: 1180px) {
-  .photo {
-    top: 4%;
-    width: clamp(130px, 13vw, 170px);
+  .marginLeft,
+  .marginRight {
+    display: none;
   }
 
-  .portrait {
-    width: clamp(130px, 12vw, 170px);
+  .stage {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    gap: var(--space-5);
+    margin-top: var(--space-7);
+    padding-inline: var(--gutter);
+  }
+
+  /* Out of the absolute layout the scroll parallax would push the photos apart. */
+  .hero .stage > figure[data-parallax] {
+    position: static;
+    width: min(42vw, 180px);
+    translate: none;
+    animation: rise 900ms var(--ease-out) 900ms both;
   }
 }
 
@@ -201,12 +234,6 @@
     align-items: stretch;
     min-height: 0;
     padding-block: var(--space-8) var(--space-5);
-  }
-
-  .marginLeft,
-  .marginRight,
-  .stage {
-    display: none;
   }
 
   .typed {

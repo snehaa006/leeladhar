@@ -51,6 +51,15 @@ ol {
   margin: 0;
 }
 
+/* Running text is justified site-wide; hyphenation keeps the word spacing even on narrow screens.
+   Centred or right-aligned blocks set text-align-last, so their last line keeps that alignment. */
+p,
+.prose li {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
 ul[role='list'],
 ol[role='list'] {
   list-style: none;
