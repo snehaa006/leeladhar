@@ -134,18 +134,6 @@
   margin: 0;
 }
 
-/* The partner's name sits under the photograph, never over it. */
-.name {
-  margin-top: var(--space-2);
-  color: var(--text);
-  font-size: var(--text-sm);
-  font-stretch: var(--wdth-expanded);
-  font-weight: 640;
-  line-height: 1.25;
-  letter-spacing: 0.02em;
-  text-align: center;
-}
-
 .portrait {
   left: clamp(24px, 9vw, 150px);
   bottom: 9%;
@@ -218,7 +206,7 @@
   }
 
   /* Out of the absolute layout the scroll parallax would push the photos apart. */
-  .hero .stage > figure[data-parallax] {
+  .hero .stage > [data-parallax] {
     position: static;
     width: min(42vw, 180px);
     translate: none;

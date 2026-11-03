@@ -18,7 +18,7 @@ const matters = [
 
 /**
  * A centred statement (the house tagline) held between two orbital lines, the
- * two partners' portraits, each named underneath, and marginal notes at the edges.
+ * two partners' portraits, each with a round name badge at its lower corner, and marginal notes at the edges.
  */
 export function Hero() {
   return (
@@ -76,14 +76,24 @@ export function Hero() {
       </div>
 
       <div className={styles.stage}>
-        <figure className={`${styles.person} ${styles.portrait}`} data-parallax="0.12">
-          <Portrait src={lead.photo} alt={`${lead.name}, ${lead.role}`} aspect="4/5" />
-          <figcaption className={styles.name}>{lead.name}</figcaption>
-        </figure>
-        <figure className={`${styles.person} ${styles.photo}`} data-parallax="-0.1">
-          <Portrait src={second.photo} alt={`${second.name}, ${second.role}`} aspect="4/5" />
-          <figcaption className={styles.name}>{second.name}</figcaption>
-        </figure>
+        <div className={`${styles.person} ${styles.portrait}`} data-parallax="0.12">
+          <Portrait
+            src={lead.photo}
+            alt={`${lead.name}, ${lead.role}`}
+            aspect="4/5"
+            badge={lead.name}
+            badgeAt="bottom-right"
+          />
+        </div>
+        <div className={`${styles.person} ${styles.photo}`} data-parallax="-0.1">
+          <Portrait
+            src={second.photo}
+            alt={`${second.name}, ${second.role}`}
+            aspect="4/5"
+            badge={second.name}
+            badgeAt="bottom-right"
+          />
+        </div>
       </div>
     </section>
   )

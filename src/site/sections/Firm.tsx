@@ -3,7 +3,7 @@ import { Button } from '../../design-system'
 import { CountUp } from '../motion/CountUp'
 import { ScrollText } from '../motion/ScrollText'
 import { TypeOnView } from '../motion/TypeOnView'
-import { HighCourtFrame } from '../components/HighCourtFrame'
+import { HighCourtLinks } from '../components/HighCourtFrame'
 import { about, forums, practisingSince } from '../data'
 import styles from './Firm.module.css'
 
@@ -51,7 +51,7 @@ export function Firm() {
           </div>
         </div>
         <div className="container" data-reveal="zoom">
-          <HighCourtFrame className={styles.court} />
+          <HighCourtLinks className={styles.court} />
         </div>
       </section>
 

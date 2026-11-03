@@ -6,6 +6,8 @@ type PortraitProps = Omit<HTMLAttributes<HTMLElement>, 'className' | 'style'> & 
   alt: string
   /** Name shown in the round badge, after the conference-screen portrait. */
   badge?: string
+  /** Which corner the badge overlaps. Defaults to the top right. */
+  badgeAt?: 'top-right' | 'bottom-right' | 'bottom-left'
   /** `cream` is the default photographic treatment; `brick` is for hero moments. */
   duotone?: 'cream' | 'brick' | 'none'
   /** Reveal natural colour on hover or when an ancestor link is focused. */
@@ -23,6 +25,7 @@ export function Portrait({
   src,
   alt,
   badge,
+  badgeAt = 'top-right',
   duotone = 'cream',
   revealOnHover = false,
   aspect = '4/5',
@@ -40,7 +43,7 @@ export function Portrait({
     >
       <img src={src} alt={alt} loading="lazy" decoding="async" />
       {badge && (
-        <figcaption className={styles.badge}>
+        <figcaption className={styles.badge} data-at={badgeAt}>
           <span>{badge}</span>
         </figcaption>
       )}

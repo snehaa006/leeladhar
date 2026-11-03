@@ -67,11 +67,22 @@ export const about = {
   motto: 'Every matter begins with understanding.',
 }
 
-export const phhc = {
+export type HighCourt = { name: string; url: string; host: string }
+
+export const phhc: HighCourt = {
   name: 'Punjab & Haryana High Court',
   url: 'https://new.phhc.gov.in',
   host: 'new.phhc.gov.in',
 }
+
+export const dhc: HighCourt = {
+  name: 'Delhi High Court',
+  url: 'https://www.delhihighcourt.nic.in/web/',
+  host: 'delhihighcourt.nic.in',
+}
+
+/** The High Court websites linked from the site, shown side by side. */
+export const highCourts = [phhc, dhc]
 
 // ── People ────────────────────────────────────────────────────
 
