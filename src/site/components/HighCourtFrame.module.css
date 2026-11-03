@@ -1,5 +1,15 @@
+/* Two courts side by side at every width; each frame lays itself out by its own width. */
+.pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5);
+  align-items: stretch;
+}
+
 .frame {
-  display: block;
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   background: var(--surface);
@@ -81,6 +91,7 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
+  flex: 1;
   padding: var(--space-7);
   background: var(--teal-900);
   color: var(--text-on-dark);
@@ -205,20 +216,22 @@
   height: 18px;
 }
 
-@media (max-width: 860px) {
+/* A half-width frame: crest and title on top, shortcuts and button below. */
+@container (max-width: 640px) {
   .screen {
     grid-template-columns: auto minmax(0, 1fr);
+    grid-template-rows: auto 1fr auto;
     grid-template-areas:
       'crest copy'
       'shortcuts shortcuts'
       'open open';
+    align-items: start;
     padding: var(--space-5);
   }
 
   .crest {
     width: 52px;
     height: 52px;
-    align-self: start;
   }
 
   .crest svg {
@@ -235,8 +248,60 @@
   }
 }
 
-@media (max-width: 420px) {
+/* Phone width: a compact card, just the court's name and the button. */
+@container (max-width: 300px) {
+  .chrome {
+    gap: var(--space-2);
+    padding: var(--space-2);
+  }
+
   .dots {
     display: none;
+  }
+
+  .address {
+    padding: 4px var(--space-2);
+    font-size: 0.6875rem;
+  }
+
+  .screen {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'crest'
+      'copy'
+      'open';
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-3);
+  }
+
+  .crest {
+    width: 40px;
+    height: 40px;
+  }
+
+  .crest svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .title {
+    font-size: var(--text-base);
+  }
+
+  .lead,
+  .shortcuts {
+    display: none;
+  }
+
+  .open {
+    min-height: 40px;
+    padding: 0 var(--space-3);
+    font-size: var(--text-micro);
+  }
+}
+
+@media (max-width: 480px) {
+  .pair {
+    gap: var(--space-3);
   }
 }

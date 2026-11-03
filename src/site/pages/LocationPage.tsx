@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { CtaBanner } from '../components/CtaBanner'
-import { HighCourtFrame } from '../components/HighCourtFrame'
+import { HighCourtLinks } from '../components/HighCourtFrame'
 import { OfficeCard } from '../components/OfficeCard'
 import { PageBanner } from '../components/PageBanner'
 import { photos } from '../content/photos'
@@ -95,9 +95,9 @@ export function LocationPage() {
       </section>
 
       {office.slug === 'chandigarh' && (
-        <section className={page.sectionTight} aria-label="Punjab & Haryana High Court website">
+        <section className={page.sectionTight} aria-label="High Court websites">
           <div className="container">
-            <HighCourtFrame />
+            <HighCourtLinks />
           </div>
         </section>
       )}

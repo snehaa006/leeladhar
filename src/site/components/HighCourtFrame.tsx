@@ -1,6 +1,6 @@
 import { ArrowUpRight, FileSearch, Landmark, ListOrdered, Lock, ScrollText } from 'lucide-react'
 import { photos } from '../content/photos'
-import { phhc } from '../data'
+import { highCourts, type HighCourt } from '../data'
 import styles from './HighCourtFrame.module.css'
 
 const shortcuts = [
@@ -10,13 +10,13 @@ const shortcuts = [
 ]
 
 /**
- * A browser-window frame around the High Court's website. The court's site
+ * A browser-window frame around a High Court's website. The court's site
  * cannot be embedded, so the whole frame is one link that opens it in a new tab.
  */
-export function HighCourtFrame({ className }: { className?: string }) {
+export function HighCourtFrame({ court, className }: { court: HighCourt; className?: string }) {
   return (
     <a
-      href={phhc.url}
+      href={court.url}
       target="_blank"
       rel="noopener noreferrer"
       className={[styles.frame, className].filter(Boolean).join(' ')}
@@ -29,7 +29,7 @@ export function HighCourtFrame({ className }: { className?: string }) {
         </span>
         <span className={styles.address}>
           <Lock />
-          {phhc.host}
+          {court.host}
         </span>
       </span>
 
@@ -48,7 +48,7 @@ export function HighCourtFrame({ className }: { className?: string }) {
         </span>
         <span className={styles.copy}>
           <span className={styles.kicker}>Official website</span>
-          <span className={styles.title}>{phhc.name}</span>
+          <span className={styles.title}>{court.name}</span>
           <span className={styles.lead}>Check your case status, the day’s cause list and orders, straight from the court.</span>
         </span>
         <span className={styles.shortcuts} aria-hidden="true">
@@ -60,11 +60,22 @@ export function HighCourtFrame({ className }: { className?: string }) {
           ))}
         </span>
         <span className={styles.open}>
-          Open {phhc.host}
+          Open website
           <ArrowUpRight aria-hidden="true" />
           <span className="visually-hidden">(opens in a new tab)</span>
         </span>
       </span>
     </a>
+  )
+}
+
+/** Every High Court website the chambers links to, side by side. */
+export function HighCourtLinks({ className }: { className?: string }) {
+  return (
+    <div className={[styles.pair, className].filter(Boolean).join(' ')}>
+      {highCourts.map((c) => (
+        <HighCourtFrame key={c.url} court={c} />
+      ))}
+    </div>
   )
 }
