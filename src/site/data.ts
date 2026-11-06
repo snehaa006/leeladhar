@@ -38,6 +38,8 @@ export const nav: NavItem[] = [
 
 export const forums = [
   'Punjab & Haryana High Court',
+  'High Court of Delhi',
+  'High Court of Himachal Pradesh',
   'Commercial Courts',
   'MSME Facilitation Councils',
   'District & Sessions Courts',
