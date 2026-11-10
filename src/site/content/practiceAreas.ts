@@ -305,6 +305,28 @@ export const practiceAreas: PracticeArea[] = [
     ],
   },
   {
+    slug: 'real-estate-lease-documentation',
+    title: 'Real Estate Lease Documentation',
+    icon: 'contract',
+    photo: photos.sealedDeed,
+    summary:
+      'Lease, rent and leave and licence agreements for residential and commercial property, drafted and reviewed so that the rent, the term and the exit are clear before anyone signs.',
+    body: [
+      'A lease sets out who pays what, for how long and on what terms each side can leave. We draft and review lease documentation for owners and tenants, so that a dispute later turns on clear words rather than guesswork.',
+    ],
+    offerings: [
+      { title: 'Lease Deed Drafting & Review' },
+      { title: 'Rent & Leave and Licence Agreements' },
+      { title: 'Commercial Lease Agreements' },
+      { title: 'Stamp Duty & Registration' },
+      { title: 'Renewal, Termination & Surrender Documents' },
+    ],
+    approach:
+      'We read every clause against what you have actually agreed, and flag anything on rent, deposit, lock-in or termination that could cause trouble later.',
+    forums: ['Advisory & drafting', 'Sub-registrar offices', 'Civil courts'],
+    faqs: [],
+  },
+  {
     slug: 'wills-succession',
     title: 'Wills, Succession & Probate',
     icon: 'scroll',
