@@ -132,13 +132,13 @@ export const team: Member[] = [
   {
     slug: 'lakshay-bajaj',
     name: 'Lakshay Bajaj',
-    role: 'Partner',
+    role: 'Managing Partner',
     since: 2014,
     photo: '/team/lakshay-bajaj.jpg',
     overview: [
       'He has been practising law since 2014. With the years of experience, he has built a strong practice in civil, criminal and execution matters, appearing before trial courts and the High Court.',
       'His approach is to understand each case thoroughly, give clear and practical advice, and represent his clients diligently. He explains legal procedure in plain language so that clients stay informed at every stage.',
-      'As a Partner at Leeladhar Law Chambers, he is committed to providing clients with dependable legal support.',
+      'As a Managing Partner at Leeladhar Law Chambers, he is committed to providing clients with dependable legal support.',
     ],
     practices: [
       { label: 'Commercial Disputes', slug: 'commercial-suits-arbitration' },
