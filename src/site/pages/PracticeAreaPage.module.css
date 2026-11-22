@@ -97,3 +97,14 @@
     margin-inline: var(--space-2);
   }
 }
+
+.source {
+  margin-top: var(--space-4);
+  color: var(--text-muted);
+  font-size: var(--text-micro);
+}
+
+.source a {
+  color: var(--accent-text);
+  font-weight: 600;
+}

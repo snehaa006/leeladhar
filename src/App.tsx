@@ -1,7 +1,6 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { Layout } from './site/Layout'
 import { AboutPage } from './site/pages/AboutPage'
-import { ArticlePage } from './site/pages/ArticlePage'
 import { CareersPage } from './site/pages/CareersPage'
 import { ContactPage } from './site/pages/ContactPage'
 import { CreditsPage } from './site/pages/CreditsPage'
@@ -25,7 +24,8 @@ export function App() {
           <Route path="people" element={<PeoplePage />} />
           <Route path="people/:slug" element={<PersonRedirect />} />
           <Route path="insights" element={<InsightsPage />} />
-          <Route path="insights/:slug" element={<ArticlePage />} />
+          {/* Our own articles have given way to LiveLaw's headlines; old article links land on the list. */}
+          <Route path="insights/:slug" element={<Navigate to="/insights" replace />} />
           <Route path="careers" element={<CareersPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="locations/:slug" element={<LocationPage />} />

@@ -1,14 +1,15 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight } from 'lucide-react'
-import { InsightCard } from '../components/InsightCard'
+import { ArrowRight, ArrowUpRight } from 'lucide-react'
+import { InsightCard, InsightCardSkeleton } from '../components/InsightCard'
 import { SectionHead } from '../components/SectionHead'
-import { insights } from '../content/insights'
+import { LIVELAW_URL } from '../content/insights'
 import { TypeOnView } from '../motion/TypeOnView'
+import { useLiveLaw } from '../useLiveLaw'
 import styles from './LatestInsights.module.css'
 
-/** Latest three articles and a "view all" tile, after the Articles grid on duaassociates.com. */
+/** The three latest LiveLaw headlines and a "view all" tile, after the Articles grid on duaassociates.com. */
 export function LatestInsights() {
-  const latest = [...insights].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3)
+  const feed = useLiveLaw()
   return (
     <section className={styles.section} aria-labelledby="insights-title">
       <div className="container">
@@ -18,25 +19,47 @@ export function LatestInsights() {
             <>
               Latest{' '}
               <em>
-                <TypeOnView text="insights" />
+                <TypeOnView text="legal updates" />
               </em>
             </>
           }
-          lead="Plain-language notes on **the law our clients ask about** most."
+          lead="Judgments and legal news from **the Supreme Court and the High Courts**, as reported by LiveLaw."
         />
-        <ul role="list" className={styles.grid} data-reveal="stagger">
-          {latest.map((i, n) => (
-            <li key={i.slug}>
-              <InsightCard insight={i} index={n} />
+        <ul role="list" className={styles.grid} data-reveal="stagger" aria-busy={feed.status === 'loading'}>
+          {feed.status === 'loading' &&
+            [0, 1, 2].map((n) => (
+              <li key={n}>
+                <InsightCardSkeleton />
+              </li>
+            ))}
+          {feed.status === 'ready' &&
+            feed.items.slice(0, 3).map((i, n) => (
+              <li key={i.url}>
+                <InsightCard insight={i} index={n} />
+              </li>
+            ))}
+          {feed.status === 'error' && (
+            <li className={styles.unavailable}>
+              <p>The latest headlines could not be loaded just now.</p>
+              <a href={LIVELAW_URL} target="_blank" rel="noopener noreferrer">
+                Read today’s legal news on LiveLaw <ArrowUpRight aria-hidden="true" />
+              </a>
             </li>
-          ))}
+          )}
           <li>
             <Link to="/insights" className={styles.all}>
-              <span>View all insights</span>
+              <span>View all updates</span>
               <ArrowRight aria-hidden="true" />
             </Link>
           </li>
         </ul>
+        <p className={styles.source}>
+          Headlines and links from{' '}
+          <a href={LIVELAW_URL} target="_blank" rel="noopener noreferrer">
+            LiveLaw.in
+          </a>
+          , refreshed through the day. Each opens the full report on LiveLaw; we are not affiliated with it.
+        </p>
       </div>
     </section>
   )
