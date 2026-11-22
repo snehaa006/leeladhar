@@ -5,8 +5,12 @@
   "compatibility_date": "2026-11-01",
   // The built site (dist/) lives in this bucket; `npm run deploy` uploads it, then deploys the Worker.
   "r2_buckets": [{ "binding": "SITE", "bucket_name": "leeladhar-law-chambers-site" }],
+  // Cloudflare creates the DNS records and certificates for these itself.
+  "routes": [
+    { "pattern": "leeladharlawchambers.com", "custom_domain": true },
+    { "pattern": "www.leeladharlawchambers.com", "custom_domain": true }
+  ],
   "workers_dev": true,
+  "preview_urls": false,
   "observability": { "enabled": true }
-  // Custom domains: add once the domain's zone is on this Cloudflare account, e.g.
-  // "routes": [{ "pattern": "example.com", "custom_domain": true }, { "pattern": "www.example.com", "custom_domain": true }]
 }

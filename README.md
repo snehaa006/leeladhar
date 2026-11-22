@@ -57,7 +57,9 @@ To add a practice area or event, add an entry in `src/site/content/`; its page, 
 
 ## Hosting on Cloudflare
 
-Live at https://leeladhar-law-chambers.snehagupta.workers.dev (Worker `leeladhar-law-chambers`).
+Live at https://leeladharlawchambers.com and https://www.leeladharlawchambers.com, also at
+https://leeladhar-law-chambers.snehagupta.workers.dev (Worker `leeladhar-law-chambers`). The domain is registered at
+GoDaddy with its DNS on Cloudflare; the custom domains in `wrangler.jsonc` own its apex and `www` records.
 
 - The built site lives in the R2 bucket `leeladhar-law-chambers-site`; the Worker serves it, sends paths without a file
   extension to `index.html` so deep links work, and caches Vite's fingerprinted `/assets/*` for a year.
