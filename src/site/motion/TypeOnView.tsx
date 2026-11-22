@@ -3,9 +3,12 @@ import { motionAllowed } from './scroll'
 import styles from './Type.module.css'
 
 /**
- * Types its text out, letter by letter behind a blinking caret, each time it
- * scrolls into view. Every letter is laid out from the start (only hidden), so
- * the line never reflows while it types. Screen readers get the text as is.
+ * Types its text out, letter by letter behind a blinking caret, the first time
+ * it scrolls into view, then stays complete, so the words are never seen cut
+ * off. Progress is worked out from the clock, not counted per tick, so a
+ * throttled or backgrounded tab still finishes the word. Every letter is laid
+ * out from the start (only hidden), so the line never reflows while it types.
+ * Screen readers get the text as is.
  */
 export function TypeOnView({ text, speed = 55, delay = 250 }: { text: string; speed?: number; delay?: number }) {
   const ref = useRef<HTMLSpanElement>(null)
@@ -15,31 +18,29 @@ export function TypeOnView({ text, speed = 55, delay = 250 }: { text: string; sp
 
   useEffect(() => {
     const el = ref.current
-    if (!el || !motionAllowed() || !('IntersectionObserver' in window)) return
+    if (!el || !motionAllowed() || !('IntersectionObserver' in window)) {
+      setCount(text.length)
+      return
+    }
     let timer = 0
-    let start = 0
 
     const io = new IntersectionObserver(
       ([entry]) => {
-        window.clearInterval(timer)
-        window.clearTimeout(start)
-        if (!entry.isIntersecting) {
-          setCount(0)
-          setTyping(false)
-          return
-        }
+        if (!entry.isIntersecting) return
+        io.disconnect()
         setTyping(true)
-        start = window.setTimeout(() => {
-          timer = window.setInterval(() => {
-            setCount((c) => {
-              if (c >= text.length) {
-                window.clearInterval(timer)
-                return c
-              }
-              return c + 1
-            })
-          }, speed)
-        }, delay)
+        const t0 = performance.now() + delay
+        timer = window.setInterval(() => {
+          const n = Math.max(0, Math.floor((performance.now() - t0) / speed) + 1)
+          if (n >= text.length) {
+            window.clearInterval(timer)
+            setCount(text.length)
+            // Let the caret blink a moment at the end, then rest.
+            window.setTimeout(() => setTyping(false), 1600)
+            return
+          }
+          setCount(n)
+        }, Math.min(speed, 40))
       },
       { rootMargin: '-8% 0px -8% 0px' },
     )
@@ -47,7 +48,6 @@ export function TypeOnView({ text, speed = 55, delay = 250 }: { text: string; sp
     return () => {
       io.disconnect()
       window.clearInterval(timer)
-      window.clearTimeout(start)
     }
   }, [text, speed, delay])
 
