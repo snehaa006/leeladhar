@@ -14,6 +14,7 @@ npm run build-storybook  # static Storybook in storybook-static/
 ## Structure
 
 ```
+api/livelaw.ts                  Vercel function: the latest LiveLaw headlines as JSON, for Insights
 tokens/                         Token source (W3C design-token JSON) — edit here
 scripts/build-tokens.mjs        Builds the token library
 public/brand/                   Monogram mask cut from the supplied logo, original artwork
@@ -24,9 +25,10 @@ src/site/Layout.tsx             Nav, footer, disclaimer; scroll-to-top and in-ap
 src/site/pages/                 One component per route
 src/site/sections/              Home-page sections (also used on inner pages)
 src/site/components/            Shared pieces: page banner, practice explorer, CTA, cards
-src/site/content/               Practice areas, insights and events (each item gets a page)
+src/site/content/               Practice areas and events (each item gets a page); Insights categories
+src/site/useLiveLaw.ts          Loads /api/livelaw once and shares it between pages
 src/site/data.ts                Navigation, people, chambers, contact details, clients
-vercel.json                     Sends every path to index.html so deep links work
+vercel.json                     Sends every path but /api/* to index.html so deep links work
 ```
 
 ## Pages
@@ -39,14 +41,29 @@ The tabs of legacylawoffices.com and duaassociates.com, merged:
 | `/about` (`#why-us`, `#values`) | About us |
 | `/practice-areas`, `/practice-areas/:slug` | Practice areas (Dua-style explorer) and one page per area |
 | `/people` | Both partners' full profiles on one page (`/people/:slug` redirects to `/people#slug`) |
-| `/insights?category=…`, `/insights/:slug` | Insights with categories and search, and one page per article |
+| `/insights?category=…` | The latest LiveLaw headlines, with categories and search (old `/insights/:slug` links land here) |
 | `/events?category=…` | Events, CSR, pro bono and media |
 | `/careers` | Careers and application form |
 | `/contact` | Contact form, contact info and both chambers |
 | `/locations/:slug` | Panipat and Chandigarh chambers |
 | `/credits` | Photo credits |
 
-To add a practice area, article or event, add an entry in `src/site/content/`; its page, menu entry and footer link follow.
+To add a practice area or event, add an entry in `src/site/content/`; its page, menu entry and footer link follow.
+
+## Insights: LiveLaw headlines
+
+Insights shows the latest judgments and legal news from [LiveLaw](https://www.livelaw.in), not articles of our own.
+
+- `api/livelaw.ts` reads LiveLaw's public RSS feed (`https://www.livelaw.in/google_feeds.xml`, its latest ~60 stories),
+  drops job notices, videos, podcasts, bare judgment listings and promotional posts, sorts the rest into Supreme Court,
+  High Courts, Articles and News, and returns JSON. Vercel's CDN caches it for 15 minutes and keeps serving the last
+  copy while it refreshes. LiveLaw sends no CORS headers, which is why the browser can't read the feed directly.
+- `npm run dev` and `npm run preview` serve the same handler at `/api/livelaw` (see `vite.config.ts`).
+- Only headlines, bylines, dates and links are shown; every card opens the report on livelaw.in in a new tab. The
+  card artwork is the site's own photographs, chosen by court or matching practice area (`practiceFor` in
+  `src/site/content/insights.ts`), not LiveLaw's images.
+- Practice-area pages show matching headlines under "In the news" when the feed has any.
+- If the feed can't be reached, the pages say so and link to LiveLaw instead.
 
 ## Palette
 

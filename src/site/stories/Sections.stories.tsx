@@ -37,7 +37,8 @@ export const PracticeExplorerSection: Story = { name: 'Practice explorer', rende
 export const StatementSection: Story = { name: 'Statement band', render: () => <StatementBand /> }
 export const TeamSection: Story = { name: 'Key individuals', render: () => <Team /> }
 export const ClientsSection: Story = { name: 'Clients', render: () => <Clients /> }
-export const InsightsSection: Story = { name: 'Latest insights', render: () => <LatestInsights /> }
+// Reads /api/livelaw, which the Storybook dev server serves through vite.config.ts.
+export const InsightsSection: Story = { name: 'Latest legal updates', render: () => <LatestInsights /> }
 export const PageBannerSection: Story = {
   name: 'Page banner',
   render: () => (

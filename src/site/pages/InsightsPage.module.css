@@ -46,3 +46,53 @@
 .list {
   margin-top: var(--space-5);
 }
+
+.notice a {
+  color: var(--accent-text);
+  font-weight: 600;
+}
+
+.source {
+  margin-top: var(--space-5);
+  color: var(--text-muted);
+  font-size: var(--text-micro);
+  line-height: 1.5;
+}
+
+.source a {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  color: var(--accent-text);
+  font-weight: 600;
+}
+
+.source svg {
+  width: 12px;
+  height: 12px;
+}
+
+.more {
+  display: block;
+  min-height: 44px;
+  margin: var(--space-6) auto 0;
+  padding: 0 var(--space-6);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+
+.more:hover {
+  background: var(--bg-sunken);
+}
+
+.more:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}

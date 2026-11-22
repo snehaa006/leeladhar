@@ -5,10 +5,11 @@ import { CtaBanner } from '../components/CtaBanner'
 import { Breadcrumbs } from '../components/PageBanner'
 import { PracticeArt } from '../components/PracticeArt'
 import { practiceAreas, practiceBySlug } from '../content/practiceAreas'
-import { insights } from '../content/insights'
+import { LIVELAW_URL, practiceFor } from '../content/insights'
 import { InsightCard } from '../components/InsightCard'
 import { ScrollText } from '../motion/ScrollText'
 import { usePageTitle } from '../usePageTitle'
+import { useLiveLaw } from '../useLiveLaw'
 import { NotFoundPage } from './NotFoundPage'
 import page from './Page.module.css'
 import styles from './PracticeAreaPage.module.css'
@@ -21,12 +22,14 @@ export function PracticeAreaPage() {
   const { slug } = useParams()
   const area = practiceBySlug(slug)
   usePageTitle(area?.title ?? 'Page not found')
+  const feed = useLiveLaw()
   if (!area) return <NotFoundPage />
 
   const index = practiceAreas.indexOf(area)
   const prev = practiceAreas[index - 1]
   const next = practiceAreas[index + 1]
-  const related = insights.filter((i) => i.practice === area.slug)
+  // Today's LiveLaw headlines on this area, if there are any.
+  const related = feed.status === 'ready' ? feed.items.filter((i) => practiceFor(i) === area.slug).slice(0, 4) : []
 
   return (
     <>
@@ -120,15 +123,19 @@ export function PracticeAreaPage() {
             {related.length > 0 && (
               <section className={page.block} aria-labelledby="related">
                 <h2 data-reveal id="related" className={page.h2}>
-                  Further reading
+                  In the news
                 </h2>
                 <ul data-reveal="stagger" role="list" className={page.grid2}>
                   {related.map((r, i) => (
-                    <li key={r.slug}>
-                      <InsightCard insight={r} index={index + i} />
+                    <li key={r.url}>
+                      <InsightCard insight={r} index={index + i} art="section" />
                     </li>
                   ))}
                 </ul>
+                <p className={styles.source}>
+                  Latest reports from <a href={LIVELAW_URL} target="_blank" rel="noopener noreferrer">LiveLaw.in</a>.{' '}
+                  <Link to="/insights">More legal updates</Link>
+                </p>
               </section>
             )}
 
