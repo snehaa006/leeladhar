@@ -10,7 +10,7 @@ npm run tokens           # rebuild the token library after editing /tokens
 npm run build            # type-check + production build of the site
 npm run build-storybook  # static Storybook in storybook-static/
 npm run cf:dev           # build, then serve the site and API in the Cloudflare Workers runtime (wrangler dev)
-npm run deploy           # build, then deploy to Cloudflare Workers (wrangler deploy)
+npm run deploy           # build, upload dist/ to R2, deploy the Worker (needs CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID)
 ```
 
 ## Structure
@@ -31,8 +31,9 @@ src/site/content/               Practice areas and events (each item gets a page
 src/site/useLiveLaw.ts          Loads /api/livelaw once and shares it between pages
 src/site/data.ts                Navigation, people, chambers, contact details, clients
 vercel.json                     Sends every path but /api/* to index.html so deep links work
-worker/index.ts                 Cloudflare Worker: answers /api/livelaw (edge-cached 15 min), serves dist/ for the rest
-wrangler.jsonc                  Cloudflare config: static assets with SPA fallback, /api/* to the Worker, custom domains
+worker/index.ts                 Cloudflare Worker: answers /api/livelaw (edge-cached 15 min), serves the site from R2
+wrangler.jsonc                  Cloudflare config: the Worker, its R2 bucket, custom domains
+scripts/deploy-cloudflare.mjs   Uploads dist/ to the R2 bucket, then deploys the Worker
 ```
 
 ## Pages
@@ -53,6 +54,15 @@ The tabs of legacylawoffices.com and duaassociates.com, merged:
 | `/credits` | Photo credits |
 
 To add a practice area or event, add an entry in `src/site/content/`; its page, menu entry and footer link follow.
+
+## Hosting on Cloudflare
+
+Live at https://leeladhar-law-chambers.snehagupta.workers.dev (Worker `leeladhar-law-chambers`).
+
+- The built site lives in the R2 bucket `leeladhar-law-chambers-site`; the Worker serves it, sends paths without a file
+  extension to `index.html` so deep links work, and caches Vite's fingerprinted `/assets/*` for a year.
+- `/api/livelaw` runs the same code as the Vercel function (`getLiveLawFeed` in `api/livelaw.ts`), cached at the edge.
+- Files removed from `dist/` stay in the bucket until deleted there; old fingerprinted assets are harmless.
 
 ## Insights: LiveLaw headlines
 

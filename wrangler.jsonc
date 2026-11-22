@@ -3,12 +3,9 @@
   "name": "leeladhar-law-chambers",
   "main": "worker/index.ts",
   "compatibility_date": "2026-11-01",
-  "assets": {
-    "directory": "./dist",
-    "binding": "ASSETS",
-    "not_found_handling": "single-page-application",
-    "run_worker_first": ["/api/*"]
-  },
+  // The built site (dist/) lives in this bucket; `npm run deploy` uploads it, then deploys the Worker.
+  "r2_buckets": [{ "binding": "SITE", "bucket_name": "leeladhar-law-chambers-site" }],
+  "workers_dev": true,
   "observability": { "enabled": true }
   // Custom domains: add once the domain's zone is on this Cloudflare account, e.g.
   // "routes": [{ "pattern": "example.com", "custom_domain": true }, { "pattern": "www.example.com", "custom_domain": true }]
