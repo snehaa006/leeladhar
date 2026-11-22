@@ -9,6 +9,8 @@ npm run storybook        # Storybook on http://localhost:6006
 npm run tokens           # rebuild the token library after editing /tokens
 npm run build            # type-check + production build of the site
 npm run build-storybook  # static Storybook in storybook-static/
+npm run cf:dev           # build, then serve the site and API in the Cloudflare Workers runtime (wrangler dev)
+npm run deploy           # build, then deploy to Cloudflare Workers (wrangler deploy)
 ```
 
 ## Structure
@@ -29,6 +31,8 @@ src/site/content/               Practice areas and events (each item gets a page
 src/site/useLiveLaw.ts          Loads /api/livelaw once and shares it between pages
 src/site/data.ts                Navigation, people, chambers, contact details, clients
 vercel.json                     Sends every path but /api/* to index.html so deep links work
+worker/index.ts                 Cloudflare Worker: answers /api/livelaw (edge-cached 15 min), serves dist/ for the rest
+wrangler.jsonc                  Cloudflare config: static assets with SPA fallback, /api/* to the Worker, custom domains
 ```
 
 ## Pages

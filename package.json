@@ -10,6 +10,8 @@
     "prebuild": "npm run tokens",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
+    "cf:dev": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy",
     "typecheck": "tsc -b",
     "prestorybook": "npm run tokens",
     "storybook": "storybook dev -p 6006",
@@ -23,6 +25,7 @@
     "react-router-dom": "^6.28.0"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261121.1",
     "@storybook/addon-a11y": "^8.4.7",
     "@storybook/addon-essentials": "^8.4.7",
     "@storybook/blocks": "^8.4.7",
@@ -35,6 +38,7 @@
     "@vitejs/plugin-react": "^4.3.4",
     "storybook": "^8.4.7",
     "typescript": "^5.6.3",
-    "vite": "^5.4.11"
+    "vite": "^5.4.11",
+    "wrangler": "^4.166.0"
   }
 }
